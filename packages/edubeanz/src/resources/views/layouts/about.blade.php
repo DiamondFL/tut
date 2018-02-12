@@ -8,13 +8,13 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<link rel="icon" href="assets/images/favicon.ico">
+	<link rel="icon" href="{{asset('')}}assets/images/favicon.ico">
 
-	<title>Neon | Portfolio Item</title>
+	<title>Neon | About</title>
 
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
-	<link rel="stylesheet" href="assets/css/neon.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/neon.css">
 
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 
@@ -57,18 +57,18 @@
 								<span>Home</span>
 							</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="about.html">
 								<span>Pages</span>
 							</a>
 							
 							<ul>
-								<li>
+								<li class="active">
 									<a href="about.html">
 										<span>About Us</span>
 									</a>
 								</li>
-								<li class="active">
+								<li>
 									<a href="#">
 										<span>Active Menu Item</span>
 									</a>
@@ -121,7 +121,7 @@
 								</li>
 							</ul>
 						</li>
-						<li class="active">
+						<li>
 							<a href="portfolio.html">
 								<span>Portfolio</span>
 							</a>
@@ -165,121 +165,65 @@
 	
 </div>	
 	<!-- Breadcrumb -->
-<section class="portfolio-item-details">
+<section class="breadcrumb">
 	
 	<div class="container">
 		
-		<!-- Title and Item Details -->
-		<div class="row item-title">
-			
-			<div class="col-sm-9">
-				<h1>
-					<a href="#">Athletica - Fitness Center</a>
-				</h1>
-				
-				<div class="categories">
-					<a href="#">Branding</a>
-				</div>
-			</div>
-			
-			<div class="col-sm-3">
-				
-				<div class="text-right">
-					<div class="item-detail">
-						<span>Date:</span>
-						20 January 2014
-					</div>
-					
-					<div class="item-detail">
-						<a href="#" class="liked">
-							Liked
-							<i class="entypo-heart"></i>
-						</a>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>
-		
-		<!-- Portfolio Images Gallery -->
 		<div class="row">
-			<div class="col-md-12">
+			
+			<div class="col-sm-12">
 				
-				<div class="item-images">
+				<h1>About Us</h1>
 				
-					<a href="#">
-						<img src="assets/images/portfolio-img-large-1.png" class="img-rounded" />
-					</a>
-					
-					<a href="#">
-						<img src="assets/images/portfolio-img-large-1.png" class="img-rounded" />
-					</a>
-					
-					<a href="#">
-						<img src="assets/images/portfolio-img-large-1.png" class="img-rounded" />
-					</a>
-					
-					<a href="#">
-						<img src="assets/images/portfolio-img-large-1.png" class="img-rounded" />
-					</a>
-					
-					<a href="#">
-						<img src="assets/images/portfolio-img-large-1.png" class="img-rounded" />
-					</a>
-					
-					<div class="next-prev-nav">
-						<a href="#" class="prev"></a>
-						<a href="#" class="next"></a>
-					</div>
-					
-					<div class="items-nav">
-					</div>
-				</div>
-				
+							<ol class="breadcrumb bc-3" >
+						<li>
+				<a href="index.html"><i class="fa-home"></i>Home</a>
+			</li>
+					<li>
+
+							<a href="index.html">Frontend</a>
+					</li>
+				<li class="active">
+
+							<strong>About</strong>
+					</li>
+					</ol>
+							
 			</div>
+			
 		</div>
 		
-		<script type="text/javascript">
-			jQuery(document).ready(function($)
-			{
-				$(".item-images").cycle({
-					slides: '> a',
-					prev: '.next-prev-nav .prev',
-					next: '.next-prev-nav .next',
-					pager: '.items-nav',
-					pagerActiveClass: 'active',
-					pagerTemplate: '<a href="#">{{slideNum}}</a>',
-					swipe: true
-				});
-			});
-		</script>
-		
-		<!-- Portfolio Description and Other Details -->
-		<div class="row item-description">
-			
-			<div class="col-sm-8">
-				
-				<p class="text-justify">SiO Athletica is the sport and fitness centre run and by the Oslo Student Welfare Organization. In the Oslo and Akershus region it is a major competitor with its 15 000 members. SiO Athletica has 4 gyms located in Nydalen, Blinderen, Domus Athletica and the city centre. It was of paramount importance to revitalize the athletic offers to keep up with the competitors. Changing the name to SiO Athletica was the start in May 2013.</p>
+	</div>
+	
+</section>
 
-				<p class="text-justify">SiO Athletica appears as a brand new fitness centre. The students are happy. A small survey taken after the opening of the refurbished centre in Nydalen, shows that all of the members were inspired to workout more because of the new design.</p>
+
+<!-- About Us Text -->
+<section class="content-section">
+
+	<div class="container">
+		
+		<div class="row">
+			
+			<div class="col-sm-7">
+				
+				<h3>The Company</h3>
+				
+				<br />
+				
+				<p>In entirely be to at settling felicity. Fruit two match men you seven share. Needed as or is enough points. Miles at smart ﻿no marry whole linen mr. Income joy nor can wisdom summer. Extremely depending he gentleman improving intention rapturous as.</p>
+	
+				<p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was outlived peculiar rendered led six.</p>
+				
+				<p>In entirely be to at settling felicity. Fruit two match men you seven share. Needed as or is enough points. Miles at smart ﻿no marry whole linen mr. Income joy nor can wisdom summer. Extremely depending he gentleman improving intention rapturous as.  </p>
 				
 			</div>
 			
-			<div class="col-sm-4">
+			<div class="col-sm-5">
 				
-				<dl>
-					<dt>Client:</dt>
-						<dd>Athletica</dd>
-						
-					<dt>Category:</dt>
-						<dd>Branding</dd>
-						
-					<dt>Website:</dt>
-						<dd>
-							<a href="#" class="secondary">www.athletica.se</a>
-						</dd>
-				</dl>
+				<a href="#">
+					<img src="assets/images/about-img-1.png" class="img-rounded" />
+				</a>
 				
 			</div>
 			
@@ -289,83 +233,178 @@
 	
 </section>
 
-<section class="portfolio-container">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>Skills</h3>
+			<br />
+		</div>
+	</div>
+</div>
+
+<!-- Skills and Info Section -->
+<section class="content-section bg-gray">
 	
 	<div class="container">
 		
 		<div class="row">
-			<div class="col-md-12">
-				<h3>Recent Work</h3>
+			
+			<div class="col-md-6">
+				
+				<h5>Web</h5>
+				
+				<div class="progress progress-rounded">
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width: 78%">
+					</div>
+				</div>
+				
+				
+				<h5>Photography</h5>
+				
+				<div class="progress progress-rounded">
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width: 52%">
+					</div>
+				</div>
+				
+				
+				<h5>Branding</h5>
+				
+				<div class="progress progress-rounded">
+					<div class="progress-bar progress-bar-danger" role="progressbar" style="width: 35%">
+					</div>
+				</div>
+				
 			</div>
+			
+			<div class="col-sm-6">
+				<h5>&nbsp;</h5>
+				
+				<p>In entirely be to at settling felicity. Fruit two match men you seven share. Needed as or is enough points. Miles at smart ﻿no marry whole linen mr. Income joy nor can wisdom summer. Extremely depending he gentleman improving intention rapturous as.</p>
+				
+				<p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an.</p>
+			</div>
+			
 		</div>
 		
+	</div>
+	
+</section>
+
+
+<!-- Members -->
+<section class="content-section">
+	
+	<div class="container">
+	
 		<div class="row">
 			
-			<div class="col-sm-4 col-xs-6">
+			<div class="col-sm-4">
 				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
+				<div class="staff-member">
+					
+					<a class="image" href="#">
+						<img src="assets/images/staff-member.png" class="img-circle" />
 					</a>
 					
 					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Package Design</a>
+						<a href="#">John Doe</a>
+						<small>CEO / Chief Executive Office</small>
 					</h4>
 					
-					<div class="categories">
-						<a href="portfolio-single.html">Branding</a>
-					</div>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+					
+					<ul class="social-networks">
+						<li>
+							<a href="#">
+								<i class="entypo-instagram"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-twitter"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-facebook"></i>
+							</a>
+						</li>
+					</ul>
+					
 				</div>
 				
 			</div>
 			
-			<div class="col-sm-4 col-xs-6">
+			<div class="col-sm-4">
 				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
+				<div class="staff-member">
+					
+					<a class="image" href="#">
+						<img src="assets/images/staff-member.png" class="img-circle" />
 					</a>
 					
 					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Google+</a>
+						<a href="#">Mia Blunt</a>
+						<small>Secretary</small>
 					</h4>
 					
-					<div class="categories">
-						<a href="portfolio-single.html">Printing</a>
-					</div>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+					
+					<ul class="social-networks">
+						<li>
+							<a href="#">
+								<i class="entypo-instagram"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-twitter"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-facebook"></i>
+							</a>
+						</li>
+					</ul>
+					
 				</div>
 				
 			</div>
 			
-			<div class="col-sm-4 col-xs-6">
+			<div class="col-sm-4">
 				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
+				<div class="staff-member">
+					
+					<a class="image" href="#">
+						<img src="assets/images/staff-member.png" class="img-circle" />
 					</a>
 					
 					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Origami</a>
+						<a href="#">Bob Ashton</a>
+						<small>Creative Director</small>
 					</h4>
 					
-					<div class="categories">
-						<a href="portfolio-single.html">Package Design</a>
-					</div>
+					<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem...</p>
+					
+					<ul class="social-networks">
+						<li>
+							<a href="#">
+								<i class="entypo-instagram"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-twitter"></i>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-facebook"></i>
+							</a>
+						</li>
+					</ul>
+					
 				</div>
 				
 			</div>
@@ -471,7 +510,6 @@
 	<script src="assets/js/bootstrap.js"></script>
 	<script src="assets/js/joinable.js"></script>
 	<script src="assets/js/resizeable.js"></script>
-	<script src="assets/js/jquery.cycle2.min.js"></script>
 
 
 	<!-- JavaScripts initializations and stuff -->

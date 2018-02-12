@@ -8,13 +8,13 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<link rel="icon" href="assets/images/favicon.ico">
+	<link rel="icon" href="{{asset('')}}assets/images/favicon.ico">
 
-	<title>Neon | Portfolio</title>
+	<title>Neon | Blog</title>
 
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
-	<link rel="stylesheet" href="assets/css/neon.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/neon.css">
 
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 
@@ -121,12 +121,12 @@
 								</li>
 							</ul>
 						</li>
-						<li class="active">
+						<li>
 							<a href="portfolio.html">
 								<span>Portfolio</span>
 							</a>
 						</li>
-						<li>
+						<li class="active">
 							<a href="blog.html">
 								<span>Blog</span>
 							</a>
@@ -171,9 +171,9 @@
 		
 		<div class="row">
 			
-			<div class="col-sm-7">
+			<div class="col-sm-9">
 				
-				<h1>Portfolio</h1>
+				<h1>Blog</h1>
 				
 							<ol class="breadcrumb bc-3" >
 						<li>
@@ -185,38 +185,15 @@
 					</li>
 				<li class="active">
 
-							<strong>Portfolio</strong>
+							<strong>Blog</strong>
 					</li>
 					</ol>
 							
 			</div>
 			
-			<div class="col-sm-5">
+			<div class="col-sm-3">
 				
-				<!-- Category Filter -->
-				<div class="btn-group alt-select-field" id="category-filter">
-				
-					<button type="button" class="btn btn-label" data-toggle="dropdown">Category</button>
-					<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					
-					<ul class="dropdown-menu" role="menu">
-						<li>
-							<a href="#" data-filter="design">Design &amp; Development</a>
-						</li>
-						<li>
-							<a href="#" data-filter="campaign">Campaigns</a>
-						</li>
-						<li>
-							<a href="#" data-filter="branding">Branding</a>
-						</li>
-						<li>
-							<a href="#" data-filter="print">Print</a>
-						</li>
-					</ul>
-					
-				</div>
+				<h2 class="text-muted text-right">86 Posts</h2>
 				
 			</div>
 			
@@ -227,218 +204,243 @@
 </section>
 
 
-<section class="portfolio-container">
+<!-- Blog -->
+<section class="blog">
 	
 	<div class="container">
 		
-		<div class="row" id="portfolio-items">
-			
-			<div class="item col-sm-4 col-xs-6 filter-design">
-				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
-					</a>
-					
-					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Neon</a>
-					</h4>
-					
-					<div class="categories">
-						<a href="portfolio-single.html">Web Design / Development</a>
-					</div>
-				</div>
-				
-			</div>
-			
-			<div class="item col-sm-4 col-xs-6 filter-design">
-				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
-					</a>
-					
-					<h4>
-						<a href="portfolio-single.html" class="like liked">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Motorola</a>
-					</h4>
-					
-					<div class="categories">
-						<a href="portfolio-single.html">Photography</a>
-					</div>
-				</div>
-				
-			</div>
-			
-			<div class="item col-sm-4 col-xs-6 filter-branding">
-				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
-					</a>
-					
-					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Dribbble</a>
-					</h4>
-					
-					<div class="categories">
-						<a href="portfolio-single.html">UI Design</a>
-					</div>
-				</div>
-				
-			</div>
-			
-			<div class="item col-sm-4 col-xs-6 filter-branding">
-				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
-					</a>
-					
-					<h4>
-						<a href="portfolio-single.html" class="like liked">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Package Design</a>
-					</h4>
-					
-					<div class="categories">
-						<a href="portfolio-single.html">Branding</a>
-					</div>
-				</div>
-				
-			</div>
-			
-			<div class="item col-sm-4 col-xs-6 filter-print">
-				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
-					</a>
-					
-					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Google+</a>
-					</h4>
-					
-					<div class="categories">
-						<a href="portfolio-single.html">Printing</a>
-					</div>
-				</div>
-				
-			</div>
-			
-			<div class="item col-sm-4 col-xs-6 filter-campaign filter-design">
-				
-				<div class="portfolio-item">
-					<a href="portfolio-single.html" class="image">
-						<img src="assets/images/portfolio-thumb-1.png" class="img-rounded" />
-						<span class="hover-zoom"></span>
-					</a>
-					
-					<h4>
-						<a href="portfolio-single.html" class="like">
-							<i class="entypo-heart"></i>
-						</a>
-						
-						<a href="portfolio-single.html" class="name">Origami</a>
-					</h4>
-					
-					<div class="categories">
-						<a href="portfolio-single.html">Package Design</a>
-					</div>
-				</div>
-				
-			</div>
-			
-		</div>
-		
 		<div class="row">
-		
-			<div class="col-md-12">
 			
-				<div class="text-center">
+			<div class="col-sm-8">
 				
-					<ul class="pagination">
-						<li class="active">
-							<a href="#">1</a>
-						</li>
-						<li>
-							<a href="#">2</a>
-						</li>
-						<li>
-							<a href="#">3</a>
-						</li>
-						<li>
-							<a href="#">4</a>
-						</li>
-						<li>
-							<a href="#">5</a>
-						</li>
-						<li>
-							<a href="#">Next</a>
-						</li>
-					</ul>
+				<div class="blog-posts">
+					
+					<!-- Blog Post -->
+					<div class="blog-post">
+						
+						<div class="post-thumb">
+						
+							<a href="blog-post.html">
+								<img src="assets/images/blog-thumb-1.png" class="img-rounded" />
+								<span class="hover-zoom"></span>
+							</a>
+							
+						</div>
+						
+						<div class="post-details">
+							
+							<h3>
+								<a href="blog-post.html">We hill lady will both sang room by</a>
+							</h3>
+							
+							<div class="post-meta">
+								
+								<div class="meta-info">
+									<i class="entypo-calendar"></i> 04 November 2015								</div>
+								
+								<div class="meta-info">
+									<i class="entypo-comment"></i>
+									3 comments
+								</div>
+								
+							</div>
+							
+							<p>Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since.</p>
+							
+						</div>
+						
+					</div>
+					
+					<!-- Blog Post -->
+					<div class="blog-post">
+						
+						<div class="post-thumb">
+						
+							<a href="blog-post.html">
+								<img src="assets/images/blog-thumb-1.png" class="img-rounded" />
+								<span class="hover-zoom"></span>
+							</a>
+							
+						</div>
+						
+						<div class="post-details">
+							
+							<h3>
+								<a href="blog-post.html">Allowance sweetness direction to as...</a>
+							</h3>
+							
+							<div class="post-meta">
+								
+								<div class="meta-info">
+									<i class="entypo-calendar"></i> 02 November 2015								</div>
+								
+								<div class="meta-info">
+									<i class="entypo-comment"></i>
+									0 comments
+								</div>
+								
+							</div>
+							
+							<p>Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since.</p>
+							
+						</div>
+						
+					</div>
+					
+					<!-- Blog Post -->
+					<div class="blog-post">
+						
+						<div class="post-thumb">
+						
+							<a href="blog-post.html">
+								<img src="assets/images/blog-thumb-1.png" class="img-rounded" />
+								<span class="hover-zoom"></span>
+							</a>
+							
+						</div>
+						
+						<div class="post-details">
+							
+							<h3>
+								<a href="blog-post.html">Is we miles ready he might going</a>
+							</h3>
+							
+							<div class="post-meta">
+								
+								<div class="meta-info">
+									<i class="entypo-calendar"></i> 01 November 2015								</div>
+								
+								<div class="meta-info">
+									<i class="entypo-comment"></i>
+									1 comment
+								</div>
+								
+							</div>
+							
+							<p>Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since.</p>
+							
+						</div>
+						
+					</div>
+					
+			
+					<!-- Blog Pagination -->
+					<div class="text-center">
+					
+						<ul class="pagination">
+							<li class="active">
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">Next</a>
+							</li>
+						</ul>
+						
+					</div>
 					
 				</div>
 				
+			</div>
+			
+			<div class="col-sm-4">
+				
+				<!-- List Sidebar -->
+<div class="sidebar">
+	
+	<h3>
+		<i class="entypo-list"></i>
+		Categories
+	</h3>
+	
+	
+	<div class="sidebar-content">
+		
+		<ul>
+			<li>
+				<a href="#">Art Direction <span>(3)</span></a>
+			</li>
+			<li>
+				<a href="#">Photography <span>(7)</span></a>
+			</li>
+			<li>
+				<a href="#">3D Modelling <span>(5)</span></a>
+			</li>
+			<li>
+				<a href="#">Web Design <span>(1)</span></a>
+			</li>
+		</ul>
+		
+	</div>
+	
+</div>
+
+<!-- Comments Sidebar -->
+<div class="sidebar">
+	
+	<h3>
+		<i class="entypo-chat"></i>
+		Recent Comments
+	</h3>
+	
+	<div class="sidebar-content">
+		
+		<ul class="discussion-list">
+			<li>
+				<a href="#" class="thumb">
+					<img src="assets/images/user-icon-1.png" width="43" class="img-circle" />
+				</a>
+				
+				<div class="details">
+					<a href="#">John Doe</a>
+					<p>At vero eos et accusamus et iusto odio dignissimos...</p>
+				</div>
+			</li>
+			
+			<li>
+				<a href="#" class="thumb">
+					<img src="assets/images/user-icon-1.png" width="43" class="img-circle" />
+				</a>
+				
+				<div class="details">
+					<a href="#">John Doe</a>
+					<p>At vero eos et accusamus et iusto odio dignissimos...</p>
+				</div>
+			</li>
+			
+			<li>
+				<a href="#" class="thumb">
+					<img src="assets/images/user-icon-1.png" width="43" class="img-circle" />
+				</a>
+				
+				<div class="details">
+					<a href="#">John Doe</a>
+					<p>At vero eos et accusamus et iusto odio dignissimos...</p>
+				</div>
+			</li>
+		</ul>
+		
+	</div>
+
+</div>				
 			</div>
 			
 		</div>
 		
 	</div>
 	
-</section>
-
-
-<script type="text/javascript">
-jQuery(document).ready(function($)
-{
-	var $portfolio_items = $("#portfolio-items"),
-		$category_filter = $("#category-filter");
-	
-	$portfolio_items.isotope({
-		itemSelector: '.item',
-		columnWidth: 1/4
-	});
-	
-	$category_filter.on('change', function(ev, o)
-	{
-		var filter = o.el.data('filter');
-		
-		$portfolio_items.isotope({
-			filter: o.isDefault ? '.item' : '.filter-' + filter
-		});
-	});
-	
-	$(window).on('neon.resize', function()
-	{
-		$portfolio_items.isotope('reLayout');
-	});
-	
-	$portfolio_items.isotope('reLayout');
-});
-</script>	
+</section>	
 	<!-- Footer Widgets -->
 <section class="footer-widgets">
 	
@@ -535,7 +537,6 @@ jQuery(document).ready(function($)
 	<script src="assets/js/bootstrap.js"></script>
 	<script src="assets/js/joinable.js"></script>
 	<script src="assets/js/resizeable.js"></script>
-	<script src="assets/js/isotope/jquery.isotope.min.js"></script>
 
 
 	<!-- JavaScripts initializations and stuff -->

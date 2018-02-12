@@ -8,13 +8,13 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<link rel="icon" href="assets/images/favicon.ico">
+	<link rel="icon" href="{{asset('')}}assets/images/favicon.ico">
 
 	<title>Neon | Blog Post</title>
 
-	<link rel="stylesheet" href="assets/css/bootstrap.css">
-	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
-	<link rel="stylesheet" href="assets/css/neon.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="{{asset('')}}assets/css/neon.css">
 
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 
