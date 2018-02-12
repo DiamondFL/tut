@@ -1,0 +1,16 @@
+{
+    "name": "cuong/forcedb",
+    "authors": [
+        {
+            "name": "Fight Light Diamond",
+            "email": "i.am.m.cuong@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ForceDB\\Magic\\": "src/"
+        }
+    }
+}

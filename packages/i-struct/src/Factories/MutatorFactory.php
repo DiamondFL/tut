@@ -1,0 +1,34 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: cuongpm00
+ * Date: 11/2/2016
+ * Time: 9:24 AM
+ */
+
+namespace Istruct\Factories;
+
+use Istruct\Components\MutatorComponent;
+use Istruct\Helpers\BuildPath;
+
+class MutatorFactory implements _Interface
+{
+    protected $component, $packet;
+
+    public function __construct(MutatorComponent $component)
+    {
+        $this->component = $component;
+    }
+
+    public function produce($table, $material, $path = 'app')
+    {
+        $fileForm = fopen(BuildPath::outMutator($table, $path), "w");
+        fwrite($fileForm, $material);
+    }
+
+    public function building($table, $nameSpace = 'App', $path = 'app')
+    {
+        $material = $this->component->building($table, $nameSpace);
+        $this->produce($table, $material);
+    }
+}
