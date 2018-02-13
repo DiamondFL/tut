@@ -39,6 +39,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
+            "Edubeanz\\": "packages/edubeanz/src",
             "Istruct\\": "packages/i-struct/src",
             "Test\\Rg\\": "packages/test/rg/src",
             "IoAccess\\": "packages/ioaccess/src",

@@ -192,6 +192,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \App\Providers\BladeServiceProvider::class,
         \App\Providers\ValidatorServiceProvider::class,
+        \Edubeanz\Providers\EdubeanzServiceProvider::class,
         \Test\Rg\TestRgServiceProvider::class,
         \Ush\Product\UshProductServiceProviders::class,
         \DocPros\DocProsServiceProvider::class,
