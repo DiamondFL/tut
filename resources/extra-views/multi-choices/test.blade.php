@@ -11,35 +11,26 @@
                 <strong>Question {{++$k}}</strong>
                 <input type="checkbox" data="{{$k}}" class="unsure pull-right" data-toggle="tooltip" data-placement="bottom" title="Bạn chưa chắc chắn ">
             </div>
-            <div class="form-group text-info" >
-                {!! $question->question !!}
-            </div>
+            <div class="form-group text-info" >{!! trim($question->question) !!}</div>
             <table class="table">
                 @if($question->answer > 5)
-                    @foreach($replies as $i => $rep)
+                    @foreach($repList as $i => $rep)
                         @if(trim($question->$rep) !== '')
                             <tr>
-                                <td width="20px">
-                                    <input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
-                                           name="answer{{$question->id}}[]">
-                                </td>
-                                <td>
-                                    {{$question->$rep}}
-                                </td>
+                                <td width="20px"><input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
+                                           name="answer{{$question->id}}[]"></td>
+                                <td>{{trim($question->$rep)}}</td>
                             </tr>
                         @endif
                     @endforeach
                 @else
-                    @foreach($replies as $i => $rep)
+                    @foreach($repList as $i => $rep)
                         @if(trim($question->$rep) !== '')
                             <tr>
-                                <td width="20px">
-                                    <input type="radio" value="{{$i}}" class="done" data="{{$k}}"
+                                <td width="20px"><input type="radio" value="{{$i}}" class="done" data="{{$k}}"
                                            name="answer{{$question->id}}">
                                 </td>
-                                <td>
-                                    {{$question->$rep}}
-                                </td>
+                                <td>{{trim($question->$rep)}}</td>
                             </tr>
                         @endif
                     @endforeach

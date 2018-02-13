@@ -12,15 +12,13 @@
                 <input type="checkbox" data="{{$k}}" class="unsure pull-right" data-toggle="tooltip"
                        data-placement="bottom" title="Bạn chưa chắc chắn ">
             </div>
-            <div class="form-group text-info">
-                {!! $question->question !!}
-            </div>
+            <div class="form-group text-info">{!! $question->question !!}</div>
             <table class="table">
             @if(isset($replies[$answer = 'answer' . $question->id]))
                 @if((int)trim($question->answer) > 5)
                     @foreach($repList as $i => $rep)
                         @if(trim($question->$rep) !== '')
-                            <tr class="@if(strpos(is_array($replies[$answer])?implode('', $replies[$answer]):$replies[$answer], $i) !== false) bg-success @endif">
+                            <tr class="@if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false) bg-success @endif">
                                 <td width="20px">
                                     <input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
                                         @if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false)
@@ -28,9 +26,7 @@
                                         @endif
                                             name="answer{{$question->id}}[]">
                                 </td>
-                                <td>
-                                    {{$question->$rep}}
-                                </td>
+                                <td>{{$question->$rep}}</td>
                             </tr>
                         @endif
                     @endforeach
@@ -42,9 +38,7 @@
                                     <input type="radio" value="{{$i}}"
                                            @if($replies[$answer] == $i) checked @endif  name="answer{{$question->id}}">
                                 </td>
-                                <td>
-                                    {{$question->$rep}}
-                                </td>
+                                <td>{{$question->$rep}}</td>
                             </tr>
                         @endif
                     @endforeach
@@ -58,9 +52,7 @@
                                 <td width="20px">
                                     <input type="checkbox" value="1" name="answer{{$question->id}}[]">
                                 </td>
-                                <td>
-                                    {{$question->$rep}}
-                                </td>
+                                <td>{{$question->$rep}}</td>
                             </tr>
                         @endif
                     @endforeach
@@ -71,9 +63,7 @@
                                 <td width="20px">
                                     <input type="radio" value="{{$i}}" name="answer{{$question->id}}">
                                 </td>
-                                <td>
-                                    {{$question->$rep}}
-                                </td>
+                                <td>{{$question->$rep}}</td>
                             </tr>
                         @endif
                     @endforeach
