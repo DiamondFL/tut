@@ -33,7 +33,7 @@
                     {!! csrf_field() !!}
                     {!! method_field('DELETE') !!}
                     <button class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button>
-                    <button type="button"class="btn btn-info btn-sm" onclick="speakEnglish('{{$vocabulary->word}}')">
+                    <button type="button" class="btn btn-info btn-sm" onclick="speakEnglish('{{$vocabulary->word}}')">
                         <i class="fa fa-volume-up"></i>
                     </button>
                 </form>
@@ -41,7 +41,6 @@
         </tr>
     @endforeach
 </table>
-
 <div id="linkPaginate">
     {!! $vocabularies->links() !!}
 </div>

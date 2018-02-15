@@ -194,7 +194,6 @@ return [
         \App\Providers\ValidatorServiceProvider::class,
         \Edubeanz\Providers\EdubeanzServiceProvider::class,
         \Test\Rg\TestRgServiceProvider::class,
-        \Ush\Product\UshProductServiceProviders::class,
         \DocPros\DocProsServiceProvider::class,
         \SuViewer\SuViewerServiceProvider::class
     ],

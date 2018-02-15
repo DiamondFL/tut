@@ -1,37 +1,40 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: JK
+ * Date: 2/14/2018
+ * Time: 10:12 PM
+ */
 
-namespace App\Http\Controllers\Involve;
+namespace Edubeanz\Http\Controllers;
 
 use App\Constants\Page;
-use App\Repositories\MultiChoiceRepository;
+use App\Repositories\MultiChoiceRepositoryEloquent;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class MultiChoiceController extends Controller
+class TestController
 {
     private $repository;
-    public function __construct(MultiChoiceRepository $repository)
+
+    public function __construct(MultiChoiceRepositoryEloquent $repository)
     {
         $this->repository = $repository;
     }
 
-    public function getListTest(Request $request)
+    public function getList(Request $request)
     {
         $input = $request->all();
         $data ['count'] = $this->repository->countList($input);
         if($request->ajax())
         {
-            return view('multi-choices.is-lists', $data)->render();
+            return view('edu::tests.includes.list-unit', $data)->render();
         }
-        return view('multi-choices.list', $data);
+        return view('edu::tests.list', $data);
     }
-
-    public function test(Request $request)
-    {
+    public function doing(Request $request) {
         $input = $request->all();
         $input['questions'] = $this->repository->getTest($input);
-        $input['repList'] = LIST_TEST;
-        return view('multi-choices.test', $input);
+        return view('edu::tests.doing', $input);
     }
 
     public function marking(Request $request)
@@ -42,9 +45,7 @@ class MultiChoiceController extends Controller
         $score = $this->repository->mark($questions, $input);
         $message = 'Số câu bạn trả lời đúng là: ' . $score . '/' . count($questions);
         session()->flash('global', $message);
-        $repList = LIST_TEST;
-        return view('multi-choices.marked', compact('questions'))
-            ->with(compact('repList'))
+        return view('edu::tests.marked', compact('questions'))
             ->with('replies', $input);
     }
 
@@ -53,13 +54,5 @@ class MultiChoiceController extends Controller
         $options = $request->only(['level', 'knowledge', 'professional']);
         $options[Page::PER_PAGE] = config('multi-choice.paginate.test');
         return $options;
-    }
-
-    public function import(Request $request)
-    {
-        set_time_limit(999);
-        $file = $request->all()[0];
-        $this->repository->import($file);
-        return response()->json('Import Success');
     }
 }

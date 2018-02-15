@@ -30,7 +30,7 @@
             @include('layouts.raw-links')
         </div>
         <hr/>
-        @include('_vendor._layout.alert.index')
+        @include('layouts.alerts.index')
         @yield('content')
         {{--        @include('layouts.footer')--}}
     </div>

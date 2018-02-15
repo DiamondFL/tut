@@ -1,23 +1,18 @@
-@extends('layouts.app')
-@section('content')
-    <ol class="breadcrumb bc-3">
-        <li>
-            <a href="/"><i class="fa fa-home"></i>Home</a>
-        </li>
-        <li>
-            <a>Tables</a>
-        </li>
-        <li class="active">
-            <strong>Basic Tables</strong>
-        </li>
-    </ol>
-    <form id="formFilter" action="{{route('involve.multi-choice.getListTest')}}" method="POST">
+@extends('edu::layouts.app')
+@section('title')
+    Danh sách kiểm tra năng lực
+@endsection
+@section('container')
+    <h3><strong>Kiểm tra kiến thức công nghệ thông tin</strong></h3>
+    <p><i>Thông qua bài kiểm tra có thể đánh giá được phần nào năng lực hiện có của bạn trong kho kiến thức của chúng tôi.
+            Hãy lựa chọn nền tảng kiến thức phù hợp với bạn nhất</i></p>
+    <form class="row" id="formFilter" action="{{route('edu.test.list')}}" method="POST">
         <div class="form-group col-sm-3">
             <label for="">Level</label>
             <select class="form-control selectFilter" name="level" id="">
                 <option value="">All</option>
                 @foreach(LEVEL as $k => $v)
-                <option value="{{$k}}">{{$k}}</option>
+                    <option value="{{$k}}">{{$k}}</option>
                 @endforeach
             </select>
         </div>
@@ -40,19 +35,20 @@
             </select>
         </div>
     </form>
-
-    <div class="col-sm-12">
-        <form action="{{route('involve.multi-choice.test')}}" method="GET" id="doTesting">
-            <input type="hidden" name="level">
-            <input type="hidden" name="knowledge">
-            <input type="hidden" name="professional">
-            <input type="hidden" name="page">
-            <ul class="list-group" id="table">
-                @include('multi-choices.is-lists')
-            </ul>
-        </form>
+    <p><i>Nếu đã sẵn sàng hãy chọn trong danh sách bài kiểm tra dưới đây và bắt đầu làm bài</i></p>
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="{{route('edu.test.doing')}}" method="GET" id="doTesting">
+                <input type="hidden" name="level">
+                <input type="hidden" name="knowledge">
+                <input type="hidden" name="professional">
+                <input type="hidden" name="page">
+            </form>
+        </div>
+        <div class="" id="table">
+            @include('edu::tests.includes.list-unit')
+        </div>
     </div>
-
 @endsection
 @push('css')
 

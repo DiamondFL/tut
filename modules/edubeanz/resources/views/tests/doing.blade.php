@@ -1,6 +1,9 @@
-@extends('layouts.app')
-@section('content')
-    <form id="formTest" action="{{route('involve.multi-choice.marking')}}?page={{$questions->currentPage()}}"
+@extends('edu::layouts.app')
+@section('title')
+    Bạn đang bài làm
+@endsection
+@section('container')
+    <form id="formTest" action="{{route('edu.test.marking')}}?page={{$questions->currentPage()}}"
           method="POST">
         {{csrf_field()}}
         <input type="hidden" name="level" value="{{isset($level)?$level:''}}">
@@ -14,21 +17,21 @@
             <div class="form-group text-info" >{!! trim($question->question) !!}</div>
             <table class="table">
                 @if($question->answer > 5)
-                    @foreach($repList as $i => $rep)
+                    @foreach(REP_LIST as $i => $rep)
                         @if(trim($question->$rep) !== '')
                             <tr>
-                                <td width="20px"><input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
-                                           name="answer{{$question->id}}[]"></td>
+                                <td width="20px">
+                                    <input type="checkbox" value="{{$i}}" class="done" data="{{$k}}" name="answer{{$question->id}}[]"></td>
                                 <td>{{trim($question->$rep)}}</td>
                             </tr>
                         @endif
                     @endforeach
                 @else
-                    @foreach($repList as $i => $rep)
+                    @foreach(REP_LIST as $i => $rep)
                         @if(trim($question->$rep) !== '')
                             <tr>
-                                <td width="20px"><input type="radio" value="{{$i}}" class="done" data="{{$k}}"
-                                           name="answer{{$question->id}}">
+                                <td width="20px">
+                                    <input type="radio" value="{{$i}}" class="done" data="{{$k}}" name="answer{{$question->id}}">
                                 </td>
                                 <td>{{trim($question->$rep)}}</td>
                             </tr>
@@ -43,8 +46,9 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Tình trạng làm bài </h4>
                 </div>
                 <div class="modal-body">
@@ -72,7 +76,8 @@
         </div>
     </nav>
 @endsection
-@push('css')
+
+@push('head')
     <style>
         .unsure {
             height: 20px;

@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('edu::layouts.app')
 @section('title')
-    Marked
+    Kết quả làm bài
 @endsection
-@section('content')
-    <form id="formTest" action="{{route('involve.multi-choice.marking')}}?page={{$questions->currentPage()}}"
+@section('container')
+    <form id="formTest" action="{{route('edu.test.marking')}}?page={{$questions->currentPage()}}"
           method="POST">
         {{csrf_field()}}
         @foreach($questions as $k=> $question)
@@ -14,61 +14,62 @@
             </div>
             <div class="form-group text-info">{!! $question->question !!}</div>
             <table class="table">
-            @if(isset($replies[$answer = 'answer' . $question->id]))
-                @if((int)trim($question->answer) > 5)
-                    @foreach(REP_LIST as $i => $rep)
-                        @if(trim($question->$rep) !== '')
-                            <tr class="@if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false) bg-success @endif">
-                                <td width="20px">
-                                    <input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
-                                        @if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false)
-                                            checked
-                                        @endif
-                                            name="answer{{$question->id}}[]">
-                                </td>
-                                <td>{{$question->$rep}}</td>
-                            </tr>
-                        @endif
-                    @endforeach
+                @if(isset($replies[$answer = 'answer' . $question->id]))
+                    @if((int)trim($question->answer) > 5)
+                        @foreach(REP_LIST as $i => $rep)
+                            @if(trim($question->$rep) !== '')
+                                <tr class="@if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false) bg-success @endif">
+                                    <td width="20px">
+                                        <input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
+                                               @if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false)
+                                               checked
+                                               @endif
+                                               name="answer{{$question->id}}[]">
+                                    </td>
+                                    <td>{{$question->$rep}}</td>
+                                </tr>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach(REP_LIST as $i => $rep)
+                            @if(trim($question->$rep) !== '')
+                                <tr class="@if($question->answer == $i) bg-success @endif">
+                                    <td width="20px">
+                                        <input type="radio" value="{{$i}}"
+                                               @if($replies[$answer] == $i) checked
+                                               @endif  name="answer{{$question->id}}">
+                                    </td>
+                                    <td>{{$question->$rep}}</td>
+                                </tr>
+                            @endif
+                        @endforeach
+                    @endif
                 @else
-                    @foreach(REP_LIST as $i => $rep)
-                        @if(trim($question->$rep) !== '')
-                            <tr class="@if($question->answer == $i) bg-success @endif">
-                                <td width="20px">
-                                    <input type="radio" value="{{$i}}"
-                                           @if($replies[$answer] == $i) checked @endif  name="answer{{$question->id}}">
-                                </td>
-                                <td>{{$question->$rep}}</td>
-                            </tr>
-                        @endif
-                    @endforeach
+                    @if($question->answer > 5)
+                        @foreach(REP_LIST as $i => $rep)
+                            @if(trim($question->$rep) !== '')
+                                <tr class="@if(isset($replies[$answer]) && strpos(is_array($replies[$answer]) ?
+                    implode('', $replies[$answer]):$replies[$answer], $i) !== false) bg-success @endif">
+                                    <td width="20px">
+                                        <input type="checkbox" value="1" name="answer{{$question->id}}[]">
+                                    </td>
+                                    <td>{{$question->$rep}}</td>
+                                </tr>
+                            @endif
+                        @endforeach
+                    @else
+                        @foreach(REP_LIST as $i => $rep)
+                            @if(trim($question->$rep) !== '')
+                                <tr>
+                                    <td width="20px">
+                                        <input type="radio" value="{{$i}}" name="answer{{$question->id}}">
+                                    </td>
+                                    <td>{{$question->$rep}}</td>
+                                </tr>
+                            @endif
+                        @endforeach
+                    @endif
                 @endif
-            @else
-                @if($question->answer > 5)
-                    @foreach(REP_LIST as $i => $rep)
-                        @if(trim($question->$rep) !== '')
-                            <tr class="@if(isset($replies[$answer]) && strpos(is_array($replies[$answer]) ?
-                            implode('', $replies[$answer]):$replies[$answer], $i) !== false) bg-success @endif">
-                                <td width="20px">
-                                    <input type="checkbox" value="1" name="answer{{$question->id}}[]">
-                                </td>
-                                <td>{{$question->$rep}}</td>
-                            </tr>
-                        @endif
-                    @endforeach
-                @else
-                    @foreach(REP_LIST as $i => $rep)
-                        @if(trim($question->$rep) !== '')
-                            <tr>
-                                <td width="20px">
-                                    <input type="radio" value="{{$i}}" name="answer{{$question->id}}">
-                                </td>
-                                <td>{{$question->$rep}}</td>
-                            </tr>
-                        @endif
-                    @endforeach
-                @endif
-            @endif
             </table>
             <hr>
         @endforeach
@@ -89,7 +90,11 @@
                                     <a href="#{{++$k}}" class="btn btn-sm
                                         @if($replies[$answer] == $question->answer)
                                             btn-success
-                                        @else btn-danger @endif btn-block">{{$k}}</a>
+                                        @else
+                                            btn-danger
+                                        @endif
+                                        btn-block">{{$k}}
+                                    </a>
                                 @else
                                     <a href="#{{++$k}}" class="btn btn-sm  btn-default btn-block">{{$k}}</a>
                                 @endif
@@ -113,15 +118,16 @@
         </div>
     </nav>
 @endsection
-@push('css')
+@push('head')
     <style>
         .unsure {
             height: 20px;
             width: 20px;
             margin-bottom: 0 !important;
         }
+
         #formTest {
-            color:black;
+            color: black;
         }
     </style>
 @endpush

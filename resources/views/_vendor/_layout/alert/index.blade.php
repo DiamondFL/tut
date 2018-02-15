@@ -1,5 +1,0 @@
-@include('_vendor._layout.alert.error')
-@include('_vendor._layout.alert.global')
-@include('_vendor._layout.alert.message')
-@include('_vendor._layout.alert.success')
-@include('_vendor._layout.alert.errors')

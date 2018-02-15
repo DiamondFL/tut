@@ -23,6 +23,6 @@ return [
     ],
     'paginate' => [
         'table' => 10,
-        'test' => 40
+        'test' => 20
     ]
 ];
