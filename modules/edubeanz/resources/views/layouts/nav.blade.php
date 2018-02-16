@@ -30,7 +30,7 @@
             </a>
         </li>
         <li>
-            <a href="blog.html">
+            <a href="{{route('edu.example.list')}}">
                 <span>Blog</span>
             </a>
         </li>

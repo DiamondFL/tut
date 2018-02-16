@@ -40,3 +40,7 @@ Route::group(['namespace' => 'Edubeanz\Http\Controllers'], function () {
 Route::group(['namespace' => 'Edubeanz\Http\Controllers', 'prefix' => 'lang'], function () {
    Route::get('list', 'LanguageController@getList')->name('edu.language.list');
 });
+Route::group(['namespace' => 'Edubeanz\Http\Controllers', 'prefix' => 'ex'], function () {
+   Route::get('list', 'ExampleController@getList')->name('edu.example.list');
+   Route::get('detail/{id}', 'ExampleController@getDetail')->name('edu.example.detail');
+});

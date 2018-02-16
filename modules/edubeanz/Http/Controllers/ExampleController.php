@@ -23,15 +23,25 @@ class ExampleController
     public function getList(Request $request)
     {
         $input = $request->all();
-        $data['vocabularies'] = $this->repository->myPaginate($input);
+        $data['examples'] = $this->repository->myPaginate($input);
         if ($request->ajax()) {
-            return view('edu::languages.includes.paginate', $data)->render();
+            return view('edu::examples.includes.paginate', $data)->render();
         }
-        return view('edu::languages.list', $data);
+        return view('edu::examples.list', $data);
     }
 
-    public function getDetail(Request $request)
+    public function getDetail($id, Request $request)
     {
-
+        $docExample = $this->repository->find($id);
+        if(empty($docExample))
+        {
+            session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        $docExample->views = $docExample->views + 1;
+        $docExample->last_view = date('Y-m-d H:s:i');
+        $docExample->save();
+        $tagList = $docExample->tags->pluck('name', 'id')->toArray();
+        return view('edu::examples.detail', compact('docExample', 'tagList'));
     }
 }

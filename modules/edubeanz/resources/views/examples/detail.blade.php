@@ -1,16 +1,8 @@
-@extends('layouts.app')
-@section('content')
-    <ol class="breadcrumb bc-3">
-        <li>
-            <a href="/"><i class="fa fa-home"></i>Home</a>
-        </li>
-        <li>
-            <a href="{{route('doc-example.index')}}">Example</a>
-        </li>
-        <li class="active">
-            <strong>Show</strong>
-        </li>
-    </ol>
+@extends('edu::layouts.app')
+@section('title')
+    Tài nguyên của dự án
+@endsection
+@section('container')
     <div class="row" >
         <div class="col-md-12">
             <div class="panel panel-default">
@@ -32,14 +24,16 @@
                         @endforeach
                     </div>
                     {{--        {{ $docExample->creator->email }}--}}
+                    <hr>
+                    <a href="{{url()->previous()}}" >
+                        <i class="entypo-back"></i>
+                        {{trans('button.back')}}
+                    </a>
                 </div>
             </div>
         </div>
         <div class="col-lg-12">
-            <a href="{{url()->previous()}}" >
-                <i class="fa fa-arrow-left"></i>
-                {{trans('button.back')}}
-            </a>
+
         </div>
     </div>
 @endsection
