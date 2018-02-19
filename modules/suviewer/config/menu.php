@@ -14,7 +14,6 @@ return [
         'rg-answer', 'rg-question', 'rg-reply', 'rg-result', 'rg-test'
     ],
     'ush' => [
-        'ush-product', 'ush-brand', 'ush-category', 'ush-color-product', 'ush-feature',
-        'ush-fit', 'ush-group', 'ush-material', 'ush-price', 'ush-specialty-size', 'ush-season',
+        'ush-category', 'ush-group',
     ],
 ];

@@ -63,7 +63,7 @@
                 {{--</a>--}}
             {{--</li>--}}
             @include('trg::layouts.sidebar')
-{{--            @include('ush-p::layouts.sidebar')--}}
+            @include('ush::layouts.sidebar')
 
         </ul>
     </div>

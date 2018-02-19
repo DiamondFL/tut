@@ -17,3 +17,7 @@ Route::group(['namespace' => 'DocPros\Http\Controllers', 'middleware' => ['web',
 Route::group(['namespace' => 'DocPros\Http\Controllers\Attractive', 'middleware' => ['web']], function () {
     Route::get('example-list' , 'ExampleController@getByTags');
 });
+
+Route::group(['namespace' => 'DocPros\Http\Controllers\Attractive', 'middleware' => ['web']], function () {
+    Route::resource('doc-lesson' , 'DocLessonController');
+});

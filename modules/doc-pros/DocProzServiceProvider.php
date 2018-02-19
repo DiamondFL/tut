@@ -15,6 +15,8 @@ use DocPros\Repositories\DocExampleTagRepository;
 use DocPros\Repositories\DocExampleTagRepositoryEloquent;
 use DocPros\Repositories\DocLanguageRepository;
 use DocPros\Repositories\DocLanguageRepositoryEloquent;
+use DocPros\Repositories\DocLessonRepository;
+use DocPros\Repositories\DocLessonRepositoryEloquent;
 use DocPros\Repositories\DocPackageRepository;
 use DocPros\Repositories\DocPackageRepositoryEloquent;
 use DocPros\Repositories\DocProjectRepository;
@@ -39,11 +41,12 @@ class DocProsServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->app->bind(DocExampleRepository::class, DocExampleRepositoryEloquent::class);
+        $this->app->bind(DocExampleTagRepository::class, DocExampleTagRepositoryEloquent::class);
+        $this->app->bind(DocLanguageRepository::class, DocLanguageRepositoryEloquent::class);
+        $this->app->bind(DocLessonRepository::class, DocLessonRepositoryEloquent::class);
         $this->app->bind(DocProjectRepository::class, DocProjectRepositoryEloquent::class);
         $this->app->bind(DocPackageRepository::class, DocPackageRepositoryEloquent::class);
         $this->app->bind(DocTagRepository::class, DocTagRepositoryEloquent::class);
-        $this->app->bind(DocExampleRepository::class, DocExampleRepositoryEloquent::class);
-        $this->app->bind(DocLanguageRepository::class, DocLanguageRepositoryEloquent::class);
-        $this->app->bind(DocExampleTagRepository::class, DocExampleTagRepositoryEloquent::class);
     }
 }

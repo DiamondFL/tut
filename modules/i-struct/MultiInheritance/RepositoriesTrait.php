@@ -137,6 +137,6 @@ trait RepositoriesTrait
             $tag = app(Tag::class)->firstOrCreate(['name' => $tagName]);
             array_push($tagIds, $tag->id);
         }
-        $i = $data->tags()->sync($tagIds);
+        $data->tags()->sync($tagIds);
     }
 }

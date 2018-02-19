@@ -37,46 +37,46 @@
                         </div>
                     </div>
                     <!-- Comments Sidebar -->
-                    <div class="sidebar">
-                        <h3>
-                            <i class="entypo-chat"></i>
-                            Recent Comments
-                        </h3>
-                        <div class="sidebar-content">
-                            <ul class="discussion-list">
-                                <li>
-                                    <a href="#" class="thumb">
-                                        <img src="{{asset('frontd')}}/images/user-icon-1.png" width="43"
-                                             class="img-circle"/>
-                                    </a>
-                                    <div class="details">
-                                        <a href="#">John Doe</a>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos...</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="thumb">
-                                        <img src="{{asset('frontd')}}/images/user-icon-1.png" width="43"
-                                             class="img-circle"/>
-                                    </a>
-                                    <div class="details">
-                                        <a href="#">John Doe</a>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos...</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="#" class="thumb">
-                                        <img src="{{asset('frontd')}}/images/user-icon-1.png" width="43"
-                                             class="img-circle"/>
-                                    </a>
-                                    <div class="details">
-                                        <a href="#">John Doe</a>
-                                        <p>At vero eos et accusamus et iusto odio dignissimos...</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    {{--<div class="sidebar">--}}
+                        {{--<h3>--}}
+                            {{--<i class="entypo-chat"></i>--}}
+                            {{--Recent Comments--}}
+                        {{--</h3>--}}
+                        {{--<div class="sidebar-content">--}}
+                            {{--<ul class="discussion-list">--}}
+                                {{--<li>--}}
+                                    {{--<a href="#" class="thumb">--}}
+                                        {{--<img src="{{asset('frontd')}}/images/user-icon-1.png" width="43"--}}
+                                             {{--class="img-circle"/>--}}
+                                    {{--</a>--}}
+                                    {{--<div class="details">--}}
+                                        {{--<a href="#">John Doe</a>--}}
+                                        {{--<p>At vero eos et accusamus et iusto odio dignissimos...</p>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#" class="thumb">--}}
+                                        {{--<img src="{{asset('frontd')}}/images/user-icon-1.png" width="43"--}}
+                                             {{--class="img-circle"/>--}}
+                                    {{--</a>--}}
+                                    {{--<div class="details">--}}
+                                        {{--<a href="#">John Doe</a>--}}
+                                        {{--<p>At vero eos et accusamus et iusto odio dignissimos...</p>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#" class="thumb">--}}
+                                        {{--<img src="{{asset('frontd')}}/images/user-icon-1.png" width="43"--}}
+                                             {{--class="img-circle"/>--}}
+                                    {{--</a>--}}
+                                    {{--<div class="details">--}}
+                                        {{--<a href="#">John Doe</a>--}}
+                                        {{--<p>At vero eos et accusamus et iusto odio dignissimos...</p>--}}
+                                    {{--</div>--}}
+                                {{--</li>--}}
+                            {{--</ul>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
         </div>

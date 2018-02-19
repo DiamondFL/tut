@@ -3,8 +3,6 @@
 namespace DocPros\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Istruct\Facades\InputFa;
-use DocPros\Models\DocExample;
 use DocPros\Http\Requests\DocExampleCreateRequest;
 use DocPros\Http\Requests\DocExampleUpdateRequest;
 use DocPros\Repositories\DocExampleRepository;

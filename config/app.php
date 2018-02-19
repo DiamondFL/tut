@@ -195,7 +195,8 @@ return [
         \Edubeanz\Providers\EdubeanzServiceProvider::class,
         \Test\Rg\TestRgServiceProvider::class,
         \DocPros\DocProsServiceProvider::class,
-        \SuViewer\SuViewerServiceProvider::class
+        \SuViewer\SuViewerServiceProvider::class,
+        \Ush\UshServiceProviders::class
     ],
 
     /*
@@ -257,7 +258,6 @@ return [
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'MenuFa' => \SuViewer\Facades\MenuFa::class,
-        'Converter' => \Anam\PhantomMagick\Facades\Converter::class
     ],
 
 ];
