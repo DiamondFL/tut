@@ -4,6 +4,11 @@
         <span class="title">Doc</span>
     </a>
     <ul>
+        <li class="{{ request()->is('doc-lesson*') ? 'active' : ''}}">
+            <a href="{{route('doc-lesson.index')}}">
+                <span class="title">Lesson</span>
+            </a>
+        </li>
         <li class="{{ request()->is('doc-example*') ? 'active' : ''}}">
             <a href="{{route('doc-example.index')}}">
                 <span class="title">Example</span>

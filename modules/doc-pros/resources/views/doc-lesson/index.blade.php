@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
     <ol class="breadcrumb bc-3">
         <li>
             <a href="/"><i class="fa fa-home"></i></a>
@@ -12,8 +11,7 @@
             <strong>Table</strong>
         </li>
     </ol>
-
-    <form class="form-group" id="formFilter" action="{{route('doc-lesson.index')}}" method="POST">
+    <form class="form-group row" id="formFilter" action="{{route('doc-lesson.index')}}" method="POST">
         <!--<div class="col-sm-2 form-group">-->
             <!--<select name="per_page" class="form-control inputFilter">-->
                 <!--<option value="10">10</option>-->
@@ -24,7 +22,7 @@
             <!--</select>-->
         <!--</div>-->
         <div class="col-sm-8 form-group">
-            <input name="name" class="form-control inputFilter" placeholder="name">
+            <input name="title" class="form-control inputFilter" placeholder="title">
         </div>
         <!--<div class="col-sm-3 form-group">-->
         <!--<input name="display_name" class="form-control inputFilter" placeholder="display_name">-->
@@ -41,10 +39,9 @@
             <!--<a class="btn btn-danger"><i class="fa fa-trash"></i></a>-->
         </div>
     </form>
-    <div class="box-content nopadding" id="table">
+    <div id="table">
         @include('doc::doc-lesson.table')
     </div>
-</div>
 @endsection
 
 @push('js')

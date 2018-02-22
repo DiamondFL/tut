@@ -8,7 +8,7 @@
 
 return [
     'doc' => [
-        'doc-example', 'doc-language', 'doc-package', 'doc-project', 'doc-tag'
+        'doc-example', 'doc-language', 'doc-package', 'doc-project', 'doc-tag', 'doc-lesson'
     ],
     'rg' => [
         'rg-answer', 'rg-question', 'rg-reply', 'rg-result', 'rg-test'

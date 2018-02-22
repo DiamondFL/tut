@@ -14,7 +14,7 @@
                 <strong>Question {{++$k}}</strong>
                 <input type="checkbox" data="{{$k}}" class="unsure pull-right" data-toggle="tooltip" data-placement="bottom" title="Bạn chưa chắc chắn ">
             </div>
-            <div class="form-group text-info" >{!! trim($question->question) !!}</div>
+            <div class="form-group text-info" >{!! trim(strip_tags($question->question)) !!}</div>
             <table class="table">
                 @if($question->answer > 5)
                     @foreach(REP_LIST as $i => $rep)

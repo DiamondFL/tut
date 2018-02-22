@@ -12,12 +12,10 @@ Route::group(['namespace' => 'DocPros\Http\Controllers', 'middleware' => ['web',
     Route::resource('doc-example' , 'DocExampleController');
     Route::resource('doc-language' , 'DocLanguageController');
     Route::resource('doc-example-tag' , 'DocExampleTagController');
+    Route::resource('doc-lesson' , 'DocLessonController');
 });
 
 Route::group(['namespace' => 'DocPros\Http\Controllers\Attractive', 'middleware' => ['web']], function () {
     Route::get('example-list' , 'ExampleController@getByTags');
 });
 
-Route::group(['namespace' => 'DocPros\Http\Controllers\Attractive', 'middleware' => ['web']], function () {
-    Route::resource('doc-lesson' , 'DocLessonController');
-});
