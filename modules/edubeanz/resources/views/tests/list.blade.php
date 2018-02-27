@@ -1,7 +1,5 @@
 @extends('edu::layouts.app')
-@section('title')
-    Danh sách kiểm tra năng lực
-@endsection
+@section('title', 'Danh sách kiểm tra năng lực')
 @section('container')
     <h3><strong>Kiểm tra kiến thức công nghệ thông tin</strong></h3>
     <p><i>Thông qua bài kiểm tra có thể đánh giá được phần nào năng lực hiện có của bạn trong kho kiến thức của chúng tôi.

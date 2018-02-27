@@ -23,7 +23,6 @@ class UshSubCategory extends Model implements Transformable
         if (isset($input['ush_category_id'])) {
             $query->where('ush_category_id', $input['ush_category_id']);
         }
-
         return $query;
     }
 

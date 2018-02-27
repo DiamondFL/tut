@@ -15,4 +15,6 @@ interface UshCategoryRepository extends RepositoryInterface
     public function change($input, $data);
     public function delete($data);
     public function import($file);
+    public function filterList($input = []);
+
 }

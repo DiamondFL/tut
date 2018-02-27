@@ -15,6 +15,13 @@ use Maatwebsite\Excel\Facades\Excel;
 
 trait RepositoriesTrait
 {
+    public function filterList($input = [], $field = 'name')
+    {
+        return $this->makeModel()->filter($input)
+            ->orderBy($field)
+            ->pluck($field, 'id');
+    }
+
     public function getByIdentify($identify)
     {
         return $this->makeModel()
@@ -84,12 +91,7 @@ trait RepositoriesTrait
         return $this->makeModel()->filter($input)->first();
     }
 
-    public function filterList($input = [], $field = 'name')
-    {
-        return $this->makeModel()->filter($input)
-            ->orderBy($field)
-            ->pluck($field, 'id');
-    }
+
 
     public function filterOneList($input = [], $field = 'id')
     {

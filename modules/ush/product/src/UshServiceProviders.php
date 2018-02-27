@@ -34,11 +34,11 @@ class UshServiceProviders extends ServiceProvider
             ]);
         }
         view()->composer([
-            'ush::ushroduct.create', 'ush::ushroduct.update'
+            'doc::doc-lesson.create', 'doc::doc-lesson.update', 'doc::doc-example.create', 'doc::doc-example.update'
         ], CategoryComposer::class);
 
         view()->composer([
-            'ush::ushroduct.create', 'ush::ushroduct.update'
+
         ], GroupComposer::class);
 
     }

@@ -13,6 +13,7 @@ return [
     'address' => 'Address',
     'birthday' => 'Birthday',
     'content' => 'Content',
+    'category' => 'Category',
     'create_at' => 'Date created',
     'created_at' => 'Created at',
     'created_by' => 'Created by',

@@ -4,7 +4,7 @@ namespace Ush\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
-use Ush\Models\UshSubCategory;
+use Istruct\MultiInheritance\ControllersTrait;
 use Ush\Http\Requests\UshSubCategoryCreateRequest;
 use Ush\Http\Requests\UshSubCategoryUpdateRequest;
 use Ush\Repositories\UshSubCategoryRepository;
@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 class UshSubCategoryController extends Controller
 {
     private $repository;
+    use ControllersTrait;
     public function __construct(UshSubCategoryRepository $repository)
     {
         $this->repository = $repository;

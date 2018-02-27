@@ -1,7 +1,5 @@
 @extends('edu::layouts.app')
-@section('title')
-    Ngoại ngữ
-@endsection
+@section('title', 'Ngoại ngữ')
 @section('container')
     <p><i>Tra cứu với hơn 3000 từ tiếng anh thông dụng, giúp bạn luyện tập từ vựng tiếng anh trọng tâm nhất</i></p>
     <form class="form-group row" id="formFilter" action="{{route('edu.language.list')}}" method="POST">

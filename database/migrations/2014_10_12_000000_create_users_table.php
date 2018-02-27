@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->dateTime('birthday')->nullable();
             $table->text('address')->nullable();
             $table->text('avatar')->nullable();
+            $table->integer('coin')->default(1000);
             $table->rememberToken();
             $table->tinyInteger('active')->default(1);
             $table->dateTime('last_login')->nullable();

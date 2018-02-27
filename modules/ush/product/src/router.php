@@ -10,5 +10,7 @@ Route::group(['middleware' => 'web', 'namespace' => 'Ush\Http\Controllers'], fun
     Route::resource('ush-group' , 'UshGroupController');
     Route::resource('ush-category' , 'UshCategoryController');
     Route::resource('ush-sub-category' , 'UshSubCategoryController');
+
+    Route::get('sub-category-list', 'UshSubCategoryController@lists')->name('ush.sub-category.list');
 });
 

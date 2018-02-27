@@ -17,9 +17,9 @@ class UshCategory extends Model implements Transformable
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['name'])) {
-                $query->where('name', $input['name']); 
-                }
+        if (isset($input['name'])) {
+            $query->where('name', $input['name']);
+        }
 
         return $query;
     }

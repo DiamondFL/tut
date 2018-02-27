@@ -20,7 +20,7 @@ class CategoryComposer
         $this->repository = $repository;
     }
     public function compose(View $view) {
-        $list = $this->repository->makeModel()->pluck(NAME_COL, ID_COL)->toArray();
+        $list = $this->repository->filterList();
         $view->with(['categoryCompose' => $list]);
     }
 }

@@ -1,7 +1,5 @@
 @extends('edu::layouts.app')
-@section('title')
-    Tài nguyên của dự án
-@endsection
+@section('title', 'Tài nguyên của dự án')
 @section('container')
     <section class="blog">
         <div class="container">

@@ -249,7 +249,7 @@
 					next: '.next-prev-nav .next',
 					pager: '.items-nav',
 					pagerActiveClass: 'active',
-					pagerTemplate: '<a href="#">{{slideNum}}</a>',
+					pagerTemplate: '<a href="#">slideNum</a>',
 					swipe: true
 				});
 			});

@@ -1,7 +1,5 @@
 @extends('edu::layouts.app')
-@section('title')
-    Bạn đang bài làm
-@endsection
+@section('title', 'Bạn đang bài làm')
 @section('container')
     <form id="formTest" action="{{route('edu.test.marking')}}?page={{$questions->currentPage()}}"
           method="POST">

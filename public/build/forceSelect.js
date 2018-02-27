@@ -3,25 +3,20 @@
  */
 (function ($) {
     $.fn.magicSelect = function (config) {
-        var route = config.route;
-        console.log(route);
-        var isSelected =  config.isSelect;
-        console.log(isSelected);
+        var url = config.route;
+        var name = config.name;
+        var isSelected = config.isSelect;
         var self = this;
-        var url = route.val();
-        console.log(url);
+        var data = {};
+        data[name] = self.val();
         self.change(function () {
-            var data = {test_domain_id: self.val()};
-            console.log(data);
-
             $.ajax({
                 url: url,
                 data: data,
                 method: "GET",
                 success: function (data) {
-                    console.log(data);
                     var option = optionCate(data);
-                    isSelected.html(option);
+                    $(isSelected).html(option);
                 },
                 error: function (err) {
                     alert('error')
