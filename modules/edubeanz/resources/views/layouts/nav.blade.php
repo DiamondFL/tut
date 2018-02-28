@@ -2,7 +2,7 @@
     <ul class="main-menu hidden-xs" id="main-menu">
         <li class="active">
             <a href="/">
-                <span>Trang chủ</span>
+                <span><i class="entypo-home"></i></span>
             </a>
         </li>
         <li>
@@ -21,12 +21,12 @@
         </li>
         <li>
             <a href="{{route('edu.test.list')}}">
-                <span>Bài test</span>
+                <span>Test</span>
             </a>
         </li>
         <li>
             <a href="{{route('edu.language.list')}}">
-                <span>Tiếng Anh</span>
+                <span>English</span>
             </a>
         </li>
         <li>
@@ -39,13 +39,12 @@
                 <span>Liên hệ</span>
             </a>
         </li>
-        <li class="search">
-            <a href="#">
-                <i class="entypo-search"></i>
-            </a>
-            <form method="get" class="search-form" action="" enctype="application/x-www-form-urlencoded">
-                <input type="text" class="form-control" name="q" placeholder="Type to search..." />
-            </form>
+        <li>
+            <a href="/login" ><span class="entypo-login"></span></a>
+            <a href="/register" ><span class="entypo-user-add"></span></a>
+        </li>
+        <li>
+
         </li>
     </ul>
     <div class="visible-xs">

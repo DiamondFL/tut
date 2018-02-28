@@ -20,7 +20,6 @@ class UshCategory extends Model implements Transformable
         if (isset($input['name'])) {
             $query->where('name', $input['name']);
         }
-
         return $query;
     }
 

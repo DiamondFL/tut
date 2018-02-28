@@ -28,6 +28,6 @@ class RoleMiddleware
             return $next($request);
         }
         session()->flash('error', 'Not Role');
-        return redirect()->back();
+        return redirect()->route('home');
     }
 }

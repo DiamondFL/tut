@@ -28,7 +28,7 @@ class UshSubCategory extends Model implements Transformable
 
     public function category()
     {
-        return $this->belongsTo(UshCategory::class);
+        return $this->belongsTo(UshCategory::class, 'ush_category_id');
     }
 
     public $fileUpload = ['image' => 1];

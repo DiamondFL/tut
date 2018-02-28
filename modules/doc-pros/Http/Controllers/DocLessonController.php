@@ -4,7 +4,6 @@ namespace DocPros\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
-use DocPros\Models\DocLesson;
 use DocPros\Http\Requests\DocLessonCreateRequest;
 use DocPros\Http\Requests\DocLessonUpdateRequest;
 use DocPros\Repositories\DocLessonRepository;
@@ -44,24 +43,24 @@ class DocLessonController extends Controller
 
     public function show($id)
     {
-        $docLesson = $this->repository->find($id);
-        if(empty($docLesson))
+        $data = $this->repository->edit($id);
+        if(empty($data))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('doc::doc-lesson.show', compact('docLesson'));
+        return view('doc::doc-lesson.show', $data);
     }
 
     public function edit($id)
     {
-        $docLesson = $this->repository->find($id);
-        if(empty($docLesson))
+        $data = $this->repository->edit($id);
+        if(empty($data))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('doc::doc-lesson.update', compact('docLesson'));
+        return view('doc::doc-lesson.update', $data);
     }
 
     public function update(DocLessonUpdateRequest $request, $id)

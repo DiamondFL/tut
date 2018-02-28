@@ -6,10 +6,10 @@
                 <a href="/"><i class="fa fa-home"></i>Home</a>
             </li>
             <li>
-                <a href="/">_name_</a>
+                <a href="/">Lesson</a>
             </li>
             <li class="active">
-                <strong>Tables</strong>
+                <strong>Table</strong>
             </li>
         </ol>
         <form action="{{route('doc-lesson.store')}}" method="post" enctype="multipart/form-data">
@@ -48,7 +48,6 @@
             </div>
         </form>
     </div>
-    <input type="hidden" id="listSubCategoryRoute" value="{{route('ush.sub-category.list')}}">
 @endsection
 
 @push('js')

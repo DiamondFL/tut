@@ -5,7 +5,7 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Neon Admin Panel" />
+	<meta name="description" content="Edubeanz" />
 	<meta name="author" content="" />
 
 	<link rel="icon" href="{{asset('frontd')}}/images/favicon.ico">

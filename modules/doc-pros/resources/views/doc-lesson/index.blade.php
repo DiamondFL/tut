@@ -5,24 +5,24 @@
             <a href="/"><i class="fa fa-home"></i></a>
         </li>
         <li>
-            <a href="{{route('doc-lesson.index')}}">doc_lessons</a>
+            <a href="{{route('doc-lesson.index')}}">Lesson</a>
         </li>
         <li class="active">
             <strong>Table</strong>
         </li>
     </ol>
     <form class="form-group row" id="formFilter" action="{{route('doc-lesson.index')}}" method="POST">
-        <!--<div class="col-sm-2 form-group">-->
-            <!--<select name="per_page" class="form-control inputFilter">-->
-                <!--<option value="10">10</option>-->
-                <!--<option value="20">20</option>-->
-                <!--<option value="30">30</option>-->
-                <!--<option value="40">40</option>-->
-                <!--<option value="50">50</option>-->
-            <!--</select>-->
-        <!--</div>-->
+        <div class="col-sm-2 form-group">
+            <select name="per_page" class="form-control inputFilter">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+        </div>
         <div class="col-sm-8 form-group">
-            <input name="title" class="form-control inputFilter" placeholder="title">
+            <input name="title" class="form-control inputFilter" placeholder="Search ...">
         </div>
         <!--<div class="col-sm-3 form-group">-->
         <!--<input name="display_name" class="form-control inputFilter" placeholder="display_name">-->

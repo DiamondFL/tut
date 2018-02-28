@@ -4,10 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Neon Admin Panel" />
+    <meta name="description" content="Edubeanz" />
     <meta name="author" content="" />
     <link rel="icon" href="{{asset('')}}assets/images/favicon.ico">
-    <title>Neon | Register</title>
+    <title>Edubeanz | Register</title>
     <link rel="stylesheet" href="{{asset('')}}assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/entypo/css/entypo.css">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
@@ -16,9 +16,6 @@
     <link rel="stylesheet" href="{{asset('')}}assets/css/neon-theme.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/custom.css">
     <script src="{{asset('')}}assets/js/jquery-1.11.3.min.js"></script>
-    <!--[if lt IE 9]><script src="{{asset('')}}assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
@@ -36,26 +33,16 @@
     <div class="login-container">
         <div class="login-header login-caret">
             <div class="login-content">
-                <a href="index.html" class="logo">
-                    <img src="{{asset('')}}assets/images/logo@2x.png" width="120" alt="" />
+                <a href="/" class="logo">
+                    <h1 style="color: white">EDUBEANZ</h1>
                 </a>
-                <p class="description">Dear user, log in to access the admin area!</p>
-                <!-- progress bar indicator -->
-                <div class="login-progressbar-indicator">
-                    <h3>43%</h3>
-                    <span>logging in...</span>
-
-                </div>
+                {{--<p class="description">Dear user, log in to access the admin area!</p>--}}
             </div>
-        </div>
-        <div class="login-progressbar">
-            <div></div>
         </div>
         <div class="login-form">
             <div class="login-content">
                 <form role="form" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
-
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -94,34 +81,6 @@
                                     <strong>{{ $errors->first('password_confirmation') }}</strong>
                                 </span>
                             @endif
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="entypo-code"></i>
-                            </div>
-                            {!! captcha_image_html('RegisterCaptcha')  !!}
-                            {{--@if ($errors->has('CaptchaCode'))--}}
-                            {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('CaptchaCode') }}</strong>--}}
-                            {{--</span>--}}
-                            {{--@endif--}}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="entypo-code"></i>
-                            </div>
-
-                            <input type="text" id="CaptchaCode" class="form-control" name="CaptchaCode" required >
-                            <hr>
-                            {{--@if ($errors->has('CaptchaCode'))--}}
-                            {{--<span class="help-block">--}}
-                            {{--<strong>{{ $errors->first('CaptchaCode') }}</strong>--}}
-                            {{--</span>--}}
-                            {{--@endif--}}
                         </div>
                     </div>
                     <div class="form-group">

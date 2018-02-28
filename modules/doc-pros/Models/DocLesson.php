@@ -6,6 +6,7 @@ use Istruct\MultiInheritance\ModelsTrait;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Ush\Models\UshSubCategory;
 
 class DocLesson extends Model implements Transformable
 {
@@ -14,6 +15,11 @@ class DocLesson extends Model implements Transformable
 
     public $table = 'doc_lessons';
     public $fillable = ['title', 'intro', 'content', 'sub_category_id', 'views', 'last_view', 'created_by', 'updated_by'];
+
+    public function subCategory()
+    {
+        return $this->belongsTo(UshSubCategory::class, 'sub_category_id');
+    }
 
     public function scopeFilter($query, $input)
     {
@@ -41,10 +47,8 @@ class DocLesson extends Model implements Transformable
         if (isset($input['updated_by'])) {
             $query->where('updated_by', $input['updated_by']);
         }
-
         return $query;
     }
-
 
     public $fileUpload = ['image' => 1];
     protected $pathUpload = ['image' => '/images/doc_lessons'];
