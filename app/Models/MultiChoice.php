@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-;
 
 use Istruct\MultiInheritance\ModelsTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -42,10 +41,10 @@ class MultiChoice extends Model implements Transformable
         return $query;
     }
 
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/multi_choices'];
+    public $fileUpload = [IMAGE_COL => 1];
+    protected $pathUpload = [IMAGE_COL => '/images/multi_choices'];
     protected $thumbImage = [
-        'image' => [
+        IMAGE_COL => [
             '/thumbs/' => [
                 [200, 200], [300, 300], [400, 400]
             ]

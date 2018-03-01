@@ -90,11 +90,9 @@
                         </button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
-
 <!-- Bottom scripts (common) -->
 <script src="{{asset('')}}assets/js/gsap/TweenMax.min.js"></script>
 <script src="{{asset('')}}assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
@@ -105,10 +103,8 @@
 <script src="{{asset('')}}assets/js/jquery.validate.min.js"></script>
 <script src="{{asset('')}}assets/js/neon-login.js"></script>
 
-
 <!-- JavaScripts initializations and stuff -->
 {{--<script src="{{asset('')}}assets/js/neon-custom.js"></script>--}}
-
 
 <!-- Demo Settings -->
 {{--<script src="{{asset('')}}assets/js/neon-demo.js"></script>--}}

@@ -38,7 +38,6 @@
         </div>
     </div>
     <!-- Main Slider -->
-
         <div class="container">
             @include('layouts.alerts.index')
             @yield('container')

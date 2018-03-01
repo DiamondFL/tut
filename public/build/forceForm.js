@@ -18,8 +18,9 @@ function getChecked(input) {
 (function ($) {
     $.fn.checkAll = function (item) {
         var self = this;
-        $(document).on('change', '#' + self.attr('id'), function () {
-            if (self.is(":checked")) {
+        var id = '#' + self.attr('id');
+        $(document).on('change', id, function () {
+            if ($(id).is(":checked")) {
                 $(item).each(function () {
                     $(this).prop('checked', true);
                 })

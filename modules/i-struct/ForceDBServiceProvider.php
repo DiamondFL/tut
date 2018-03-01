@@ -26,7 +26,6 @@ class ForceDBServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/magic-db.php' => config_path('magic-db.php'),
         ]);
-
         if ($this->app->runningInConsole()) {
             $this->commands([
                 ForceDBCommand::class

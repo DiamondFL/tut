@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: vincent
+ * User: Vincent Minh Cương
  * Date: 4/26/17
  * Time: 2:57 PM
  */
@@ -69,7 +69,6 @@
   const USH_SUB_CATEGORIES_TB = 'ush_sub_categories';
   const USH_WEIGHTS_TB = 'ush_weights';
   const VOCABULARIES_TB = 'vocabularies';
-
 
   const ACTIVE_COL = 'active';
   const ADDRESS_COL = 'address';

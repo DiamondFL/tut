@@ -2,7 +2,7 @@
 namespace App\Constants;
 /**
  * Created by PhpStorm.
- * User: vincent
+ * User: Vincent Minh Cương
  * Date: 4/26/17
  * Time: 2:57 PM
  */

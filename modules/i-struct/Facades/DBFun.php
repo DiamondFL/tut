@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Schema;
 class DBFun
 {
     protected $db, $tables;
-
     protected $exceptFillable = ['id', 'created_at', 'updated_at', 'deleted_at'];
     protected $exceptField = ['password', 'remember_token', 'creator', 'updater', 'code', 'user_id'];
 

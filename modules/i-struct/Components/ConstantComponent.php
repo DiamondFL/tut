@@ -7,8 +7,6 @@
  */
 
 namespace Istruct\Components;
-
-
 use Istruct\Facades\DBFa;
 use Istruct\Helpers\DecoHelper;
 use Istruct\Helpers\CRUDPath;
@@ -18,7 +16,6 @@ class ConstantComponent extends BaseComponent
     public function __construct()
     {
         $this->source = file_get_contents(CRUDPath::inConstant());
-        //$this->buildNameSpace();
     }
 
     public function getAllColumn($tables)
@@ -35,7 +32,7 @@ class ConstantComponent extends BaseComponent
     public function buildColumn($columns)
     {
         $constants = '';
-        $upper_columns = array_map('strtoupper', $columns); //strtoupper strtolower
+        $upper_columns = array_map('strtoupper', $columns);
         foreach ($columns as $key => $column) {
             $constants .= '  const ' . $upper_columns[$key] . '_COL = \'' . $column . '\'' . ";\n";
         }
@@ -45,7 +42,7 @@ class ConstantComponent extends BaseComponent
     public function buildTable($tables)
     {
         $constants = '';
-        $upper= array_map('strtoupper', $tables); //strtoupper strtolower
+        $upper= array_map('strtoupper', $tables);
         foreach ($tables as $key => $table) {
             $constants .= '  const ' . $upper[$key] . '_TB = \'' . $table . '\'' . ";\n";
         }
