@@ -10,7 +10,7 @@
         "consoletvs/charts": "^4.3",
         "doctrine/dbal": "^2.5",
         "dompdf/dompdf": "dev-master",
-        "fideloper/proxy" : "~4.0",
+        "fideloper/proxy": "~4.0",
         "intervention/image": "^2.3",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
@@ -40,6 +40,7 @@
         ],
         "psr-4": {
             "App\\": "app/",
+            "Bugger\\": "modules/Bugger/",
             "Edubeanz\\": "modules/edubeanz/",
             "Games\\": "modules/games/",
             "Istruct\\": "modules/i-struct/",

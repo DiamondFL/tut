@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use App\Notifications\ExceptionNotify;
+use App\User;
+use Carbon\Carbon;
 use Exception;
 
 use Illuminate\Auth\Access\AuthorizationException;
@@ -46,6 +49,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+
+        $data['content'] = parent::render($request, $exception);
+        $data['title'] = $exception->getMessage();
+        app(User::class)->where('email', 'i.am.m.cuong@gmail.com')->first()
+            ->notify(new ExceptionNotify($data));
+
         session()->flash('global', $exception->getMessage());
         /**modified part**/
         if ($request->wantsJson()) {

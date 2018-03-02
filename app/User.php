@@ -16,9 +16,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    public $fillable = ['first_name', 'last_name', 'code', 'email', 'phone_number', 'sex', 'password', 'birthday',
+        'address', 'avatar', 'remember_token', 'active', 'last_login', 'last_logout', 'slack_webhook_url'];
+
+    public function scopeFilter($query, $input)
+    {
+        return $query;
+    }
 
     /**
      * The attributes that should be hidden for arrays.
