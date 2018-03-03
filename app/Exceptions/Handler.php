@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use App\Notifications\ExceptionNotify;
 use App\User;
+use Bugger\Events\ExceptionEvent;
 use Carbon\Carbon;
 use Exception;
 
@@ -49,12 +50,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-
         $data['content'] = parent::render($request, $exception);
         $data['title'] = $exception->getMessage();
-        app(User::class)->where('email', 'i.am.m.cuong@gmail.com')->first()
-            ->notify(new ExceptionNotify($data));
-
+        event(new ExceptionEvent($data));
         session()->flash('global', $exception->getMessage());
         /**modified part**/
         if ($request->wantsJson()) {
