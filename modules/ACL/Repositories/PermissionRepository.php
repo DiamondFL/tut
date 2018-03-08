@@ -1,6 +1,6 @@
 <?php
 
-namespace IoAccess\Repositories;
+namespace ACL\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
@@ -18,5 +18,4 @@ interface PermissionRepository extends RepositoryInterface
     public function is($name);
     public function access($module_id, $access_id);
     public function accesses($module_id, $access_ids);
-
 }

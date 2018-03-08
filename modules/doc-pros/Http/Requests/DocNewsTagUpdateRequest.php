@@ -31,7 +31,7 @@ class DocNewsTagUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

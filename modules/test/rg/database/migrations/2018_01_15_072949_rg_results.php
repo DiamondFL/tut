@@ -19,6 +19,7 @@ class RgResults extends Migration
             $table->integer('user_id');
             $table->tinyInteger('score');
             $table->integer('rg_results_id');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
         });
     }

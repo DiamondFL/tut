@@ -31,7 +31,7 @@ class DocProjectUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

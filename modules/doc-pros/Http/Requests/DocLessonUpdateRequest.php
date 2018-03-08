@@ -24,14 +24,16 @@ class DocLessonUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            TITLE_COL => "required",
+            INTRO_COL => "required",
+            CONTENT_COL => "required"
         ];
     }
 
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

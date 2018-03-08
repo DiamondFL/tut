@@ -21,7 +21,7 @@ class CreateNewsTable extends Migration
             $table->integer('views')->default(0);
             $table->string('source')->nullable();
             $table->dateTime('last_view')->nullable();
-            $table->boolean('active')->default(0);
+            $table->tinyInteger('is_active')->default(1);
             $table->boolean('hot')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

@@ -53,8 +53,8 @@ class DocExampleRepositoryEloquent extends BaseRepository implements DocExampleR
         $input = $this->standardized($input,$this->model);
         $input[CREATED_BY_COL] = auth()->id();
         $data = $this->create($input);
-        if (isset($input['tags'])) {
-            $this->tags($input['tags'], $data);
+        if (isset($input[TAGS_TB])) {
+            $this->tags($input[TAGS_TB], $data);
         }
     }
 
@@ -63,8 +63,8 @@ class DocExampleRepositoryEloquent extends BaseRepository implements DocExampleR
         $input = $this->standardized($input, $data);
         $input[UPDATED_BY_COL] = auth()->id();
         $data = $this->update($input, $data->id);
-        if (isset($input['tags'])) {
-            $this->tags($input['tags'], $data);
+        if (isset($input[TAGS_TB])) {
+            $this->tags($input[TAGS_TB], $data);
         }
     }
 

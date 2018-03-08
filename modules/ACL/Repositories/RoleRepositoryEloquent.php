@@ -1,10 +1,9 @@
 <?php
 
-namespace IoAccess\Repositories;
+namespace ACL\Repositories;
 
-use Istruct\MultiInheritance\RepositoriesTrait;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Istruct\MultiInheritance\RepositoriesTrait;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use App\Models\Role;
@@ -35,7 +34,6 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
 
     public function store($input)
     {
-        $input = $this->checkbox($input);
         $this->create($input);
     }
 
@@ -59,12 +57,6 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
         set_time_limit(9999);
         $path = $this->makeModel()->uploadImport($file);
         $this->importing($path);
-    }
-
-    private function standardized($input, $data)
-    {
-        $input = $data->uploads($input);
-        return $data->checkbox($input);
     }
 
     public function is($name)

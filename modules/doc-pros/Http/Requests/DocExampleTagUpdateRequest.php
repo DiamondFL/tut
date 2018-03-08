@@ -31,7 +31,7 @@ class DocExampleTagUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

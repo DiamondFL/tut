@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->text('avatar')->nullable();
             $table->integer('coin')->default(1000);
             $table->rememberToken();
-            $table->tinyInteger('active')->default(1);
+            $table->tinyInteger('is_active')->default(1);
             $table->dateTime('last_login')->nullable();
             $table->dateTime('last_logout')->nullable();
             $table->string('slack_webhook_url')->nullable();

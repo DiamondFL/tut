@@ -18,6 +18,7 @@ class RgAnswers extends Migration
             $table->tinyInteger('min');
             $table->tinyInteger('max');
             $table->text('content');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
         });
     }

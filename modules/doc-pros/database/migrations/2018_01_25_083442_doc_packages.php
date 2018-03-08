@@ -19,6 +19,7 @@ class DocPackages extends Migration
             $table->string('link');
             $table->text('intro');
             $table->timestamps();
+            $table->tinyInteger('is_active')->default(1);
             $table->softDeletes();
         });
     }

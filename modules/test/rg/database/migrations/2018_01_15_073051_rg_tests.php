@@ -18,6 +18,7 @@ class RgTests extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('rg_question_ids');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
         });
     }

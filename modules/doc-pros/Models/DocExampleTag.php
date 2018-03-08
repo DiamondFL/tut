@@ -13,30 +13,20 @@ class DocExampleTag extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'doc_example_tags';
-    public $fillable = ['doc_tag_id', 'doc_example_id'];
+    public $fillable = [DOC_TAG_ID_COL, DOC_EXAMPLE_ID_COL];
 
     public function scopeFilter($query, $input)
     {
-        if (isset($input['doc_tag_id'])) {
-            $query->where('doc_tag_id', $input['doc_tag_id']);
+        if (isset($input[DOC_TAG_ID_COL])) {
+            $query->where(DOC_TAG_ID_COL, $input[DOC_TAG_ID_COL]);
         }
-        if (isset($input['doc_example_id'])) {
-            $query->where('doc_example_id', $input['doc_example_id']);
+        if (isset($input[DOC_EXAMPLE_ID_COL])) {
+            $query->where(DOC_EXAMPLE_ID_COL, $input[DOC_EXAMPLE_ID_COL]);
         }
 
         return $query;
     }
 
-
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/doc_example_tags'];
-    protected $thumbImage = [
-        'image' => [
-            '/thumbs/' => [
-                [200, 200], [300, 300], [400, 400]
-            ]
-        ]
-    ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 

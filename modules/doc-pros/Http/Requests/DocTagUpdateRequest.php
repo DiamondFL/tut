@@ -31,7 +31,7 @@ class DocTagUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

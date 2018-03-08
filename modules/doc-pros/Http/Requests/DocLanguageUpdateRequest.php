@@ -31,7 +31,7 @@ class DocLanguageUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

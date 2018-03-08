@@ -13,30 +13,28 @@ class DocNewsTag extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'doc_news_tags';
-    public $fillable = ['doc_news_id', 'doc_tag_id'];
+    public $fillable = [DOC_NEWS_ID_COL, DOC_TAG_ID_COL];
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['doc_news_id'])) {
-                $query->where('doc_news_id', $input['doc_news_id']); 
-                }
-if(isset($input['doc_tag_id'])) {
-                $query->where('doc_tag_id', $input['doc_tag_id']); 
-                }
-
+        if (isset($input[DOC_NEWS_ID_COL])) {
+            $query->where(DOC_NEWS_ID_COL, $input[DOC_NEWS_ID_COL]);
+        }
+        if (isset($input[DOC_TAG_ID_COL])) {
+            $query->where(DOC_TAG_ID_COL, $input[DOC_TAG_ID_COL]);
+        }
         return $query;
     }
 
-
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/doc_news_tags'];
+    public $fileUpload = [IMAGE_COL => 1];
+    protected $pathUpload = [IMAGE_COL => '/images/doc_news_tags'];
     protected $thumbImage = [
-        'image' => [
+        IMAGE_COL => [
             '/thumbs/' => [
                 [200, 200], [300, 300], [400, 400]
             ]
         ]
     ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 

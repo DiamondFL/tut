@@ -6,7 +6,7 @@
  * Time: 3:27 PM
  */
 
-namespace IoAccess\Facades;
+namespace App\Facades;
 
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;

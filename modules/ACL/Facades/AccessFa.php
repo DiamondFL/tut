@@ -6,14 +6,14 @@
  * Time: 3:27 PM
  */
 
-namespace IoAccess\Facades;
+namespace ACL\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class FoAccess extends Facade
+class AccessFa extends Facade
 {
     public static function getFacadeAccessor()
     {
-        return 'FoAccess';
+        return 'AccessFa';
     }
 }

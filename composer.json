@@ -39,13 +39,13 @@
             "modules"
         ],
         "psr-4": {
+            "ACL\\": "ACL/",
             "App\\": "app/",
             "Bugger\\": "modules/Bugger/",
             "Edubeanz\\": "modules/edubeanz/",
             "Games\\": "modules/games/",
             "Istruct\\": "modules/i-struct/",
             "Test\\Rg\\": "modules/test/rg/",
-            "IoAccess\\": "modules/ioaccess/",
             "Ush\\": "modules/ush/",
             "DocPros\\": "modules/doc-pros/",
             "SuViewer\\": "modules/suviewer/"

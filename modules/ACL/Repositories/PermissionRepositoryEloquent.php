@@ -1,13 +1,13 @@
 <?php
 
-namespace IoAccess\Repositories;
+namespace ACL\Repositories;
 
 use App\Constants\Page;
 use App\Models\Permission;
 use App\Models\Role;
-use Istruct\MultiInheritance\RepositoriesTrait;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Istruct\MultiInheritance\RepositoriesTrait;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 
@@ -64,19 +64,19 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
         $name = explode('|', $name);
         return Cache::remember($name, 999, function () use ($name) {
             $permissionIds = $this->makeModel()
-                ->whereIn('name', $name)
-                ->where('is_active', 1)
+                ->whereIn(NAME_COL, $name)
+                ->where(IS_ACTIVE_COL, 1)
                 ->pluck('id')
                 ->toArray();
             if (count($permissionIds) > 0) {
                 $roleIds = DB::table('role_permission')
-                    ->whereIn('permission_id', $permissionIds)
-                    ->pluck('role_id')
+                    ->whereIn(PERMISSION_ID_COL, $permissionIds)
+                    ->pluck(ROLE_ID_COL)
                     ->toArray();
                 if (count($roleIds)) {
                     $role_user = DB::table('role_user')
-                        ->where('user_id', auth()->id())
-                        ->whereIn('role_id', $roleIds)
+                        ->where(USER_ID_COL, auth()->id())
+                        ->whereIn(ROLE_ID_COL, $roleIds)
                         ->count();
                     if ($role_user > 0) {
                         return true;
@@ -87,18 +87,21 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
         });
     }
 
-    public function access($module_id, $access_id)
+    public function access($module_id, $access_id, $role_ids = null)
     {
         $permission = $this->onlyOne(['module_id'=> $module_id, 'access_id' => $access_id]);
         if(!empty($permission))
         {
-            $role_ids = DB::table('role_permission')
-                ->where('permission_id', $permission->id)
-                ->pluck('role_id');
+            if($role_ids === null) {
+                $role_ids = DB::table('role_permission')
+                    ->where(PERMISSION_ID_COL, $permission->id)
+                    ->pluck(ROLE_ID_COL);
+            }
+
             if (count($role_ids) > 0) {
                 $count = DB::table('role_user')
-                    ->where('user_id', auth()->id())
-                    ->whereIn('role_id', $role_ids)
+                    ->where(USER_ID_COL, auth()->id())
+                    ->whereIn(ROLE_ID_COL, $role_ids)
                     ->count();
                 if ($count > 0) {
                     return true;

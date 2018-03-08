@@ -18,6 +18,7 @@ class RgReplies extends Migration
             $table->integer('rg_question_id');
             $table->text('content');
             $table->tinyInteger('integer');
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
         });
     }

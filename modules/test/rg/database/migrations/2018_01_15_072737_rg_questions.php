@@ -16,6 +16,7 @@ class RgQuestions extends Migration
         Schema::create('rg_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->text('content');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
         });
     }

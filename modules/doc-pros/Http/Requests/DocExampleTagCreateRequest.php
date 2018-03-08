@@ -31,7 +31,7 @@ class DocExampleTagCreateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

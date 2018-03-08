@@ -23,6 +23,7 @@ class DocNews extends Migration
             $table->dateTime('last_view')->nullable();
             $table->boolean('active')->default(0);
             $table->boolean('hot')->default(0);
+            $table->tinyInteger('is_active')->default(1);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

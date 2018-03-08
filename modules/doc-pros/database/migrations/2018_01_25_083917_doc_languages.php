@@ -17,6 +17,7 @@ class DocLanguages extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('intro');
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

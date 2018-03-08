@@ -31,7 +31,7 @@ class DocPackageUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            []
+
         ];
     }
 }

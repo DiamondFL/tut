@@ -171,7 +171,6 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -198,7 +197,8 @@ return [
         \SuViewer\SuViewerServiceProvider::class,
         \Ush\UshServiceProviders::class,
         \Bugger\BuggerServiceProvider::class,
-        \Bugger\EventBuggerServiceProvider::class
+        \Bugger\EventBuggerServiceProvider::class,
+        \ACL\ACLServiceProvider::class,
     ],
 
     /*
@@ -250,7 +250,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-
         'CurlFa' => \Istruct\Facades\CurlFa::class,
         'InputFa' => \Istruct\Facades\InputFa::class,
         'FormatFa' => \Istruct\Facades\FormatFa::class,
@@ -260,6 +259,7 @@ return [
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'MenuFa' => \SuViewer\Facades\MenuFa::class,
+        'ACL' => \ACL\Facades\AccessFa::class,
     ],
 
 ];

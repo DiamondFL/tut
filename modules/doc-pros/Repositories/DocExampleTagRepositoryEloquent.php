@@ -18,6 +18,7 @@ use DocPros\Models\DocExampleTag;
 class DocExampleTagRepositoryEloquent extends BaseRepository implements DocExampleTagRepository
 {
     use RepositoriesTrait;
+
     /**
      * Specify Model class name
      *
@@ -64,6 +65,11 @@ class DocExampleTagRepositoryEloquent extends BaseRepository implements DocExamp
     public function destroy($data)
     {
         // TODO: Implement remove() method.
+    }
+
+    public function paginateByTags($input)
+    {
+
     }
 
     /**

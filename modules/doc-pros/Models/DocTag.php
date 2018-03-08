@@ -13,26 +13,16 @@ class DocTag extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'doc_tags';
-    public $fillable = ['name'];
+    public $fillable = [NAME_COL];
 
     public function scopeFilter($query, $input)
     {
-        if (isset($input['name'])) {
-            $query->where('name', $input['name']);
+        if (isset($input[NAME_COL])) {
+            $query->where(NAME_COL, $input[NAME_COL]);
         }
         return $query;
     }
 
-
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/doc_tags'];
-    protected $thumbImage = [
-        'image' => [
-            '/thumbs/' => [
-                [200, 200], [300, 300], [400, 400]
-            ]
-        ]
-    ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 

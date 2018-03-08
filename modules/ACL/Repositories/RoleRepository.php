@@ -1,6 +1,6 @@
 <?php
 
-namespace IoAccess\Repositories;
+namespace ACL\Repositories;
 
 use Prettus\Repository\Contracts\RepositoryInterface;
 
