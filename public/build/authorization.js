@@ -2,13 +2,13 @@
  * Created by vincent on 5/24/17.
  */
 var permission_id;
-var formRoleList = $('#formRoleList');
+var formroleCompose = $('#formroleCompose');
 var listRole = $('input[name="role[]"]');
 
-formRoleList.submit(function (e) {
+formroleCompose.submit(function (e) {
     e.preventDefault();
     $.ajax({
-        url: formRoleList.attr('action'),
+        url: formroleCompose.attr('action'),
         method: 'POST',
         data: {role_ids: getChecked($('input[name="role[]"]:checked')), id: permission_id},
         success: function (data) {

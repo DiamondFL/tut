@@ -64,6 +64,7 @@
             {{--</li>--}}
             @include('trg::layouts.sidebar')
             @include('ush::layouts.sidebar')
+            @include('acl::layouts.nav')
 
         </ul>
     </div>

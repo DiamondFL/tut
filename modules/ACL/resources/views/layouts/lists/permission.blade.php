@@ -5,7 +5,7 @@
         </div>
         All
     </li>
-    @foreach($permissionList as $key => $permission)
+    @foreach($permissionCompose as $key => $permission)
         <li class="list-group-item">
             <div class="checkbox checkbox-replace color-primary pull-right">
                 <input type="checkbox" name="permission_ids[]" value="{{$key}}" class="permission_id">

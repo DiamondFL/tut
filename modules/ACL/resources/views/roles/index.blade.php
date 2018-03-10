@@ -2,10 +2,10 @@
 @section('content')
     <ol class="breadcrumb bc-3">
         <li>
-            <a href="index.html"><i class="fa fa-home"></i>Home</a>
+            <a href="/"><i class="fa fa-home"></i>Home</a>
         </li>
         <li>
-            <a href="tables-main.html">Tables</a>
+            <a>Tables</a>
         </li>
         <li class="active">
 
@@ -50,12 +50,12 @@
                     </h3>
                 </div>
                 <div class="box-content nopadding">
-                    @include('roles.table')
+                    @include('acl::roles.table')
                 </div>
             </div>
         </div>
     </div>
-    @include('layouts.modals.permissionList')
+    @include('acl::layouts.modals.permissionList')
 @endsection
 @push('css')
 

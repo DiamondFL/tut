@@ -18,7 +18,7 @@ Route::group(['middleware' => ['auth', 'remember.url', 'role:admin']], function 
     Route::resource('questions', 'QuestionController');
     Route::resource('multi_choices', 'MultiChoiceController');
     Route::resource('news', 'NewsController');
-    Route::resource('roles', 'RoleController');
+
 //    Route::group(['middleware'=> 'role:admin'], function () {
     Route::resource('scores', 'ScoreController');
 //    });

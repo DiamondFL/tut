@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
     {
         $data['content'] = parent::render($request, $exception);
         $data['title'] = $exception->getMessage();
-        event(new ExceptionEvent($data));
+//        event(new ExceptionEvent($data));
         session()->flash('global', $exception->getMessage());
         /**modified part**/
         if ($request->wantsJson()) {

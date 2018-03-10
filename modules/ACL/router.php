@@ -8,4 +8,5 @@
 
 Route::group(['namespace' => 'ACL\Http\Controllers', 'middleware' => ['web', 'auth']], function () {
     Route::resource('permissions' , 'PermissionController');
+    Route::resource('roles', 'RoleController');
 });

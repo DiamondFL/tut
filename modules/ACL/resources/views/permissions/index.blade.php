@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('layouts.app')
 @section('content')
     <ol class="breadcrumb bc-3">
         <li>
@@ -30,7 +30,7 @@
             @include('permissions.table')
         </div>
     </div>
-    @include('layouts.modals.roleList')
+    @include('layouts.modals.roleCompose')
 @endsection
 @push('js')
     <script src="{{asset('build/form-filter.js')}}"></script>

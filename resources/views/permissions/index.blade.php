@@ -43,7 +43,7 @@
     <div class="box-content nopadding">
         @include('permissions.table')
     </div>
-    @include('layouts.modals.roleList')
+    @include('layouts.modals.roleCompose')
 @endsection
 
 @push('js')

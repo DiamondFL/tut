@@ -9,7 +9,7 @@
             </div>
 
             <div class="modal-body">
-                @include('layouts.lists.permission')
+                @include('acl::layouts.lists.permission')
             </div>
 
             <div class="modal-footer">

@@ -6,10 +6,10 @@
  * Time: 8:26 AM
  */
 
-namespace App\Http\ViewComposers;
+namespace ACL\Http\ViewComposers;
 
 
-use App\Repositories\PermissionRepository;
+use ACL\Repositories\PermissionRepository;
 use Illuminate\View\View;
 
 class PermissionComposer
@@ -21,6 +21,6 @@ class PermissionComposer
     }
     public function compose(View $view)
     {
-        $view->with(['permissionList' => $this->repository->pluck('display_name', 'id')]);
+        $view->with(['permissionCompose' => $this->repository->pluck('display_name', 'id')]);
     }
 }

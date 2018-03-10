@@ -59,9 +59,9 @@ class PermissionController extends Controller
         }
         if($request->ajax())
         {
-            return view('permissions.table', compact('accessList', 'levelList'))->render();
+            return view('acl::permissions.table', compact('accessList', 'levelList'))->render();
         }
-        return view('permissions.index', compact('levelList', 'accessList'));
+        return view('acl::permissions.index', compact('levelList', 'accessList', 'permissions'));
     }
 
     /**
@@ -71,7 +71,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('permissions.create');
+        return view('acl::permissions.create');
     }
 
     /**
@@ -117,7 +117,7 @@ class PermissionController extends Controller
             session()->flash('error', 'NOT FOUND');
             return redirect()->back();
         }
-        return view('permissions.update', compact('permission'));
+        return view('acl::permissions.update', compact('permission'));
     }
 
     /**

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ACL\Http\Controllers;
 
 use App\Constants\DBConst;
+use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
-use App\Http\Requests\RoleCreateRequest;
-use App\Http\Requests\RoleUpdateRequest;
-use App\Repositories\RoleRepository;
+use ACL\Http\Requests\RoleCreateRequest;
+use ACL\Http\Requests\RoleUpdateRequest;
+use ACL\Repositories\RoleRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -25,14 +25,14 @@ class RoleController extends Controller
         $input = $request->all();
         $data['roles'] = $this->repository->myPaginate($input);
         if ($request->ajax()) {
-            return view('roles..table', $data)->render();
+            return view('acl::roles.table', $data)->render();
         }
-        return view('roles.index', $data);
+        return view('acl::roles.index', $data);
     }
 
     public function create()
     {
-        return view('roles.create');
+        return view('acl::roles.create');
     }
 
     public function store(RoleCreateRequest $request)

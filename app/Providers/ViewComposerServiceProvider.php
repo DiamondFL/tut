@@ -16,12 +16,6 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer([
-            'users.table', 'layouts.lists.role'
-        ], RoleComposer::class);
-
-        view()->composer(['layouts.lists.permission'],PermissionComposer::class);
-
         view()->composer(['multi_choices.index'], SubjectComposer::class);
     }
 

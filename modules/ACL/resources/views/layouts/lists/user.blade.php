@@ -5,7 +5,7 @@
         </div>
         All
     </li>
-    @foreach($roleList as $key => $role)
+    @foreach($roleCompose as $key => $role)
         <li class="list-group-item">
             <div class="checkbox checkbox-replace color-primary pull-right">
                 <input type="checkbox" name="role[]" value="{{$key}}" class="role_id">

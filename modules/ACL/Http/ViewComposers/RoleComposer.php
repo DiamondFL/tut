@@ -6,10 +6,9 @@
  * Time: 8:20 AM
  */
 
-namespace App\Http\ViewComposers;
+namespace ACL\Http\ViewComposers;
 
-
-use App\Repositories\RoleRepository;
+use ACL\Repositories\RoleRepository;
 use Illuminate\View\View;
 
 class RoleComposer
@@ -21,6 +20,7 @@ class RoleComposer
     }
     public function compose(View $view)
     {
-        $view->with(['roleList' => $this->repository->makeModel()->pluck('display_name', 'id')]);
+        $list = $this->repository->makeModel()->pluck('display_name', 'id');
+        $view->with(['roleCompose' => $list]);
     }
 }
