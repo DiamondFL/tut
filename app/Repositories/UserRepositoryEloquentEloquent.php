@@ -14,7 +14,7 @@ use App\Models\User;
  * Class NewsRepositoryEloquent
  * @package namespace App\Repositories;
  */
-class UserRepositoryEloquent extends BaseRepository implements UserRepository
+class UserRepositoryEloquentEloquent extends BaseRepository implements UserRepositoryEloquent
 {
     use RepositoriesTrait;
     /**

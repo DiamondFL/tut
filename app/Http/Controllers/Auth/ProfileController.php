@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Repositories\UserRepository;
+use App\Repositories\UserRepositoryEloquent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ProfileController extends Controller
 {
     private $repository;
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepositoryEloquent $repository)
     {
         $this->repository = $repository;
     }

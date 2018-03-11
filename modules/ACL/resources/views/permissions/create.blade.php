@@ -1,15 +1,14 @@
-@extends('dashboard')
+@extends('layouts.app')
 @section('content')
     <ol class="breadcrumb bc-3">
         <li>
-            <a href="index.html"><i class="fa fa-home"></i>Home</a>
+            <a href="/l"><i class="fa fa-home"></i>Home</a>
         </li>
         <li>
-            <a href="tables-main.html">Tables</a>
+            <a >Tables</a>
         </li>
         <li class="active">
-
-            <strong>Basic Tables</strong>
+            <strong>Table</strong>
         </li>
     </ol>
     <div class="row">
@@ -19,16 +18,30 @@
                 <label for="name">{{trans('label.name')}}</label>
                 <input type="text" class="form-control" name="name" id="name">
             </div>
-
             <div class="form-group col-lg-6">
                 <label for="display_name">{{trans('label.display_name')}}</label>
                 <input type="text" class="form-control" name="display_name" id="display_name">
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="display_name">{{trans('label.module')}}</label>
+                <select class="form-control" name="module_id" id="module_id">
+                    @foreach(ACCESS_MODULE as $k => $v)
+                        <option value="{{$k}}">{{$v}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group col-lg-6">
+                <label for="display_name">{{trans('label.access')}}</label>
+                <select class="form-control" name="access" id="access">
+                    @foreach(ACCESSES as $k => $v)
+                        <option value="{{$k}}">{{$v}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group col-lg-12">
                 <label for="description">{{trans('label.description')}}</label>
                 <textarea type="text" class="form-control ckeditor" name="description" id="description"></textarea>
             </div>
-
             <div class="form-group col-lg-12">
                 <label for="is_active">{{trans('label.is_active')}}</label>
                 <div>

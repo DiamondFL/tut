@@ -7,13 +7,13 @@ use Istruct\Facades\InputFa;
 use App\Models\User;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
-use App\Repositories\UserRepository;
+use App\Repositories\UserRepositoryEloquent;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     private $repository;
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepositoryEloquent $repository)
     {
         $this->repository = $repository;
     }

@@ -21,16 +21,16 @@
                 @endforeach
             </select>
         </div>
-        {{--<div class="col-sm-3 form-group">--}}
-            {{--<button class="btn btn-primary">Done</button>--}}
-        {{--</div>--}}
+        <div class="col-sm-3 form-group">
+            <a href="{{route('permissions.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i></a>
+        </div>
     </form>
     <div class="box-content nopadding">
         <div id="table">
-            @include('permissions.table')
+            @include('acl::permissions.table')
         </div>
     </div>
-    @include('layouts.modals.roleCompose')
+    @include('acl::layouts.modals.roleCompose')
 @endsection
 @push('js')
     <script src="{{asset('build/form-filter.js')}}"></script>

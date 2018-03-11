@@ -12,7 +12,9 @@ use ACL\Repositories\PermissionRepository;
 use ACL\Repositories\PermissionRepositoryEloquent;
 use ACL\Repositories\RoleRepository;
 use ACL\Repositories\RoleRepositoryEloquent;
-use App\Facades\AccessFun;
+use ACL\Repositories\UserRepository;
+use ACL\Repositories\UserRepositoryEloquent;
+use ACL\Facades\AccessFun;
 use ACL\Http\ViewComposers\RoleComposer;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,6 +37,7 @@ class ACLServiceProvider extends ServiceProvider
         $this->app->bind(AccessFa::class, AccessFun::class);
         $this->app->bind(PermissionRepository::class, PermissionRepositoryEloquent::class);
         $this->app->bind(RoleRepository::class, RoleRepositoryEloquent::class);
+        $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
         view()->composer(['layouts.lists.permission'],PermissionComposer::class);
 
     }

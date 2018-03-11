@@ -19,8 +19,8 @@ use App\Repositories\SubjectRepository;
 use App\Repositories\SubjectRepositoryEloquent;
 use App\Repositories\TagRepository;
 use App\Repositories\TagRepositoryEloquent;
-use App\Repositories\UserRepository;
 use App\Repositories\UserRepositoryEloquent;
+use App\Repositories\UserRepositoryEloquentEloquent;
 use App\Repositories\VocabularyRepository;
 use App\Repositories\VocabularyRepositoryEloquent;
 use Illuminate\Support\ServiceProvider;
@@ -52,7 +52,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(ScoreRepository::class, ScoreRepositoryEloquent::class);
         $this->app->bind(SubjectRepository::class, SubjectRepositoryEloquent::class);
         $this->app->bind(TagRepository::class, TagRepositoryEloquent::class);
-        $this->app->bind(UserRepository::class, UserRepositoryEloquent::class);
+        $this->app->bind(UserRepositoryEloquent::class, UserRepositoryEloquentEloquent::class);
         $this->app->bind(VocabularyRepository::class, VocabularyRepositoryEloquent::class);
     }
 }

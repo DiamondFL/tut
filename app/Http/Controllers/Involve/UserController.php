@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Involve;
 
-use App\Repositories\UserRepository;
+use App\Repositories\UserRepositoryEloquent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     private $repository;
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepositoryEloquent $repository)
     {
         $this->repository = $repository;
     }

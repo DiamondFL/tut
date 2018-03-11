@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Vincent Minh Cương
+ * User: vincent
  * Date: 4/26/17
  * Time: 2:57 PM
  */
@@ -11,11 +11,13 @@
   const DOC_EXAMPLE_TAGS_TB = 'doc_example_tags';
   const DOC_EXAMPLES_TB = 'doc_examples';
   const DOC_LANGUAGES_TB = 'doc_languages';
+  const DOC_LESSONS_TB = 'doc_lessons';
   const DOC_NEWS_TB = 'doc_news';
   const DOC_NEWS_TAGS_TB = 'doc_news_tags';
   const DOC_PACKAGES_TB = 'doc_packages';
   const DOC_PROJECTS_TB = 'doc_projects';
   const DOC_TAGS_TB = 'doc_tags';
+  const FILES_TB = 'files';
   const KEY_WORDS_TB = 'key_words';
   const MATCHINGS_TB = 'matchings';
   const MIGRATIONS_TB = 'migrations';
@@ -56,7 +58,6 @@
   const USH_BRANDS_TB = 'ush_brands';
   const USH_CATEGORIES_TB = 'ush_categories';
   const USH_COLOR_PRODUCTS_TB = 'ush_color_products';
-  const USH_COLORS_TB = 'ush_colors';
   const USH_FEATURES_TB = 'ush_features';
   const USH_FITS_TB = 'ush_fits';
   const USH_GROUPS_TB = 'ush_groups';
@@ -70,6 +71,8 @@
   const USH_WEIGHTS_TB = 'ush_weights';
   const VOCABULARIES_TB = 'vocabularies';
 
+
+  const ACCESS_ID_COL = 'access_id';
   const ACTIVE_COL = 'active';
   const ADDRESS_COL = 'address';
   const ANSWER_COL = 'answer';
@@ -78,11 +81,12 @@
   const BATCH_COL = 'batch';
   const BIRTHDAY_COL = 'birthday';
   const CODE_COL = 'code';
+  const COIN_COL = 'coin';
   const CONTENT_COL = 'content';
   const CREATE_BY_COL = 'create_by';
   const CREATED_AT_COL = 'created_at';
   const CREATED_BY_COL = 'created_by';
-  const DELETED_AT_COL = 'updated_by';
+  const DELETED_AT_COL = 'deleted_at';
   const DESCRIPTION_COL = 'description';
   const DISPLAY_NAME_COL = 'display_name';
   const DOC_EXAMPLE_ID_COL = 'doc_example_id';
@@ -92,7 +96,6 @@
   const EXCHANGE_RATE_COL = 'exchange_rate';
   const FIRST_NAME_COL = 'first_name';
   const HOT_COL = 'hot';
-  const ICON_COL = 'icon';
   const ID_COL = 'id';
   const IMAGE_COL = 'image';
   const IMG_COL = 'img';
@@ -116,6 +119,7 @@
   const MIGRATION_COL = 'migration';
   const MIN_COL = 'min';
   const MINIMUM_ORDER_COL = 'minimum_order';
+  const MODULE_ID_COL = 'module_id';
   const MULTIPLE_CHOICE_ID_COL = 'multiple_choice_id';
   const NAME_COL = 'name';
   const NEWS_ID_COL = 'news_id';
@@ -159,6 +163,7 @@
   const SIZE_COL = 'size';
   const SLACK_WEBHOOK_URL_COL = 'slack_webhook_url';
   const SOURCE_COL = 'source';
+  const SUB_CATEGORY_ID_COL = 'sub_category_id';
   const SUBJECT_ID_COL = 'subject_id';
   const TAG_ID_COL = 'tag_id';
   const TITLE_COL = 'title';
@@ -166,6 +171,7 @@
   const TYPE_COL = 'type';
   const UPDATED_AT_COL = 'updated_at';
   const UPDATED_BY_COL = 'updated_by';
+  const URL_COL = 'url';
   const USER_ID_COL = 'user_id';
   const USH_BRAND_ID_COL = 'ush_brand_id';
   const USH_CATEGORY_ID_COL = 'ush_category_id';

@@ -9,13 +9,13 @@
 namespace App\Http\ViewComposers;
 
 
-use App\Repositories\UserRepository;
+use App\Repositories\UserRepositoryEloquent;
 use Illuminate\View\View;
 
 class UserComposer
 {
     private $repository;
-    public function __construct(UserRepository $repository)
+    public function __construct(UserRepositoryEloquent $repository)
     {
         $this->repository = $repository;
     }

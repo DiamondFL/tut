@@ -15,17 +15,17 @@ class Permission extends Model
 {
     use TransformableTrait;
 
-    public $fillable = [NAME_COL, DISPLAY_NAME_COL, DESCRIPTION_COL, IS_ACTIVE_COL];
+    public $fillable = [NAME_COL, DISPLAY_NAME_COL, DESCRIPTION_COL, IS_ACTIVE_COL, MODULE_ID_COL, ACCESS_ID_COL];
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['module_id']) && trim($input['module_id']) !== '')
+        if(isset($input[MODULE_ID_COL]) && trim($input[MODULE_ID_COL]) !== '')
         {
-            $query->where('module_id', trim($input['module_id']) );
+            $query->where(MODULE_ID_COL, trim($input[MODULE_ID_COL]) );
         }
-        if(isset($input['access_id']) && trim($input['access_id']) !== '')
+        if(isset($input[ACCESS_ID_COL]) && trim($input[ACCESS_ID_COL]) !== '')
         {
-            $query->where('access_id', trim($input['access_id']) );
+            $query->where(ACCESS_ID_COL, trim($input[ACCESS_ID_COL]) );
         }
         if(isset($input[IS_ACTIVE_COL]) && trim($input[IS_ACTIVE_COL]) !== '')
         {

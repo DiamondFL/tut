@@ -6,7 +6,7 @@
  * Time: 3:27 PM
  */
 
-namespace App\Facades;
+namespace ACL\Facades;
 
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
