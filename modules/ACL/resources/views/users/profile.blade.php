@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('layouts.app')
 
 @section('content')
     <ol class="breadcrumb bc-3">
@@ -81,8 +81,8 @@
             </button>
         </div>
     </div>
-    @include('users.modal.update-profile')
-    @include('users.modal.update-pass')
+    @include('acl::users.modal.update-profile')
+    @include('acl::users.modal.update-pass')
 @endsection
 @push('css')
     <link rel="stylesheet"

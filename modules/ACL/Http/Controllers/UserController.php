@@ -21,7 +21,6 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     private $repository;
-    const TABLE = DBConst::USERS;
 
     public function __construct(UserRepository $repository)
     {
@@ -31,16 +30,17 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $input = $request->all();
+        $data['access'] = \ACL::accesses(USER_MANAGEMENT_MODULE, [CREATE_ACCESS, VIEW_ACCESS, MODIFY_ACCESS, DELETE_ACCESS, INACTIVE_ACCESS, ACTIVE_ACCESS]);
         $data['users'] = $this->repository->myPaginate($input);
         if ($request->ajax()) {
-            return view('users.table', $data)->render();
+            return view('acl::users.table', $data)->render();
         }
-        return view('users.index', $data);
+        return view('acl::users.index', $data);
     }
 
     public function create()
     {
-        return view(self::TABLE . '.create');
+        return view('acl::users.create');
     }
 
     public function store(CreateUserRequest $request)
@@ -63,7 +63,7 @@ class UserController extends Controller
             return redirect(route('users.index'));
         }
         session()->flash('success', 'Update Success');
-        return view('users.update', compact('user'));
+        return view('acl::users.update', compact('user'));
     }
 
     public function update(UpdateUserRequest $request, $id)
@@ -99,7 +99,7 @@ class UserController extends Controller
     public function profile()
     {
         $user = auth()->user();
-        return view('users.profile', compact('user'));
+        return view('acl::users.profile', compact('user'));
     }
 
     public function updateProfile($id, ProfileRequest $request)

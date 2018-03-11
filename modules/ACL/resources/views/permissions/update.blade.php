@@ -1,4 +1,4 @@
-@extends('dashboard')
+@extends('layouts.app')
 @section('content')
     <ol class="breadcrumb bc-3">
         <li>

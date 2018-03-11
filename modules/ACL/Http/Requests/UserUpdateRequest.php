@@ -4,7 +4,7 @@ namespace ACL\Http\Requests;
 
 use Auth;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\User;
+use App\User;
 
 class UserUpdateRequest extends FormRequest
 {

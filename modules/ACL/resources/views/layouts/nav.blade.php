@@ -14,5 +14,10 @@
                 <span class="title">Role</span>
             </a>
         </li>
+        <li class="@sub-menu('users')">
+            <a href="{{route('users.index')}}">
+                <span class="title">User</span>
+            </a>
+        </li>
     </ul>
 </li>

@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth', 'remember.url', 'role:admin']], function 
 //    });
     Route::resource('subjects', 'SubjectController');
     Route::resource('tags', 'TagController');
-    Route::resource('users', 'UserController');
+//    Route::resource('users', 'UserController');
     Route::resource('vocabularies', 'VocabularyController');
 });
 

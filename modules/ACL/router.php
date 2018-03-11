@@ -9,6 +9,7 @@
 Route::group(['namespace' => 'ACL\Http\Controllers', 'middleware' => ['web', 'auth']], function () {
     Route::resource('permissions' , 'PermissionController');
     Route::resource('roles', 'RoleController');
+    Route::resource('users', 'UserController');
 
     Route::resource('users', 'UserController');
     Route::get('profile', 'UserController@profile')->name('profile');

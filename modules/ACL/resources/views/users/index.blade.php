@@ -1,33 +1,32 @@
-@extends('dashboard')
+@extends('layouts.app')
 @section('content')
 <ol class="breadcrumb bc-3">
     <li>
-        <a href="index.html"><i class="fa fa-home"></i>Home</a>
+        <a href="/"><i class="fa fa-home"></i></a>
     </li>
     <li>
-        <a href="tables-main.html">Tables</a>
+        <a href="{{route('users.index')}}">users</a>
     </li>
     <li class="active">
-
-        <strong>Basic Tables</strong>
+        <strong>Tables</strong>
     </li>
 </ol>
 <form class="form-group row" id="formFilter" action="{{route('users.index')}}" method="POST">
     <div class="col-sm-2 form-group">
         <select name="per_page" class="form-control inputFilter">
-            <option value="">10</option>
-            <option value="">20</option>
-            <option value="">30</option>
-            <option value="">40</option>
-            <option value="">50</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
         </select>
     </div>
-    <div class="col-sm-3 form-group">
-        <input type="text" name="email" class="form-control inputFilter" placeholder="email">
+    <div class="col-sm-8 form-group">
+        <input name="name" class="form-control inputFilter" placeholder="name">
     </div>
-    <div class="col-sm-3 form-group">
-        <input type="text" name="phone_number" class="form-control inputFilter" placeholder="phone number">
-    </div>
+    <!--<div class="col-sm-3 form-group">-->
+        <!--<input name="display_name" class="form-control inputFilter" placeholder="display_name">-->
+    <!--</div>-->
     <div class="col-sm-2 form-group">
         <select name="is_active" class="form-control inputFilter">
             <option value="">All</option>
@@ -36,20 +35,19 @@
         </select>
     </div>
     <div class="col-sm-2 form-group">
+        @can('create', $user)
         <a class="btn btn-primary" href="{{route('users.create')}}"><i class="fa fa-plus"></i></a>
+        @endcan
+        @can('delete', $user)
         <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
+        @endcan
     </div>
 </form>
-
 <div class="box-content nopadding" id="table">
     @include('users.table')
 </div>
-
-@include('layouts.modals.roleUser')
-
 @endsection
 
 @push('js')
 <script src="{{asset('build/form-filter.js')}}"></script>
-<script src="{{asset('build/authorization.js')}}"></script>
 @endpush

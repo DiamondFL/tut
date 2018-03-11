@@ -33,13 +33,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function role() {
+    public function roles() {
         return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     public function isSuperAdmin()
     {
-        return $this->role()->where('name', 'admin')->count();
+        return $this->roles()->where('name', 'admin')->count();
     }
 
     public function hasRole($name, RoleRepository $repository)
