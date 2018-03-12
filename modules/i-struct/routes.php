@@ -1,7 +1,7 @@
 <?php
 const VIEW_PATH = 'modules/i-struct/views';
 
-Route::group(['namespace' => 'Istruct\Controllers', 'middleware' => 'web'], function () {
+Route::group(['namespace' => 'Istruct\Controllers', 'middleware' =>['web', 'auth', 'role:admin']], function () {
     Route::get('/dbmagic/{table?}', 'MagicController@produce')->name('dbmagic.produce');
     Route::get('render/create', 'MagicController@create')->name('dbmagic.create');
     Route::post('render-curl', 'MagicController@store')->name('dbmagic.store');

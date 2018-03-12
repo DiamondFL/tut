@@ -62,23 +62,22 @@ class UserController extends Controller
             session()->flash('error', 'Not found');
             return redirect(route('users.index'));
         }
+        $roleIds = $user->roles()->pluck('id')->toArray();
         session()->flash('success', 'Update Success');
-        return view('acl::users.update', compact('user'));
+        return view('acl::users.update', compact('user', 'roleIds'));
     }
 
     public function update(UpdateUserRequest $request, $id)
     {
         $input = $request->all();
         $user = $this->repository->find($id);
-        if ($this->authorize('update', app(User::class), $user)) {
-            if (empty($user)) {
-                session()->flash('error', 'Not found');
-            } else {
-                $this->repository->change($input, $user);
-                session()->flash('success', 'Update Success');
-            }
-            return redirect(route('users.index'));
+        if (empty($user)) {
+            session()->flash('error', 'Not found');
+        } else {
+            $this->repository->change($input, $user);
+            session()->flash('success', 'Update Success');
         }
+        return redirect(route('users.index'));
     }
 
     public function destroy($id)
@@ -106,15 +105,13 @@ class UserController extends Controller
     {
         $input = $request->all();
         $user = $this->repository->find($id);
-        if ($this->authorize('update', app(User::class), $user)) {
-            if (empty($user)) {
-                session()->flash('error', 'Not found');
-            } else {
-                $this->repository->change($input, $user);
-                session()->flash('success', 'Update Success');
-            }
-            return redirect()->back();
+        if (empty($user)) {
+            session()->flash('error', 'Not found');
+        } else {
+            $this->repository->change($input, $user);
+            session()->flash('success', 'Update Success');
         }
+        return redirect()->back();
     }
 
     public function changePassword(PasswordUpdateRequest $request)
@@ -134,36 +131,32 @@ class UserController extends Controller
     public function renewPassword($id)
     {
         $user = $this->repository->find($id);
-        if ($this->authorize('update', app(User::class), $user)) {
-            if (empty($user)) {
-                session()->flash('error', 'Not found');
-            }
-            $password = str_random(6);
-            $this->repository->update(['password' => bcrypt($password)], $id);
-            $user->notify(new RenewPassword($password));
-            session()->flash('success', 'Change password success');
-            return redirect()->back();
+        if (empty($user)) {
+            session()->flash('error', 'Not found');
         }
+        $password = str_random(6);
+        $this->repository->update(['password' => bcrypt($password)], $id);
+        $user->notify(new RenewPassword($password));
+        session()->flash('success', 'Change password success');
+        return redirect()->back();
     }
 
     public function ban($id)
     {
         $user = $this->repository->find($id);
-        if ($this->authorize('update', app(User::class), $user)) {
-            if (empty($user)) {
-                session()->flash('error', 'Not found');
-            }
-            if($user->active == 1 ) {
-                $active = 0;
-                $activeName = 'Inactive';
-            } else {
-                $active = 1;
-                $activeName = 'Active';
-            }
-            $this->repository->update(['active' => $active], $id);
-            $user->notify(new BanAccount($activeName));
-            session()->flash('success', $activeName . ' user success');
-            return redirect()->back();
+        if (empty($user)) {
+            session()->flash('error', 'Not found');
         }
+        if($user->active == 1 ) {
+            $active = 0;
+            $activeName = 'Inactive';
+        } else {
+            $active = 1;
+            $activeName = 'Active';
+        }
+        $this->repository->update(['active' => $active], $id);
+        $user->notify(new BanAccount($activeName));
+        session()->flash('success', $activeName . ' user success');
+        return redirect()->back();
     }
 }

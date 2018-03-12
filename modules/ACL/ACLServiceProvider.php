@@ -26,7 +26,7 @@ class ACLServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ .'database/migrations');
 
         view()->composer([
-            'acl::users.table', 'acl::layouts.lists.role', 'acl::permissions.index'
+            'acl::users.create', 'acl::users.update', 'acl::layouts.lists.role', 'acl::permissions.index'
         ], RoleComposer::class);
         view()->composer([
             'acl::layouts.lists.permission'

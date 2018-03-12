@@ -5,7 +5,6 @@
         <th>{{trans('label.phone_number')}}</th>
         <th>{{trans('label.sex')}}</th>
         <th>{{trans('label.active')}}</th>
-
         <th></th>
     </tr>
     @foreach($users as $row)

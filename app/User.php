@@ -7,10 +7,12 @@ use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Istruct\MultiInheritance\ModelsTrait;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use ModelsTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -50,4 +52,15 @@ class User extends Authenticatable
     {
         return $repository->is($name);
     }
+
+    public $fileUpload = ['image' => 1];
+    protected $pathUpload = ['image' => '/images/users'];
+    protected $thumbImage = [
+        'image' => [
+            '/thumbs/' => [
+                [200, 200], [300, 300], [400, 400]
+            ]
+        ]
+    ];
+    protected $checkbox = ['is_active'];
 }

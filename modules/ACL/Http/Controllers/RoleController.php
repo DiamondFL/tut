@@ -49,7 +49,7 @@ class RoleController extends Controller
             session()->flash('error', 'Not found');
             return redirect(route('roles.index'));
         }
-        return view( 'roles.show', compact('role'));
+        return view( 'acl::roles.show', compact('role'));
     }
 
     public function edit($id)
@@ -60,7 +60,7 @@ class RoleController extends Controller
             return redirect(route('roles.index'));
         }
         session()->flash('success', 'Update Success');
-        return view( 'roles.update', compact('role'));
+        return view( 'acl::roles.update', compact('role'));
     }
 
     public function update(RoleUpdateRequest $request, $id)

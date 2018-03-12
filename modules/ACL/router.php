@@ -6,7 +6,7 @@
  * Time: 7:45 PM
  */
 
-Route::group(['namespace' => 'ACL\Http\Controllers', 'middleware' => ['web', 'auth']], function () {
+Route::group(['namespace' => 'ACL\Http\Controllers', 'middleware' => ['web', 'auth', 'role:admin']], function () {
     Route::resource('permissions' , 'PermissionController');
     Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');

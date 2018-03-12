@@ -2,7 +2,7 @@
 @section('content')
     <ol class="breadcrumb bc-3">
         <li>
-            <a href=/"><i class="fa fa-home"></i>Home</a>
+            <a href="/"><i class="fa fa-home"></i>Home</a>
         </li>
         <li>
             <a>User</a>
@@ -11,7 +11,6 @@
             <strong>Table</strong>
         </li>
     </ol>
-
     <form class="row" action="{{route('users.store')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group col-lg-6">
@@ -61,6 +60,13 @@
                     <input type="checkbox" name="sex" id="sex">
                 </label>
             </div>
+        </div>
+        <div class="form-group col-lg-12">
+            <select name="role_ids[]" id="role_ids" class="form-control" multiple>
+                @foreach($roleCompose as $id => $name)
+                    <option value="{{$id}}">{{$name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="col-lg-12">
             <button class="btn btn-primary">{{trans('button.done')}}</button>

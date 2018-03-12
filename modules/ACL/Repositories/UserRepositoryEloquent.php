@@ -37,13 +37,17 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     public function store($input)
     {
         $input = $this->standardized($input, $this->makeModel());
-        return $this->create($input);
+        $user =  $this->create($input);
+        $user->roles()->attack($input['role_ids']);
+        return $user;
     }
 
     public function change($input, $data)
     {
         $input = $this->standardized($input, $data);
-        return $this->update($input, $data->id);
+        $user = $this->update($input, $data->id);
+        $user->roles()->sync($input['role_ids']);
+        return $user;
     }
     public function destroy($data)
     {

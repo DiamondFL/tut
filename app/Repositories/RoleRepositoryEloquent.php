@@ -69,7 +69,7 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
 
     public function is($name)
     {
-        return Cache::remember($name, 999, function () use ($name) {
+//        return Cache::remember($name, 999, function () use ($name) {
             $user_id = auth()->id();
             $role = $this->makeModel()->where('name', $name)->where('is_active', 1)->first();
             if (empty($role)) {
@@ -80,7 +80,7 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
                 return true;
             }
             return false;
-        });
+//        });
     }
 
     /**

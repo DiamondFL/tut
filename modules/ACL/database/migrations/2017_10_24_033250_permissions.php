@@ -19,7 +19,9 @@ class Permissions extends Migration
             $table->string('display_name');
             $table->tinyInteger('access_id');
             $table->tinyInteger('module_id');
+            $table->tinyInteger('is_active')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

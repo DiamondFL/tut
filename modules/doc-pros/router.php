@@ -5,7 +5,7 @@
  * Date: 1/25/2018
  * Time: 8:02 PM
  */
-Route::group(['namespace' => 'DocPros\Http\Controllers', 'middleware' => ['web','auth']], function () {
+Route::group(['namespace' => 'DocPros\Http\Controllers', 'middleware' => ['web', 'auth', 'role:admin']], function () {
     Route::resource('doc-project' , 'DocProjectController');
     Route::resource('doc-package' , 'DocPackageController');
     Route::resource('doc-tag' , 'DocTagController');
