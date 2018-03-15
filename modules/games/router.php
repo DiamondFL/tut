@@ -6,7 +6,7 @@
  * Time: 8:07 PM
  */
 
-Route::group(['middleware' => ['web', 'auth','role:admin'], 'namespace' => 'Games\Http\Controllers'], function () {
+Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'Games\Http\Controllers'], function () {
     Route::get('game', 'GameController@index')->name('game.index');
 
     Route::get('parity', 'ParityController@index')->name('parity.index');
