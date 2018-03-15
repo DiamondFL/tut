@@ -44,7 +44,7 @@
         </div>
 
     <!-- Site Footer -->
-    @include('edu::layouts.footer')
+{{--    @include('edu::layouts.footer')--}}
 </div>
 <!-- Bottom scripts (common) -->
 <script src="{{asset('frontd')}}/js/gsap/TweenMax.min.js"></script>

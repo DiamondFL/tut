@@ -191,7 +191,9 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \App\Providers\BladeServiceProvider::class,
         \App\Providers\ValidatorServiceProvider::class,
+
         \Edubeanz\Providers\EdubeanzServiceProvider::class,
+        \Games\GameServiceRepository::class,
         \Test\Rg\TestRgServiceProvider::class,
         \DocPros\DocProsServiceProvider::class,
         \SuViewer\SuViewerServiceProvider::class,
