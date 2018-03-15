@@ -36,10 +36,11 @@
 <div class="login-container">
     <div class="login-header login-caret">
         <div class="login-content">
-            <a href="index.html" class="logo">
-                <img src="{{asset('')}}assets/images/logo@2x.png" width="120" alt="" />
+            <a class="logo">
+                <h1 style="color:white" >EDUBEANZ</h1>
+                {{--<img src="{{asset('')}}assets/images/logo@2x.png" width="120" alt="" />--}}
             </a>
-            <p class="description">Dear user, log in to access the admin area!</p>
+            {{--<p class="description">Dear user, log in to access the admin area!</p>--}}
             <!-- progress bar indicator -->
             <div class="login-progressbar-indicator">
                 <h3>43%</h3>
@@ -85,41 +86,6 @@
                         @endif
                     </div>
                 </div>
-                {{--<div class="form-group">--}}
-                    {{--<div class="input-group">--}}
-                        {{--<div class="input-group-addon">--}}
-                            {{--<i class="entypo-code"></i>--}}
-                        {{--</div>--}}
-{{--                        {!! captcha_image_html('RegisterCaptcha')  !!}--}}
-                        {{--@if ($errors->has('CaptchaCode'))--}}
-                            {{--<span class="help-block">--}}
-                                {{--<strong>{{ $errors->first('CaptchaCode') }}</strong>--}}
-                            {{--</span>--}}
-                        {{--@endif--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<div class="input-group">--}}
-                        {{--<div class="input-group-addon">--}}
-                            {{--<i class="entypo-code"></i>--}}
-                        {{--</div>--}}
-
-                        {{--<input type="text" id="CaptchaCode" class="form-control" name="CaptchaCode" required >--}}
-                        {{--<hr>--}}
-                        {{--@if ($errors->has('CaptchaCode'))--}}
-                            {{--<span class="help-block">--}}
-                                {{--<strong>{{ $errors->first('CaptchaCode') }}</strong>--}}
-                            {{--</span>--}}
-                        {{--@endif--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="form-group">--}}
-                    {{--<div class="checkbox">--}}
-                        {{--<label>--}}
-                            {{--<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me--}}
-                        {{--</label>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block btn-login">
                         <i class="entypo-login"></i>
@@ -131,26 +97,25 @@
                     <em>- or -</em>
                 </div>
                 <div class="form-group">
-                    <a href="{{url('/redirect/facebook')}}"
-                       class="btn btn-default btn-lg btn-block btn-icon icon-left facebook-button">
-                        Login with Facebook
-                        <i class="entypo-facebook"></i>
+                    <a href="{{asset('register')}}" class="btn btn-primary btn-block btn-login">
+                        <i class="entypo-register"></i>
+                        Register
                     </a>
                 </div>
-                <!--
-                You can also use other social network buttons
-                <div class="form-group">
-                <button type="button" class="btn btn-default btn-lg btn-block btn-icon icon-left twitter-button">
-                Login with Twitter
-                <i class="entypo-twitter"></i>
-                </button>
-                </div>
-                <div class="form-group">
-                <button type="button" class="btn btn-default btn-lg btn-block btn-icon icon-left google-button">
-                Login with Google+
-                <i class="entypo-gplus"></i>
-                </button>
-                </div> -->
+                {{--<div class="form-group">--}}
+                    {{--<a href="{{url('/redirect/facebook')}}"--}}
+                       {{--class="btn btn-default btn-lg btn-block btn-icon icon-left facebook-button">--}}
+                        {{--Login with Facebook--}}
+                        {{--<i class="entypo-facebook"></i>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+                {{--<div class="form-group">--}}
+                    {{--<a href="{{url('/redirect/facebook')}}"--}}
+                       {{--class="btn btn-default btn-lg btn-block btn-icon icon-left facebook-button">--}}
+                        {{--Login with Facebook--}}
+                        {{--<i class="entypo-facebook"></i>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
             </form>
             <div class="login-bottom-links">
                 <a href="{{ route('password.request') }}"class="link">Forgot your password?</a>

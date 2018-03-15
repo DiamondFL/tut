@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::group(['namespace' => 'Edubeanz\Http\Controllers'], function () {
-        Route::get('list', 'TestController@getList')->name('edu.test.list');
+        Route::get('/', 'TestController@getList')->name('edu.test.list');
         Route::get('doing', 'TestController@doing')->name('edu.test.doing');
         Route::post('marking', 'TestController@marking')->name('edu.test.marking');
     });

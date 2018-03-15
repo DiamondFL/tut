@@ -12,7 +12,7 @@
 */
 
 Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth', 'remember.url', 'role:admin']], function () {
     Route::resource('permissions', 'PermissionController');
     Route::resource('questions', 'QuestionController');
