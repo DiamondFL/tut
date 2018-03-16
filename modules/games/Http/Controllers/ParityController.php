@@ -6,43 +6,48 @@
  * Time: 7:31 PM
  */
 namespace Games\Http\Controllers;
+
 use Illuminate\Http\Request;
 
 class ParityController
 {
-    public function index() {
+
+    public function index()
+    {
         return view('gm::parity.index');
     }
+
     public function play(Request $request)
     {
         $user = auth()->user();
         $money = $user->coin;
         $input = $request->all();
-        $coin = (int) $input['coin'];
-        if($money <= 0)
-        {
+        $coin = (int)$input[COIN];
+
+        if ($money <= 0) {
             session()->flash('error', "Số coin của đổ hiệp đã hết. Vui lòng đào coin({$money}) để chơi tiếp");
             return redirect()->back();
         }
-        if($coin > $money)
-        {
-            session()->flash('error', 'Độ hiệp không thể đặt số coin lớn hơn tải sản hiện có');
+        if ($coin > $money) {
+            session()->flash(ERROR, 'Độ hiệp không thể đặt số coin lớn hơn tải sản hiện có');
             return redirect()->back();
         }
         $result = rand(1, 6);
-        if((boolean)$input['betting'] !== ($result % 2 === 0) ) {
+        if ((boolean)$input[BETTING] !== ($result % 2 === 0)) {           
             $money -= $coin;
-            session()->flash('error', "Chúc đỗ hiệp may mắn lần sau.
-             Điểm xí ngầu là {$result}. Số coin hiện tại {$money}");
+            session()->forget(SUCCESS);
+            session()->flash(ERROR, "Chúc đỗ hiệp may mắn lần sau. Điểm xí ngầu là {$result}.");
         } else {
             $money += $coin;
-            session()->flash('success', "Chúc mừng đỗ thánh đã giành chiến thắng. Giành được {$coin} coin");
+            session()->forget(ERROR);
+            session()->flash(SUCCESS, "Chúc mừng đỗ thánh đã giành chiến thắng. Giành được {$coin} coin");
         }
+
         $user->coin = $money;
         $user->save();
-        return redirect()->back();
-
+        return view('gm::parity.index')->with($input);
     }
+
     public function result()
     {
 
