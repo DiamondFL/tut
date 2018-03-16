@@ -9,6 +9,8 @@
 namespace Games\Http\Controllers;
 
 
+use Illuminate\Http\Request;
+
 class GuessController
 {
     public function index() {

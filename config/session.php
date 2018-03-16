@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'cookie' => 'laravel_session',
+    'cookie' => 'edubeanz_session_fldv',
 
     /*
     |--------------------------------------------------------------------------

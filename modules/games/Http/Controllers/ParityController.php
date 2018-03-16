@@ -29,14 +29,12 @@ class ParityController
             session()->flash('error', 'Độ hiệp không thể đặt số coin lớn hơn tải sản hiện có');
             return redirect()->back();
         }
-
         $result = rand(1, 6);
-        if((boolean)$input['betting'] !== (boolean)$result%2) {
+        if((boolean)$input['betting'] !== ($result % 2 === 0) ) {
             $money -= $coin;
             session()->flash('error', "Chúc đỗ hiệp may mắn lần sau.
              Điểm xí ngầu là {$result}. Số coin hiện tại {$money}");
         } else {
-            $coin *= 2 ;
             $money += $coin;
             session()->flash('success', "Chúc mừng đỗ thánh đã giành chiến thắng. Giành được {$coin} coin");
         }
