@@ -2,13 +2,13 @@
 @section('container')
    <div class="col-md-12">
        <h1 style="font-style: italic" class="text-info text-center">Đoán xí ngầu</h1>
-       <form action="{{route('guess.play')}}" method="POST" class="col-md-4 col-md-offset-4">
+       <form action="{{route('guess.play')}}" method="POST" class="col-md-4 col-md-offset-4 text-info">
            {!! csrf_field() !!}
            <label for="">Đỗ thánh thử tài</label>
            <ul class="list-group">
                @for($i = 1; $i < 7; $i++)
-               <li class="list-group-item">{{$i}}
-                   <input required type="radio" {{ isset($betting) && $betting === $i ? 'checked' : ''}} value="{{$i}}" class="pull-right" name="betting">
+               <li class="list-group-item {{isset($result) && $result == $i ? 'list-group-item-success' : ''}}">{{$i}}
+                   <input required type="radio" {{ isset($betting) && $betting == $i ? 'checked' : ''}} value="{{$i}}" class="pull-right" name="betting">
                </li>
                @endfor
            </ul>

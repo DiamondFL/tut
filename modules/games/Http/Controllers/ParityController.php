@@ -32,7 +32,8 @@ class ParityController
             session()->flash(ERROR, 'Độ hiệp không thể đặt số coin lớn hơn tải sản hiện có');
             return redirect()->back();
         }
-        $result = rand(1, 6);
+        $number = rand(1, 6);
+        $result = ($number % 2 === 0);
         if ((boolean)$input[BETTING] !== ($result % 2 === 0)) {           
             $money -= $coin;
             session()->forget(SUCCESS);
@@ -45,7 +46,8 @@ class ParityController
 
         $user->coin = $money;
         $user->save();
-        return view('gm::parity.index')->with($input);
+
+        return view('gm::parity.index', compact('result', 'number'))->with($input);
     }
 
     public function result()

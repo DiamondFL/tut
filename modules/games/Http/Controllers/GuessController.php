@@ -37,7 +37,7 @@ class GuessController
         if($result != $input['betting']) {
             $money -= $coin;
             session()->forget(SUCCESS);
-            session()->flash(ERROR, "Chúc đỗ hiệp may mắn lần sau. Điểm xí ngầu là {$result}.");
+            session()->flash(ERROR, "Chúc đỗ hiệp may mắn lần sau");
         } else {
             $coin *= 5 ;
             $money += $coin;
@@ -47,6 +47,6 @@ class GuessController
 
         $user->coin = $money;
         $user->save();
-        return view('gm::guess.index')->with($input);
+        return view('gm::guess.index', compact('result'))->with($input);
     }
 }
