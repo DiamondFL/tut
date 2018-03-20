@@ -16,5 +16,5 @@ Route::group(['middleware' => ['web', 'auth'], 'namespace' => 'Games\Http\Contro
     Route::post('guess', 'GuessController@play')->name('guess.play');
 
     Route::get('lott', 'LottController@index')->name('lott.index');
-    Route::post('lott', 'LottController@play')->name('lott.index');
+    Route::post('lott', 'LottController@play')->name('lott.play');
 });
