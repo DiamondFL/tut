@@ -25,7 +25,7 @@ class ParityController
         $coin = (int)$input[COIN];
 
         if ($money <= 0) {
-            session()->flash('error', "Số coin của đổ hiệp đã hết. Vui lòng đào coin({$money}) để chơi tiếp");
+            session()->flash('error', "Số coin của đổ hiệp đã hết. Vui lòng đào coin để chơi tiếp");
             return redirect()->back();
         }
         if ($coin > $money) {
@@ -34,10 +34,10 @@ class ParityController
         }
         $number = rand(1, 6);
         $result = ($number % 2 === 0);
-        if ((boolean)$input[BETTING] !== ($result % 2 === 0)) {           
+        if ((boolean)$input[BETTING] !== $result) {
             $money -= $coin;
             session()->forget(SUCCESS);
-            session()->flash(ERROR, "Chúc đỗ hiệp may mắn lần sau. Điểm xí ngầu là {$result}.");
+            session()->flash(ERROR, "Chúc đỗ hiệp may mắn lần sau.");
         } else {
             $money += $coin;
             session()->forget(ERROR);
