@@ -39,14 +39,14 @@
            {{--</div>--}}
            <div class="form-group">
                <input type="checkbox" value="1" placeholder="coin" name="coin">
-
                <p class="text-warning">Bạn có thể được mặc định trúng một cặp số</p>
-
+           </div>
+           <div class="form-group text-right">
                <p class="text-info">3 cặp số trúng 300 Coin</p>
                <p class="text-info">4 cặp số trúng 3,000 Coin</p>
                <p class="text-info">5 cặp số trúng 1,000,000 Coin</p>
                <p class="text-info">6 cặp số trúng 1,000,000,000 Coin</p>
-               <p class="text-info">Phí mỗi lần chơi là 10 Coin</p>
+               <p class="text-danger">Phí mỗi lần chơi là 10 Coin</p>
            </div>
            <div class="text-center form-group">
                <button class="btn btn-primary"><i class="entypo-bell"></i> Play</button>
