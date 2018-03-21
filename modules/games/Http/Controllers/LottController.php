@@ -35,7 +35,7 @@ class LottController
 //        dump($lotts);
         $numberLotts = [];
         for ($i = 1; $i < 7; $i++) {
-            $numberLotts[] = rand(0, 25);
+            $numberLotts[] = rand(0, 36);
         }
 //        dump($numberLotts);
         $numberSames = [];
