@@ -1,7 +1,7 @@
 @extends('edu::layouts.app')
 @section('container')
    <div class="col-md-12">
-       <h1 style="font-style: italic" class="text-info text-center">Portal lott 6x36</h1>
+       <h1 style="font-style: italic" class="text-info text-center">Portal lott 6x45</h1>
         @if(isset($numberLotts))
        <div class="btn-group btn-group-justified form-group" role="group" aria-label="...">
            @foreach($numberLotts as $numberLott)
@@ -20,7 +20,7 @@
            <div class="row form-group">
                @for($i = 1; $i < 7; $i++)
                    <div class="col-md-2">
-                       <input value="{{$lotts[$i - 1]}}" required type="number" min="0" max="36" class="form-control" name="lott[]">
+                       <input value="{{$lotts[$i - 1]}}" required type="number" min="0" max="45" class="form-control" name="lott[]">
                    </div>
                @endfor
            </div>
