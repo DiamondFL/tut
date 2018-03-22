@@ -56,11 +56,6 @@ trait RepositoriesTrait
             ->pluck('name', 'id');
     }
 
-    public function lists($value = 'name', $key = 'id')
-    {
-        return $this->makeModel()->pluck($value, $key);
-    }
-
     public function importing($path)
     {
         Excel::load($path, function ($reader) use ($path) {
@@ -91,8 +86,6 @@ trait RepositoriesTrait
         return $this->makeModel()->filter($input)->first();
     }
 
-
-
     public function filterOneList($input = [], $field = 'id')
     {
         return $this->makeModel()->filter($input)->orderBy($field)->pluck($field);
@@ -110,7 +103,7 @@ trait RepositoriesTrait
         return $data;
     }
 
-    public function statistic($input = [], $column)
+    public function statistic($column, $input = [])
     {
         return $this->makeModel()->select($column, DB::raw('COUNT(*) as count'))
             ->filter($input)
@@ -119,7 +112,7 @@ trait RepositoriesTrait
             ->get();
     }
 
-    public function statisticList($input = [], $column)
+    public function statisticList($column, $input = [])
     {
         return $this->makeModel()->select($column, DB::raw('COUNT(*) as count'))
             ->filter($input)
@@ -127,7 +120,7 @@ trait RepositoriesTrait
             ->pluck('count', $column);
     }
 
-    public function statisticListArray($input = [], $column)
+    public function statisticListArray($column, $input = [])
     {
         return $this->statisticList($input, $column)->toArray();
     }

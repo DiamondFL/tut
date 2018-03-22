@@ -16,10 +16,10 @@
                     @if((int)trim($question->answer) > 5)
                         @foreach(REP_LIST as $i => $rep)
                             @if(trim($question->$rep) !== '')
-                                <tr class="@if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false) bg-success @endif">
+                                <tr class="@if($exactly[$answer] && strpos((string)$question->answer, (string)$i) !== false) bg-success @endif">
                                     <td width="20px">
                                         <input type="checkbox" value="{{$i}}" class="done" data="{{$k}}"
-                                               @if(strpos(is_array($replies[$answer]) ? implode('', $replies[$answer]) : $replies[$answer], $i) !== false)
+                                               @if(strpos(implode('', $replies[$answer]), (string) $i) !== false)
                                                checked
                                                @endif
                                                name="answer{{$question->id}}[]">
@@ -31,7 +31,7 @@
                     @else
                         @foreach(REP_LIST as $i => $rep)
                             @if(trim($question->$rep) !== '')
-                                <tr class="@if($question->answer == $i) bg-success @endif">
+                                <tr class="@if($exactly[$answer] && $replies[$answer] == $i) bg-success @endif">
                                     <td width="20px">
                                         <input type="radio" value="{{$i}}"
                                                @if($replies[$answer] == $i) checked
@@ -46,8 +46,7 @@
                     @if($question->answer > 5)
                         @foreach(REP_LIST as $i => $rep)
                             @if(trim($question->$rep) !== '')
-                                <tr class="@if(isset($replies[$answer]) && strpos(is_array($replies[$answer]) ?
-                    implode('', $replies[$answer]):$replies[$answer], $i) !== false) bg-success @endif">
+                                <tr>
                                     <td width="20px">
                                         <input type="checkbox" value="1" name="answer{{$question->id}}[]">
                                     </td>
@@ -91,7 +90,7 @@
                                         @else
                                             btn-danger
                                         @endif
-                                        btn-block">{{$k}}
+                                            btn-block">{{$k}}
                                     </a>
                                 @else
                                     <a href="#{{++$k}}" class="btn btn-sm  btn-default btn-block">{{$k}}</a>
@@ -117,92 +116,92 @@
     </nav>
 @endsection
 @push('head')
-    <style>
-        .unsure {
-            height: 20px;
-            width: 20px;
-            margin-bottom: 0 !important;
-        }
+<style>
+    .unsure {
+        height: 20px;
+        width: 20px;
+        margin-bottom: 0 !important;
+    }
 
-        #formTest {
-            color: black;
-        }
-    </style>
+    #formTest {
+        color: black;
+    }
+</style>
 @endpush
 @push('js')
-    <script>
-        $('body').bind('beforeunload', function (e) {
-            e.preventDefault();
-        });
-        $(window).on('beforeunload', function (e) {
-            e.preventDefault();
-        });
-        $('.unsure').change(function () {
-            var id = $(this).attr('data');
-            var check = '#check' + id;
-            if ($(this).is(":checked")) {
-                $('.done').each(function () {
-                    if ($(this).attr('data') === id && $(this).is(":checked")) {
-                        $(check).removeClass('btn-default');
-                        $(check).removeClass('btn-info');
-                        $(check).addClass('btn-warning');
-                        return false;
-                    } else {
-                        $(check).removeClass('btn-default');
-                        $(check).removeClass('btn-info');
-                        $(check).addClass('btn-danger');
-                    }
-                })
-            } else {
-                $('.done').each(function () {
-                    if ($(this).attr('data') === id && $(this).is(":checked")) {
-                        $(check).removeClass('btn-danger');
-                        $(check).removeClass('btn-warning');
-                        $(check).addClass('btn-info');
-                        return false;
-                    } else {
-                        $(check).removeClass('btn-danger');
-                        $(check).removeClass('btn-info');
-                        $(check).addClass('btn-default');
-                    }
-                })
-            }
-        });
-        $('.done').change(function () {
-            var id = $(this).attr('data');
-            var check = '#check' + id;
-            if ($(this).is(":checked")) {
-                $('.unsure').each(function () {
-                    if ($(this).attr('data') === id && $(this).is(":checked")) {
-                        $(check).removeClass('btn-info');
-                        $(check).removeClass('btn-default');
-                        $(check).removeClass('btn-danger');
-                        $(check).addClass('btn-warning');
-                        return false;
-                    } else {
-                        $(check).removeClass('btn-info');
-                        $(check).removeClass('btn-default');
-                        $(check).removeClass('btn-danger');
-                        $(check).addClass('btn-info');
-                    }
-                });
-            }
-            else {
-                $('.unsure').each(function () {
-                    if ($(this).attr('data') === id && $(this).is(":checked")) {
-                        $(check).removeClass('btn-info');
-                        $(check).removeClass('btn-danger');
-                        $(check).removeClass('btn-warning');
-                        $(check).addClass('btn-default');
-                        return false;
-                    } else {
-                        $(check).removeClass('btn-info');
-                        $(check).removeClass('btn-danger');
-                        $(check).removeClass('btn-warning');
-                        $(check).addClass('btn-default');
-                    }
-                });
-            }
-        })
-    </script>
+<script>
+    $('body').bind('beforeunload', function (e) {
+        e.preventDefault();
+    });
+    $(window).on('beforeunload', function (e) {
+        e.preventDefault();
+    });
+    $('.unsure').change(function () {
+        var id = $(this).attr('data');
+        var check = '#check' + id;
+        if ($(this).is(":checked")) {
+            $('.done').each(function () {
+                if ($(this).attr('data') === id && $(this).is(":checked")) {
+                    $(check).removeClass('btn-default');
+                    $(check).removeClass('btn-info');
+                    $(check).addClass('btn-warning');
+                    return false;
+                } else {
+                    $(check).removeClass('btn-default');
+                    $(check).removeClass('btn-info');
+                    $(check).addClass('btn-danger');
+                }
+            })
+        } else {
+            $('.done').each(function () {
+                if ($(this).attr('data') === id && $(this).is(":checked")) {
+                    $(check).removeClass('btn-danger');
+                    $(check).removeClass('btn-warning');
+                    $(check).addClass('btn-info');
+                    return false;
+                } else {
+                    $(check).removeClass('btn-danger');
+                    $(check).removeClass('btn-info');
+                    $(check).addClass('btn-default');
+                }
+            })
+        }
+    });
+    $('.done').change(function () {
+        var id = $(this).attr('data');
+        var check = '#check' + id;
+        if ($(this).is(":checked")) {
+            $('.unsure').each(function () {
+                if ($(this).attr('data') === id && $(this).is(":checked")) {
+                    $(check).removeClass('btn-info');
+                    $(check).removeClass('btn-default');
+                    $(check).removeClass('btn-danger');
+                    $(check).addClass('btn-warning');
+                    return false;
+                } else {
+                    $(check).removeClass('btn-info');
+                    $(check).removeClass('btn-default');
+                    $(check).removeClass('btn-danger');
+                    $(check).addClass('btn-info');
+                }
+            });
+        }
+        else {
+            $('.unsure').each(function () {
+                if ($(this).attr('data') === id && $(this).is(":checked")) {
+                    $(check).removeClass('btn-info');
+                    $(check).removeClass('btn-danger');
+                    $(check).removeClass('btn-warning');
+                    $(check).addClass('btn-default');
+                    return false;
+                } else {
+                    $(check).removeClass('btn-info');
+                    $(check).removeClass('btn-danger');
+                    $(check).removeClass('btn-warning');
+                    $(check).addClass('btn-default');
+                }
+            });
+        }
+    })
+</script>
 @endpush

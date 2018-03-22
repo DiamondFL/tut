@@ -19,7 +19,7 @@ class ProjectComposer
     }
     public function compose(View $view)
     {
-        $list = $this->repository->lists();
+        $list = $this->repository->filterlist();
         $view->with('projectCompose', $list);
     }
 }

@@ -8,19 +8,18 @@
 
 namespace App\Http\ViewComposers;
 
-
-use App\Repositories\UserRepositoryEloquent;
+use ACL\Repositories\UserRepository;
 use Illuminate\View\View;
 
 class UserComposer
 {
     private $repository;
-    public function __construct(UserRepositoryEloquent $repository)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
     }
     public function compose(View $view)
     {
-        $view->with(['userList' => $this->repository->lists('email', 'id')]);
+        $view->with(['userList' => $this->repository->filterList('email', 'id')]);
     }
 }

@@ -42,7 +42,7 @@
             "ACL\\": "ACL/",
             "App\\": "app/",
             "Bugger\\": "modules/Bugger/",
-            "Edubeanz\\": "modules/edubeanz/",
+            "Edubeanz\\": "modules/Edubeanz/",
             "Games\\": "modules/games/",
             "Istruct\\": "modules/i-struct/",
             "Test\\Rg\\": "modules/test/rg/",
