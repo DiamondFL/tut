@@ -40,7 +40,7 @@ class LottController
         $kk  = $lotts;
         foreach ($ss as $k => $numberLott) {
             foreach ($kk as $i => $lott) {
-                if(isset($k) && isset($kk[$i]) && $ss[$k] === $kk[$i]) {
+                if(isset($ss[$k]) && isset($kk[$i]) && $ss[$k] === $kk[$i]) {
                     $numberSames[] = $kk[$i];
                     unset($ss[$k]);
                     unset($kk[$i]);
@@ -48,9 +48,6 @@ class LottController
                 }
             }
         }
-        dump($kk);
-        dump($ss);
-        dump($numberSames);
         $coin = -10;
         switch (count($numberSames)) {
             case 3: {
