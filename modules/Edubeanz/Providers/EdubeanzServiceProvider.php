@@ -13,8 +13,8 @@ class EdubeanzServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->loadRoutesFrom( base_path('modules/edubeanz') . '/router.php');
-        $this->loadViewsFrom(base_path('modules/edubeanz')  . '/resources/views', 'edu');
+        $this->loadRoutesFrom( base_path('modules/Edubeanz') . '/router.php');
+        $this->loadViewsFrom(base_path('modules/Edubeanz')  . '/resources/views', 'edu');
 
         view()->composer(['edu::layouts.nav'], ProjectComposer::class);
     }
