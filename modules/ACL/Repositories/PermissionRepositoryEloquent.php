@@ -2,7 +2,6 @@
 
 namespace ACL\Repositories;
 
-use App\Constants\Page;
 use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Support\Facades\Cache;
@@ -31,10 +30,10 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ?: $input[Page::PER_PAGE] = 10;
+        isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
         return $this->makeModel()
             ->filter($input)
-            ->paginate($input[Page::PER_PAGE]);
+            ->paginate($input[PER_PAGE]);
     }
 
     public function store($input)

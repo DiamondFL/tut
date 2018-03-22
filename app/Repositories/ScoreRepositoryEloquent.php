@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Constants\Page;
 use Istruct\MultiInheritance\RepositoriesTrait;
 
 use Illuminate\Support\Facades\Cache;
@@ -29,7 +28,7 @@ class ScoreRepositoryEloquent extends BaseRepository implements ScoreRepository
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ?: $input[Page::PER_PAGE] = 10;
+        isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
         return $this->makeModel()
         ->filter($input)
         ->paginate();

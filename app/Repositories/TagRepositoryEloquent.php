@@ -2,9 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Constants\Page;
-use Istruct\MultiInheritance\RepositoriesTrait;
 
+use Istruct\MultiInheritance\RepositoriesTrait;
 use Illuminate\Support\Facades\Cache;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -29,11 +28,11 @@ class TagRepositoryEloquent extends BaseRepository implements TagRepository
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ?: $input[Page::PER_PAGE] = 10;
+        isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
 
         return $this->makeModel()
             ->filter($input)
-            ->paginate($input[Page::PER_PAGE]);
+            ->paginate($input[PER_PAGE]);
     }
 
     public function store($input)

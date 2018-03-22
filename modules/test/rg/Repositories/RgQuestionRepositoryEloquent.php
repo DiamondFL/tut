@@ -2,7 +2,7 @@
 
 namespace Test\Rg\Repositories;
 
-use App\Constants\Page;
+
 use Istruct\MultiInheritance\RepositoriesTrait;
 
 use Illuminate\Support\Facades\Cache;
@@ -29,10 +29,10 @@ class RgQuestionRepositoryEloquent extends BaseRepository implements RgQuestionR
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ?: $input[Page::PER_PAGE] = 10;
+        isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
         return $this->makeModel()
             ->filter($input)
-            ->paginate($input[Page::PER_PAGE]);
+            ->paginate($input[PER_PAGE]);
 
     }
 

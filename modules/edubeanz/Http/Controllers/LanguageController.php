@@ -9,7 +9,7 @@
 namespace Edubeanz\Http\Controllers;
 
 
-use App\Constants\Page;
+
 use App\Repositories\VocabularyRepository;
 use Illuminate\Http\Request;
 
@@ -24,7 +24,7 @@ class LanguageController
     public function getList(Request $request)
     {
         $input = $request->all();
-        $input[Page::PER_PAGE] = 8;
+        $input[PER_PAGE] = 8;
         $data['vocabularies'] = $this->repository->myPaginate($input);
         if ($request->ajax()) {
             return view('edu::languages.includes.paginate', $data)->render();

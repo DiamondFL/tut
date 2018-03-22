@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Involve;
 
-use App\Constants\Page;
 use App\Repositories\MultiChoiceRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -51,7 +50,7 @@ class MultiChoiceController extends Controller
     private function getOptions($request)
     {
         $options = $request->only(['level', 'knowledge', 'professional']);
-        $options[Page::PER_PAGE] = config('multi-choice.paginate.test');
+        $options[PER_PAGE] = config('multi-choice.paginate.test');
         return $options;
     }
 

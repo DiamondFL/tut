@@ -7,7 +7,7 @@
  */
 
 namespace Edubeanz\Http\ViewComposers;
-use DocPros\Repositories\DocProjectRepository;
+use Docs\Repositories\DocProjectRepository;
 use Illuminate\View\View;
 
 class ProjectComposer

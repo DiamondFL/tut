@@ -2,17 +2,13 @@
 
 namespace ACL\Http\Controllers;
 
-use App\Constants\Page;
-use App\Constants\DBConst;
 use ACL\Http\Requests\CreateUserRequest;
 use ACL\Http\Requests\PasswordUpdateRequest;
 use ACL\Http\Requests\ProfileRequest;
 use ACL\Http\Requests\UpdateUserRequest;
 use ACL\Notifications\BanAccount;
 use ACL\Notifications\RenewPassword;
-use ACL\Notifications\ResetPassword;
 use ACL\Repositories\UserRepository;
-use ACL\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

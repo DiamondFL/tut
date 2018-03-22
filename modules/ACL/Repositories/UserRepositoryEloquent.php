@@ -2,7 +2,6 @@
 
 namespace ACL\Repositories;
 
-use App\Constants\Page;
 use Istruct\MultiInheritance\RepositoriesTrait;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -28,11 +27,11 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ? : $input[Page::PER_PAGE] = 10;
+        isset($input[PER_PAGE]) ? : $input[PER_PAGE] = 10;
         return $this->makeModel()
             ->filter($input)
             ->with('roles')
-            ->paginate($input[Page::PER_PAGE]);
+            ->paginate($input[PER_PAGE]);
     }
     public function store($input)
     {
@@ -63,8 +62,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
 
     private function standardized($input, $data)
     {
-        $input = $data->uploads($input);
-        return $input;
+        return $data->uploads($input);
     }
     /**
      * Boot up the repository, pushing criteria

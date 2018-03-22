@@ -17,7 +17,7 @@ class CRUDPath
 
     static function outConstant($table)
     {
-        return app_path('Constants/' . $table . 'db.php');
+        return base_path('Constants/' . $table . 'db.php');
     }
 
     static function inCreateForm()

@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Models;;
+namespace App\Models;
 
-use App\Constants\DBConst;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Traits\TransformableTrait;
 
@@ -10,21 +9,21 @@ class Role extends Model
 {
     use TransformableTrait;
 
-    public $fillable = [DBConst::NAME, DBConst::DISPLAY_NAME, DBConst::DESCRIPTION, DBConst::IS_ACTIVE];
+    public $fillable = [NAME_COL, DISPLAY_NAME_COL, DESCRIPTION_COL, IS_ACTIVE_COL];
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input[DBConst::IS_ACTIVE]) && trim($input[DBConst::IS_ACTIVE]) !== '')
+        if(isset($input[IS_ACTIVE_COL]) && trim($input[IS_ACTIVE_COL]) !== '')
         {
-            $query->where(DBConst::IS_ACTIVE,  trim($input[DBConst::IS_ACTIVE]) );
+            $query->where(IS_ACTIVE_COL,  trim($input[IS_ACTIVE_COL]) );
         }
-        if(isset($input['name']) && trim($input['name']) !== '')
+        if(isset($input[NAME_COL]) && trim($input[NAME_COL]) !== '')
         {
-            $query->where('name', 'LIKE', '%' . trim($input['name']) . '%');
+            $query->where(NAME_COL, 'LIKE', '%' . trim($input[NAME_COL]) . '%');
         }
-        if(isset($input[DBConst::DISPLAY_NAME]) && trim($input[DBConst::DISPLAY_NAME]) !== '')
+        if(isset($input[DISPLAY_NAME_COL]) && trim($input[DISPLAY_NAME_COL]) !== '')
         {
-            $query->where(DBConst::DISPLAY_NAME, 'LIKE', '%' . trim($input[DBConst::DISPLAY_NAME]) . '%');
+            $query->where(DISPLAY_NAME_COL, 'LIKE', '%' . trim($input[DISPLAY_NAME_COL]) . '%');
         }
         return $query;
     }

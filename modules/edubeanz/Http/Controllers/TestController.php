@@ -8,7 +8,7 @@
 
 namespace Edubeanz\Http\Controllers;
 
-use App\Constants\Page;
+
 use App\Repositories\MultiChoiceRepositoryEloquent;
 use Illuminate\Http\Request;
 
@@ -52,7 +52,7 @@ class TestController
     private function getOptions($request)
     {
         $options = $request->only(['level', 'knowledge', 'professional']);
-        $options[Page::PER_PAGE] = config('multi-choice.paginate.test');
+        $options[PER_PAGE] = config('multi-choice.paginate.test');
         return $options;
     }
 }

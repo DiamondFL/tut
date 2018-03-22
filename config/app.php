@@ -195,7 +195,7 @@ return [
         \Edubeanz\Providers\EdubeanzServiceProvider::class,
         \Games\GameServiceRepository::class,
         \Test\Rg\TestRgServiceProvider::class,
-        \DocPros\DocProsServiceProvider::class,
+        \Docs\DocsServiceProvider::class,
         \SuViewer\SuViewerServiceProvider::class,
         \Ush\UshServiceProviders::class,
         \Bugger\BuggerServiceProvider::class,

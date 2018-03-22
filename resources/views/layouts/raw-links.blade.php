@@ -1,7 +1,7 @@
 <div class="col-md-12 col-sm-4 clearfix hidden-xs">
     <ul class="list-inline links-list pull-right">
         <li class="dropdown pull-right">
-            <strong>{{ \Auth::user()->name }}</strong>: &nbsp;
+            <strong>{{ auth()->user()->email }}</strong>: &nbsp;
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
                 <i class="entypo-user"></i>
                 <i class="entypo-down-open-mini"></i>
@@ -12,10 +12,13 @@
                         <i class="entypo-user"></i> Profile
                     </a>
                 </li>
-                <li>
-                    <a  href="{{route('logout')}}">
-                        <i class="entypo-logout right"></i>Log Out
-                    </a>
+                <li class="navbar-form">
+                    <form method="post" action="{{route('logout')}}">
+                        {!! csrf_field() !!}
+                        <button class="btn btn-sm">
+                            <i class="entypo-logout right"></i>Log Out
+                        </button>
+                    </form>
                 </li>
             </ul>
         </li>

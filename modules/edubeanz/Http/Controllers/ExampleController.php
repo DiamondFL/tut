@@ -8,7 +8,7 @@
 
 namespace Edubeanz\Http\Controllers;
 
-use DocPros\Repositories\DocExampleRepository;
+use Docs\Repositories\DocExampleRepository;
 use Illuminate\Http\Request;
 
 class ExampleController

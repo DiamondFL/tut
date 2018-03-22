@@ -2,10 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Constants\Page;
-use App\Events\ImportLogEvent;
 use Istruct\MultiInheritance\RepositoriesTrait;
-use Illuminate\Support\Facades\Cache;
 use Maatwebsite\Excel\Facades\Excel;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -30,10 +27,10 @@ class MultiChoiceRepositoryEloquent extends BaseRepository implements MultiChoic
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ?: $input[Page::PER_PAGE] = config('multi-choice.paginate.table');
+        isset($input[PER_PAGE]) ?: $input[PER_PAGE] = config('multi-choice.paginate.table');
         return $this->makeModel()
             ->filter($input)
-            ->paginate($input[Page::PER_PAGE]);
+            ->paginate($input[PER_PAGE]);
 
     }
 
@@ -104,7 +101,7 @@ class MultiChoiceRepositoryEloquent extends BaseRepository implements MultiChoic
 
     public function importing($path)
     {
-        Excel::load($path, function ($reader) use ($path) {
+        Excel::load($path, function ($reader) {
             $results = $reader->toArray();
             $subject_id = request()->subject_id;
             if($subject_id == 7)

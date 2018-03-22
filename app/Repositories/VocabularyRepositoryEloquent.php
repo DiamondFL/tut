@@ -2,7 +2,6 @@
 
 namespace App\Repositories;
 
-use App\Constants\Page;
 use App\Events\ImportLogEvent;
 use Istruct\MultiInheritance\RepositoriesTrait;
 use Maatwebsite\Excel\Facades\Excel;
@@ -30,10 +29,10 @@ class VocabularyRepositoryEloquent extends BaseRepository implements VocabularyR
 
     public function myPaginate($input)
     {
-        isset($input[Page::PER_PAGE]) ?: $input[Page::PER_PAGE] = 10;
+        isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
         return $this->makeModel()
             ->filter($input)
-            ->paginate($input[Page::PER_PAGE]);
+            ->paginate($input[PER_PAGE]);
     }
 
     public function store($input)

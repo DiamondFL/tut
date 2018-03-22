@@ -27,17 +27,14 @@ class LottController
             return redirect()->back();
         }
         $input = $request->all();
-//        dump($input);
         $lotts = [];
         foreach ($input['lott'] as $k => $value) {
             $lotts[] = (int)$value;
         }
-//        dump($lotts);
         $numberLotts = [];
         for ($i = 1; $i < 7; $i++) {
             $numberLotts[] = rand(0, 36);
         }
-//        dump($numberLotts);
         $numberSames = [];
         foreach ($numberLotts as $numberLott) {
             foreach ($lotts as $lott) {
@@ -46,26 +43,25 @@ class LottController
                 }
             }
         }
-//        dump($numberSames);
         $coin = -10;
         switch (count($numberSames)) {
             case 3: {
-                session()->flash('success', 'Đỗ hiệp vừa giành được 300 Coin');
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 300 Coin');
                 $coin = 300;
                 break;
             }
             case 4: {
-                session()->flash('success', 'Đỗ hiệp vừa giành được 3000 Coin');
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 3000 Coin');
                 $coin = 3000;
                 break;
             }
             case 5: {
-                session()->flash('success', 'Đỗ hiệp vừa giành được 100000 Coin');
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 100000 Coin');
                 $coin = 100000;
                 break;
             }
             case 6: {
-                session()->flash('success', 'Đỗ hiệp vừa giành được 1000000000 Coin');
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 1000000000 Coin');
                 $coin = 1000000000;
                 break;
             }
@@ -74,13 +70,8 @@ class LottController
                 break;
             }
         }
-//        dump($user->coin);
-//        dump($coin);
         $user->coin +=  $coin;
-//        dump($user->coin);
-//        dd($user);
         $user->save();
-//        $result = array_diff($input, $numberLott);
         return view('gm::lott.index', compact('numberLotts','coin', 'numberSames'))
             ->with('lotts', $input['lott']);
     }

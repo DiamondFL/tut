@@ -2,7 +2,6 @@
 
 namespace ACL\Http\Controllers;
 
-use App\Constants\DBConst;
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
 use ACL\Http\Requests\RoleCreateRequest;
@@ -13,8 +12,7 @@ use Illuminate\Http\Request;
 class RoleController extends Controller
 {
     private $repository;
-    const TABLE = DBConst::ROLES;
-
+    const TABLE = ROLES_TB;
     public function __construct(RoleRepository $repository)
     {
         $this->repository = $repository;
@@ -46,7 +44,7 @@ class RoleController extends Controller
     {
         $this->repository->find($id);
         if (empty($role)) {
-            session()->flash('error', 'Not found');
+            session()->flash(ERROR, 'Not found');
             return redirect(route('roles.index'));
         }
         return view( 'acl::roles.show', compact('role'));
@@ -56,10 +54,10 @@ class RoleController extends Controller
     {
         $role = $this->repository->find($id);
         if (empty($role)) {
-            session()->flash('error', 'Not found');
+            session()->flash(ERROR, 'Not found');
             return redirect(route('roles.index'));
         }
-        session()->flash('success', 'Update Success');
+        session()->flash(SUCCESS, 'Update Success');
         return view( 'acl::roles.update', compact('role'));
     }
 
@@ -68,10 +66,10 @@ class RoleController extends Controller
         $input = InputFa::normalization($request);
         $user = $this->repository->find($id);
         if (empty($user)) {
-            session()->flash('error', 'Not found');
+            session()->flash(ERROR, 'Not found');
         } else {
             $this->repository->change($input, $id);
-            session()->flash('success', 'Update Success');
+            session()->flash(SUCCESS, 'Update Success');
         }
         return redirect(route('roles.index'));
     }
@@ -84,9 +82,9 @@ class RoleController extends Controller
         }
         $user = $this->repository->destroy($id);
         if (empty($user)) {
-            session()->flash('error', 'Not found');
+            session()->flash(ERROR, 'Not found');
         }
-        session()->flash('success', 'Update Success');
+        session()->flash(SUCCESS, 'Update Success');
         return redirect(route('roles.index'));
     }
 

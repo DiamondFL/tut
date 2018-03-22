@@ -15,7 +15,7 @@ class AccessMiddleware
      */
     public function handle($request, Closure $next, $name)
     {
-        if (ACL::access($name)) {
+        if (\ACL::access($name)) {
             return $next($request);
         }
         session()->flash('error', 'Not Access');
