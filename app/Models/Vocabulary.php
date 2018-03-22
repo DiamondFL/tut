@@ -13,6 +13,10 @@ class Vocabulary extends Model
 
     public function scopeFilter($query, $input)
     {
+        if(isset($input[IS_ACTIVE_COL]))
+        {
+            $query->where(IS_ACTIVE_COL, $input[IS_ACTIVE_COL]);
+        }
         if(isset($input[TYPE_COL]))
         {
             $query->where(TYPE_COL, 'LIKE', '%' . $input[TYPE_COL] . '%');
@@ -33,11 +37,11 @@ class Vocabulary extends Model
     }
 
     public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/users'];
+    protected $pathUpload = ['image' => '/images/vocabulary'];
     protected $thumbImage = [
         'image' => [
             '/thumbs/' => [
-                [200, 200], [300, 300], [400, 400]
+                [50, 50], [200, 200], [300, 300], [400, 400]
             ]
         ]
     ];

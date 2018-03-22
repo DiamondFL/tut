@@ -45,7 +45,7 @@
                <p class="text-info">3 cặp số trúng 300 Coin</p>
                <p class="text-info">4 cặp số trúng 3,000 Coin</p>
                <p class="text-info">5 cặp số trúng 1,000,000 Coin</p>
-               <p class="text-info">6 cặp số trúng 1,000,000,000 Coin</p>
+               <p class="text-info">6 cặp số trúng 300,000,000,000 Coin</p>
                <p class="text-danger">Phí mỗi lần chơi là 10 Coin</p>
            </div>
            <div class="text-center form-group">

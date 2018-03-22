@@ -35,16 +35,16 @@
         </select>
     </div>
     <div class="col-sm-2 form-group">
-        @can('create', $user)
+        @can('create', auth()->user())
         <a class="btn btn-primary" href="{{route('users.create')}}"><i class="fa fa-plus"></i></a>
         @endcan
-        @can('delete', $user)
+        @can('delete', auth()->user())
         <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
         @endcan
     </div>
 </form>
 <div class="box-content nopadding" id="table">
-    @include('users.table')
+    @include('acl::users.table')
 </div>
 @endsection
 

@@ -1,7 +1,7 @@
 <table class="table table-hover table-nomargin table-condensed table-responsive">
     <tr>
         <th>
-            <input type="checkbox" class="check_all">
+            {{--<input type="checkbox" class="check_all">--}}
         </th>
         <th>Image</th>
         <th>word</th>
@@ -15,12 +15,12 @@
         <tr>
             <td>
                 {{--<div class="checkbox checkbox-replace color-primary">--}}
-                <input type="checkbox" id="{{$vocabulary->id}}" class="check_item">
+                {{--<input type="checkbox" id="{{$vocabulary->id}}" class="check_item">--}}
                 {{--</div>--}}
             </td>
             <th>
                 @if(!empty($vocabulary->image))
-                    <img src="{{asset('storage'.str_replace_last('.', '_100_100.', $vocabulary->image))}}" alt="">
+                    <img src="{{asset('storage'.str_replace_last('.', '_50_50.', $vocabulary->image))}}" alt="">
                 @endif
             </th>
             <td><a href="{{route('vocabularies.edit', $vocabulary->id)}}">{{$vocabulary->word}}</a></td>
@@ -33,9 +33,9 @@
                     {!! csrf_field() !!}
                     {!! method_field('DELETE') !!}
                     <button class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button>
-                    <button type="button" class="btn btn-info btn-sm" onclick="speakEnglish('{{$vocabulary->word}}')">
+                    <span type="button" class="btn btn-info btn-sm" onclick="speakEnglish('{{$vocabulary->word}}')">
                         <i class="fa fa-volume-up"></i>
-                    </button>
+                    </span>
                 </form>
             </td>
         </tr>

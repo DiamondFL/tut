@@ -43,7 +43,7 @@
             "App\\": "app/",
             "Bugger\\": "modules/Bugger/",
             "Edubeanz\\": "modules/Edubeanz/",
-            "Games\\": "modules/games/",
+            "Games\\": "modules/Games/",
             "Istruct\\": "modules/i-struct/",
             "Test\\Rg\\": "modules/test/rg/",
             "Ush\\": "modules/ush/",

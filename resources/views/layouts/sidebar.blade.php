@@ -44,12 +44,12 @@
                     <span class="title">Subject</span>
                 </a>
             </li>
-            <li>
-                <a href="{{route('involve.multi-choice.getListTest')}}">
-                    <i class="entypo-newspaper"></i>
-                    <span class="title">List Test</span>
-                </a>
-            </li>
+            {{--<li>--}}
+                {{--<a href="{{route('involve.multi-choice.getListTest')}}">--}}
+                    {{--<i class="entypo-newspaper"></i>--}}
+                    {{--<span class="title">List Test</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
             {{--<li>--}}
                 {{--<a href="{{route('scores.index')}}">--}}
                     {{--<i class="entypo-newspaper"></i>--}}
@@ -62,7 +62,7 @@
                     {{--<span class="title">Tag</span>--}}
                 {{--</a>--}}
             {{--</li>--}}
-            @include('trg::layouts.sidebar')
+{{--            @include('trg::layouts.sidebar')--}}
             @include('ush::layouts.sidebar')
             @include('acl::layouts.nav')
 

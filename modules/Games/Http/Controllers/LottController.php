@@ -23,7 +23,7 @@ class LottController
         $user = auth()->user();
         if($user->coin <= 0)
         {
-            session()->flash()->flash(ERROR, 'Bạn đã hết coin. Vui lòng đào coin để chơi tiếp');
+            session()->flash(ERROR, 'Bạn đã hết coin. Vui lòng đào coin để chơi tiếp');
             return redirect()->back();
         }
         $input = $request->all();
@@ -33,7 +33,7 @@ class LottController
         }
         $numberLotts = [];
         for ($i = 1; $i < 7; $i++) {
-            $numberLotts[] = rand(0, 36);
+            $numberLotts[] = rand(0, 45);
         }
         $numberSames = [];
         foreach ($numberLotts as $numberLott) {
@@ -46,23 +46,23 @@ class LottController
         $coin = -10;
         switch (count($numberSames)) {
             case 3: {
+                $coin = 200;
                 session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 300 Coin');
-                $coin = 300;
                 break;
             }
             case 4: {
-                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 3000 Coin');
                 $coin = 3000;
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 3,000 Coin');
                 break;
             }
             case 5: {
-                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 100000 Coin');
                 $coin = 100000;
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 10,0000 Coin');
                 break;
             }
             case 6: {
-                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 1000000000 Coin');
-                $coin = 1000000000;
+                $coin = 300000000000;
+                session()->flash(SUCCESS, 'Đỗ hiệp vừa giành được 300,000,000,000 Coin');
                 break;
             }
             default : {
