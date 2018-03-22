@@ -7,6 +7,7 @@
  * Time: 2:57 PM
  */
 
+  const CATEGORIES_TB = 'categories';
   const CHAT_MESSAGES_TB = 'chat_messages';
   const DOC_EXAMPLE_TAGS_TB = 'doc_example_tags';
   const DOC_EXAMPLES_TB = 'doc_examples';
@@ -17,7 +18,6 @@
   const DOC_PACKAGES_TB = 'doc_packages';
   const DOC_PROJECTS_TB = 'doc_projects';
   const DOC_TAGS_TB = 'doc_tags';
-  const FILES_TB = 'files';
   const KEY_WORDS_TB = 'key_words';
   const MATCHINGS_TB = 'matchings';
   const MIGRATIONS_TB = 'migrations';
@@ -47,6 +47,7 @@
   const SCORES_TB = 'scores';
   const SEQUENCES_TB = 'sequences';
   const SOCIAL_ACCOUNTS_TB = 'social_accounts';
+  const SUB_CATEGORIES_TB = 'sub_categories';
   const SUBJECTS_TB = 'subjects';
   const TAGS_TB = 'tags';
   const TEST_DETAILS_TB = 'test_details';
@@ -55,20 +56,7 @@
   const USER_MINI_DETAILS_TB = 'user_mini_details';
   const USER_MINI_TESTS_TB = 'user_mini_tests';
   const USERS_TB = 'users';
-  const USH_BRANDS_TB = 'ush_brands';
-  const USH_CATEGORIES_TB = 'ush_categories';
-  const USH_COLOR_PRODUCTS_TB = 'ush_color_products';
-  const USH_FEATURES_TB = 'ush_features';
-  const USH_FITS_TB = 'ush_fits';
   const USH_GROUPS_TB = 'ush_groups';
-  const USH_MATERIALS_TB = 'ush_materials';
-  const USH_PRICES_TB = 'ush_prices';
-  const USH_PRODUCT_DETAILS_TB = 'ush_product_details';
-  const USH_PRODUCTS_TB = 'ush_products';
-  const USH_SEASONS_TB = 'ush_seasons';
-  const USH_SPECIALTY_SIZES_TB = 'ush_specialty_sizes';
-  const USH_SUB_CATEGORIES_TB = 'ush_sub_categories';
-  const USH_WEIGHTS_TB = 'ush_weights';
   const VOCABULARIES_TB = 'vocabularies';
 
 
@@ -80,6 +68,7 @@
   const AVATAR_COL = 'avatar';
   const BATCH_COL = 'batch';
   const BIRTHDAY_COL = 'birthday';
+  const CATEGORY_ID_COL = 'category_id';
   const CODE_COL = 'code';
   const COIN_COL = 'coin';
   const CONTENT_COL = 'content';
@@ -93,17 +82,13 @@
   const DOC_NEWS_ID_COL = 'doc_news_id';
   const DOC_TAG_ID_COL = 'doc_tag_id';
   const EMAIL_COL = 'email';
-  const EXCHANGE_RATE_COL = 'exchange_rate';
   const FIRST_NAME_COL = 'first_name';
   const HOT_COL = 'hot';
   const ID_COL = 'id';
   const IMAGE_COL = 'image';
-  const IMG_COL = 'img';
-  const IMG_PLUS_COL = 'img_plus';
   const INTEGER_COL = 'integer';
   const INTRO_COL = 'intro';
   const IS_ACTIVE_COL = 'is_active';
-  const ITEMS_COL = 'items';
   const KEY_COL = 'key';
   const KNOWLEDGE_COL = 'knowledge';
   const LAST_LOGIN_COL = 'last_login';
@@ -118,7 +103,6 @@
   const MESSAGE_COL = 'message';
   const MIGRATION_COL = 'migration';
   const MIN_COL = 'min';
-  const MINIMUM_ORDER_COL = 'minimum_order';
   const MODULE_ID_COL = 'module_id';
   const MULTIPLE_CHOICE_ID_COL = 'multiple_choice_id';
   const NAME_COL = 'name';
@@ -126,22 +110,18 @@
   const NO_COL = 'no';
   const NO_ANSWER_COL = 'no_answer';
   const NO_QUESTION_COL = 'no_question';
-  const NO_RATE_COL = 'no_rate';
   const PASSWORD_COL = 'password';
   const PERMISSION_ID_COL = 'permission_id';
   const PHONE_NUMBER_COL = 'phone_number';
   const PICTURE_COL = 'picture';
   const PR_IMG_COL = 'pr_img';
   const PREMISE_COL = 'premise';
-  const PRICE_COL = 'price';
   const PROFESSIONAL_COL = 'professional';
   const PRONOUNCE_COL = 'pronounce';
   const PROVIDER_COL = 'provider';
   const PROVIDER_USER_ID_COL = 'provider_user_id';
-  const QTY_COL = 'qty';
   const QUESTION_COL = 'question';
   const QUESTION_ID_COL = 'question_id';
-  const RATE_COL = 'rate';
   const RE_IMG_COL = 're_img';
   const REMEMBER_TOKEN_COL = 'remember_token';
   const REPLY_COL = 'reply';
@@ -160,7 +140,6 @@
   const SCORE_COL = 'score';
   const SEQUENCE_ID_COL = 'sequence_id';
   const SEX_COL = 'sex';
-  const SIZE_COL = 'size';
   const SLACK_WEBHOOK_URL_COL = 'slack_webhook_url';
   const SOURCE_COL = 'source';
   const SUB_CATEGORY_ID_COL = 'sub_category_id';
@@ -171,19 +150,7 @@
   const TYPE_COL = 'type';
   const UPDATED_AT_COL = 'updated_at';
   const UPDATED_BY_COL = 'updated_by';
-  const URL_COL = 'url';
   const USER_ID_COL = 'user_id';
-  const USH_BRAND_ID_COL = 'ush_brand_id';
-  const USH_CATEGORY_ID_COL = 'ush_category_id';
-  const USH_FEATURE_ID_COL = 'ush_feature_id';
-  const USH_FIT_ID_COL = 'ush_fit_id';
-  const USH_GROUP_ID_COL = 'ush_group_id';
-  const USH_MATERIAL_ID_COL = 'ush_material_id';
-  const USH_PRICE_ID_COL = 'ush_price_id';
-  const USH_PRODUCT_ID_COL = 'ush_product_id';
-  const USH_SEASONAL_ID_COL = 'ush_seasonal_id';
-  const USH_SPECIALTY_SIZE_ID_COL = 'ush_specialty_size_id';
-  const USH_WEIGHT_ID_COL = 'ush_weight_id';
   const VIDEO_COL = 'video';
   const VIEWS_COL = 'views';
   const WORD_COL = 'word';

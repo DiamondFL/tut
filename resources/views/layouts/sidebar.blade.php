@@ -4,7 +4,6 @@
             <div class="logo">
                 <a href="/">
                     <h2><strong>Edubeanz</strong></h2>
-                    {{--<img src="{{asset('')}}assets/images/logo@2x.png" width="120" alt="" />--}}
                 </a>
             </div>
             <div class="sidebar-collapse">
@@ -63,7 +62,7 @@
                 {{--</a>--}}
             {{--</li>--}}
 {{--            @include('trg::layouts.sidebar')--}}
-            @include('ush::layouts.sidebar')
+            @include('organ::layouts.sidebar')
             @include('acl::layouts.nav')
 
         </ul>

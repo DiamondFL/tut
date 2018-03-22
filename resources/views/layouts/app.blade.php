@@ -32,7 +32,6 @@
         <hr/>
         @include('layouts.alerts.index')
         @yield('content')
-        {{--        @include('layouts.footer')--}}
     </div>
     @yield('container')
     @include('vocabularies.search')

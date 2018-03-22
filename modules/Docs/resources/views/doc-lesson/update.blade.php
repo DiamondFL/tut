@@ -38,7 +38,7 @@
                     @endforeach
                 </select>
             </div>
-            <input type="hidden" id="listSubCategoryRoute" value="{{route('ush.sub-category.list')}}">
+            <input type="hidden" id="listSubCategoryRoute" value="{{route('sub-category.list')}}">
             <div class="form-group col-lg-12">
                 <label for="intro">{{trans('label.intro')}}</label>
                 <textarea class="form-control ckeditor" name="intro" id="intro">{{$docLesson->intro}}</textarea>

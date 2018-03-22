@@ -67,7 +67,7 @@ class RgTestRepositoryEloquent extends BaseRepository implements RgTestRepositor
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, ping criteria
      */
     public function boot()
     {

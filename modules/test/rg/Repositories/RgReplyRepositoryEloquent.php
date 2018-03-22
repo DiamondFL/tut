@@ -67,7 +67,7 @@ class RgReplyRepositoryEloquent extends BaseRepository implements RgReplyReposit
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, ping criteria
      */
     public function boot()
     {

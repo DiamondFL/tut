@@ -113,7 +113,7 @@
 {{--<script src="{{asset('frontd')}}/js/resizeable.js"></script>--}}
 {{--<!-- JavaScripts initializations and stuff -->--}}
 {{--<script src="{{asset('frontd')}}/js/neon-custom.js"></script>--}}
-@push('head')
+@p('head')
     <style>
         .contact-map {
             height: 0 !important;

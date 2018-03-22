@@ -128,7 +128,7 @@ class PermissionRepositoryEloquent extends BaseRepository implements PermissionR
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, ping criteria
      */
 
     public function boot()
