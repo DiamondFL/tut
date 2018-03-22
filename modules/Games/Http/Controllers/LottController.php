@@ -36,9 +36,11 @@ class LottController
             $numberLotts[] = rand(0, 45);
         }
         $numberSames = [];
-        foreach ($numberLotts as $numberLott) {
+        $ss = $numberLotts;
+        foreach ($ss as $k => $numberLott) {
             foreach ($lotts as $lott) {
                 if($numberLott === $lott) {
+                    unset($ss[$k]);
                     $numberSames[] = $lott;
                 }
             }
