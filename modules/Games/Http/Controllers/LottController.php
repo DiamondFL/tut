@@ -33,6 +33,10 @@ class LottController
         }
         $numberLotts = [];
         for ($i = 1; $i < 7; $i++) {
+            $num = rand(0, 45);
+            while (in_array($num, $numberLotts)) {
+                $num = rand(0, 45);
+            }
             $numberLotts[] = rand(0, 45);
         }
         $numberSames = [];
