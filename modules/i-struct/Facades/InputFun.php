@@ -42,9 +42,31 @@ class InputFun
     {
         $input = [];
         foreach ($request->all() as $k => $v) {
-            $input[$k] = trim($v);
-            if($input[$k] === '') unset($input[$k]);
+            if(is_string($v))
+            {
+                $input[$k] = trim($v);
+                if($input[$k] === '') {
+                    unset($input[$k]);
+                }
+            } elseif(is_array($v)) {
+                $this->loopNormalization($input);
+            }
         }
         return $input;
+    }
+    
+    public function loopNormalization($input)
+    {
+        foreach ($input as $k => $v) {
+            if(is_string($v))
+            {
+                $input[$k] = trim($v);
+                if($input[$k] === '') {
+                    unset($input[$k]);
+                }
+            } elseif(is_array($v)) {
+                $this->loopNormalization($input);
+            }
+        }
     }
 }

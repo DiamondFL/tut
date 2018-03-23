@@ -11,7 +11,7 @@
             <strong>Tables</strong>
         </li>
     </ol>
-    <form id="categoryFrom" class="row" action="{{route('-category.store')}}" method="post">
+    <form id="categoryFrom" class="row" action="{{route('category.store')}}" method="post">
         {{csrf_field()}}
         <div class="form-group col-lg-12">
             <label for="name">{{trans('label.name')}}</label>

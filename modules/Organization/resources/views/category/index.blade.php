@@ -11,7 +11,7 @@
         <strong>Table</strong>
     </li>
 </ol>
-<form class="form-group row" id="formFilter" action="{{route('-category.index')}}" method="POST">
+<form class="form-group row" id="formFilter" action="{{route('category.index')}}" method="POST">
     <div class="col-sm-2 form-group">
         <select name="per_page" class="form-control inputFilter">
             <option value="10">10</option>
@@ -35,7 +35,7 @@
         </select>
     </div>
     <div class="col-sm-2 form-group">
-        <a class="btn btn-primary" href="{{route('-category.create')}}"><i class="fa fa-plus"></i></a>
+        <a class="btn btn-primary" href="{{route('category.create')}}"><i class="fa fa-plus"></i></a>
         <a class="btn btn-danger"><i class="fa fa-trash"></i></a>
     </div>
 </form>

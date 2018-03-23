@@ -5,7 +5,7 @@
             <a href="/"><i class="fa fa-home"></i></a>
         </li>
         <li>
-            <a href="{{route('-category.index')}}">_name_</a>
+            <a href="{{route('category.index')}}">_name_</a>
         </li>
         <li class="active">
             <strong>Table</strong>
@@ -13,17 +13,17 @@
     </ol>
     <div class="card">
         <div class="card-body">
-            <form action="{{route('-category.update', $Category->id)}}" method="POST" >
+            <form action="{{route('category.update', $category->id)}}" method="POST" >
                 {{csrf_field()}}
                 {{method_field('PUT')}}
                 <div class="form-group col-lg-6">
                     <label for="name">{{trans('label.name')}}</label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{$Category->name}}">
+                    <input type="text" class="form-control" name="name" id="name" value="{{$category->name}}">
                 </div>
                 <div class="form-group col-lg-12">
                     <label for="name">{{trans('organ::label._category')}}</label>
                     <select style="width: 100%" class="js-example-basic-single" name="_category_names[]" id="_category_names" multiple="multiple">
-                        @foreach($Categories as $id => $name)
+                        @foreach($subCategories as $id => $name)
                             <option selected value="{{$id}}"> {{$name}}</option>
                         @endforeach
                     </select>
@@ -64,9 +64,9 @@
             var data = e.params.data;
             console.log(data);
             $.ajax({
-                url: '{{route("--category.store")}}',
+                url: '{{route("sub-category.store")}}',
                 method: "POST",
-                data: {name: data.text, category_id: '{{$Category->id}}'},
+                data: {name: data.text, category_id: '{{$category->id}}'},
                 success: function (data) {
 //                    alert('Success');
                 },
@@ -79,7 +79,7 @@
             var data = e.params.data;
             console.log(data);
             $.ajax({
-                url: '{{route("--category.index")}}/' + data.id,
+                url: '{{route("sub-category.index")}}/' + data.id,
                 method: "DELETE",
                 success: function (data) {
 //                    alert('Success');

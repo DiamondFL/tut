@@ -9,13 +9,13 @@
         <td><input type="checkbox" class="check_item" data="{{$row->id}}"></td><td>{{$row->name}}</td>
 
        <td>
-           <form method="POST" action="{{route('-category.destroy', $row->id)}}">
+           <form method="POST" action="{{route('category.destroy', $row->id)}}">
                {{csrf_field()}}
                {{method_field('DELETE')}}
                <button class="btn btn-danger btn-xs">
                    <i class="fa fa-trash"></i>
                </button>
-               <a href="{{route('-category.edit', $row->id)}}" class="btn btn-info btn-xs">
+               <a href="{{route('category.edit', $row->id)}}" class="btn btn-info btn-xs">
                    <i class="fa fa-edit"></i>
                </a>
            </form>

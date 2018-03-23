@@ -14,6 +14,6 @@ return [
         'rg-answer', 'rg-question', 'rg-reply', 'rg-result', 'rg-test'
     ],
     '' => [
-        '-category', '-group',
+        'category', '-group',
     ],
 ];

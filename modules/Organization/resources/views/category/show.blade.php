@@ -5,7 +5,7 @@
             <a href="/"><i class="fa fa-home"></i></a>
         </li>
         <li>
-            <a href="{{route('-category.index')}}">categories</a>
+            <a href="{{route('category.index')}}">categories</a>
         </li>
         <li class="active">
             <strong>Table</strong>

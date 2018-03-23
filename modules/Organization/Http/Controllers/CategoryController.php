@@ -24,14 +24,14 @@ class CategoryController extends Controller
         $data['Categories'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('organ::-category.table', $data)->render();
+            return view('organ::category.table', $data)->render();
         }
-        return view('organ::-category.index', $data);
+        return view('organ::category.index', $data);
     }
 
     public function create()
     {
-        return view('organ::-category.create');
+        return view('organ::category.create');
     }
 
     public function store(CategoryCreateRequest $request)
@@ -39,51 +39,51 @@ class CategoryController extends Controller
         $input = $request->all();
         $this->repository->store($input);
         session()->flash('success', 'create success');
-        return redirect()->route('-category.index');
+        return redirect()->route('category.index');
     }
 
     public function show($id)
     {
-        $Category = $this->repository->find($id);
-        if(empty($Category))
+        $category = $this->repository->find($id);
+        if(empty($category))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        $subCategories = $Category->subCategories()->pluck('name', 'id');
-        return view('organ::-category.show', compact('Category', 'subCategories'));
+        $subCategories = $category->subCategories()->pluck('name', 'id');
+        return view('organ::category.show', compact('category', 'subCategories'));
     }
 
     public function edit($id)
     {
-        $Category = $this->repository->find($id);
-        if(empty($Category))
+        $category = $this->repository->find($id);
+        if(empty($category))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        $subCategories = $Category->subCategories()->pluck('name', 'id');
-        return view('organ::-category.update', compact('Category', 'subCategories'));
+        $subCategories = $category->subCategories()->pluck('name', 'id');
+        return view('organ::category.update', compact('category', 'subCategories'));
     }
 
     public function update(CategoryUpdateRequest $request, $id)
     {
         $input = InputFa::normalization($request);
-        $Category = $this->repository->find($id);
-        if(empty($Category))
+        $category = $this->repository->find($id);
+        if(empty($category))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        $this->repository->change($input, $Category);
+        $this->repository->change($input, $category);
         session()->flash('success', 'update success');
-        return redirect()->route('-category.index');
+        return redirect()->route('category.index');
     }
 
     public function destroy($id)
     {
-        $Category = $this->repository->find($id);
-        if(empty($Category))
+        $category = $this->repository->find($id);
+        if(empty($category))
         {
             session()->flash('err', 'not found');
         }
