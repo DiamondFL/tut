@@ -122,7 +122,7 @@ return [
     |
     */
 
-    'cookie' => 'edubeanz_session_fldv',
+    'cookie' => env('COOKIE', 'session_fldv'),
 
     /*
     |--------------------------------------------------------------------------

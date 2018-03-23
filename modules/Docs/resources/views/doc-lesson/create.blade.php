@@ -51,7 +51,7 @@
 @endsection
 
 @push('js')
-    <script src="{{asset('build/forceSelect.js')}}"></script>
+    <script src="{{asset('build/forceSelect.js?v=0')}}"></script>
     <script>
         var categorySelect = $('#category_id');
         var route = $('#listSubCategoryRoute').val();
