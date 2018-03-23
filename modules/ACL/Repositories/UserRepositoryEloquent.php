@@ -65,7 +65,7 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return $data->uploads($input);
     }
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, ping criteria
      */
     public function boot()
     {

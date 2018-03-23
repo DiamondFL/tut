@@ -21,7 +21,7 @@
                     <label for="">Prefix</label>
                     <input type="text" value="{{old('prefix')}}" name="prefix" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="mit" class="btn btn-default">mit</button>
             </form>
         </div>
     </div>

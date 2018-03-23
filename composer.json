@@ -46,7 +46,7 @@
             "Games\\": "modules/Games/",
             "Istruct\\": "modules/i-struct/",
             "Test\\Rg\\": "modules/test/rg/",
-            "Ush\\": "modules/ush/",
+            "Organization\\": "modules/Organization/",
             "Docs\\": "modules/Docs/",
             "SuViewer\\": "modules/suviewer/"
         }

@@ -4,9 +4,10 @@ namespace Docs\Models;
 
 use Istruct\MultiInheritance\ModelsTrait;
 use Illuminate\Database\Eloquent\Model;
+use Organization\Models\SubCategory;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-use Ush\Models\UshSubCategory;
+
 
 class DocLesson extends Model implements Transformable
 {
@@ -14,11 +15,11 @@ class DocLesson extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'doc_lessons';
-    public $fillable = [TITLE_COL, INTRO_COL, CONTENT_COL, SUBJECT_ID_COL, VIEWS_COL, LAST_VIEW_COL, CREATED_BY_COL, UPDATED_BY_COL];
+    public $fillable = [TITLE_COL, INTRO_COL, CONTENT_COL, SUB_CATEGORY_ID_COL, VIEWS_COL, LAST_VIEW_COL, CREATED_BY_COL, UPDATED_BY_COL];
 
     public function subCategory()
     {
-        return $this->belongsTo(UshSubCategory::class, SUBJECT_ID_COL);
+        return $this->belongsTo(SubCategory::class, SUB_CATEGORY_ID_COL);
     }
 
     public function scopeFilter($query, $input)

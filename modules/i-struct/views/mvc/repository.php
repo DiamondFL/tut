@@ -67,7 +67,7 @@ class _class_RepositoryEloquent extends BaseRepository implements _class_Reposit
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, ping criteria
      */
     public function boot()
     {

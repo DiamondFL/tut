@@ -79,7 +79,7 @@ class RoleRepositoryEloquent extends BaseRepository implements RoleRepository
     }
 
     /**
-     * Boot up the repository, pushing criteria
+     * Boot up the repository, ping criteria
      */
     public function boot()
     {

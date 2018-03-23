@@ -28,7 +28,7 @@
     </div>
 
 @endsection
-@push('head')
+@p('head')
 
 @endpush
 @push('js')

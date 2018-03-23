@@ -130,7 +130,7 @@ trait RepositoriesTrait
         $tagIds = [];
         foreach($tagNames as $tagName) {
             $tag = app(Tag::class)->firstOrCreate(['name' => $tagName]);
-            array_push($tagIds, $tag->id);
+            array_p($tagIds, $tag->id);
         }
         $data->tags()->sync($tagIds);
     }

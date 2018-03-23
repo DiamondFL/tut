@@ -2,13 +2,13 @@
 
 namespace App\Policies;
 
-use App\Models\UshSubCategory;
+use App\Models\SubCategory;
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UshSubCategoryPolicy
+class SubCategoryPolicy
 {
     use HandlesAuthorization;
 
@@ -32,7 +32,7 @@ class UshSubCategoryPolicy
         }
     }
 
-    public function view(User $user, UshSubCategory $ush_sub_categories)
+    public function view(User $user, SubCategory $ush_sub_categories)
     {
         if ($this->permissionRepository->is('view_ush_sub_category')) {
             return true;
@@ -48,7 +48,7 @@ class UshSubCategoryPolicy
         return false;
     }
 
-    public function update(User $user, UshSubCategory $ush_sub_categories)
+    public function update(User $user, SubCategory $ush_sub_categories)
     {
         if ($this->permissionRepository->is('update_ush_sub_category')) {
             return true;
@@ -56,7 +56,7 @@ class UshSubCategoryPolicy
         return $user->id === $ush_sub_categories->user_id;
     }
 
-    public function delete($user, UshSubCategory $ush_sub_categories)
+    public function delete($user, SubCategory $ush_sub_categories)
     {
         if ($this->permissionRepository->is('delete_ush_sub_category')) {
             return true;

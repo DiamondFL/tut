@@ -197,7 +197,7 @@ return [
         \Test\Rg\TestRgServiceProvider::class,
         \Docs\DocsServiceProvider::class,
         \SuViewer\SuViewerServiceProvider::class,
-        \Ush\UshServiceProviders::class,
+        \Organization\OrganizationServiceProviders::class,
         \Bugger\BuggerServiceProvider::class,
         \Bugger\EventBuggerServiceProvider::class,
         \ACL\ACLServiceProvider::class,

@@ -75,7 +75,7 @@
     </nav>
 @endsection
 
-@push('head')
+@p('head')
     <style>
         .unsure {
             height: 20px;
@@ -92,7 +92,7 @@
         function mark() {
             var ok = confirm('Bạn thực sự muốn nộp bài');
             if(ok) {
-                $('#formTest').submit()
+                $('#formTest').mit()
             }
         }
         $('.unsure').change(function () {

@@ -81,30 +81,30 @@
 									<ul>
 										<li>
 											<a href="index.html?2">
-												<span>Sub 1</span>
+												<span> 1</span>
 											</a>
 										</li>
 										<li>
 											<a href="about.html">
-												<span>Sub 2</span>
+												<span> 2</span>
 											</a>
 											
 											<ul>
 												<li>
 													<a href="contact.html">
-														<span>Sub of sub 1</span>
+														<span> of  1</span>
 													</a>
 												</li>
 												<li>
 													<a href="portfolio.html">
-														<span>Sub of sub 2</span>
+														<span> of  2</span>
 													</a>
 												</li>
 											</ul>
 										</li>
 										<li>
 											<a href="#">
-												<span>Sub 3</span>
+												<span> 3</span>
 											</a>
 										</li>
 									</ul>

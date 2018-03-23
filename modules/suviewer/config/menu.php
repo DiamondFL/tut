@@ -13,7 +13,7 @@ return [
     'rg' => [
         'rg-answer', 'rg-question', 'rg-reply', 'rg-result', 'rg-test'
     ],
-    'ush' => [
-        'ush-category', 'ush-group',
+    '' => [
+        '-category', '-group',
     ],
 ];

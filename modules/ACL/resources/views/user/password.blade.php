@@ -29,7 +29,7 @@
 
                 <div class="raw-margin-top-24">
                     <a class="btn btn-default pull-left" href="{{ URL::previous() }}">Cancel</a>
-                    <button class="btn btn-primary pull-right" type="submit">Save</button>
+                    <button class="btn btn-primary pull-right" type="mit">Save</button>
                 </div>
             </form>
         </div>

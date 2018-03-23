@@ -148,7 +148,7 @@
 					</h3>
 					
 					<p>
-						Extremely eagerness principle estimable own was man. Men received far his dashwood subjects new.
+						Extremely eagerness principle estimable own was man. Men received far his dashwood jects new.
 					</p>
 				</div>
 				

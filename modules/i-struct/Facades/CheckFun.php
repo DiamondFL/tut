@@ -16,9 +16,9 @@ class CheckFun
         $end  =strrpos($string, '>',$start);
         $len=strlen($string);
         if ($end !== false) {
-            $string = substr($string, $start);
+            $string = str($string, $start);
         } else {
-            $string = substr($string, $start, $len-$start);
+            $string = str($string, $start, $len-$start);
         }
         libxml_use_internal_errors(true);
         libxml_clear_errors();
