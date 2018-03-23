@@ -89,11 +89,11 @@
 {{--$('#formSearchVocabulary').formFilter($('.searchVol'), $('#searchVocabularyTable'));--}}
 {{--</script>--}}
 <script>
-    $('.destroyBtn').click(function (e) {
-       var ok = confirm('Are you sure?');
-       if(ok === false) {
-           e.preventDefault();
-       }
+    $(document).on('click', '.destroyBtn', function (e) {
+        var ok = confirm('Are you sure?');
+        if(ok === false) {
+            e.preventDefault();
+        }
     });
 </script>
 </body>
