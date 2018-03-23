@@ -9,7 +9,7 @@
         var self = this;
         var data = {};
         self.change(function () {
-            data[name] = self.val();
+            data[name] = $(this).val();
             $.ajax({
                 url: url,
                 data: data,
