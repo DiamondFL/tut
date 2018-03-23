@@ -12,7 +12,7 @@
     </li>
 </ol>
 <div>
-{!! $docLesson->title !!}
+<h1>{!! $docLesson->title !!}</h1>
 {!! $docLesson->intro !!}
 {!! $docLesson->content !!}
 </div>
