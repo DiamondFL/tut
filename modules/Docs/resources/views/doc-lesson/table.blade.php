@@ -19,19 +19,19 @@
             <td>{{$row->creatorName()}}</td>
             <td>{{$row->updaterName()}}</td>
             <td>
-                <form method="POST" action="{{route('doc-lesson.destroy', $row->id)}}">
+                {{--<form method="POST" action="{{route('doc-lesson.destroy', $row->id)}}">--}}
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <button class="btn btn-danger btn-xs destroyBtn">
-                        <i class="fa fa-trash"></i>
-                    </button>
+                    {{--<button class="btn btn-danger btn-xs destroyBtn">--}}
+                        {{--<i class="fa fa-trash"></i>--}}
+                    {{--</button>--}}
                     <a href="{{route('doc-lesson.edit', $row->id)}}" class="btn btn-info btn-xs">
                         <i class="fa fa-edit"></i>
                     </a>
                     <a href="{{route('doc-lesson.show', $row->id)}}" class="btn btn-info btn-xs">
                         <i class="fa fa-eye"></i>
                     </a>
-                </form>
+                {{--</form>--}}
             </td>
         </tr>
     @endforeach
