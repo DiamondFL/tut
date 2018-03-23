@@ -189,5 +189,7 @@ const BETTING = 'betting';
 const COIN = 'coin';
 const ERROR = 'error';
 const SUCCESS = 'success';
-
 const PER_PAGE = 'per_page';
+
+const NULL_FILTER = '#NULL#';
+const NOT_NULL_FILTER = '#NOT_NULL#';

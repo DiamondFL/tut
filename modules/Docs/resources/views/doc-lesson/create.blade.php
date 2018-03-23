@@ -6,7 +6,7 @@
                 <a href="/"><i class="fa fa-home"></i>Home</a>
             </li>
             <li>
-                <a href="/">Lesson</a>
+                <a href="{{route('doc-lesson.index')}}">Lesson</a>
             </li>
             <li class="active">
                 <strong>Table</strong>
@@ -18,7 +18,7 @@
                 <label for="title">{{trans('label.title')}}</label>
                 <input type="text" class="form-control" name="title" id="title">
             </div>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-lg-2">
                 <label for="category">{{trans('label.category')}}</label>
                 <select  class="form-control" name="category_id" id="category_id">
                     <option value=""></option>
@@ -27,7 +27,7 @@
                     @endforeach
                 </select>
             </div>
-            <div class="form-group col-lg-3">
+            <div class="form-group col-lg-2">
                 <label for="sub_category_id">{{trans('label.sub_category_id')}}</label>
                 <select  class="form-control" name="sub_category_id" id="sub_category_id">
                     <option value=""></option>

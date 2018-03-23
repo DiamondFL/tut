@@ -32,19 +32,20 @@ class DocLessonRepositoryEloquent extends BaseRepository implements DocLessonRep
         isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
         return $this->makeModel()
             ->filter($input)
+            ->relation(['relations' => ['subCategory:id,name', 'creator:id,email', 'updater:id,email']])
             ->paginate($input[PER_PAGE]);
 
     }
 
     public function store($input)
     {
-        $input = $this->standardized($input, $this->makeModel());
+        $input[CREATED_BY_COL] = auth()->id();
         $this->create($input);
     }
 
     public function change($input, $data)
     {
-        $input = $this->standardized($input, $data);
+        $input[UPDATED_BY_COL] = auth()->id();
         $this->update($input, $data->id);
     }
 
@@ -55,11 +56,11 @@ class DocLessonRepositoryEloquent extends BaseRepository implements DocLessonRep
         $this->importing($path);
     }
 
-    private function standardized($input, $data)
-    {
-        $input = $data->uploads($input);
-        return $data->checkbox($input);
-    }
+//    private function standardized($input, $data)
+//    {
+//        $input = $data->uploads($input);
+//        return $data->checkbox($input);
+//    }
 
     public function destroy($data)
     {

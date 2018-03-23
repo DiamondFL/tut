@@ -33,8 +33,8 @@ class DocLesson extends Model implements Transformable
         if (isset($input[CONTENT_COL])) {
             $query->where(CONTENT_COL, $input[CONTENT_COL]);
         }
-        if (isset($input[SUBJECT_ID_COL])) {
-            $query->where(SUBJECT_ID_COL, $input[SUBJECT_ID_COL]);
+        if (isset($input[SUB_CATEGORY_ID_COL])) {
+            $query->where(SUB_CATEGORY_ID_COL, $input[SUB_CATEGORY_ID_COL]);
         }
         if (isset($input[VIEWS_COL])) {
             $query->where(VIEWS_COL, $input[VIEWS_COL]);

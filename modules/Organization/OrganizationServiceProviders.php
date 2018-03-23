@@ -33,7 +33,9 @@ class OrganizationServiceProviders extends ServiceProvider
             ]);
         }
         view()->composer([
-            'doc::doc-lesson.create', 'doc::doc-lesson.update',
+            'doc::doc-lesson.create',
+            'doc::doc-lesson.update',
+            'doc::doc-lesson.index',
         ], CategoryComposer::class);
 
         view()->composer([

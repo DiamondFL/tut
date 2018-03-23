@@ -27,7 +27,7 @@ trait ModelsTrait
         return $this->belongsTo(User::class, UPDATED_BY_COL);
     }
 
-    public function creatorSelf($field = 'email')
+    public function creatorName($field = 'email')
     {
         if ($this->creator)
         {
@@ -36,7 +36,7 @@ trait ModelsTrait
         return '--';
     }
 
-    public function updaterSelf($field = 'email')
+    public function updaterName($field = 'email')
     {
         if ($this->updater)
         {
@@ -187,6 +187,34 @@ trait ModelsTrait
             foreach ($input['relations'] as $relation)
             {
                 $query->with($relation);
+            }
+        }
+        return $query;
+    }
+
+    private $where = [];
+    private $whereIn = [];
+
+    public function scopeFilter($query, $input)
+    {
+        foreach ($this->whereIn as $key => $value) {
+            if (isset($input[$value])) {
+                $query->whereIn($this->table . '.' . $key, $input[$value]);
+            }
+        }
+        foreach ($this->where as $value) {
+            if (isset($input[$value])) {
+                $query->where($this->table . '.' . $value, $input[$value]);
+            }
+        }
+        if (isset($input[NULL_FILTER])) {
+            foreach ($input[NULL_FILTER] as $value) {
+                $query->whereNull($this->table . '.' . $value);
+            }
+        }
+        if (isset($input[NOT_NULL_FILTER])) {
+            foreach ($input[NOT_NULL_FILTER] as $value) {
+                $query->whereNotNull($this->table . '.' . $value);
             }
         }
         return $query;

@@ -74,17 +74,8 @@ return [
     'locate_path' => 'Vị trí đường dẫn',
     'language_code' => 'Mã ngôn ngữ',
 
-    'goi-truoc-khi-huy' => 'Gói trước khi hủy',
-    'goi-sau-khi-huy' => 'Gói sau khi hủy',
-    'goi-truoc-khi-chuyen' => 'Gói trước khi chuyển',
-    'goi-sau-khi-chuyen' => 'Gói sau khi chuyển',
-
-
     'hot' => 'Nóng',
     'header' => 'Giới thiệu',
-
-    'kenh-truoc-khi-chuyen' => 'Kênh trước khi chuyển',
-    'kenh-sau-khi-chuyen' => 'Kênh sau khi chuyển',
     'kichhoat' => 'Kích hoạt',
 
     'icon' => 'Biểu tượng',

@@ -42,6 +42,7 @@ return [
     'professional' => 'Professional',
     'question' => 'Question',
     'phone_number' => 'Phone number',
+    'per_page' => 'Per page',
     'reply1' => 'Reply1',
     'reply2' => 'Reply2',
     'reply3' => 'Reply3',
