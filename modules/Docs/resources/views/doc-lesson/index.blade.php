@@ -14,7 +14,7 @@
     <form class="form-group row" id="formFilter" action="{{route('doc-lesson.index')}}" method="POST">
         <div class="col-lg-2 form-group">
             <label for="per_page">{{trans('label.per_page')}}</label>
-            <select name="per_page" class="form-control inputFilter">
+            <select name="per_page" class="form-control selectFilter">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>

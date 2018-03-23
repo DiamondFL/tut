@@ -17,7 +17,7 @@
             </td>
             <td>{{$row->views}}</td>
             <td>{{$row->last_view}}</td>
-            <td>{{$row->creatorSelf()}}</td>
+            <td>{{$row->creatorName()}}</td>
             <td>
                 <form method="POST" action="{{route('doc-example.destroy', $row->id)}}">
                     {{csrf_field()}}
