@@ -7,13 +7,15 @@ use Istruct\Facades\InputFa;
 use Istruct\MultiInheritance\ControllersTrait;
 use Organization\Http\Requests\SubCategoryCreateRequest;
 use Organization\Http\Requests\SubCategoryUpdateRequest;
-use Organization\Repositories\SubCategoryRepository;
 use Illuminate\Http\Request;
+use Organization\Repositories\SubCategoryRepository;
 
 class SubCategoryController extends Controller
 {
-    private $repository;
+
     use ControllersTrait;
+    private $repository;
+
     public function __construct(SubCategoryRepository $repository)
     {
         $this->repository = $repository;

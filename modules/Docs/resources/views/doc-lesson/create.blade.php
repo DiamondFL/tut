@@ -20,7 +20,7 @@
             </div>
             <div class="form-group col-lg-3">
                 <label for="category">{{trans('label.category')}}</label>
-                <select  class="form-control" name="category" id="category">
+                <select  class="form-control" name="category_id" id="category_id">
                     <option value=""></option>
                     @foreach($categoryCompose as $id => $name)
                         <option value="{{$id}}">{{$name}}</option>
@@ -53,7 +53,7 @@
 @push('js')
     <script src="{{asset('build/forceSelect.js')}}"></script>
     <script>
-        var categorySelect = $('#category');
+        var categorySelect = $('#category_id');
         var route = $('#listSubCategoryRoute').val();
         var config = {
             route: route,

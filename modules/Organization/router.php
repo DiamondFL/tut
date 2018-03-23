@@ -6,7 +6,7 @@
  * Time: 2:51 PM
  */
 
-Route::group(['middleware' => ['web', 'auth', 'role:admin' ], 'namespace' => '\Http\Controllers'], function () {
+Route::group(['middleware' => ['web', 'auth', 'role:admin' ], 'namespace' => 'Organization\Http\Controllers'], function () {
     Route::resource('group' , 'GroupController');
     Route::resource('category' , 'CategoryController');
     Route::resource('sub-category' , 'SubCategoryController');

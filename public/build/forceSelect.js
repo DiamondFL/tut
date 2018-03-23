@@ -8,8 +8,8 @@
         var isSelected = config.isSelect;
         var self = this;
         var data = {};
-        data[name] = self.val();
         self.change(function () {
+            data[name] = self.val();
             $.ajax({
                 url: url,
                 data: data,

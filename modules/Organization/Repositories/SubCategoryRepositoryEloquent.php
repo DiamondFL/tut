@@ -6,15 +6,15 @@ namespace Organization\Repositories;
 use Istruct\MultiInheritance\RepositoriesTrait;
 
 use Illuminate\Support\Facades\Cache;
+use Organization\Models\SubCategory;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Organization\Models\Category;
 
 /**
  * Class NewsRepositoryEloquent
  * @package namespace App\Repositories;
  */
-class SubCategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
+class SubCategoryRepositoryEloquent extends BaseRepository implements SubCategoryRepository
 {
     use RepositoriesTrait;
     /**
@@ -24,7 +24,7 @@ class SubCategoryRepositoryEloquent extends BaseRepository implements CategoryRe
      */
     public function model()
     {
-        return Category::class;
+        return SubCategory::class;
     }
 
     public function myPaginate($input)

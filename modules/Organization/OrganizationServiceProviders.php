@@ -15,6 +15,8 @@ use Organization\Repositories\CategoryRepository;
 use Organization\Repositories\CategoryRepositoryEloquent;
 use Organization\Repositories\GroupRepository;
 use Organization\Repositories\GroupRepositoryEloquent;
+use Organization\Repositories\SubCategoryRepository;
+use Organization\Repositories\SubCategoryRepositoryEloquent;
 
 class OrganizationServiceProviders extends ServiceProvider
 {
@@ -23,9 +25,7 @@ class OrganizationServiceProviders extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'organ');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'organ');
         $this->loadRoutesFrom(__DIR__ . '/router.php');
-        $this->publishes([
-//            __DIR__.'/config/magic-db.php' => config_path('magic-db.php'),
-        ]);
+        $this->publishes([]);
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -49,6 +49,6 @@ class OrganizationServiceProviders extends ServiceProvider
     {
         $this->app->bind(GroupRepository::class, GroupRepositoryEloquent::class);
         $this->app->bind(CategoryRepository::class, CategoryRepositoryEloquent::class);
-        $this->app->bind(CategoryRepository::class, CategoryRepositoryEloquent::class);
+        $this->app->bind(SubCategoryRepository::class, SubCategoryRepositoryEloquent::class);
     }
 }

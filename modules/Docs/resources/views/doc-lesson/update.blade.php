@@ -21,7 +21,7 @@
             </div>
             <div class="form-group col-lg-3">
                 <label for="category">{{trans('label.category')}}</label>
-                <select class="form-control" name="category" id="category">
+                <select class="form-control" name="category_id" id="category_id">
                     <option value=""></option>
                     @foreach($categoryCompose as $id => $name)
                         <option @if($category_id === $id) selected @endif value="{{$id}}">{{$name}}</option>
@@ -54,3 +54,17 @@
         </form>
     </div>
 @endsection
+
+@push('js')
+<script src="{{asset('build/forceSelect.js')}}"></script>
+<script>
+    var categorySelect = $('#category_id');
+    var route = $('#listSubCategoryRoute').val();
+    var config = {
+        route: route,
+        isSelect: '#sub_category_id',
+        name: 'category_id'
+    };
+    categorySelect.magicSelect(config);
+</script>
+@endpush
