@@ -13,6 +13,9 @@
             $.ajax({
                 url: url,
                 data: data,
+                beforeSend: function () {
+                    $(isSelected).html('');
+                },
                 method: "GET",
                 success: function (data) {
                     var option = optionCate(data);
