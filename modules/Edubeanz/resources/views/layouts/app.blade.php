@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('')}}assets/css/custom.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/neon-forms.css">
 
-    <script src="{{asset('')}}assets/js/jquery-1.11.3.min.js"></script>
+    <script src="{{asset('frontd')}}/js/jquery-1.11.3.min.js"></script>
     @stack('head')
 </head>
 <body>
@@ -50,6 +50,14 @@
 {{--    @include('edu::layouts.footer')--}}
 {{--</div>--}}
 <!-- Bottom scripts (common) -->
+{{--<script src="{{asset('frontd')}}/js/gsap/TweenMax.min.js"></script>--}}
+{{--<script src="{{asset('frontd')}}/js/bootstrap.js"></script>--}}
+{{--<script src="{{asset('frontd')}}/js/joinable.js"></script>--}}
+{{--<script src="{{asset('frontd')}}/js/resizeable.js"></script>--}}
+{{--<script src="{{asset('frontd')}}/js/neon-slider.js"></script>--}}
+<!-- JavaScripts initializations and stuff -->
+<script src="{{asset('frontd')}}/js/neon-custom.js"></script>
+
 <script src="{{asset('')}}assets/js/gsap/TweenMax.min.js"></script>
 <script src="{{asset('')}}assets/js/bootstrap.js"></script>
 <script src="{{asset('')}}assets/js/joinable.js"></script>
