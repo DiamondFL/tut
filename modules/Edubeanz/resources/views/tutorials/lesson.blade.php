@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-lg-9 text-justify">
 
-            <div class="panel panel-gray" data-collapsed="0">
+            <div class="panel panel-primary" data-collapsed="0">
 
                 <!-- panel head -->
                 {{--<div class="panel-heading">--}}
