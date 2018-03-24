@@ -24,7 +24,7 @@
             <a data-toggle="modal" data-target="#role_permission" class="btn btn-default set_role_permission" data="{{$role->id}}">Set Permission </a>
             <form class="form-group" action="{{route('roles.destroy', $role->id)}}"
                   style="display: inline">
-                <button class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button>
+                <button class="btn btn-danger destroyBtn btn-sm"><i class="fa fa-remove"></i></button>
             </form>
         </td>
     </tr>

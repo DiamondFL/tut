@@ -22,7 +22,7 @@
                 {{--<form method="POST" action="{{route('doc-lesson.destroy', $row->id)}}">--}}
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    {{--<button class="btn btn-danger btn-xs destroyBtn">--}}
+                    {{--<button class="btn btn-danger destroyBtn btn-xs destroyBtn">--}}
                         {{--<i class="fa fa-trash"></i>--}}
                     {{--</button>--}}
                     <a href="{{route('doc-lesson.edit', $row->id)}}" class="btn btn-info btn-xs">

@@ -26,7 +26,7 @@
                       style="display: inline">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <button class="btn btn-danger btn-sm"><i class="fa fa-remove"></i></button>
+                    <button class="btn btn-danger destroyBtn btn-sm"><i class="fa fa-remove"></i></button>
                 </form>
             </td>
         </tr>

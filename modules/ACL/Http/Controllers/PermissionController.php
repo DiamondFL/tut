@@ -35,7 +35,7 @@ class PermissionController extends Controller
         }
         foreach ($permissions as $row)
         {
-            array_p($data[$row->module_id], $row->access_id);
+            array_push($data[$row->module_id], $row->access_id);
         }
         $levelList = [];
         $accessList = [];

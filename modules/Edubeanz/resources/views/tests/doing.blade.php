@@ -108,18 +108,18 @@
                     } else {
                         $(check).removeClass('btn-default');
                         $(check).removeClass('btn-info');
-                        $(check).addClass('btn-danger');
+                        $(check).addClass('btn-danger destroyBtn');
                     }
                 })
             } else {
                 $('.done').each(function () {
                     if ($(this).attr('data') === id && $(this).is(":checked")) {
-                        $(check).removeClass('btn-danger');
+                        $(check).removeClass('btn-danger destroyBtn');
                         $(check).removeClass('btn-warning');
                         $(check).addClass('btn-info');
                         return false;
                     } else {
-                        $(check).removeClass('btn-danger');
+                        $(check).removeClass('btn-danger destroyBtn');
                         $(check).removeClass('btn-info');
                         $(check).addClass('btn-default');
                     }
@@ -134,13 +134,13 @@
                     if ($(this).attr('data') === id && $(this).is(":checked")) {
                         $(check).removeClass('btn-info');
                         $(check).removeClass('btn-default');
-                        $(check).removeClass('btn-danger');
+                        $(check).removeClass('btn-danger destroyBtn');
                         $(check).addClass('btn-warning');
                         return false;
                     } else {
                         $(check).removeClass('btn-info');
                         $(check).removeClass('btn-default');
-                        $(check).removeClass('btn-danger');
+                        $(check).removeClass('btn-danger destroyBtn');
                         $(check).addClass('btn-info');
                     }
                 });
@@ -149,13 +149,13 @@
                 $('.unsure').each(function () {
                     if ($(this).attr('data') === id && $(this).is(":checked")) {
                         $(check).removeClass('btn-info');
-                        $(check).removeClass('btn-danger');
+                        $(check).removeClass('btn-danger destroyBtn');
                         $(check).removeClass('btn-warning');
                         $(check).addClass('btn-default');
                         return false;
                     } else {
                         $(check).removeClass('btn-info');
-                        $(check).removeClass('btn-danger');
+                        $(check).removeClass('btn-danger destroyBtn');
                         $(check).removeClass('btn-warning');
                         $(check).addClass('btn-default');
                     }

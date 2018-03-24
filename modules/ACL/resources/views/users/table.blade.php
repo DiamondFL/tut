@@ -18,7 +18,7 @@
                 <form method="POST" action="{{route('users.destroy', $row->id)}}">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <button class="btn btn-xs btn-danger">
+                    <button class="btn btn-xs btn-danger destroyBtn">
                         <i class="fa fa-trash"></i>
                     </button>
                     <a href="{{route('users.edit', $row->id)}}" class="btn btn-xs btn-info">

@@ -5,7 +5,7 @@
        <div class="btn-group btn-group-justified form-group" role="group" aria-label="...">
            @for($i = 1; $i < 7; $i++)
                <div class="btn-group" role="group">
-                   <button type="button" class="btn btn-default {{isset($number) && $number === $i ? 'btn-danger' : ''}}">{{$i}}</button>
+                   <button type="button" class="btn btn-default {{isset($number) && $number === $i ? 'btn-danger destroyBtn' : ''}}">{{$i}}</button>
                </div>
            @endfor
        </div>

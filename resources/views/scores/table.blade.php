@@ -22,7 +22,7 @@
                 <form method="POST" action="{{route('scores.destroy', $row->id)}}">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                    <button class="btn btn-xs btn-danger destroyBtn"><i class="fa fa-trash"></i></button>
                     <a href="{{route('scores.edit', $row->id)}}" class="btn btn-xs btn-info">
                         <i class="fa fa-edit"></i>
                     </a>

@@ -13,7 +13,7 @@
            <form style="display: inline" class="form-inline" method="POST" action="{{route('create.destroy', $row->id)}}">
                {{csrf_field()}}
                {{method_field('DELETE')}}
-               <button class="btn btn-danger">
+               <button class="btn btn-danger destroyBtn">
                    <i class="fa fa-trash"></i>
                </button>
            </form>

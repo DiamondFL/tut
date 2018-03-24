@@ -18,7 +18,7 @@
                 <form method="POST" action="{{route('doc-package.destroy', $row->id)}}">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
-                    <button class="btn btn-danger btn-xs">
+                    <button class="btn btn-danger destroyBtn btn-xs">
                         <i class="fa fa-trash"></i>
                     </button>
                     <a href="{{route('doc-package.edit', $row->id)}}" class="btn btn-info btn-xs">

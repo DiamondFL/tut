@@ -17,7 +17,7 @@
            <form  class="form-inline" method="POST" action="{{route('questions.destroy', $row->id)}}">
                {{csrf_field()}}
                {{method_field('DELETE')}}
-               <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+               <button class="btn btn-danger destroyBtn"><i class="fa fa-trash"></i></button>
            </form>
        </td>
     </tr>

@@ -23,7 +23,7 @@ class PermissionSeed
         foreach ($this->permissions as $permission)
         {
             $row = ['name' => $permission . '_' . $name , 'display_name' => ucfirst($permission) . ' ' . $name, 'is_active' => 1];
-            array_p($data, $row);
+            array_push($data, $row);
         }
         try {
             DB::table('permissions')->insert($data);

@@ -52,7 +52,7 @@ class CategoryObserver
         if(request()->has('sub_category_names')) {
             $data = [];
             foreach (request()->get('sub_category_names') as $value) {
-                array_p($data, ['name' => $value, 'category_id' => $model->id]);
+                array_push($data, ['name' => $value, 'category_id' => $model->id]);
             }
             DB::table('sub_categories')->insert($data);
         }

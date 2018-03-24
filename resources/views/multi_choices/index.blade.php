@@ -61,7 +61,7 @@
                 <a class="btn btn-primary btn-group" href="{{route('multi_choices.create')}}">
                     <i class="fa fa-plus"></i>
                 </a>
-                <a class="btn btn-danger btn-group"><i class="fa fa-trash"></i></a>
+                <a class="btn btn-danger destroyBtn btn-group"><i class="fa fa-trash"></i></a>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
                     <i class="fa fa-upload"></i> Upload
                 </button>

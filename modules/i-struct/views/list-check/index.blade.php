@@ -7,7 +7,7 @@
     </div>
     @include('_dev.test-case.table', ['testCases' => $testCaseSelected])
     <div class="form-group text-center">
-        <button class="btn btn-danger" id="removeSelectedBtn{{$type}}"><i class="fa fa-trash"></i> Remove</button>
+        <button class="btn btn-danger destroyBtn" id="removeSelectedBtn{{$type}}"><i class="fa fa-trash"></i> Remove</button>
     </div>
     @include('_dev.test-case.modal.index')
 </div>

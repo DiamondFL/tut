@@ -45,9 +45,9 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
             $data = [];
             $now = now();
             foreach (request()->get('_category_names') as $value) {
-                array_p($data, ['name' => $value, 'category_id' => $model->id, 'created_at' => $now, 'updated_at' => $now] );
+                array_push($data, ['name' => $value, 'category_id' => $model->id, 'created_at' => $now, 'updated_at' => $now] );
             }
-            DB::table('_categories')->insert($data);
+            DB::table('sub_categories')->insert($data);
         }
     }
 

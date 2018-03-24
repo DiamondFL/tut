@@ -44,7 +44,7 @@
         <div class="col-sm-1 form-group">
             <label for="action">{{trans('label.action')}}</label>
             <a class="btn btn-primary btn-block" href="{{route('doc-lesson.create')}}"><i class="fa fa-plus"></i></a>
-            <!--<a class="btn btn-danger"><i class="fa fa-trash"></i></a>-->
+            <!--<a class="btn btn-danger destroyBtn"><i class="fa fa-trash"></i></a>-->
         </div>
     </form>
     <div id="table">
