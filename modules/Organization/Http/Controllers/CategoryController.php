@@ -4,7 +4,7 @@ namespace Organization\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
-use Organization\Models\Category;
+use Organization\Models\Categories;
 use Organization\Http\Requests\CategoryCreateRequest;
 use Organization\Http\Requests\CategoryUpdateRequest;
 use Organization\Repositories\CategoryRepository;

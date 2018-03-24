@@ -6,7 +6,7 @@ namespace Organization\Repositories;
 use Istruct\MultiInheritance\RepositoriesTrait;
 
 use Illuminate\Support\Facades\Cache;
-use Organization\Models\SubCategory;
+use Organization\Models\SubCategories;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 
@@ -24,7 +24,7 @@ class SubCategoryRepositoryEloquent extends BaseRepository implements SubCategor
      */
     public function model()
     {
-        return SubCategory::class;
+        return SubCategories::class;
     }
 
     public function myPaginate($input)
@@ -57,7 +57,7 @@ class SubCategoryRepositoryEloquent extends BaseRepository implements SubCategor
 
     private function standardized($input, $data)
     {
-        $input = $data->uploads($input);
+//        $input = $data->uploads($input);
         return $data->checkbox($input);
     }
 

@@ -2,12 +2,13 @@
 
 namespace Organization\Models;
 
+use Docs\Models\DocLesson;
 use Istruct\MultiInheritance\ModelsTrait;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class SubCategory extends Model implements Transformable
+class SubCategories extends Model implements Transformable
 {
     use TransformableTrait;
     use ModelsTrait;
@@ -28,18 +29,23 @@ class SubCategory extends Model implements Transformable
 
     public function category()
     {
-        return $this->belongsTo(Category::class, CATEGORY_ID_COL);
+        return $this->belongsTo(Categories::class, CATEGORY_ID_COL);
     }
 
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/categories'];
-    protected $thumbImage = [
-        'image' => [
-            '/thumbs/' => [
-                [200, 200], [300, 300], [400, 400]
-            ]
-        ]
-    ];
+    public function lessons()
+    {
+        return $this->hasMany(DocLesson::class, SUB_CATEGORY_ID_COL);
+    }
+
+//    public $fileUpload = ['image' => 1];
+//    protected $pathUpload = ['image' => '/images/categories'];
+//    protected $thumbImage = [
+//        'image' => [
+//            '/thumbs/' => [
+//                [200, 200], [300, 300], [400, 400]
+//            ]
+//        ]
+//    ];
     protected $checkbox = [IS_ACTIVE_COL];
 }
 

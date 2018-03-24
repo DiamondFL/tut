@@ -4,7 +4,7 @@ namespace Docs\Models;
 
 use Istruct\MultiInheritance\ModelsTrait;
 use Illuminate\Database\Eloquent\Model;
-use Organization\Models\SubCategory;
+use Organization\Models\SubCategories;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
@@ -19,7 +19,7 @@ class DocLesson extends Model implements Transformable
 
     public function subCategory()
     {
-        return $this->belongsTo(SubCategory::class, SUB_CATEGORY_ID_COL);
+        return $this->belongsTo(SubCategories::class, SUB_CATEGORY_ID_COL);
     }
 
     public function scopeFilter($query, $input)

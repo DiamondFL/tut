@@ -43,4 +43,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('list', 'ExampleController@getList')->name('edu.example.list');
         Route::get('detail/{id}', 'ExampleController@getDetail')->name('edu.example.detail');
     });
+    Route::group(['namespace' => 'Edubeanz\Http\Controllers', 'prefix' => 'tutorial'], function () {
+        Route::get('index', 'TutorialController@index')->name('edu.tutorial.index');
+        Route::get('show/{id}', 'TutorialController@show')->name('edu.tutorial.show');
+        Route::get('section/{id}', 'TutorialController@section')->name('edu.tutorial.section');
+        Route::get('lesson/{id}', 'TutorialController@lesson')->name('edu.tutorial.lesson');
+    });
 });

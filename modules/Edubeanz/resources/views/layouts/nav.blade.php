@@ -20,6 +20,11 @@
             {{--</ul>--}}
         {{--</li>--}}
         <li>
+            <a href="{{route('edu.tutorial.index')}}">
+                <span>Tutorial</span>
+            </a>
+        </li>
+        <li>
             <a href="{{route('edu.test.list')}}">
                 <span>Test</span>
             </a>
@@ -46,24 +51,14 @@
         {{--</li>--}}
         <li>
             @if(auth()->check())
-
             <p class="text-info">
 {{--                {{auth()->user()->email}}--}}
                 <strong style="color: goldenrod">{{number_format(auth()->user()->coin)}} COIN</strong>
             </p>
-
             @else
             <a href="{{asset('login')}}" ><span class="entypo-login"></span></a>
             <a href="{{asset('register')}}" ><span class="entypo-user-add"></span></a>
             @endif
         </li>
-        <li>
-
-        </li>
     </ul>
-    <div class="visible-xs">
-        <a href="#" class="menu-trigger">
-            <i class="entypo-menu"></i>
-        </a>
-    </div>
 </nav>

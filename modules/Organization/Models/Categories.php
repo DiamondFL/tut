@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
-class Category extends Model implements Transformable
+class Categories extends Model implements Transformable
 {
     use TransformableTrait;
     use ModelsTrait;
@@ -25,18 +25,18 @@ class Category extends Model implements Transformable
 
     public function subCategories()
     {
-        return $this->hasMany(SubCategory::class);
+        return $this->hasMany(SubCategories::class,CATEGORY_ID_COL);
     }
 
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/categories'];
-    protected $thumbImage = [
-        'image' => [
-            '/thumbs/' => [
-                [200, 200], [300, 300], [400, 400]
-            ]
-        ]
-    ];
+//    public $fileUpload = ['image' => 1];
+//    protected $pathUpload = ['image' => '/images/categories'];
+//    protected $thumbImage = [
+//        'image' => [
+//            '/thumbs/' => [
+//                [200, 200], [300, 300], [400, 400]
+//            ]
+//        ]
+//    ];
     protected $checkbox = ['is_active'];
 }
 

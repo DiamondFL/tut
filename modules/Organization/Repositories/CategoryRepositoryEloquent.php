@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use Organization\Models\Category;
+use Organization\Models\Categories;
 
 /**
  * Class NewsRepositoryEloquent
@@ -25,7 +25,7 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
      */
     public function model()
     {
-        return Category::class;
+        return Categories::class;
     }
 
     public function myPaginate($input)
@@ -66,7 +66,7 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
 
     private function standardized($input, $data)
     {
-        $input = $data->uploads($input);
+//        $input = $data->uploads($input);
         return $data->checkbox($input);
     }
 
