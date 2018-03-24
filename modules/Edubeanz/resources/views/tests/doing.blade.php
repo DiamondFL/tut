@@ -75,7 +75,7 @@
     </nav>
 @endsection
 
-@p('head')
+@push('head')
     <style>
         .unsure {
             height: 20px;
