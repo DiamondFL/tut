@@ -20,14 +20,14 @@
             {{--</ol>--}}
             <h1>List section</h1>
 
-            <em>Entypo is a set of 250+ carefully crafted pictograms. All released for free under the Creative Commons
-                license
-                CC BY-SA.</em>
+            {{--<em>Entypo is a set of 250+ carefully crafted pictograms. All released for free under the Creative Commons--}}
+                {{--license--}}
+                {{--CC BY-SA.</em>--}}
         </div>
     </div>
     <div class="row">
         @foreach($subCategories as $subCategory)
-            <div href="{{'edu.tutorial.lesson', $subCategory->id}}" class="col-sm-6">
+            <div href="{{'edu.tutorial.lesson', $subCategory->id}}" class="col-sm-3">
                 <a class="tile-stats tile-primary">
                     <div class="icon"><i class="entypo-language"></i></div>
                     <div class="num"></div>
@@ -66,3 +66,7 @@
         </div>
     </div>
 @endsection
+
+@push('head')
+    <link rel="stylesheet" href="{{asset('')}}assets/css/neon-core.css">
+@endpush

@@ -56,14 +56,7 @@
     <!-- Footer Widgets -->
 @endsection
 @push('head')
-    <style>
-        /*.slimScrollBar {*/
-            /*background: #0c3c50;*/
-        /*}*/
-        /*.panel-body, body, .panel-heading {*/
-            /*background:url('http://i47.tinypic.com/2hsc187.png');*/
-        /*}*/
-    </style>
+    <link rel="stylesheet" href="{{asset('')}}assets/css/neon-core.css">
 @endpush
 @push('js')
     <script src="{{asset('')}}assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>

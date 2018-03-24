@@ -5,7 +5,7 @@
         <a href="/"><i class="fa fa-home"></i></a>
     </li>
     <li>
-        <a href="{{route('category.index')}}">categories</a>
+        <a href="{{route('category.index')}}">Categories</a>
     </li>
     <li class="active">
         <strong>Table</strong>
@@ -21,7 +21,7 @@
             <option value="50">50</option>
         </select>
     </div>
-    <div class="col-sm-8 form-group">
+    <div class="col-sm-7 form-group">
         <input name="name" class="form-control inputFilter" placeholder="name">
     </div>
     <!--<div class="col-sm-3 form-group">-->
@@ -34,9 +34,9 @@
             <option value="0">Inactive</option>
         </select>
     </div>
-    <div class="col-sm-2 form-group">
-        <a class="btn btn-primary" href="{{route('category.create')}}"><i class="fa fa-plus"></i></a>
-        <a class="btn btn-danger destroyBtn"><i class="fa fa-trash"></i></a>
+    <div class="col-sm-1 form-group">
+        <a class="btn btn-primary btn-block" href="{{route('category.create')}}"><i class="fa fa-plus"></i></a>
+        {{--<a class="btn btn-danger destroyBtn"><i class="fa fa-trash"></i></a>--}}
     </div>
 </form>
 <div class="box-content nopadding" id="table">

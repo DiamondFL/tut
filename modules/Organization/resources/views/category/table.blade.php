@@ -1,14 +1,15 @@
 <table class="table">
     <tr>
-        <th><input type="checkbox" class="check_all"></th><th>{{trans('label.name')}}</th>
+        {{--<th><input type="checkbox" class="check_all"></th>--}}
+        <th>{{trans('label.name')}}</th>
 
         <th></th>
     </tr>
     @foreach($Categories as $row)
     <tr>
-        <td><input type="checkbox" class="check_item" data="{{$row->id}}"></td><td>{{$row->name}}</td>
-
-       <td>
+        {{--<td><input type="checkbox" class="check_item" data="{{$row->id}}"></td>--}}
+        <td>{{$row->name}}</td>
+       <td class="text-right">
            <form method="POST" action="{{route('category.destroy', $row->id)}}">
                {{csrf_field()}}
                {{method_field('DELETE')}}

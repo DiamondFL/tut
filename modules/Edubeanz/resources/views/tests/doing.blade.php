@@ -92,7 +92,7 @@
         function mark() {
             var ok = confirm('Bạn thực sự muốn nộp bài');
             if(ok) {
-                $('#formTest').mit()
+                $('#formTest').submit()
             }
         }
         $('.unsure').change(function () {

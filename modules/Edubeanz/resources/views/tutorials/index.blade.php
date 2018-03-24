@@ -37,3 +37,7 @@
         @endforeach
     </div>
 @endsection
+
+@push('head')
+    <link rel="stylesheet" href="{{asset('')}}assets/css/neon-core.css">
+@endpush
