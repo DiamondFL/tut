@@ -61,4 +61,9 @@
             @endif
         </li>
     </ul>
+    <div class="visible-xs">
+        <a href="#" class="menu-trigger">
+            <i class="entypo-menu"></i>
+        </a>
+    </div>
 </nav>
