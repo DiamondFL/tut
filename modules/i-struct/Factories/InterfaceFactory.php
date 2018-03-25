@@ -22,6 +22,10 @@ class InterfaceFactory implements _Interface
     }
     public function produce($table, $material, $path = 'app')
     {
+        if(!is_dir(base_path($path . '/Repositories')))
+        {
+            mkdir(base_path($path . '\Repositories'));
+        }
         $fileForm = fopen(BuildPath::outInterface($table, $path), "w");
         fwrite($fileForm, $material);
     }

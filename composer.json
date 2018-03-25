@@ -44,8 +44,9 @@
             "Bugger\\": "modules/Bugger/",
             "Edubeanz\\": "modules/Edubeanz/",
             "Games\\": "modules/Games/",
+            "MiniTest\\": "modules/MiniTest/",
             "Istruct\\": "modules/i-struct/",
-            "Test\\Rg\\": "modules/test/rg/",
+            "Test\\": "modules/Test/",
             "Organization\\": "modules/Organization/",
             "Docs\\": "modules/Docs/",
             "SuViewer\\": "modules/suviewer/"

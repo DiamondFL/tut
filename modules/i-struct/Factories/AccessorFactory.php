@@ -29,7 +29,6 @@ class AccessorFactory
 
     public function building($table)
     {
-
         $material = $this->component->building($table);
         $this->produce($table, $material);
     }

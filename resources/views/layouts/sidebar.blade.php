@@ -64,7 +64,7 @@
 {{--            @include('trg::layouts.sidebar')--}}
             @include('organ::layouts.sidebar')
             @include('acl::layouts.nav')
-
+            @include('magic::layouts.sidebar')
         </ul>
     </div>
 </div>

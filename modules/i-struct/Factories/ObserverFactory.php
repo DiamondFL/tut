@@ -22,6 +22,10 @@ class ObserverFactory implements _Interface
 
     public function produce($table, $material, $path = 'app')
     {
+        if(!is_dir(base_path($path . '/Observers')))
+        {
+            mkdir(base_path($path . '\Observers'));
+        }
         $fileForm = fopen(CRUDPath::outObServer($table, $path), "w");
         fwrite($fileForm, $material);
     }

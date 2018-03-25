@@ -21,6 +21,10 @@ class RepositoryFactory implements _Interface
 
     public function produce($table, $material, $path = 'app')
     {
+        if(!is_dir(base_path($path . '/Repositories')))
+        {
+            mkdir(base_path($path . '\Repositories'));
+        }
         $fileForm = fopen(BuildPath::outRepository($table, $path), "w");
         fwrite($fileForm, $material);
     }

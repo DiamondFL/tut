@@ -20,6 +20,10 @@ class PolicyFactory implements _Interface
     }
     public function produce($table, $material, $path = 'app')
     {
+        if(!is_dir(base_path($path . '/Polices')))
+        {
+            mkdir(base_path($path . '\Polices'));
+        }
         $fileForm = fopen(BuildPath::outPolicy($table, $path), "w");
         fwrite($fileForm, $material);
     }

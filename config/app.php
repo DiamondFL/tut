@@ -194,7 +194,8 @@ return [
 
         \Edubeanz\Providers\EdubeanzServiceProvider::class,
         \Games\GameServiceRepository::class,
-        \Test\Rg\TestRgServiceProvider::class,
+        \MiniTest\Providers\MiniTestServiceProvider::class,
+        \Test\TestServiceProvider::class,
         \Docs\DocsServiceProvider::class,
         \SuViewer\SuViewerServiceProvider::class,
         \Organization\OrganizationServiceProviders::class,

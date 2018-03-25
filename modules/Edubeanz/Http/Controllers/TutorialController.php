@@ -40,6 +40,9 @@ class TutorialController extends Controller
     public function lesson($id)
     {
         $lesson = app(DocLesson::class)->find($id);
+        $lesson->views +=1;
+        $lesson->last_view = date('Y-m-d H:i:s');
+        $lesson->save();
         $section = $lesson->subCategory;
 //        dd($section);
         $lessonList = $section->lessons()->pluck('title', 'id');

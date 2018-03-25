@@ -21,6 +21,10 @@ class RequestFactory implements _Interface
     }
     public function produce($table, $material, $path = 'app')
     {
+        if(!is_dir(base_path($path . '/Http/Requests')))
+        {
+            mkdir(base_path($path . '\Http\Requests'));
+        }
         $fileForm = fopen(BuildPath::outRequest($table, $path), "w");
         fwrite($fileForm, $material);
     }

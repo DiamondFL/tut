@@ -23,6 +23,10 @@ class ModelFactory
 
     public function produce($table, $material, $path)
     {
+        if(!is_dir(base_path($path . '/Models')))
+        {
+            mkdir(base_path($path . '\Models'));
+        }
         $fileForm = fopen(BuildPath::outModel(camel_case($table), $path), "w");
         fwrite($fileForm, $material);
     }

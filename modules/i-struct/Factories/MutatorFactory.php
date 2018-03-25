@@ -22,6 +22,10 @@ class MutatorFactory implements _Interface
 
     public function produce($table, $material, $path = 'app')
     {
+        if(!is_dir(base_path($path . '/Models')))
+        {
+            mkdir(base_path($path . '\Models'));
+        }
         $fileForm = fopen(BuildPath::outMutator($table, $path), "w");
         fwrite($fileForm, $material);
     }

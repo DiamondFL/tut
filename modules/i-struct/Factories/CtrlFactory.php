@@ -23,6 +23,11 @@ class CtrlFactory implements _Interface
     }
     public function produce($table, $material, $path)
     {
+        if(!is_dir(base_path($path . '/Http/Controllers')))
+        {
+            mkdir(base_path($path . '\Http'));
+            mkdir(base_path($path . '\Http\Controllers'));
+        }
         $fileForm = fopen(BuildPath::outController($table, $path), "w");
         fwrite($fileForm, $material);
     }
