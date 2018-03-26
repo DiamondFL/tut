@@ -189,13 +189,17 @@ return [
         \App\Providers\RepositoryServiceProvider::class,
         \App\Providers\ViewComposerServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        DevDojo\Chatter\ChatterServiceProvider::class,
+
+
         \App\Providers\BladeServiceProvider::class,
         \App\Providers\ValidatorServiceProvider::class,
 
+
         \Edubeanz\Providers\EdubeanzServiceProvider::class,
         \Games\GameServiceRepository::class,
-        \MiniTest\Providers\MiniTestServiceProvider::class,
-        \Test\TestServiceProvider::class,
+//        \MiniTest\Providers\MiniTestServiceProvider::class,
+//        \Test\TestServiceProvider::class,
         \Docs\DocsServiceProvider::class,
         \SuViewer\SuViewerServiceProvider::class,
         \Organization\OrganizationServiceProviders::class,

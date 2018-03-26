@@ -63,9 +63,19 @@ class LessonRepositoryEloquent extends BaseRepository implements LessonRepositor
 
     public function destroy($data)
     {
-        // TODO: Implement remove() method.
+        $this->delete($data->id);
     }
-
+    public function edit($id)
+    {
+        $docLesson = $this->find($id);
+        if(empty($docLesson)) {
+            return $docLesson;
+        }
+        $category = $docLesson->subCategory->category;
+        $category_id = $category->id;
+        $subCategoryList = $category->subCategories->pluck('name', 'id')->toArray();
+        return compact('docLesson', 'category_id', 'subCategoryList');
+    }
     /**
      * Boot up the repository, ping criteria
      */

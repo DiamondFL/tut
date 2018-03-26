@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{asset('')}}assets/css/skins/white.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/font-awesome/css/font-awesome.min.css">
     @stack('css')
+    @yield('css')
 </head>
 <body class="page-body skin-black">
 <div class="page-container">
@@ -69,7 +70,7 @@
         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
 //        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
-    $('textarea').ckeditor(options);
+    $('.ckeditor').ckeditor(options);
 </script>
 
 
@@ -85,6 +86,7 @@
 <script src="{{asset('bower_components/fabric.js/dist/fabric.min.js')}}"></script>
 {{--<script src="{{asset('bower_components/fabric.js/dist/fabric.require.js')}}"></script>--}}
 @stack('js')
+@yield('js')
 {{--<script>--}}
 {{--$('#formSearchVocabulary').formFilter($('.searchVol'), $('#searchVocabularyTable'));--}}
 {{--</script>--}}

@@ -4,10 +4,10 @@ namespace Organization\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
-use \Models\Group;
-use \Http\Requests\GroupCreateRequest;
-use \Http\Requests\GroupUpdateRequest;
-use \Repositories\GroupRepository;
+use Organization\Models\Group;
+use Organization\Http\Requests\GroupCreateRequest;
+use Organization\Http\Requests\GroupUpdateRequest;
+use Organization\Repositories\GroupRepository;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller

@@ -21,6 +21,7 @@
 
     <script src="{{asset('frontd')}}/js/jquery-1.11.3.min.js"></script>
     @stack('head')
+    @yield('css')
 </head>
 <body>
 {{--<div class="wrap">--}}
@@ -65,7 +66,8 @@
 <!-- JavaScripts initializations and stuff -->
 {{--<script src="{{asset('')}}assets/js/neon-custom.js"></script>--}}
 
-
+@yield('js')
 @stack('js')
+
 </body>
 </html>

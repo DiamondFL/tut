@@ -10,7 +10,7 @@ namespace Organization\Observers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use \Models\Category;
+use Organization\Models\Category;
 
 class CategoryObserver
 {

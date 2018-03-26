@@ -19,7 +19,8 @@ class TutorialServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadRoutesFrom(__DIR__ . '/router.php');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'tut');
     }
 
     /**
