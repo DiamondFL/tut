@@ -22,12 +22,17 @@ class TutorialController extends Controller
     }
     public function show($id)
     {
+        $category = app(Categories::class)->find($id);
+        if(empty($category))
+        {
+            session()->flash('error', 'Category not found');
+        }
         $subCategories = app(SubCategories::class)
             ->where(CATEGORY_ID_COL, $id)
             ->with('lessons')
             ->get();
 //        dump($subCategories);
-        return view('edu::tutorials.show', compact('subCategories'));
+        return view('edu::tutorials.show', compact('subCategories', 'category'));
     }
     public function section($id)
     {

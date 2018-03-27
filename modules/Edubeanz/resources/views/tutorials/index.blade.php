@@ -18,7 +18,7 @@
                     {{--<strong>Entypo</strong>--}}
                 {{--</li>--}}
             {{--</ol>--}}
-            <h1>Entypo Icon Set</h1>
+            <h3>Tutorials</h3>
         </div>
     </div>
     <div class="row">

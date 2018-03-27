@@ -51,10 +51,10 @@
         {{--</li>--}}
         <li>
             @if(auth()->check())
-            <p class="text-info">
+            <a class="text-info">
 {{--                {{auth()->user()->email}}--}}
                 <strong style="color: goldenrod">{{number_format(auth()->user()->coin)}} COIN</strong>
-            </p>
+            </a>
             @else
             <a href="{{asset('login')}}" ><span class="entypo-login"></span></a>
             <a href="{{asset('register')}}" ><span class="entypo-user-add"></span></a>

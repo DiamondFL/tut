@@ -1,29 +1,31 @@
 @extends('edu::layouts.app')
 @section('title', 'Tài nguyên của dự án')
 @section('container')
-    <div class="row form-group">
+    <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb bc-3">
                 <li>
                     <a href="/"><i class="fa-home"></i>Home</a>
                 </li>
                 <li>
-                    <a href="/">Extra</a>
-                </li>
-                <li>
-
-                    <a href="/">Icons</a>
+                    <a href="{{route('edu.tutorial.index')}}">Tutorial</a>
                 </li>
                 <li class="active">
-                    <strong>Entypo</strong>
+                    {{$section->category->name}}
+                </li>
+                <li class="active">
+                    {{$section->name}}
+                </li>
+                <li class="active">
+                    <strong>Lesson</strong>
                 </li>
             </ol>
-            <h1>{{$lesson->title}}</h1>
+            <h3 class="text-info">{{$lesson->title}}</h3>
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-9 text-justify">
-
             <div class="panel panel-primary" data-collapsed="0">
 
                 <!-- panel head -->
