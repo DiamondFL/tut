@@ -15,7 +15,13 @@ class LessonFeedbacks extends Migration
     {
         Schema::create('lesson_feedbacks', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('lesson_id');
+            $table->string('title');
+            $table->text('content');
+            $table->unsignedInteger('create_by');
+            $table->tinyInteger('is_active');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

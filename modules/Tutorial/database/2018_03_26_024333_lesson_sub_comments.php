@@ -15,7 +15,12 @@ class LessonSubComments extends Migration
     {
         Schema::create('lesson_sub_comments', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('lesson_comment');
+            $table->text('content');
+            $table->unsignedInteger('create_by');
+            $table->tinyInteger('is_active');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
