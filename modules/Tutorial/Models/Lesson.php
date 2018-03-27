@@ -4,7 +4,6 @@ namespace Tutorial\Models;
 
 use Istruct\MultiInheritance\ModelsTrait;
 use Illuminate\Database\Eloquent\Model;
-use Organization\Models\SubCategories;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
@@ -14,47 +13,46 @@ class Lesson extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'lessons';
-    public $fillable = [TITLE_COL, INTRO_COL, CONTENT_COL, SUB_CATEGORY_ID_COL, VIEWS_COL, LAST_VIEW_COL, CREATED_BY_COL, UPDATED_BY_COL];
-
-    public function subCategory()
-    {
-        return $this->belongsTo(SubCategories::class, SUB_CATEGORY_ID_COL);
-    }
+    public $fillable = ['title', 'intro', 'content', 'section_id', 'views', 'last_view', 'created_by', 'updated_by', 'is_active'];
 
     public function scopeFilter($query, $input)
     {
-        if (isset($input[TITLE_COL])) {
-            $query->where(TITLE_COL, $input[TITLE_COL]);
-        }
-        if (isset($input[INTRO_COL])) {
-            $query->where(INTRO_COL, $input[INTRO_COL]);
-        }
-        if (isset($input[CONTENT_COL])) {
-            $query->where(CONTENT_COL, $input[CONTENT_COL]);
-        }
-        if (isset($input[SUB_CATEGORY_ID_COL])) {
-            $query->where(SUB_CATEGORY_ID_COL, $input[SUB_CATEGORY_ID_COL]);
-        }
-        if (isset($input[VIEWS_COL])) {
-            $query->where(VIEWS_COL, $input[VIEWS_COL]);
-        }
-        if (isset($input[LAST_VIEW_COL])) {
-            $query->where(LAST_VIEW_COL, $input[LAST_VIEW_COL]);
-        }
-        if (isset($input[CREATED_BY_COL])) {
-            $query->where(CREATED_BY_COL, $input[CREATED_BY_COL]);
-        }
-        if (isset($input[UPDATED_BY_COL])) {
-            $query->where(UPDATED_BY_COL, $input[UPDATED_BY_COL]);
-        }
+        if(isset($input['title'])) {
+                $query->where('title', $input['title']); 
+                }
+if(isset($input['intro'])) {
+                $query->where('intro', $input['intro']); 
+                }
+if(isset($input['content'])) {
+                $query->where('content', $input['content']); 
+                }
+if(isset($input['section_id'])) {
+                $query->where('section_id', $input['section_id']); 
+                }
+if(isset($input['views'])) {
+                $query->where('views', $input['views']); 
+                }
+if(isset($input['last_view'])) {
+                $query->where('last_view', $input['last_view']); 
+                }
+if(isset($input['created_by'])) {
+                $query->where('created_by', $input['created_by']); 
+                }
+if(isset($input['updated_by'])) {
+                $query->where('updated_by', $input['updated_by']); 
+                }
+if(isset($input['is_active'])) {
+                $query->where('is_active', $input['is_active']); 
+                }
 
         return $query;
     }
 
-    public $fileUpload = [IMAGE_COL => 1];
-    protected $pathUpload = [IMAGE_COL => '/images/doc_lessons'];
+
+    public $fileUpload = ['image' => 1];
+    protected $pathUpload = ['image' => '/images/lessons'];
     protected $thumbImage = [
-        IMAGE_COL => [
+        'image' => [
             '/thumbs/' => [
                 [200, 200], [300, 300], [400, 400]
             ]

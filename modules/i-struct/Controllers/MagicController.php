@@ -77,7 +77,7 @@ class MagicController extends Controller
         $mgs = $this->buildMessage($table);
 
         session()->flash('success', $mgs);
-        return redirect()->back();
+        return redirect()->back()->withInput($request->all());;
     }
 
     private function buildMessage($table)

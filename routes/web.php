@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth', 'remember.url', 'role:admin']], function () {
     Route::resource('permissions', 'PermissionController');

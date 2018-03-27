@@ -6,6 +6,19 @@
  * Time: 11:33 PM
  */
 
+Route::resource('tutorial' , 'TutorialController');
+Route::resource('tutorial-test' , 'TutorialTestController');
+Route::resource('tutorial-result' , 'TutorialResultController');
+
+Route::resource('section' , 'SectionController');
+Route::resource('section-result' , 'SectionResultController');
+Route::resource('section-test' , 'SectionTestController');
+
 Route::resource('lesson' , 'LessonController');
-Route::resource('mini-test' , 'MiniTestController');
-Route::resource('mini-result' , 'MiniResultController');
+Route::resource('lesson-test' , 'LessonTestController');
+Route::resource('lesson-result' , 'LessonResultController');
+Route::resource('lesson-feed-back' , 'LessonFeedBackController');
+Route::resource('lesson-sub-comment' , 'LessonSubCommentController');
+Route::resource('lesson-comment' , 'LessonCommentController');
+
+

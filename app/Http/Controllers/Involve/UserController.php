@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Involve;
 
-use App\Repositories\UserRepositoryEloquent;
+use ACL\Repositories\UserRepositoryEloquent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;

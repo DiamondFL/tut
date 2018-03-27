@@ -7,8 +7,30 @@ use MiniTest\Repositories\MiniResultRepository;
 use MiniTest\Repositories\MiniResultRepositoryEloquent;
 use MiniTest\Repositories\MiniTestRepository;
 use MiniTest\Repositories\MiniTestRepositoryEloquent;
+use Tutorial\Repositories\LessonCommentRepository;
+use Tutorial\Repositories\LessonCommentRepositoryEloquent;
+use Tutorial\Repositories\LessonFeedBackRepository;
+use Tutorial\Repositories\LessonFeedBackRepositoryEloquent;
 use Tutorial\Repositories\LessonRepository;
 use Tutorial\Repositories\LessonRepositoryEloquent;
+use Tutorial\Repositories\LessonResultRepository;
+use Tutorial\Repositories\LessonResultRepositoryEloquent;
+use Tutorial\Repositories\LessonSubCommentRepository;
+use Tutorial\Repositories\LessonSubCommentRepositoryEloquent;
+use Tutorial\Repositories\LessonTestRepository;
+use Tutorial\Repositories\LessonTestRepositoryEloquent;
+use Tutorial\Repositories\SectionRepository;
+use Tutorial\Repositories\SectionRepositoryEloquent;
+use Tutorial\Repositories\SectionResultRepository;
+use Tutorial\Repositories\SectionResultRepositoryEloquent;
+use Tutorial\Repositories\SectionTestRepository;
+use Tutorial\Repositories\SectionTestRepositoryEloquent;
+use Tutorial\Repositories\TutorialRepository;
+use Tutorial\Repositories\TutorialRepositoryEloquent;
+use Tutorial\Repositories\TutorialResultRepository;
+use Tutorial\Repositories\TutorialResultRepositoryEloquent;
+use Tutorial\Repositories\TutorialTestRepository;
+use Tutorial\Repositories\TutorialTestRepositoryEloquent;
 
 class TutorialServiceProvider extends ServiceProvider
 {
@@ -19,6 +41,7 @@ class TutorialServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadMigrationsFrom(__DIR__ . '/database');
         $this->loadRoutesFrom(__DIR__ . '/router.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'tut');
     }
@@ -30,8 +53,20 @@ class TutorialServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
+        $this->app->bind(TutorialRepository::class, TutorialRepositoryEloquent::class);
+        $this->app->bind(TutorialResultRepository::class, TutorialResultRepositoryEloquent::class);
+        $this->app->bind(TutorialTestRepository::class, TutorialTestRepositoryEloquent::class);
+
+        $this->app->bind(SectionRepository::class, SectionRepositoryEloquent::class);
+        $this->app->bind(SectionTestRepository::class, SectionTestRepositoryEloquent::class);
+        $this->app->bind(SectionResultRepository::class, SectionResultRepositoryEloquent::class);
+
+        $this->app->bind(LessonTestRepository::class, LessonTestRepositoryEloquent::class);
+        $this->app->bind(LessonCommentRepository::class, LessonCommentRepositoryEloquent::class);
+        $this->app->bind(LessonFeedBackRepository::class, LessonFeedBackRepositoryEloquent::class);
         $this->app->bind(LessonRepository::class, LessonRepositoryEloquent::class);
-        $this->app->bind(MiniTestRepository::class, MiniTestRepositoryEloquent::class);
-        $this->app->bind(MiniResultRepository::class, MiniResultRepositoryEloquent::class);
+        $this->app->bind(LessonSubCommentRepository::class, LessonSubCommentRepositoryEloquent::class);
+        $this->app->bind(LessonResultRepository::class, LessonResultRepositoryEloquent::class);
     }
 }

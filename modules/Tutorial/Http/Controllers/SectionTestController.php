@@ -1,0 +1,92 @@
+<?php
+
+namespace Tutorial\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Istruct\Facades\InputFa;
+use Tutorial\Models\SectionTest;
+use Tutorial\Http\Requests\SectionTestCreateRequest;
+use Tutorial\Http\Requests\SectionTestUpdateRequest;
+use Tutorial\Repositories\SectionTestRepository;
+use Illuminate\Http\Request;
+
+class SectionTestController extends Controller
+{
+    private $repository;
+    public function __construct(SectionTestRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function index(Request $request)
+    {
+        $input = InputFa::normalization($request);
+        $data['sectionTests'] = $this->repository->myPaginate($input);
+        if($request->ajax())
+        {
+            return view('section_tests::section-test.table', $data)->render();
+        }
+        return view('section_tests::section-test.index', $data);
+    }
+
+    public function create()
+    {
+        return view('section_tests::section-test.create');
+    }
+
+    public function store(SectionTestCreateRequest $request)
+    {
+        $input = InputFa::normalization($request);
+        $this->repository->store($input);
+        session()->flash('success', 'create success');
+        return redirect()->route('section-test.index');
+    }
+
+    public function show($id)
+    {
+        $sectionTest = $this->repository->find($id);
+        if(empty($sectionTest))
+        {
+            session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        return view('section_tests::section-test.show', compact('sectionTest'));
+    }
+
+    public function edit($id)
+    {
+        $sectionTest = $this->repository->find($id);
+        if(empty($sectionTest))
+        {
+            session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        return view('section_tests::section-test.update', compact('sectionTest'));
+    }
+
+    public function update(SectionTestUpdateRequest $request, $id)
+    {
+        $input = InputFa::normalization($request);
+        $sectionTest = $this->repository->find($id);
+        if(empty($sectionTest))
+        {
+            session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        $this->repository->change($input, $sectionTest);
+        session()->flash('success', 'update success');
+        return redirect()->route('section-test.index');
+    }
+
+    public function destroy($id)
+    {
+        $sectionTest = $this->repository->find($id);
+        if(empty($sectionTest))
+        {
+            session()->flash('err', 'not found');
+        }
+        $this->repository->delete($id);
+        session()->flash('success', 'delete success');
+        return redirect()->back();
+    }
+}

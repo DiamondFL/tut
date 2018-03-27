@@ -21,12 +21,12 @@
                     <label for="">Prefix</label>
                     <input type="text" value="{{old('prefix')}}" name="prefix" class="form-control">
                 </div>
-                <button type="mit" class="btn btn-default">mit</button>
+                <button class="btn btn-default">submit</button>
             </form>
         </div>
     </div>
 @endsection
 
-@push('js')
+{{--@push('js')--}}
 
-@endpush
+{{--@endpush--}}
