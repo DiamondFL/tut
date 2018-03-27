@@ -24,14 +24,14 @@ class SectionTestController extends Controller
         $data['sectionTests'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('section_tests::section-test.table', $data)->render();
+            return view('tut::section-test.table', $data)->render();
         }
-        return view('section_tests::section-test.index', $data);
+        return view('tut::section-test.index', $data);
     }
 
     public function create()
     {
-        return view('section_tests::section-test.create');
+        return view('tut::section-test.create');
     }
 
     public function store(SectionTestCreateRequest $request)
@@ -50,7 +50,7 @@ class SectionTestController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('section_tests::section-test.show', compact('sectionTest'));
+        return view('tut::section-test.show', compact('sectionTest'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class SectionTestController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('section_tests::section-test.update', compact('sectionTest'));
+        return view('tut::section-test.update', compact('sectionTest'));
     }
 
     public function update(SectionTestUpdateRequest $request, $id)

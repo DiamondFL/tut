@@ -40,10 +40,10 @@
         </div>
     </form>
     <div class="box-content nopadding" id="table">
-        @include('lesson_sub_comments::lesson-sub-comment.table')
+        @include('tut::lesson-sub-comment.table')
     </div>
 @endsection
 
 @push('js')
 <script src="{{asset('build/form-filter.js')}}"></script>
-@endpushush
+@endpush

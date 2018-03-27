@@ -24,14 +24,14 @@ class LessonController extends Controller
         $data['lessons'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('sections::lesson.table', $data)->render();
+            return view('tut::lesson.table', $data)->render();
         }
-        return view('sections::lesson.index', $data);
+        return view('tut::lesson.index', $data);
     }
 
     public function create()
     {
-        return view('sections::lesson.create');
+        return view('tut::lesson.create');
     }
 
     public function store(LessonCreateRequest $request)
@@ -50,7 +50,7 @@ class LessonController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('sections::lesson.show', compact('lesson'));
+        return view('tut::lesson.show', compact('lesson'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class LessonController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('sections::lesson.update', compact('lesson'));
+        return view('tut::lesson.update', compact('lesson'));
     }
 
     public function update(LessonUpdateRequest $request, $id)

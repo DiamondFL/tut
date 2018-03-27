@@ -40,10 +40,10 @@
         </div>
     </form>
     <div class="box-content nopadding" id="table">
-        @include('tutorial_tests::tutorial-test.table')
+        @include('tut::tutorial-test.table')
     </div>
 @endsection
 
 @push('js')
 <script src="{{asset('build/form-filter.js')}}"></script>
-@endpushush
+@endpush

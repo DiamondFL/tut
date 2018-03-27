@@ -65,6 +65,7 @@
             @include('organ::layouts.sidebar')
             @include('acl::layouts.nav')
             @include('magic::layouts.sidebar')
+            @include('tut::layouts.sidebar')
         </ul>
     </div>
 </div>

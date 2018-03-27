@@ -40,10 +40,10 @@
         </div>
     </form>
     <div class="box-content nopadding" id="table">
-        @include('lesson_feed_backs::lesson-feed-back.table')
+        @include('tut::lesson-feed-back.table')
     </div>
 @endsection
 
 @push('js')
 <script src="{{asset('build/form-filter.js')}}"></script>
-@endpushush
+@endpush

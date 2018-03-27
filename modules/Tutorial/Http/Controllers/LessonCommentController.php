@@ -24,14 +24,14 @@ class LessonCommentController extends Controller
         $data['lessonComments'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('lesson_comments::lesson-comment.table', $data)->render();
+            return view('tut::lesson-comment.table', $data)->render();
         }
-        return view('lesson_comments::lesson-comment.index', $data);
+        return view('tut::lesson-comment.index', $data);
     }
 
     public function create()
     {
-        return view('lesson_comments::lesson-comment.create');
+        return view('tut::lesson-comment.create');
     }
 
     public function store(LessonCommentCreateRequest $request)
@@ -50,7 +50,7 @@ class LessonCommentController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_comments::lesson-comment.show', compact('lessonComment'));
+        return view('tut::lesson-comment.show', compact('lessonComment'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class LessonCommentController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_comments::lesson-comment.update', compact('lessonComment'));
+        return view('tut::lesson-comment.update', compact('lessonComment'));
     }
 
     public function update(LessonCommentUpdateRequest $request, $id)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Tutorial\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use MiniTest\Repositories\MiniResultRepository;
@@ -53,7 +53,6 @@ class TutorialServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
         $this->app->bind(TutorialRepository::class, TutorialRepositoryEloquent::class);
         $this->app->bind(TutorialResultRepository::class, TutorialResultRepositoryEloquent::class);
         $this->app->bind(TutorialTestRepository::class, TutorialTestRepositoryEloquent::class);

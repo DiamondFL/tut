@@ -24,14 +24,14 @@ class TutorialController extends Controller
         $data['tutorials'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('tutorial::tutorial.table', $data)->render();
+            return view('tut::tutorial.table', $data)->render();
         }
-        return view('tutorial::tutorial.index', $data);
+        return view('tut::tutorial.index', $data);
     }
 
     public function create()
     {
-        return view('tutorial::tutorial.create');
+        return view('tut::tutorial.create');
     }
 
     public function store(TutorialCreateRequest $request)
@@ -50,7 +50,7 @@ class TutorialController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('tutorial::tutorial.show', compact('tutorial'));
+        return view('tut::tutorial.show', compact('tutorial'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class TutorialController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('tutorial::tutorial.update', compact('tutorial'));
+        return view('tut::tutorial.update', compact('tutorial'));
     }
 
     public function update(TutorialUpdateRequest $request, $id)

@@ -24,14 +24,14 @@ class LessonTestController extends Controller
         $data['lessonTests'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('lesson_tests::lesson-test.table', $data)->render();
+            return view('tut::lesson-test.table', $data)->render();
         }
-        return view('lesson_tests::lesson-test.index', $data);
+        return view('tut::lesson-test.index', $data);
     }
 
     public function create()
     {
-        return view('lesson_tests::lesson-test.create');
+        return view('tut::lesson-test.create');
     }
 
     public function store(LessonTestCreateRequest $request)
@@ -50,7 +50,7 @@ class LessonTestController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_tests::lesson-test.show', compact('lessonTest'));
+        return view('tut::lesson-test.show', compact('lessonTest'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class LessonTestController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_tests::lesson-test.update', compact('lessonTest'));
+        return view('tut::lesson-test.update', compact('lessonTest'));
     }
 
     public function update(LessonTestUpdateRequest $request, $id)

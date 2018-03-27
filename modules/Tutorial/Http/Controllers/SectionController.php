@@ -24,14 +24,14 @@ class SectionController extends Controller
         $data['sections'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('section::section.table', $data)->render();
+            return view('tut::section.table', $data)->render();
         }
-        return view('section::section.index', $data);
+        return view('tut::section.index', $data);
     }
 
     public function create()
     {
-        return view('section::section.create');
+        return view('tut::section.create');
     }
 
     public function store(SectionCreateRequest $request)
@@ -50,7 +50,7 @@ class SectionController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('section::section.show', compact('section'));
+        return view('tut::section.show', compact('section'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class SectionController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('section::section.update', compact('section'));
+        return view('tut::section.update', compact('section'));
     }
 
     public function update(SectionUpdateRequest $request, $id)

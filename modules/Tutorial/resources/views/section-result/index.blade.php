@@ -5,7 +5,7 @@
             <a href="/"><i class="fa fa-home"></i></a>
         </li>
         <li>
-            <a href="{{route('section-result.index')}}">section_results</a>
+            <a href="{{route('section-result.index')}}">tut</a>
         </li>
         <li class="active">
             <strong>Table</strong>
@@ -40,10 +40,10 @@
         </div>
     </form>
     <div class="box-content nopadding" id="table">
-        @include('section_results::section-result.table')
+        @include('tut::section-result.table')
     </div>
 @endsection
 
 @push('js')
 <script src="{{asset('build/form-filter.js')}}"></script>
-@endpushush
+@endpush

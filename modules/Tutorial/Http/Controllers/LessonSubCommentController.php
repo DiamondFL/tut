@@ -24,14 +24,14 @@ class LessonSubCommentController extends Controller
         $data['lessonSubComments'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('lesson_sub_comments::lesson-sub-comment.table', $data)->render();
+            return view('tut::lesson-sub-comment.table', $data)->render();
         }
-        return view('lesson_sub_comments::lesson-sub-comment.index', $data);
+        return view('tut::lesson-sub-comment.index', $data);
     }
 
     public function create()
     {
-        return view('lesson_sub_comments::lesson-sub-comment.create');
+        return view('tut::lesson-sub-comment.create');
     }
 
     public function store(LessonSubCommentCreateRequest $request)
@@ -50,7 +50,7 @@ class LessonSubCommentController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_sub_comments::lesson-sub-comment.show', compact('lessonSubComment'));
+        return view('tut::lesson-sub-comment.show', compact('lessonSubComment'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class LessonSubCommentController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_sub_comments::lesson-sub-comment.update', compact('lessonSubComment'));
+        return view('tut::lesson-sub-comment.update', compact('lessonSubComment'));
     }
 
     public function update(LessonSubCommentUpdateRequest $request, $id)

@@ -24,14 +24,14 @@ class LessonFeedBackController extends Controller
         $data['lessonFeedBacks'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
-            return view('lesson_feed_backs::lesson-feed-back.table', $data)->render();
+            return view('tut::lesson-feed-back.table', $data)->render();
         }
-        return view('lesson_feed_backs::lesson-feed-back.index', $data);
+        return view('tut::lesson-feed-back.index', $data);
     }
 
     public function create()
     {
-        return view('lesson_feed_backs::lesson-feed-back.create');
+        return view('tut::lesson-feed-back.create');
     }
 
     public function store(LessonFeedBackCreateRequest $request)
@@ -50,7 +50,7 @@ class LessonFeedBackController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_feed_backs::lesson-feed-back.show', compact('lessonFeedBack'));
+        return view('tut::lesson-feed-back.show', compact('lessonFeedBack'));
     }
 
     public function edit($id)
@@ -61,7 +61,7 @@ class LessonFeedBackController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('lesson_feed_backs::lesson-feed-back.update', compact('lessonFeedBack'));
+        return view('tut::lesson-feed-back.update', compact('lessonFeedBack'));
     }
 
     public function update(LessonFeedBackUpdateRequest $request, $id)

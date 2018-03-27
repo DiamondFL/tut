@@ -206,7 +206,7 @@ return [
         \Bugger\BuggerServiceProvider::class,
         \Bugger\EventBuggerServiceProvider::class,
         \ACL\ACLServiceProvider::class,
-        \App\Providers\TutorialServiceProvider::class
+        \Tutorial\Providers\TutorialServiceProvider::class
     ],
 
     /*
