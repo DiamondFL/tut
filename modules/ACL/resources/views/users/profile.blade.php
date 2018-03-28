@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('edu::layouts.app')
 
-@section('content')
+@section('container')
     <ol class="breadcrumb bc-3">
         <li>
             <a href="/dashboard"><i class="fa fa-home"></i>Dashboard</a>
@@ -9,31 +9,22 @@
             <strong>Profile</strong>
         </li>
     </ol>
-    {{--@include('partials.errors')--}}
-    {{--@include('partials.message')--}}
-    {{--<div class="row">--}}
-        {{--<div class="col-xs-3 col-md-2 form-group">--}}
-            {{--<img class="img-responsive img-circle img-thumbnail"--}}
-                 {{--src="{{ trim($user->avatar) !== '' ? $user->avatar : asset('assets/images/thumb-1@2x.png') }}">--}}
-        {{--</div>--}}
-    {{--</div>--}}
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-3 col-md-2 form-group">
+            @if(trim(auth()->user()->avatar) !== '')
+             <img class="img-responsive img-circle img-thumbnail" src="{{ auth()->user()->avatar }}">
+            @endif
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
             <table class="table table-bordered">
-                {{--<tr>--}}
-                {{--<td>--}}
-                {{--User name--}}
-                {{--</td>--}}
-                {{--<td>--}}
-                {{--<strong>{{$user->user}}</strong>--}}
-                {{--</td>--}}
-                {{--</tr>--}}
                 <tr>
                     <td>
-                        <strong>{{trans('label.name')}}</strong>
+                        Information
                     </td>
                     <td>
-                        {{$user->name}}
+                        <strong>{{auth()->user()->user}}</strong>
                     </td>
                 </tr>
                 <tr>
@@ -41,7 +32,7 @@
                         <strong>{{trans('label.first_name')}}</strong>
                     </td>
                     <td>
-                        {{$user->first_name}}
+                        {{auth()->user()->first_name}}
                     </td>
                 </tr>
                 <tr>
@@ -49,7 +40,7 @@
                         <strong>{{trans('label.last_name')}}</strong>
                     </td>
                     <td>
-                        {{$user->last_name}}
+                        {{auth()->user()->last_name}}
                     </td>
                 </tr>
                 <tr>
@@ -57,7 +48,31 @@
                         <strong>{{trans('label.email')}}</strong>
                     </td>
                     <td>
-                        {{$user->email}}
+                        {{auth()->user()->email}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{trans('label.phone_number')}}</strong>
+                    </td>
+                    <td>
+                        {{auth()->user()->phone_number}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{trans('label.coin')}}</strong>
+                    </td>
+                    <td>
+                        {{auth()->user()->coin}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>{{trans('label.address')}}</strong>
+                    </td>
+                    <td>
+                        {{auth()->user()->address}}
                     </td>
                 </tr>
                 <tr>
@@ -65,7 +80,7 @@
                         <strong>{{trans('label.sex')}}</strong>
                     </td>
                     <td>
-                        {{$user->sex == 1 ? 'Male' : 'Female'}}
+                        {{auth()->user()->sex == 1 ? 'Male' : 'Female'}}
                     </td>
                 </tr>
             </table>
@@ -79,10 +94,14 @@
             <button class="btn bnt-default" data-toggle="modal" data-target="#change_password">
                 <i class="fa fa-refresh"></i> Change password
             </button>
+            <button class="btn bnt-default" data-toggle="modal" data-target="#transaction">
+                <i class="fa fa-transgender"></i> Transaction Coin
+            </button>
         </div>
     </div>
     @include('acl::users.modal.update-profile')
     @include('acl::users.modal.update-pass')
+    @include('acl::users.modal.transaction')
 @endsection
 @push('css')
     <link rel="stylesheet"

@@ -45,7 +45,10 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         $input = $this->standardized($input, $data);
         $user = $this->update($input, $data->id);
-        $user->roles()->sync($input['role_ids']);
+        if(isset($input['role_ids']))
+        {
+            $user->roles()->sync($input['role_ids']);
+        }
         return $user;
     }
     public function destroy($data)

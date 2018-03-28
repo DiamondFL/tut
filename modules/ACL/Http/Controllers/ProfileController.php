@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace ACL\Http\Controllers\Auth;
 
 use ACL\Repositories\UserRepositoryEloquent;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,7 @@ class ProfileController extends Controller
     }
     public function index($id)
     {
-        $data['profile'] = $this->repository->find($id);
-        return view('flat.auth.profile', $data);
+//        $user = $this->repository->find($id);
+        return view('acl::users.profile');
     }
 }

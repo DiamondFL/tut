@@ -18,11 +18,15 @@ class User extends Authenticatable
      *
      * @var array
      */
-    public $fillable = ['first_name', 'last_name', 'code', 'email', 'phone_number', 'sex', 'password', 'birthday',
+    public $fillable = [FIRST_NAME_COL, LAST_NAME_COL, CODE_COL, EMAIL_COL, 'phone_number', 'sex', 'password', 'birthday',
         'address', 'avatar', 'remember_token', 'active', 'last_login', 'last_logout', 'slack_webhook_url'];
 
     public function scopeFilter($query, $input)
     {
+        if(isset($input[EMAIL_COL]))
+        {
+            $query->where(EMAIL_COL, $input[EMAIL_COL]);
+        }
         return $query;
     }
 

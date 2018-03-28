@@ -155,4 +155,33 @@ class UserController extends Controller
         session()->flash('success', $activeName . ' user success');
         return redirect()->back();
     }
+
+    public function transaction(Request $request)
+    {
+        $password = $request->get('password');
+        if (!Auth::attempt(['email' => auth()->user()->email, 'password' => $password])) {
+            session()->flash('error', 'Password incorrect');
+            return redirect()->back();
+        }
+        $user = auth()->user();
+        $coin = $user->coin;
+        $coinTransaction = $request->get('coin');
+        if($coin < $coinTransaction) {
+            session()->flash('error', 'Số coin giao dịch lớn hơn số coin hiện tại');
+            return redirect()->back();
+        }
+        $email = $request->get('email');
+        $receiver = $this->repository->filterFirst(['email' => $email]);
+        if($receiver)
+        {
+            $receiver->coin += $coinTransaction;
+            $receiver->save();
+            $user->coin -= $coinTransaction;
+            $user->save();
+            session()->flash('success', 'Giao dịch thành công');
+        } else {
+            session()->flash('error', 'Tài khoản không tồn tại');
+        }
+        return redirect()->back();
+    }
 }

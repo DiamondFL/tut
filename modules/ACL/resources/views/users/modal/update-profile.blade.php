@@ -12,10 +12,6 @@
                     {{method_field('PUT')}}
                     <div class="form-group">
                         <label>{{trans('label.first_name')}}</label>
-                        <input readonly class="form-control" name="name" value="{{$user->name}}">
-                    </div>
-                    <div class="form-group">
-                        <label>{{trans('label.first_name')}}</label>
                         <input class="form-control" name="first_name" value="{{$user->first_name}}">
                     </div>
                     <div class="form-group">
@@ -26,11 +22,11 @@
                         <label>{{trans('label.email')}}</label>
                         <input type="email" class="form-control" required name="email" value="{{$user->email}}">
                     </div>
-                    {{--<div class="form-group">--}}
-                        {{--<label>{{trans('label.phone_number')}}</label>--}}
-                        {{--<input type="number" class="form-control" name="phone_number"--}}
-                               {{--value="{{$user->phone_number}}">--}}
-                    {{--</div>--}}
+                    <div class="form-group">
+                        <label>{{trans('label.phone_number')}}</label>
+                        <input type="number" class="form-control" name="phone_number"
+                               value="{{$user->phone_number}}">
+                    </div>
                     <div class="form-group">
                         <label>{{trans('label.sex')}}</label>
                         <div class="">
@@ -39,16 +35,15 @@
                             <input type="radio" @if((int)$user->sex === 0) checked @endif  name="sex"
                                    value="0"> {{trans('label.female')}}
                         </div>
-
                     </div>
-                    {{--<div class="form-group">--}}
-                        {{--<label>{{trans('label.birthday')}}</label>--}}
-                        {{--<input class="form-control" name="birthday" value="{{$user->birthday}}" id="birthday">--}}
-                    {{--</div>--}}
-                    {{--<div class="form-group">--}}
-                        {{--<label>{{trans('label.address')}}</label>--}}
-                        {{--<input class="form-control" name="address" value="{{$user->address}}">--}}
-                    {{--</div>--}}
+                    <div class="form-group">
+                        <label>{{trans('label.birthday')}}</label>
+                        <input class="form-control" name="birthday" value="{{$user->birthday}}" id="birthday">
+                    </div>
+                    <div class="form-group">
+                        <label>{{trans('label.address')}}</label>
+                        <input class="form-control" name="address" value="{{$user->address}}">
+                    </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
             </div>
