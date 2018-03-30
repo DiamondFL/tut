@@ -8,7 +8,7 @@
             </a>
             <ul class="dropdown-menu pull-right">
                 <li>
-                    <a href="{{route('profile')}}">
+                    <a href="{{route('acl.profile')}}">
                         <i class="entypo-user"></i> Profile
                     </a>
                 </li>
