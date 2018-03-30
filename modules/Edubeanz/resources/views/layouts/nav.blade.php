@@ -41,7 +41,7 @@
         {{--</li>--}}
         @if(auth()->check())
             <li class="dropdown pull-right">
-                <strong>{{ auth()->user()->email }}</strong>
+                <strong>{{ auth()->user()->email }} <span style="color: gold">{{(auth()->user()->coin . 'Coin')}}</span></strong>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
                     <i class="entypo-user"></i>
                 </a>
