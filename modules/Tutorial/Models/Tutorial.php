@@ -13,33 +13,31 @@ class Tutorial extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'tutorials';
-    public $fillable = ['name', 'img', 'is_active'];
+    public $fillable = [NAME_COL, IMAGE_COL, IS_ACTIVE_COL, DESCRIPTION_COL];
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['name'])) {
-                $query->where('name', $input['name']); 
-                }
-if(isset($input['img'])) {
-                $query->where('img', $input['img']); 
-                }
-if(isset($input['is_active'])) {
-                $query->where('is_active', $input['is_active']); 
-                }
-
+        if (isset($input[NAME_COL])) {
+            $query->where(NAME_COL, $input[NAME_COL]);
+        }
+        if (isset($input[IMAGE_COL])) {
+            $query->where(IMAGE_COL, $input[IMAGE_COL]);
+        }
+        if (isset($input[IS_ACTIVE_COL])) {
+            $query->where(IS_ACTIVE_COL, $input[IS_ACTIVE_COL]);
+        }
         return $query;
     }
 
-
-    public $fileUpload = ['image' => 1];
-    protected $pathUpload = ['image' => '/images/tutorials'];
+    public $fileUpload = [IMG_COL => 1];
+    protected $pathUpload = [IMG_COL => '/images/tutorials'];
     protected $thumbImage = [
-        'image' => [
+        IMG_COL => [
             '/thumbs/' => [
                 [200, 200], [300, 300], [400, 400]
             ]
         ]
     ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 

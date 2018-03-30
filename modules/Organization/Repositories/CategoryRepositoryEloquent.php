@@ -40,15 +40,16 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
     public function store($input)
     {
         $input = $this->standardized($input, $this->makeModel());
-        $model =$this->create($input);
-        if(request()->has('_category_names')) {
+        $model = $this->create($input);
+        if(request()->has('sub_category_names')) {
             $data = [];
             $now = now();
-            foreach (request()->get('_category_names') as $value) {
+            foreach (request()->get('sub_category_names') as $value) {
                 array_push($data, ['name' => $value, 'category_id' => $model->id, 'created_at' => $now, 'updated_at' => $now] );
             }
             DB::table('sub_categories')->insert($data);
         }
+        return $model;
     }
 
     public function change($input, $data)

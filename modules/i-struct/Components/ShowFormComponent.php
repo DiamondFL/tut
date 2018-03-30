@@ -30,7 +30,7 @@ class ShowFormComponent extends BaseComponent
     {
         $packet = '';
         foreach (DBFa::getDataTypes($table) as $column => $type) {
-            $packet .= "{!! $column !!}\n";
+            $packet .= "{!! '$'.$column !!}\n";
         }
         $this->working(DecoHelper::SHOW, $packet);
     }

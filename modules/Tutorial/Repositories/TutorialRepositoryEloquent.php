@@ -39,7 +39,16 @@ class TutorialRepositoryEloquent extends BaseRepository implements TutorialRepos
     public function store($input)
     {
         $input = $this->standardized($input, $this->makeModel());
-        $this->create($input);
+        $model = $this->create($input);
+        if(request()->has('section_names')) {
+            $data = [];
+            $now = now();
+            foreach (request()->get('section_names') as $value) {
+                array_push($data, [NAME_COL => $value, TUTORIAL_ID_COL => $model->id, CREATED_AT_COL => $now, UPDATED_AT_COL => $now] );
+            }
+            DB::table('sections')->insert($data);
+        }
+        return $model;
     }
 
     public function change($input, $data)
