@@ -53,15 +53,16 @@ class LessonTestController extends Controller
         return view('tut::lesson-test.show', compact('lessonTest'));
     }
 
+
     public function edit($id)
     {
-        $lessonTest = $this->repository->find($id);
-        if(empty($lessonTest))
+        $data = $this->repository->edit($id);
+        if(empty($data))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('tut::lesson-test.update', compact('lessonTest'));
+        return view('tut::lesson-test.update', $data);
     }
 
     public function update(LessonTestUpdateRequest $request, $id)
@@ -75,6 +76,10 @@ class LessonTestController extends Controller
         }
         $this->repository->change($input, $lessonTest);
         session()->flash('success', 'update success');
+        if(isset($input))
+        {
+            return redirect()->back()->withInput();
+        }
         return redirect()->route('lesson-test.index');
     }
 

@@ -4,6 +4,7 @@ namespace Tutorial\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
+use Istruct\MultiInheritance\ControllersTrait;
 use Tutorial\Models\Tutorial;
 use Tutorial\Http\Requests\TutorialCreateRequest;
 use Tutorial\Http\Requests\TutorialUpdateRequest;
@@ -61,12 +62,13 @@ class TutorialController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('tut::tutorial.update', compact('tutorial'));
+        $sections = $tutorial->sections()->pluck('name', 'id');
+        return view('tut::tutorial.update', compact('tutorial', 'sections'));
     }
 
     public function update(TutorialUpdateRequest $request, $id)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $tutorial = $this->repository->find($id);
         if(empty($tutorial))
         {
@@ -85,7 +87,11 @@ class TutorialController extends Controller
         {
             session()->flash('err', 'not found');
         }
-        $this->repository->delete($id);
+        $tutorial = $this->repository->delete($id);
+        if(\request()->ajax())
+        {
+            return response()->json($tutorial);
+        }
         session()->flash('success', 'delete success');
         return redirect()->back();
     }

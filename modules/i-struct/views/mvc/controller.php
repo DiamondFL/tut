@@ -9,9 +9,11 @@ use _namespace_\Http\Requests\_class_CreateRequest;
 use _namespace_\Http\Requests\_class_UpdateRequest;
 use _namespace_\Repositories\_class_Repository;
 use Illuminate\Http\Request;
+use Istruct\MultiInheritance\ControllersTrait;
 
 class _class_Controller extends Controller
 {
+    use ControllersTrait;
     private $repository;
     public function __construct(_class_Repository $repository)
     {

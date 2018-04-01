@@ -55,12 +55,15 @@ class LessonResultController extends Controller
 
     public function edit($id)
     {
-        $lessonResult = $this->repository->find($id);
+        $lessonResult = $this->repository->makeModel()
+            ->with('lessons:id,title')
+            ->find($id);
         if(empty($lessonResult))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
+
         return view('tut::lesson-result.update', compact('lessonResult'));
     }
 

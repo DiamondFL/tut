@@ -13,44 +13,48 @@ class LessonTest extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'lesson_tests';
-    public $fillable = ['lesson_id', 'questions', 'reply1', 'reply2', 'reply3', 'reply4', 'answer', 'is_active', 'created_by', 'updated_by'];
+    public $fillable = [LESSON_ID_COL, QUESTION_COL, REPLY1_COL, REPLY2_COL, REPLY3_COL, REPLY4_COL, ANSWER_COL,
+        IS_ACTIVE_COL, CREATED_BY_COL, UPDATED_BY_COL];
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['lesson_id'])) {
-                $query->where('lesson_id', $input['lesson_id']); 
-                }
-if(isset($input['questions'])) {
-                $query->where('questions', $input['questions']); 
-                }
-if(isset($input['reply1'])) {
-                $query->where('reply1', $input['reply1']); 
-                }
-if(isset($input['reply2'])) {
-                $query->where('reply2', $input['reply2']); 
-                }
-if(isset($input['reply3'])) {
-                $query->where('reply3', $input['reply3']); 
-                }
-if(isset($input['reply4'])) {
-                $query->where('reply4', $input['reply4']); 
-                }
-if(isset($input['answer'])) {
-                $query->where('answer', $input['answer']); 
-                }
-if(isset($input['is_active'])) {
-                $query->where('is_active', $input['is_active']); 
-                }
-if(isset($input['created_by'])) {
-                $query->where('created_by', $input['created_by']); 
-                }
-if(isset($input['updated_by'])) {
-                $query->where('updated_by', $input['updated_by']); 
-                }
-
+        if (isset($input[LESSON_ID_COL])) {
+            $query->where(LESSON_ID_COL, $input[LESSON_ID_COL]);
+        }
+        if (isset($input[QUESTION_COL])) {
+            $query->where(QUESTION_COL, $input[QUESTION_COL]);
+        }
+        if (isset($input[REPLY1_COL])) {
+            $query->where(REPLY1_COL, $input[REPLY1_COL]);
+        }
+        if (isset($input[REPLY2_COL])) {
+            $query->where(REPLY2_COL, $input[REPLY2_COL]);
+        }
+        if (isset($input[REPLY3_COL])) {
+            $query->where(REPLY3_COL, $input[REPLY3_COL]);
+        }
+        if (isset($input[REPLY4_COL])) {
+            $query->where(REPLY4_COL, $input[REPLY4_COL]);
+        }
+        if (isset($input[ANSWER_COL])) {
+            $query->where(ANSWER_COL, $input[ANSWER_COL]);
+        }
+        if (isset($input[IS_ACTIVE_COL])) {
+            $query->where(IS_ACTIVE_COL, $input[IS_ACTIVE_COL]);
+        }
+        if (isset($input[CREATED_BY_COL])) {
+            $query->where(CREATED_BY_COL, $input[CREATED_BY_COL]);
+        }
+        if (isset($input[UPDATED_BY_COL])) {
+            $query->where(UPDATED_BY_COL, $input[UPDATED_BY_COL]);
+        }
         return $query;
     }
 
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class, LESSON_ID_COL);
+    }
 
     public $fileUpload = ['image' => 1];
     protected $pathUpload = ['image' => '/images/lesson_tests'];
@@ -61,6 +65,6 @@ if(isset($input['updated_by'])) {
             ]
         ]
     ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 

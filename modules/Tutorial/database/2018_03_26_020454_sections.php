@@ -15,6 +15,7 @@ class Sections extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('tutorial_id');
             $table->string('name', 128);
             $table->string('img')->nullable();
             $table->text('description')->nullable();

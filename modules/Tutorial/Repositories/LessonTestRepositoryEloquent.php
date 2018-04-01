@@ -33,17 +33,34 @@ class LessonTestRepositoryEloquent extends BaseRepository implements LessonTestR
         return $this->makeModel()
             ->filter($input)
             ->paginate($input[PER_PAGE]);
-
     }
 
     public function store($input)
     {
+        $input[CREATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $this->makeModel());
         $this->create($input);
     }
 
+    public function edit($id)
+    {
+        $lessonTest = $this
+            ->with(['lesson:id,section_id', 'lesson.section:id,tutorial_id', 'lesson.section.tutorial:id'])
+            ->find($id);
+        if(empty($lessonTest)) {
+            return $lessonTest;
+        }
+        $tutorial_id = $lessonTest->lesson->section->tutorial->id;
+        $section_id = $lessonTest->lesson->section->id;
+        $lessonList = $lessonTest->lesson->section->lessons()->pluck('title', 'id')->toArray();
+        $sectionList = $lessonTest->lesson->section->tutorial->sections()->pluck('name', 'id')->toArray();
+        $replies = [1 => REPLY1_COL, 2 => REPLY2_COL, 3=> REPLY3_COL, 4=> REPLY4_COL];
+        return compact('lessonTest', 'lessonList', 'sectionList', 'tutorial_id', 'section_id', 'replies');
+    }
+
     public function change($input, $data)
     {
+        $input[UPDATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $data);
         $this->update($input, $data->id);
     }
@@ -63,7 +80,7 @@ class LessonTestRepositoryEloquent extends BaseRepository implements LessonTestR
 
     public function destroy($data)
     {
-        // TODO: Implement remove() method.
+        $this->delete($data->id);
     }
 
     /**

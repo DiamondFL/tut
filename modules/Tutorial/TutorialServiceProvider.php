@@ -3,10 +3,7 @@
 namespace Tutorial\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use MiniTest\Repositories\MiniResultRepository;
-use MiniTest\Repositories\MiniResultRepositoryEloquent;
-use MiniTest\Repositories\MiniTestRepository;
-use MiniTest\Repositories\MiniTestRepositoryEloquent;
+use Tutorial\Http\ViewComposers\TutorialComposer;
 use Tutorial\Repositories\LessonCommentRepository;
 use Tutorial\Repositories\LessonCommentRepositoryEloquent;
 use Tutorial\Repositories\LessonFeedBackRepository;
@@ -44,6 +41,17 @@ class TutorialServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/database');
         $this->loadRoutesFrom(__DIR__ . '/router.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'tut');
+
+        view()->composer([
+            'tut::lesson.create',
+            'tut::lesson.update',
+            'tut::lesson-test.index',
+            'tut::lesson-test.create',
+            'tut::lesson-test.update',
+            'tut::lesson-result.index',
+            'tut::lesson-result.create',
+            'tut::lesson-result.update',
+        ], TutorialComposer::class);
     }
 
     /**

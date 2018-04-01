@@ -97,6 +97,13 @@
             e.preventDefault();
         }
     });
+    $('.isBack').click(function (e) {
+        var form = $(this).parents('form')
+        console.log(form);
+        var route = form.attr('action') + '?is_back=1';
+        console.log(route);
+        form.attr('action', route)
+    })
 </script>
 </body>
 </html>

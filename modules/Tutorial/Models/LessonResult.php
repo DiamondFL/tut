@@ -17,17 +17,22 @@ class LessonResult extends Model implements Transformable
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['created_by'])) {
-                $query->where('created_by', $input['created_by']); 
-                }
-if(isset($input['lesson_id'])) {
-                $query->where('lesson_id', $input['lesson_id']); 
-                }
-if(isset($input['score'])) {
-                $query->where('score', $input['score']); 
-                }
+        if (isset($input['created_by'])) {
+            $query->where('created_by', $input['created_by']);
+        }
+        if (isset($input['lesson_id'])) {
+            $query->where('lesson_id', $input['lesson_id']);
+        }
+        if (isset($input['score'])) {
+            $query->where('score', $input['score']);
+        }
 
         return $query;
+    }
+
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class, LESSON_ID_COL);
     }
 
 

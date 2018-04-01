@@ -8,6 +8,7 @@ use Istruct\MultiInheritance\RepositoriesTrait;
 use Illuminate\Support\Facades\Cache;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
+use Tutorial\Models\Section;
 use Tutorial\Models\TutorialResult;
 
 /**
@@ -57,6 +58,16 @@ class TutorialResultRepositoryEloquent extends BaseRepository implements Tutoria
 
     private function standardized($input, $data)
     {
+        if(isset($input['section_names']))
+        {
+            $sectionIds= [];
+            foreach ($input['section_names'] as $name)
+            {
+                $section = $this->app(Section::class)->firstOrCreate(compact('name'));
+                $sectionIds[] = $section->id;
+            }
+            $data->sections()->sync($sectionIds);
+        }
         $input = $data->uploads($input);
         return $data->checkbox($input);
     }

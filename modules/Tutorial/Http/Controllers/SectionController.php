@@ -4,6 +4,7 @@ namespace Tutorial\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
+use Istruct\MultiInheritance\ControllersTrait;
 use Tutorial\Models\Section;
 use Tutorial\Http\Requests\SectionCreateRequest;
 use Tutorial\Http\Requests\SectionUpdateRequest;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 class SectionController extends Controller
 {
     private $repository;
+    use ControllersTrait;
     public function __construct(SectionRepository $repository)
     {
         $this->repository = $repository;

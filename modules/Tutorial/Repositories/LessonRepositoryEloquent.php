@@ -38,12 +38,26 @@ class LessonRepositoryEloquent extends BaseRepository implements LessonRepositor
 
     public function store($input)
     {
+        $input[CREATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $this->makeModel());
         $this->create($input);
     }
 
+    public function edit($id)
+    {
+        $lesson = $this->find($id);
+        if(empty($lesson)) {
+            return $lesson;
+        }
+        $tutorial = $lesson->section->tutorial;
+        $tutorial_id = $tutorial->id;
+        $sectionList = $tutorial->sections->pluck('name', 'id')->toArray();
+        return compact('lesson', 'tutorial_id', 'sectionList');
+    }
+
     public function change($input, $data)
     {
+        $input[UPDATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $data);
         $this->update($input, $data->id);
     }
@@ -63,7 +77,7 @@ class LessonRepositoryEloquent extends BaseRepository implements LessonRepositor
 
     public function destroy($data)
     {
-        // TODO: Implement remove() method.
+        $this->delete($data->id);
     }
 
     /**

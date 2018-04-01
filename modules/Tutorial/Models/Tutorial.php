@@ -29,6 +29,11 @@ class Tutorial extends Model implements Transformable
         return $query;
     }
 
+    public function sections()
+    {
+        return $this->hasMany(Section::class, TUTORIAL_ID_COL);
+    }
+
     public $fileUpload = [IMG_COL => 1];
     protected $pathUpload = [IMG_COL => '/images/tutorials'];
     protected $thumbImage = [

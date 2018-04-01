@@ -4,6 +4,7 @@ namespace Tutorial\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
+use Istruct\MultiInheritance\ControllersTrait;
 use Tutorial\Models\Lesson;
 use Tutorial\Http\Requests\LessonCreateRequest;
 use Tutorial\Http\Requests\LessonUpdateRequest;
@@ -13,9 +14,14 @@ use Illuminate\Http\Request;
 class LessonController extends Controller
 {
     private $repository;
+//    use ControllersTrait;
     public function __construct(LessonRepository $repository)
     {
         $this->repository = $repository;
+    }
+    public function lists(Request $request) {
+        $input = $request->all();
+        return $this->repository->filterList($input, TITLE_COL);
     }
 
     public function index(Request $request)
@@ -55,13 +61,13 @@ class LessonController extends Controller
 
     public function edit($id)
     {
-        $lesson = $this->repository->find($id);
-        if(empty($lesson))
+        $data = $this->repository->edit($id);
+        if(empty($data))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('tut::lesson.update', compact('lesson'));
+        return view('tut::lesson.update', $data);
     }
 
     public function update(LessonUpdateRequest $request, $id)

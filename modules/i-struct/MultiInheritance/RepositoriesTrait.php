@@ -90,6 +90,11 @@ trait RepositoriesTrait
     {
         return $this->makeModel()->filter($input)->orderBy($field)->pluck($field);
     }
+    public function filterDelete($input = [])
+    {
+        dd($input);
+        return $this->makeModel()->filter($input)->delete();
+    }
 
     public function onlyOne($input = [], $column = '*')
     {

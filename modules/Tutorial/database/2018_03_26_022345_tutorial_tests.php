@@ -23,8 +23,8 @@ class TutorialTests extends Migration
             $table->string('reply4');
             $table->unsignedTinyInteger('answer');
             $table->tinyInteger('is_active');
-            $table->unsignedTinyInteger('created_by');
-            $table->unsignedTinyInteger('updated_by');
+            $table->unsignedTinyInteger('created_by')->nullable();
+            $table->unsignedTinyInteger('updated_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

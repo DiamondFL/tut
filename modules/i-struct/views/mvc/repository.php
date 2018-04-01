@@ -38,12 +38,14 @@ class _class_RepositoryEloquent extends BaseRepository implements _class_Reposit
 
     public function store($input)
     {
+        $input[CREATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $this->makeModel());
         $this->create($input);
     }
 
     public function change($input, $data)
     {
+        $input[UPDATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $data);
         $this->update($input, $data->id);
     }
@@ -63,7 +65,7 @@ class _class_RepositoryEloquent extends BaseRepository implements _class_Reposit
 
     public function destroy($data)
     {
-        // TODO: Implement remove() method.
+        $this->delete($data->id);
     }
 
     /**

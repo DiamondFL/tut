@@ -13,39 +13,43 @@ class Lesson extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'lessons';
-    public $fillable = ['title', 'intro', 'content', 'section_id', 'views', 'last_view', 'created_by', 'updated_by', 'is_active'];
+    public $fillable = [TITLE_COL, INTRO_COL, CONTENT_COL, SECTION_ID_COL, VIEWS_COL, LAST_VIEW_COL, CREATED_BY_COL, UPDATED_BY_COL, IS_ACTIVE_COL];
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['title'])) {
-                $query->where('title', $input['title']); 
-                }
-if(isset($input['intro'])) {
-                $query->where('intro', $input['intro']); 
-                }
-if(isset($input['content'])) {
-                $query->where('content', $input['content']); 
-                }
-if(isset($input['section_id'])) {
-                $query->where('section_id', $input['section_id']); 
-                }
-if(isset($input['views'])) {
-                $query->where('views', $input['views']); 
-                }
-if(isset($input['last_view'])) {
-                $query->where('last_view', $input['last_view']); 
-                }
-if(isset($input['created_by'])) {
-                $query->where('created_by', $input['created_by']); 
-                }
-if(isset($input['updated_by'])) {
-                $query->where('updated_by', $input['updated_by']); 
-                }
-if(isset($input['is_active'])) {
-                $query->where('is_active', $input['is_active']); 
-                }
-
+        if (isset($input[TITLE_COL])) {
+            $query->where(TITLE_COL, $input[TITLE_COL]);
+        }
+        if (isset($input[INTRO_COL])) {
+            $query->where(INTRO_COL, $input[INTRO_COL]);
+        }
+        if (isset($input[CONTENT_COL])) {
+            $query->where(CONTENT_COL, $input[CONTENT_COL]);
+        }
+        if (isset($input[SECTION_ID_COL])) {
+            $query->where(SECTION_ID_COL, $input[SECTION_ID_COL]);
+        }
+        if (isset($input[VIEWS_COL])) {
+            $query->where(VIEWS_COL, $input[VIEWS_COL]);
+        }
+        if (isset($input[LAST_VIEW_COL])) {
+            $query->where(LAST_VIEW_COL, $input[LAST_VIEW_COL]);
+        }
+        if (isset($input[CREATED_BY_COL])) {
+            $query->where(CREATED_BY_COL, $input[CREATED_BY_COL]);
+        }
+        if (isset($input[UPDATED_BY_COL])) {
+            $query->where(UPDATED_BY_COL, $input[UPDATED_BY_COL]);
+        }
+        if (isset($input[IS_ACTIVE_COL])) {
+            $query->where(IS_ACTIVE_COL, $input[IS_ACTIVE_COL]);
+        }
         return $query;
+    }
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class, SECTION_ID_COL);
     }
 
 
@@ -58,6 +62,6 @@ if(isset($input['is_active'])) {
             ]
         ]
     ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 
