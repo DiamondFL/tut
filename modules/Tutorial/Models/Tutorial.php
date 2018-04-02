@@ -13,15 +13,12 @@ class Tutorial extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'tutorials';
-    public $fillable = [NAME_COL, IMAGE_COL, IS_ACTIVE_COL, DESCRIPTION_COL];
+    public $fillable = [NAME_COL, IMG_COL, IS_ACTIVE_COL, DESCRIPTION_COL];
 
     public function scopeFilter($query, $input)
     {
         if (isset($input[NAME_COL])) {
             $query->where(NAME_COL, $input[NAME_COL]);
-        }
-        if (isset($input[IMAGE_COL])) {
-            $query->where(IMAGE_COL, $input[IMAGE_COL]);
         }
         if (isset($input[IS_ACTIVE_COL])) {
             $query->where(IS_ACTIVE_COL, $input[IS_ACTIVE_COL]);

@@ -15,13 +15,13 @@
         <form action="{{route('tutorial.update', $tutorial->id)}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             {{method_field('PUT')}}
-            <div class="form-group col-lg-6">
+            <div class="form-group col-lg-12">
                 <label for="name">{{trans('label.name')}}</label>
                 <input type="text" class="form-control" name="name" id="name" value="{{$tutorial->name}}">
             </div>
-            <div class="form-group col-lg-6">
+            <div class="form-group col-lg-12">
                 <label for="img">{{trans('label.img')}}</label>
-                <input type="text" class="form-control" name="img" id="img" value="{{$tutorial->img}}">
+                <input type="file" name="img" id="img">
             </div>
             <div class="form-group col-lg-12">
                 <label for="description">{{trans('tut::label.description')}}</label>

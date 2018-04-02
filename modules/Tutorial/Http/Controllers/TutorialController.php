@@ -21,7 +21,7 @@ class TutorialController extends Controller
 
     public function index(Request $request)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $data['tutorials'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
@@ -37,9 +37,13 @@ class TutorialController extends Controller
 
     public function store(TutorialCreateRequest $request)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back()->withInput();
+        }
         return redirect()->route('tutorial.index');
     }
 
@@ -82,17 +86,11 @@ class TutorialController extends Controller
 
     public function destroy($id)
     {
-        $tutorial = $this->repository->find($id);
-        if(empty($tutorial))
-        {
-            session()->flash('err', 'not found');
-        }
-        $tutorial = $this->repository->delete($id);
+        $tutorial = $this->repository->destroy($id);
         if(\request()->ajax())
         {
             return response()->json($tutorial);
         }
-        session()->flash('success', 'delete success');
         return redirect()->back();
     }
 }

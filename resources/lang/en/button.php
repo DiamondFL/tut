@@ -9,6 +9,7 @@ return [
     'add' => 'Add',
     'create' => 'Create',
     'done' => 'Done',
+    'done_and_back' => 'Done and back',
     'edit' => 'Edit',
     'update' => 'Update',
     'delete' => 'Delete',
@@ -16,4 +17,5 @@ return [
     'back' => 'Back',
     'save' => 'Save',
     'cancel' => 'Cancel',
+    'reset' => 'Reset'
 ];

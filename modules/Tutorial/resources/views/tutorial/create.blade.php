@@ -6,7 +6,7 @@
                 <a href="/"><i class="fa fa-home"></i>Home</a>
             </li>
             <li>
-                <a href="{{route('tutorial.index')}}">{{trans('label.tutorial')}}</a>
+                <a href="{{route('tutorial.index')}}">{{trans('table.tutorial')}}</a>
             </li>
             <li class="active">
                 <strong>Tables</strong>
@@ -16,15 +16,15 @@
             {{csrf_field()}}
             <div class="form-group col-lg-12">
                 <label for="name">{{trans('label.name')}}</label>
-                <input type="text" class="form-control" name="name" id="name">
+                <input required type="text" class="form-control" name="name" id="name">
             </div>
             <div class="form-group col-lg-12">
                 <label for="img">{{trans('label.img')}}</label>
                 <input type="file"  name="img" id="img">
             </div>
             <div class="form-group col-lg-12">
-                <label for="name">{{trans('tut::label.lesson')}}</label>
-                <select style="width: 100%" class="js-single" name="lesson_names[]" id="lesson_names" multiple="multiple">
+                <label for="name">{{trans('tut::label.section')}}</label>
+                <select style="width: 100%" class="js-single" name="section_names[]" id="section_names" multiple="multiple">
 
                 </select>
             </div>
@@ -36,12 +36,14 @@
                 <label for="is_active">{{trans('label.is_active')}}</label>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="is_active" id="is_active">
+                        <input type="checkbox" checked value="1" name="is_active" id="is_active">
                     </label>
                 </div>
             </div>
             <div class="col-lg-12">
                 <button class="btn btn-primary">{{trans('button.done')}}</button>
+                <button class="btn btn-primary isBack">{{trans('button.done_and_back')}}</button>
+                <button type="reset" class="btn btn-default isBack">{{trans('button.reset')}}</button>
                 <a href="{{url()->previous()}}" class="btn btn-default">{{trans('button.cancel')}}</a>
             </div>
         </form>

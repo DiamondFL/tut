@@ -41,6 +41,7 @@ class TutorialServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/database');
         $this->loadRoutesFrom(__DIR__ . '/router.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'tut');
+        $this->loadJsonTranslationsFrom(__DIR__ . '/resources/lang');
 
         view()->composer([
             'tut::lesson.create',

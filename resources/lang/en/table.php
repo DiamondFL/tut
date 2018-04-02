@@ -28,6 +28,7 @@ return [
     'type_in' => ' Type In',
     'word_blank' => ' Word Blank',
     'true_false' => ' True False',
-    'user' => 'user'
+    'user' => 'user',
+    'tutorials' => 'Tutorial',
 
 ];

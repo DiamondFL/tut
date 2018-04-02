@@ -72,8 +72,10 @@ class TutorialResultRepositoryEloquent extends BaseRepository implements Tutoria
         return $data->checkbox($input);
     }
 
-    public function destroy($data)
+    public function destroy($id)
     {
+        $tutorial = $this->withCount('sections')->find($id);
+
         // TODO: Implement remove() method.
     }
 

@@ -16,7 +16,7 @@ class GameServiceRepository extends ServiceProvider
     public function boot() {
         $this->loadRoutesFrom(__DIR__ . '/router.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'gm');
-        $this->loadJsonTranslationsFrom(__DIR__ .'/database');
+        $this->loadMigrationsFrom(__DIR__ .'/database');
         $this->loadJsonTranslationsFrom(__DIR__ . '/resources/lang');
     }
 

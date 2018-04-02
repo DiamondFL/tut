@@ -33,6 +33,17 @@ class DBFun
         return $this->tables;
     }
 
+    public function getColumnSort($tables)
+    {
+        $columns = [];
+        foreach ($tables as $table) {
+            $columns = array_merge($columns, $this->getColumn($table));
+        }
+        $columns = array_unique($columns);
+        sort($columns);
+        return $columns;
+    }
+
     public function getFillable($table)
     {
         return array_diff($this->getColumn($table), $this->exceptFillable);

@@ -29,7 +29,7 @@ class VocabularyController extends Controller
 
     public function export(Request $request)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $this->repository->export($input);
     }
 

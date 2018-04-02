@@ -3,6 +3,7 @@
 namespace Tutorial\Repositories;
 
 
+use Illuminate\Support\Facades\DB;
 use Istruct\MultiInheritance\RepositoriesTrait;
 
 use Illuminate\Support\Facades\Cache;
@@ -17,6 +18,7 @@ use Tutorial\Models\Tutorial;
 class TutorialRepositoryEloquent extends BaseRepository implements TutorialRepository
 {
     use RepositoriesTrait;
+
     /**
      * Specify Model class name
      *
@@ -40,11 +42,11 @@ class TutorialRepositoryEloquent extends BaseRepository implements TutorialRepos
     {
         $input = $this->standardized($input, $this->makeModel());
         $model = $this->create($input);
-        if(request()->has('section_names')) {
+        if (isset($input['section_names'])) {
             $data = [];
             $now = now();
-            foreach (request()->get('section_names') as $value) {
-                array_push($data, [NAME_COL => $value, TUTORIAL_ID_COL => $model->id, CREATED_AT_COL => $now, UPDATED_AT_COL => $now] );
+            foreach ($input['section_names'] as $value) {
+                array_push($data, [NAME_COL => $value, TUTORIAL_ID_COL => $model->id, CREATED_AT_COL => $now, UPDATED_AT_COL => $now]);
             }
             DB::table('sections')->insert($data);
         }
@@ -70,9 +72,18 @@ class TutorialRepositoryEloquent extends BaseRepository implements TutorialRepos
         return $data->checkbox($input);
     }
 
-    public function destroy($data)
+    public function destroy($id)
     {
-        // TODO: Implement remove() method.
+        $tutorial = $this->withCount('sections')->find($id);
+        if (empty($tutorial)) {
+            session()->flash('error', 'Tutorial not found ');
+        } elseif ($tutorial->sections_count !== 0) {
+            session()->flash('error', 'Can\'t destroy, please delete all it\'section');
+        } else {
+            session()->flash('success', 'delete success');
+            $this->delete($id);
+        }
+        return $tutorial;
     }
 
     /**
