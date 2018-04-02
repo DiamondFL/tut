@@ -45,6 +45,8 @@ class TutorialServiceProvider extends ServiceProvider
 
         view()->composer([
             'tut::section.index',
+            'tut::section.create',
+            'tut::section.update',
             'tut::lesson.create',
             'tut::lesson.update',
             'tut::lesson-test.index',

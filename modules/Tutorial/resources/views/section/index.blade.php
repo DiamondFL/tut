@@ -47,7 +47,7 @@
         </div>
         <div class="col-sm-1 form-group">
             <label for="">{{__('label.action')}}</label>
-            <a class="btn btn-primary" href="{{route('section.create')}}"><i class="fa fa-plus"></i></a>
+            <a class="btn btn-primary btn-block" href="{{route('section.create')}}"><i class="fa fa-plus"></i></a>
             <!--<a class="btn btn-danger"><i class="fa fa-trash"></i></a>-->
         </div>
     </form>

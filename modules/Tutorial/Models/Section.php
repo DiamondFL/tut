@@ -13,7 +13,7 @@ class Section extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'sections';
-    public $fillable = [NAME_COL, IMG_COL, TUTORIAL_ID_COL, IS_ACTIVE_COL];
+    public $fillable = [NAME_COL, IMG_COL, TUTORIAL_ID_COL, DESCRIPTION_COL, IS_ACTIVE_COL];
 
     public function scopeFilter($query, $input)
     {

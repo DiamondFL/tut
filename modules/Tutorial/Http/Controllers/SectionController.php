@@ -22,7 +22,7 @@ class SectionController extends Controller
 
     public function index(Request $request)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $data['sections'] = $this->repository->myPaginate($input);
         if($request->ajax())
         {
@@ -38,7 +38,7 @@ class SectionController extends Controller
 
     public function store(SectionCreateRequest $request)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $this->repository->store($input);
         session()->flash('success', 'create success');
         return redirect()->route('section.index');
@@ -68,7 +68,7 @@ class SectionController extends Controller
 
     public function update(SectionUpdateRequest $request, $id)
     {
-        $input = InputFa::normalization($request);
+        $input = $request->all();
         $section = $this->repository->find($id);
         if(empty($section))
         {

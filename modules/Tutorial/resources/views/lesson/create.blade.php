@@ -51,6 +51,8 @@
             </div>
             <div class="col-lg-12">
                 <button class="btn btn-primary">{{trans('button.done')}}</button>
+                <button class="btn btn-primary isBack">{{trans('button.done_and_back')}}</button>
+                <button type="reset" class="btn btn-default isBack">{{trans('button.reset')}}</button>
                 <a href="{{url()->previous()}}" class="btn btn-default">{{trans('button.cancel')}}</a>
             </div>
         </form>
