@@ -12,31 +12,31 @@ use Istruct\Facades\DBFa;
 use Istruct\Helpers\CRUDPath;
 use Istruct\Helpers\DecoHelper;
 
-class TranslationComponent
+class TranslationComponent extends BaseComponent
 {
 
 
     public function __construct()
     {
-        $this->source = file_get_contents(CRUDPath::inConstant());
+        $this->source = file_get_contents(CRUDPath::inTransTable());
     }
 
-    public function build($material)
+    public function build($data, $decorator)
     {
-        $str = "<?php\n";
-        foreach ($material as $key => $value) {
-            $str .= '  ' . $value . ' => \'' . title_case(str_replace('_', ' ', str_before($value, '_id'))) . '\'' . ";\n";
+        $str = "";
+        foreach ($data as $key => $value) {
+            $str .= '  \'' . $value . '\' => \'' . title_case(str_replace('_', ' ', str_before($value, '_id'))) . '\'' . ",\n";
         }
-        $this->working(DecoHelper::COLUMN, $str);
+        $this->working($decorator, trim($str));
     }
 
 
     public function building($database)
     {
         $tables = DBFa::table($database);
-        $this->build($tables);
-        $columns = DBFa::getAllColumn($tables);
-        $this->build($columns);
+        $this->build($tables, DecoHelper::TABLE);
+        $columns = DBFa::getColumnSort($tables);
+        $this->build($columns, DecoHelper::COLUMN);
         return $this->source;
     }
 }

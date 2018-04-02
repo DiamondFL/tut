@@ -5,7 +5,7 @@
             <a href="/"><i class="fa fa-home"></i></a>
         </li>
         <li>
-            <a href="{{route('tutorial.index')}}">tutorials</a>
+            <a href="{{route('tutorial.index')}}">{{__('table.tutorials')}}</a>
         </li>
         <li class="active">
             <strong>Table</strong>

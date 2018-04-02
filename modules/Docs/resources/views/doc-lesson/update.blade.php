@@ -41,11 +41,11 @@
             <input type="hidden" id="listSubCategoryRoute" value="{{route('sub-category.list')}}">
             <div class="form-group col-lg-12">
                 <label for="intro">{{trans('label.intro')}}</label>
-                <textarea class="form-control ckeditor" name="intro" id="intro">{{$docLesson->intro}}</textarea>
+                <textarea class="form-control ckeditor" name="intro" id="intro">{!! $docLesson->intro !!}</textarea>
             </div>
             <div class="form-group col-lg-12">
                 <label for="content">{{trans('label.content')}}</label>
-                <textarea class="form-control ckeditor" name="content" id="content">{{$docLesson->content}}</textarea>
+                <textarea class="form-control ckeditor" name="content" id="content">{!! $docLesson->content !!}</textarea>
             </div>
             <div class="col-lg-12 form-group">
                 <button class="btn btn-primary">{{trans('button.done')}}</button>

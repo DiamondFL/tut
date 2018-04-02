@@ -2606,14 +2606,9 @@ fieldset[disabled] .btn-danger.focus {
   -webkit-box-shadow: 0 0 0 2px rgba(255,255,255,.1);
   box-shadow: 0 0 0 2px rgba(255,255,255,.1);
 }
-.select2 {
-  visibility: hidden;
-}
-.page-body .select2-container {
-  display: block;
-}
-.page-body .select2-container.select2-dropdown-open .select2-choice,
-.page-body .select2-container.select2-dropdown-open .select2-choices {
+
+.page-body .-container.-dropdown-open .-choice,
+.page-body .-container.-dropdown-open .-choices {
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
@@ -2621,7 +2616,7 @@ fieldset[disabled] .btn-danger.focus {
   -moz-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
-.page-body .select2-container .select2-choice {
+.page-body .-container .-choice {
   border-color: #ebebeb !important;
   background: #fff;
   -moz-box-shadow: none;
@@ -2638,7 +2633,7 @@ fieldset[disabled] .btn-danger.focus {
   outline: none;
   padding-left: 15px;
 }
-.page-body .select2-container .select2-choice .select2-arrow {
+.page-body .-container .-choice .-arrow {
   border-left: 1px solid #ebebeb;
   width: 40px;
   text-align: center;
@@ -2648,10 +2643,10 @@ fieldset[disabled] .btn-danger.focus {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.page-body .select2-container .select2-choice .select2-arrow b {
+.page-body .-container .-choice .-arrow b {
   background: transparent !important;
 }
-.page-body .select2-container .select2-choice .select2-arrow b:before {
+.page-body .-container .-choice .-arrow b:before {
   position: relative;
   font-family: "Entypo";
   content: '\e873';
@@ -2662,12 +2657,12 @@ fieldset[disabled] .btn-danger.focus {
   -o-transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
-.page-body .select2-container .select2-choice .select2-search-choice-close {
+.page-body .-container .-choice .-search-choice-close {
   right: 50px;
   top: 50%;
   margin-top: -7px;
 }
-.page-body .select2-container .select2-choices {
+.page-body .-container .-choices {
   border-color: #ebebeb !important;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
@@ -2682,10 +2677,10 @@ fieldset[disabled] .btn-danger.focus {
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
-.page-body .select2-container .select2-choices .select2-search-field input {
+.page-body .-container .-choices .-search-field input {
   padding: 6px 12px;
 }
-.page-body .select2-container .select2-choices .select2-search-choice {
+.page-body .-container .-choices .-search-choice {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -2704,33 +2699,33 @@ fieldset[disabled] .btn-danger.focus {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.page-body .select2-container .select2-choices .select2-search-choice .select2-search-choice-close {
+.page-body .-container .-choices .-search-choice .-search-choice-close {
   top: 50%;
   margin-top: -7px;
 }
-.page-body .select2-container .select2-choices .select2-search-choice:hover {
+.page-body .-container .-choices .-search-choice:hover {
   background-color: #e6e6e6;
   color: #303641;
 }
-.page-body .select2-container.select2-container-active .select2-choices {
+.page-body .-container.-container-active .-choices {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.page-body .select2-container.select2-dropdown-open .select2-choice .select2-arrow {
+.page-body .-container.-dropdown-open .-choice .-arrow {
   background-color: rgba(245, 245, 246, 0.8);
 }
-.page-body .select2-container.select2-dropdown-open .select2-choice .select2-arrow b:before {
+.page-body .-container.-dropdown-open .-choice .-arrow b:before {
   -moz-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.page-body .select2.visible {
+.page-body .visible {
   visibility: visible;
 }
-.page-body .select2-drop {
+.page-body .-drop {
   border: 1px solid #ebebeb;
   background-color: #fff;
   -webkit-border-radius: 1px 1px 4px 4px;
@@ -2746,22 +2741,22 @@ fieldset[disabled] .btn-danger.focus {
   -moz-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-.page-body .select2-drop .select2-search,
-.page-body .select2-drop .select2-results {
+.page-body .-drop .-search,
+.page-body .-drop .-results {
   padding: 0;
   margin: 0;
 }
-.page-body .select2-drop .select2-search .select2-no-results,
-.page-body .select2-drop .select2-results .select2-no-results {
+.page-body .-drop .-search .-no-results,
+.page-body .-drop .-results .-no-results {
   padding: 12px 15px;
   color: #737881;
 }
-.page-body .select2-drop .select2-search .select2-result-label,
-.page-body .select2-drop .select2-results .select2-result-label {
+.page-body .-drop .-search .-result-label,
+.page-body .-drop .-results .-result-label {
   padding: 4px 15px;
 }
-.page-body .select2-drop .select2-search .select2-result-selectable,
-.page-body .select2-drop .select2-results .select2-result-selectable {
+.page-body .-drop .-search .-result-selectable,
+.page-body .-drop .-results .-result-selectable {
   background: transparent;
   color: #888;
   -moz-transition: all 300ms ease-in-out;
@@ -2769,19 +2764,19 @@ fieldset[disabled] .btn-danger.focus {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.page-body .select2-drop .select2-search .select2-result-selectable:hover,
-.page-body .select2-drop .select2-results .select2-result-selectable:hover,
-.page-body .select2-drop .select2-search .select2-result-selectable.select2-highlighted,
-.page-body .select2-drop .select2-results .select2-result-selectable.select2-highlighted {
+.page-body .-drop .-search .-result-selectable:hover,
+.page-body .-drop .-results .-result-selectable:hover,
+.page-body .-drop .-search .-result-selectable.-highlighted,
+.page-body .-drop .-results .-result-selectable.-highlighted {
   background: #f3f3f3;
   color: #303641;
 }
-.page-body .select2-drop .select2-search .select2-result-sub li,
-.page-body .select2-drop .select2-results .select2-result-sub li {
+.page-body .-drop .-search .-result-sub li,
+.page-body .-drop .-results .-result-sub li {
   background: none !important;
 }
-.page-body .select2-drop .select2-search .select2-result-sub .select2-result-label,
-.page-body .select2-drop .select2-results .select2-result-sub .select2-result-label {
+.page-body .-drop .-search .-result-sub .-result-label,
+.page-body .-drop .-results .-result-sub .-result-label {
   padding: 5px 25px;
   color: #888888;
   -moz-transition: all 300ms ease-in-out;
@@ -2789,21 +2784,21 @@ fieldset[disabled] .btn-danger.focus {
   -o-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
-.page-body .select2-drop .select2-search .select2-result-sub .select2-result-label:hover,
-.page-body .select2-drop .select2-results .select2-result-sub .select2-result-label:hover {
+.page-body .-drop .-search .-result-sub .-result-label:hover,
+.page-body .-drop .-results .-result-sub .-result-label:hover {
   background: #f3f3f3;
   color: #303641;
 }
-.page-body .select2-drop .select2-search .select2-result-sub .select2-highlighted .select2-result-label,
-.page-body .select2-drop .select2-results .select2-result-sub .select2-highlighted .select2-result-label {
+.page-body .-drop .-search .-result-sub .-highlighted .-result-label,
+.page-body .-drop .-results .-result-sub .-highlighted .-result-label {
   background: #f3f3f3;
   color: #303641;
 }
-.page-body .select2-drop .select2-search {
+.page-body .-drop .-search {
   position: relative;
   padding: 12px 15px;
 }
-.page-body .select2-drop .select2-search input {
+.page-body .-drop .-search input {
   background: #f3f3f3 !important;
   border: 0;
   -webkit-background-clip: padding-box;
@@ -2822,7 +2817,7 @@ fieldset[disabled] .btn-danger.focus {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.page-body .select2-drop .select2-search:after {
+.page-body .-drop .-search:after {
   position: absolute;
   font-family: "Entypo";
   right: 15px;

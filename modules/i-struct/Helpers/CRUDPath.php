@@ -96,4 +96,23 @@ class CRUDPath
     {
         return base_path('tsc/form/' . $table . '.ts');
     }
+
+    static function inTransLabel()
+    {
+        return base_path(VIEW_PATH . '/trans/label.php');
+    }
+
+    static function outTransLabel()
+    {
+        return base_path( '/Constants/label.php');
+    }
+    static function inTransTable()
+    {
+        return base_path(VIEW_PATH . '/trans/table.php');
+    }
+
+    static function outTransTable()
+    {
+        return base_path( '/Constants/table.php');
+    }
 }

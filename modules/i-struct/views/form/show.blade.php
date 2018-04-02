@@ -5,7 +5,7 @@
             <a href="/"><i class="fa fa-home"></i>Home</a>
         </li>
         <li>
-            <a >Table</a>
+            <a href="{{route('_route_.index')}}">{{trans('table._table_')}}</a>
         </li>
         <li class="active">
             <strong>Basic Tables</strong>

@@ -44,6 +44,7 @@ class TutorialServiceProvider extends ServiceProvider
         $this->loadJsonTranslationsFrom(__DIR__ . '/resources/lang');
 
         view()->composer([
+            'tut::section.index',
             'tut::lesson.create',
             'tut::lesson.update',
             'tut::lesson-test.index',

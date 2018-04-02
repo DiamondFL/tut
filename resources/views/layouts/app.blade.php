@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('')}}assets/css/custom.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/skins/white.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/neon-forms.css')}}">
     @stack('css')
     @yield('css')
 </head>
@@ -61,6 +62,7 @@
 <script src="{{asset('')}}vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script src="{{asset('')}}vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 
+
 <script>
     var options = {
 
@@ -83,7 +85,8 @@
         }
     });
 </script>
-<script src="{{asset('bower_components/fabric.js/dist/fabric.min.js')}}"></script>
+<script src="{{asset('')}}assets/js/fileinput.js"></script>
+{{--<script src="{{asset('bower_components/fabric.js/dist/fabric.min.js')}}"></script>--}}
 {{--<script src="{{asset('bower_components/fabric.js/dist/fabric.require.js')}}"></script>--}}
 @stack('js')
 @yield('js')

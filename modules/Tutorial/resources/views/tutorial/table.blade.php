@@ -25,6 +25,7 @@
                <a href="{{route('tutorial.show', $row->id)}}" class="btn btn-info btn-xs">
                    <i class="fa fa-eye"></i>
                </a>
+               <a class="btn btn-info btn-xs" href="{{route('section.index')}}?tutorial_id={{$row->id}}">{{trans('table.sections')}}</a>
            </form>
        </td>
     </tr>

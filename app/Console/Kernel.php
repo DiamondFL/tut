@@ -14,6 +14,7 @@ use App\Console\Commands\TableName;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Istruct\Console\Commands\ConstDBCommand;
+use Istruct\Console\Commands\TransDBCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -31,7 +32,8 @@ class Kernel extends ConsoleKernel
         TableName::class,
         RenderRoute::class,
         FileRename::class,
-        RenderController::class
+        RenderController::class,
+        TransDBCommand::class,
     ];
 
     /**

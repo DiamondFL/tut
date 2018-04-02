@@ -42,7 +42,7 @@ class TutorialController extends Controller
         session()->flash('success', 'create success');
         if(isset($input['is_back']))
         {
-            return redirect()->back()->withInput();
+            return redirect()->back();
         }
         return redirect()->route('tutorial.index');
     }
@@ -64,6 +64,10 @@ class TutorialController extends Controller
         if(empty($tutorial))
         {
             session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        if(isset($input['is_back']))
+        {
             return redirect()->back();
         }
         $sections = $tutorial->sections()->pluck('name', 'id');

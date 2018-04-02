@@ -13,6 +13,7 @@
     </ol>
     <form class="form-group row" id="formFilter" action="{{route('section.index')}}" method="POST">
         <div class="col-sm-2 form-group">
+            <label for="">{{__('label.per_page')}}</label>
             <select name="per_page" class="form-control inputFilter">
                 <option value="10">10</option>
                 <option value="20">20</option>
@@ -21,7 +22,8 @@
                 <option value="50">50</option>
             </select>
         </div>
-        <div class="col-sm-8 form-group">
+        <div class="col-sm-7 form-group">
+            <label for="">{{__('label.search')}}</label>
             <input name="name" class="form-control inputFilter" placeholder="name">
         </div>
         <!--<div class="col-sm-3 form-group">-->
@@ -34,7 +36,17 @@
                 <!--<option value="0">Inactive</option>-->
             <!--</select>-->
         <!--</div>-->
-        <div class="col-sm-2 form-group">
+        <div class="col-lg-2 form-group">
+            <label for="">{{__('table.tutorials')}}</label>
+            <select class="form-control" name="tutorial_id" id="tutorial_id">
+                <option value=""></option>
+                @foreach($tutorialCompose as $id => $name)
+                    <option {{request()->get('tutorial_id') != $id ?: 'selected'}} value="{{$id}}">{{$name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-sm-1 form-group">
+            <label for="">{{__('label.action')}}</label>
             <a class="btn btn-primary" href="{{route('section.create')}}"><i class="fa fa-plus"></i></a>
             <!--<a class="btn btn-danger"><i class="fa fa-trash"></i></a>-->
         </div>
