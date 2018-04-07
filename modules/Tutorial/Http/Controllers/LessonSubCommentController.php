@@ -39,6 +39,10 @@ class LessonSubCommentController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('lesson-sub-comment.index');
     }
 
@@ -75,6 +79,10 @@ class LessonSubCommentController extends Controller
         }
         $this->repository->change($input, $lessonSubComment);
         session()->flash('success', 'update success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('lesson-sub-comment.index');
     }
 

@@ -55,6 +55,8 @@ class TutorialServiceProvider extends ServiceProvider
             'tut::lesson-result.index',
             'tut::lesson-result.create',
             'tut::lesson-result.update',
+            'tut::tutorial-result.index',
+            'tut::tutorial-result.update',
         ], TutorialComposer::class);
     }
 

@@ -83,21 +83,21 @@
                         content: 'Lorem ipsum dolort sit amet',
                         fullname: 'Simon Powell',
                         upvote_count: 2,
-                        user_has_upvoted: false
+                        user_has_upvoted: true
                     },{
                         id: 2,
                         created: '2015-10-01',
                         content: 'Lorem ipsum dolort sit amet',
                         fullname: 'Simon Powell',
                         upvote_count: 2,
-                        user_has_upvoted: false
+                        user_has_upvoted: true
                     },{
                         id: 3,
                         created: '2015-10-01',
                         content: 'Lorem ipsum dolort sit amet',
                         fullname: 'Simon Powell',
                         upvote_count: 2,
-                        user_has_upvoted: false
+                        user_has_upvoted: true
                     },
                 ];
                 success(commentsArray);

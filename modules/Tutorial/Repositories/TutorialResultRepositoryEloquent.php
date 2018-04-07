@@ -32,9 +32,9 @@ class TutorialResultRepositoryEloquent extends BaseRepository implements Tutoria
     {
         isset($input[PER_PAGE]) ?: $input[PER_PAGE] = 10;
         return $this->makeModel()
+            ->with(['creator:id,email', 'tutorial:id,name'])
             ->filter($input)
             ->paginate($input[PER_PAGE]);
-
     }
 
     public function store($input)

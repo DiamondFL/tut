@@ -11,15 +11,24 @@ namespace Edubeanz\Core\Services;
 use Edubeanz\Plan\Events\MarkEvent;
 use App\Repositories\MultiChoiceRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use PHPUnit\Framework\TestResult;
+use Tutorial\Models\TutorialResult;
+use Tutorial\Repositories\TutorialResultRepository;
+use Tutorial\Repositories\TutorialTestRepository;
 
 class TestService
 {
 
-    private $repository;
+    private $repository, $tutorialTestRepository, $tutorialResultRepository;
 
-    public function __construct(MultiChoiceRepository $repository)
+    public function __construct(MultiChoiceRepository $repository, TutorialTestRepository $tutorialTestRepository,
+        TutorialResultRepository $tutorialResultRepository
+    )
     {
         $this->repository = $repository;
+        $this->tutorialTestRepository = $tutorialTestRepository;
+        $this->tutorialResultRepository = $tutorialResultRepository;
     }
 
     public function countList($input)
@@ -53,7 +62,19 @@ class TestService
                 }
             }
         }
+        if(auth()->check() && isset($input['knowledge']))
+        {
+            $this->scored($score, $input['knowledge']);
+        }
         return compact('score', 'exactly');
+    }
+
+    public function scored($score, $knowledge)
+    {
+        $data['tutorial_id'] = $knowledge;
+        $data['score'] = $score;
+        $data['created_by'] = auth()->id();
+        app(TutorialResult::class)->create($data);
     }
 
     private function check($answer, $reply)
@@ -87,5 +108,12 @@ class TestService
     private function getPerPage()
     {
         return config('multi-choice.paginate.test');
+    }
+
+    public function result($input)
+    {
+        $input[CREATED_BY_COL] = auth()->id();
+        $tutorialResults  = $this->tutorialResultRepository->myPaginate($input);
+        return compact('tutorialResults');
     }
 }

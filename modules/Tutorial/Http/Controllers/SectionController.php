@@ -41,6 +41,10 @@ class SectionController extends Controller
         $input = $request->all();
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('section.index');
     }
 
@@ -61,6 +65,10 @@ class SectionController extends Controller
         if(empty($section))
         {
             session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        if(isset($input['is_back']))
+        {
             return redirect()->back();
         }
         return view('tut::section.update', compact('section'));
