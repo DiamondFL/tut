@@ -20,6 +20,9 @@ class Sections extends Migration
             $table->string('img')->nullable();
             $table->text('description')->nullable();
             $table->tinyInteger('is_active')->default(0);
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
+            $table->unsignedTinyInteger('order');
             $table->timestamps();
             $table->softDeletes();
         });
