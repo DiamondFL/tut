@@ -22,3 +22,49 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(\Tutorial\Models\Tutorial::class, function (Faker\Generator $faker) {
+//    $usersIds = \App\Models\User::pluck('id')->toArray();
+    return [
+        NAME_COL => $faker->name,       
+        IS_ACTIVE_COL => 1,
+    ];
+});
+
+$factory->define(\Tutorial\Models\Section::class, function (Faker\Generator $faker) {
+    $tutorialIds = \Tutorial\Models\Tutorial::pluck('id')->toArray();
+//    $usersIds = \App\Models\User::pluck('id')->toArray();
+    return [
+        NAME_COL => $faker->name,
+        TUTORIAL_ID_COL => $faker->randomElement($tutorialIds),
+//        CREATED_BY_COL => $faker->randomElement($usersIds),
+//        UPDATED_BY_COL => $faker->randomElement($usersIds),
+        IS_ACTIVE_COL => 1,
+    ];
+});
+
+$factory->define(\Tutorial\Models\Lesson::class, function (Faker\Generator $faker) {
+    $sectionIds = \Tutorial\Models\Section::pluck('id')->toArray();
+    $usersIds = \App\Models\User::pluck('id')->toArray();
+    return [
+        'title' => $faker->name,
+        INTRO_COL => $faker->name,
+        CONTENT_COL => $faker->name,
+        SECTION_ID_COL => $faker->randomElement($sectionIds),
+        CREATED_BY_COL => $faker->randomElement($usersIds),
+        UPDATED_BY_COL => $faker->randomElement($usersIds),
+        IS_ACTIVE_COL => 1,
+    ];
+});
+
+$factory->define(\Tutorial\Models\LessonComment::class, function (Faker\Generator $faker) {
+    $lesson_ids = \Tutorial\Models\Lesson::pluck('id')->toArray();
+    $usersIds = \App\Models\User::pluck('id')->toArray();
+    return [
+        LESSON_ID_COL => $faker->randomElement($lesson_ids),
+        CONTENT_COL => $faker->text,
+        CREATED_BY_COL => $faker->randomElement($usersIds),
+        IS_ACTIVE_COL => 1,
+    ];
+});
+

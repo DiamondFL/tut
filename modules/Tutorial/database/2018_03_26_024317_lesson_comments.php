@@ -17,7 +17,7 @@ class LessonComments extends Migration
             $table->increments('id');
             $table->unsignedInteger('lesson_id');
             $table->text('content');
-            $table->unsignedInteger('create_by');
+            $table->unsignedInteger('created_by');
             $table->tinyInteger('is_active');
             $table->timestamps();
             $table->softDeletes();

@@ -7,30 +7,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Tutorial\Models\LessonComment;
 
-class LessonCommentController extends Controller
+class LessonCommentApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-    private $resource;
-    public function __construct(LessonCommentResource $resource)
-    {
-        $this->resource = $resource;
-    }
-
-
     public function index()
     {
         //Get all task
-        $comments = LessonComment::simplePaginate(15);
+        $tasks = LessonComment::simplePaginate(15);
 
-        // Return a collection of $comment with pagination
-        return LessonCommentResource::collection($comments);
-
+        // Return a collection of $task with pagination
+        return LessonCommentResource::collection($tasks);
     }
 
     /**
@@ -49,22 +39,18 @@ class LessonCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        $request = \request();
-        dd($request->all());
-        if(auth()->check())
-        {
-            $comment = new LessonComment();
-            $comment->lesson_id = 1;
-            $comment->content = $request->input('content');
-            $comment->created =  auth()->id(); //$request->user()->id;
-            $comment->save();
-            if($comment->save()) {
-                return new LessonCommentResource($comment);
-            }
+        $task = $request->isMethod('put') ? LessonComment::findOrFail($request->task_id) : new LessonComment;
+
+        $task->id = $request->input('task_id');
+        $task->name = $request->input('name');
+        $task->description = $request->input('description');
+        $task->user_id =  1; //$request->user()->id;
+
+        if($task->save()) {
+            return new LessonCommentResource($task);
         }
-        return new LessonCommentResource(false);
     }
 
     /**
@@ -75,10 +61,10 @@ class LessonCommentController extends Controller
      */
     public function show($id)
     {
-        $comment = LessonComment::findOrfail($id);
+        $task = LessonComment::findOrfail($id);
 
         // Return a single task
-        return new LessonCommentResource($comment);
+        return new LessonCommentResource($task);
     }
 
     /**
@@ -112,10 +98,10 @@ class LessonCommentController extends Controller
      */
     public function destroy($id)
     {
-        $comment = LessonComment::findOrfail($id);
+        $task = LessonComment::findOrfail($id);
 
-        if($comment->delete()) {
-            return new LessonCommentResource($comment);
+        if($task->delete()) {
+            return new LessonCommentResource($task);
         }
     }
 }
