@@ -13,21 +13,21 @@ class LessonComment extends Model implements Transformable
     use ModelsTrait;
 
     public $table = 'lesson_comments';
-    public $fillable = ['lesson_id', 'content', 'create_by', 'is_active'];
+    public $fillable = [LESSON_ID_COL, CONTENT_COL, CREATED_BY_COL, IS_ACTIVE_COL];
 
     public function scopeFilter($query, $input)
     {
-        if (isset($input['lesson_id'])) {
-            $query->where('lesson_id', $input['lesson_id']);
+        if (isset($input[LESSON_ID_COL])) {
+            $query->where(LESSON_ID_COL, $input[LESSON_ID_COL]);
         }
-        if (isset($input['content'])) {
-            $query->where('content', $input['content']);
+        if (isset($input[CONTENT_COL])) {
+            $query->where(CONTENT_COL, $input[CONTENT_COL]);
         }
-        if (isset($input['create_by'])) {
-            $query->where('create_by', $input['create_by']);
+        if (isset($input[CREATED_BY_COL])) {
+            $query->where(CREATED_BY_COL, $input[CREATED_BY_COL]);
         }
-        if (isset($input['is_active'])) {
-            $query->where('is_active', $input['is_active']);
+        if (isset($input[IS_ACTIVE_COL])) {
+            $query->where(IS_ACTIVE_COL, $input[IS_ACTIVE_COL]);
         }
 
         return $query;
@@ -43,6 +43,6 @@ class LessonComment extends Model implements Transformable
             ]
         ]
     ];
-    protected $checkbox = ['is_active'];
+    protected $checkbox = [IS_ACTIVE_COL];
 }
 

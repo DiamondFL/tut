@@ -74,71 +74,88 @@
     <script src="{{asset('')}}assets/js/neon-chat.js"></script>
     <script>
         $('#comments-container').comments({
+            profilePictureURL: 'https://scontent.fhan3-3.fna.fbcdn.net/v/t1.0-1/c32.0.160.160/p160x160/1380823_171886979683724_704506767_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeFXDAC3ije9Jead1P3i12jIH-WOkLc6KLHvjQvtZ9Cg4r4TMo2_tBRp1KsLxbmSXCcH554nKt677VMvmLHgWRh3jMQPOI9ZG__HFXoUrW-RXQ&oh=b383a9ebb0a4c16593ba1d333ed0145e&oe=5B30E0E4',
             getComments: function(success, error) {
-                var commentsArray = [
-
-                    {
-                        id: 1,
-                        created: '2015-10-01',
-                        content: 'Lorem ipsum dolort sit amet',
-                        fullname: 'Simon Powell',
-                        upvote_count: 2,
-                        user_has_upvoted: false
-                    },{
-                        id: 2,
-                        created: '2015-10-01',
-                        content: 'Lorem ipsum dolort sit amet',
-                        fullname: 'Simon Powell',
-                        upvote_count: 2,
-                        user_has_upvoted: false
-                    },{
-                        id: 3,
-                        created: '2015-10-01',
-                        content: 'Lorem ipsum dolort sit amet',
-                        fullname: 'Simon Powell',
-                        upvote_count: 2,
-                        user_has_upvoted: false
+                $.ajax({
+                    type: 'get',
+                    url: '{{route('lesson-comment-api.index')}}',
+                    success: function(commentsArray) {
+                        console.log(commentsArray)
+                        success(commentsArray.data)
                     },
-                ];
-                success(commentsArray);
-            }
-        });
-        $('#comments-container').comments({
-            getComments: function(success, error) {
-                var commentsArray = [
-
-                    {
-                        id: 1,
-                        created: '2015-10-01',
-                        content: 'Lorem ipsum dolort sit amet',
-                        fullname: 'Simon Powell',
-                        upvote_count: 2,
-                        user_has_upvoted: false
-                    },{
-                        id: 2,
-                        created: '2015-10-01',
-                        content: 'Lorem ipsum dolort sit amet',
-                        fullname: 'Simon Powell',
-                        upvote_count: 2,
-                        user_has_upvoted: false
-                    },{
-                        id: 3,
-                        created: '2015-10-01',
-                        content: 'Lorem ipsum dolort sit amet',
-                        fullname: 'Simon Powell',
-                        upvote_count: 2,
-                        user_has_upvoted: false
-                    },
-                ];
-                success(commentsArray);
+                    error: error
+                });
             },
-            fieldMappings: {
-                id: '12',
-                parent: '1',
-                modified: '2015-10-01',
-                fullname: 'name',
-                profilePictureURL: 'user_image',
-                upvoteCount: 'upvotes',
+            getUsers: function(success, error) {
+                $.ajax({
+                    type: 'get',
+                    url: '/api/users/',
+                    success: function(userArray) {
+                        console.log('-------------User array---------------')
+                        console.log(userArray)
+                        success(userArray)
+                    },
+                    error: error
+                });
+            },
+            postComment: function(commentJSON, success, error) {
+                console.log('create comment')
+                console.log(commentJSON)
+                $.ajax({
+                    type: 'post',
+                    url: '{{route('lesson-comment-api.index')}}',
+                    data: commentJSON,
+                    success: function(comment) {
+                        success(comment)
+                    },
+                    error: error
+                });
+            },
+            putComment: function(commentJSON, success, error) {
+                $.ajax({
+                    type: 'put',
+                    url: '{{route('lesson-comment-api.index')}}' + commentJSON.id,
+                    data: commentJSON,
+                    success: function(comment) {
+                        success(comment)
+                    },
+                    error: error
+                });
+            },
+            deleteComment: function(commentJSON, success, error) {
+                $.ajax({
+                    type: 'delete',
+                    url: '{{route('lesson-comment-api.index')}}' + commentJSON.id,
+                    success: success,
+                    error: error
+                });
+            },
+            upvoteComment: function(commentJSON, success, error) {
+                var commentURL = '/api/comments/' + commentJSON.id;
+                var upvotesURL = commentURL + '/upvotes/';
+
+                if(commentJSON.userHasUpvoted) {
+                    $.ajax({
+                        type: 'post',
+                        url: upvotesURL,
+                        data: {
+                            comment: commentJSON.id
+                        },
+                        success: function() {
+                            success(commentJSON)
+                        },
+                        error: error
+                    });
+                } else {
+                    $.ajax({
+                        type: 'delete',
+                        url: upvotesURL + upvoteId,
+                        success: function() {
+                            success(commentJSON)
+                        },
+                        error: error
+                    });
+                }
             }
         });
     </script>

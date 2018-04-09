@@ -59,10 +59,11 @@ $factory->define(\Tutorial\Models\Lesson::class, function (Faker\Generator $fake
 
 $factory->define(\Tutorial\Models\LessonComment::class, function (Faker\Generator $faker) {
     $lesson_ids = \Tutorial\Models\Lesson::pluck('id')->toArray();
+    $usersIds = \App\Models\User::pluck('id')->toArray();
     return [
-        'lesson_id' => $faker->randomElement($lesson_ids),
+        LESSON_ID_COL => $faker->randomElement($lesson_ids),
         CONTENT_COL => $faker->text,
-        'create_by' => date('Y-m-d H:i:s'),
+        CREATED_BY_COL => $faker->randomElement($usersIds),
         IS_ACTIVE_COL => 1,
     ];
 });

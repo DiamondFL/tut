@@ -34,9 +34,9 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
 
         config(['session.driver' => 'array']);
         config(['cache.default' => 'array']);
-        $this->call(TutorialSeeder::class);
-        $this->call(SectionSeeder::class);
-        $this->call(LessonSeeder::class);
+//        $this->call(TutorialSeeder::class);
+//        $this->call(SectionSeeder::class);
+//        $this->call(LessonSeeder::class);
         $this->call(LessonCommentSeeder::class);
     }
 }

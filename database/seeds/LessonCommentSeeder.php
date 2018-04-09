@@ -11,6 +11,6 @@ class LessonCommentSeeder extends Seeder
      */
     public function run()
     {
-        factory(\Tutorial\Models\LessonComment::class, 9999)->create();
+        factory(\Tutorial\Models\LessonComment::class, 999)->create();
     }
 }
