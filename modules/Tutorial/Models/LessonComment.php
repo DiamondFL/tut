@@ -17,18 +17,18 @@ class LessonComment extends Model implements Transformable
 
     public function scopeFilter($query, $input)
     {
-        if(isset($input['lesson_id'])) {
-                $query->where('lesson_id', $input['lesson_id']); 
-                }
-if(isset($input['content'])) {
-                $query->where('content', $input['content']); 
-                }
-if(isset($input['create_by'])) {
-                $query->where('create_by', $input['create_by']); 
-                }
-if(isset($input['is_active'])) {
-                $query->where('is_active', $input['is_active']); 
-                }
+        if (isset($input['lesson_id'])) {
+            $query->where('lesson_id', $input['lesson_id']);
+        }
+        if (isset($input['content'])) {
+            $query->where('content', $input['content']);
+        }
+        if (isset($input['create_by'])) {
+            $query->where('create_by', $input['create_by']);
+        }
+        if (isset($input['is_active'])) {
+            $query->where('is_active', $input['is_active']);
+        }
 
         return $query;
     }
