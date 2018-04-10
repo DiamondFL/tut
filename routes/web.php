@@ -34,3 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/laravel-filemanager/upload', '\Unisharp\Laravelfilemanager\controllers\UploadController@upload');
     // list all lfm routes here...
 });
+
+Route::group(['namespace' => 'API', 'middleware' => ['web', 'auth']], function () {
+    Route::resource('lesson-comment-api', 'LessonCommentController');
+//    Route::resource('lesson-comment-api', 'LessonCommentApiController');
+});

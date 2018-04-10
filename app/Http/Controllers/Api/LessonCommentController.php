@@ -17,8 +17,7 @@ class LessonCommentController extends Controller
     public function index()
     {
         //Get all task
-        $comments = LessonComment::simplePaginate(15);
-
+        $comments = LessonComment::orderBy('id', 'DESC')->simplePaginate(15);
         // Return a collection of $comment with pagination
         return LessonCommentResource::collection($comments);
     }
@@ -41,15 +40,17 @@ class LessonCommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = $request->isMethod('put') ? LessonComment::findOrFail($request->task_id) : new LessonComment;
-        $comment->id = $request->input('task_id');
-        $comment->name = $request->input('name');
-        $comment->description = $request->input('description');
-        $comment->user_id =  1; //$request->user()->id;
-
-        if($comment->save()) {
-            return new LessonCommentResource($comment);
+        if(auth()->check()) {
+            $comment = new LessonComment;
+            $comment->content = $request->input('content');
+            $comment->created_by = auth()->id();
+            $comment->lesson_id =  1;
+            $comment->is_active =  1;
+            if($comment->save()) {
+                return response(new LessonCommentResource($comment), 200);
+            }
         }
+        return response(false, 200);
     }
 
     /**
