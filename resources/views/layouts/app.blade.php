@@ -12,13 +12,13 @@
     <title>Portalbeanzvn - Education @yield('title')</title>
     <meta content="Kết nối tất cả">
     <link rel="stylesheet" href="{{asset('')}}assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
-    <link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/entypo/css/entypo.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/bootstrap.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/neon-core.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/neon-theme.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/custom.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/skins/white.css">
     <link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('')}}assets/css/font-icons/entypo/css/entypo.css">
     <link rel="stylesheet" href="{{asset('assets/css/neon-forms.css')}}">
     @stack('css')
     @yield('css')
@@ -49,7 +49,6 @@
 <script src="{{asset('')}}assets/js/resizeable.js"></script>
 <script src="{{asset('')}}assets/js/neon-api.js"></script>
 <script src="{{asset('')}}assets/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<!-- Imported scripts on this page -->
 <script src="{{asset('')}}assets/js/jvectormap/jquery-jvectormap-europe-merc-en.js"></script>
 <script src="{{asset('')}}assets/js/jquery.sparkline.min.js"></script>
 <script src="{{asset('')}}assets/js/rickshaw/vendor/d3.v3.js"></script>
@@ -57,53 +56,40 @@
 <script src="{{asset('')}}assets/js/raphael-min.js"></script>
 <script src="{{asset('')}}assets/js/morris.min.js"></script>
 <script src="{{asset('')}}assets/js/toastr.js"></script>
-{{--<script src="{{asset('')}}assets/js/neon-chat.js"></script>--}}
 <script src="{{asset('')}}assets/js/neon-custom.js"></script>
 <script src="{{asset('')}}vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script src="{{asset('')}}vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
-
-
 <script>
-    var options = {
-
+    const options = {
         filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-//        filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-
         filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-//        filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
     };
     $('.ckeditor').ckeditor(options);
 </script>
-
-
 <!-- Demo Settings -->
 <script src="{{asset('')}}assets/js/neon-demo.js"></script>
-<script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
 <script src="{{asset('')}}assets/js/fileinput.js"></script>
-{{--<script src="{{asset('bower_components/fabric.js/dist/fabric.min.js')}}"></script>--}}
-{{--<script src="{{asset('bower_components/fabric.js/dist/fabric.require.js')}}"></script>--}}
 @stack('js')
 @yield('js')
 {{--<script>--}}
 {{--$('#formSearchVocabulary').formFilter($('.searchVol'), $('#searchVocabularyTable'));--}}
 {{--</script>--}}
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     $(document).on('click', '.destroyBtn', function (e) {
-        var ok = confirm('Are you sure?');
+        const ok = confirm('Are you sure?');
         if(ok === false) {
             e.preventDefault();
         }
     });
     $('.isBack').click(function (e) {
-        var form = $(this).parents('form')
+        const form = $(this).parents('form');
         console.log(form);
-        var route = form.attr('action') + '?is_back=1';
+        const route = form.attr('action') + '?is_back=1';
         console.log(route);
         form.attr('action', route)
     })

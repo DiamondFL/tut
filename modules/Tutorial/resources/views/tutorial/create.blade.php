@@ -12,12 +12,15 @@
                 <strong>Tables</strong>
             </li>
         </ol>
-
         <form action="{{route('tutorial.store')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="form-group col-lg-12">
                 <label for="name">{{trans('label.name')}}</label>
                 <input required type="text" class="form-control" name="name" value="{{ old('name') }}" id="name">
+            </div>
+            <div class="form-group col-lg-12">
+                <label for="description">{{trans('label.description')}}</label>
+                <textarea class="form-control ckeditor" name="description" id="" cols="30" rows="10">{{ old('description') }}</textarea>
             </div>
             <div class="form-group col-lg-12">
                 <label for="name">{{trans('table.sections')}}</label>
@@ -29,10 +32,6 @@
                         @endforeach
                     @endif
                 </select>
-            </div>
-            <div class="form-group col-lg-12">
-                <label for="description">{{trans('label.description')}}</label>
-                <textarea class="form-control ckeditor" name="description" id="" cols="30" rows="10">{{ old('description') }}</textarea>
             </div>
             <div class="fileinput fileinput-newform-group col-lg-6 " data-provides="fileinput">
                 <div class="fileinput-new thumbnail" data-trigger="fileinput">
@@ -47,7 +46,6 @@
                     </span>
                     <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Remove</a>
                 </div>
-                {{--<input type="file" name="img" id="img">--}}
             </div>
             <div class="form-group col-lg-12">
                 <label for="is_active">{{trans('label.is_active')}}</label>
@@ -79,12 +77,14 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
-        $("#categoryFrom").validate();
+        const categoryForm = $("#categoryFrom");
+        categoryForm.validate();
         $(document).ready(function () {
-            $('.js-single').select2({
+            const jsSlelect = $('.js-single');
+            jsSlelect.select2({
                 tags: true,
                 createTag: function (params) {
-                    var term = $.trim(params.term);
+                    const term = $.trim(params.term);
                     if (term === '') {
                         return null;
                     }
@@ -95,12 +95,12 @@
                     }
                 }
             });
-            $('.js-single').on('select2:select', function (e) {
-                var data = e.params.data;
+            jsSlelect.on('select2:select', function (e) {
+                const data = e.params.data;
                 console.log(data);
             });
-            $('.js-single').on('select2:unselect', function (e) {
-                var data = e.params.data;
+            jsSlelect.on('select2:unselect', function (e) {
+                const data = e.params.data;
                 console.log(data);
             });
         });

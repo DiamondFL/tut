@@ -6,7 +6,7 @@
     @foreach($_vars_ as $row)
     <tr>
         _td_
-       <td>
+       <td class="text-right">
            <form method="POST" action="{{route('_route_.destroy', $row->id)}}">
                {{csrf_field()}}
                {{method_field('DELETE')}}
