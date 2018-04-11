@@ -23,7 +23,7 @@ class Lessons extends Migration
             $table->dateTime('last_view')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
-            $table->unsignedTinyInteger('order');
+            $table->unsignedTinyInteger('no')->nullable();
             $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();

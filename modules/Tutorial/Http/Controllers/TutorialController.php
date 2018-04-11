@@ -70,7 +70,7 @@ class TutorialController extends Controller
         {
             return redirect()->back();
         }
-        $sections = $tutorial->sections()->pluck('name', 'id');
+        $sections = $tutorial->sections()->orderBy('no')->pluck('name', 'id');
         return view('tut::tutorial.update', compact('tutorial', 'sections'));
     }
 

@@ -22,7 +22,7 @@ class Sections extends Migration
             $table->tinyInteger('is_active')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
-            $table->unsignedTinyInteger('order');
+            $table->unsignedTinyInteger('no')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

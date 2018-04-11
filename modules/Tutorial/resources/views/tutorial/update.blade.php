@@ -21,7 +21,19 @@
             </div>
             <div class="form-group col-lg-12">
                 <label for="description">{{trans('label.description')}}</label>
-                <textarea class="form-control" name="description" id="" cols="30" rows="10">{{$tutorial->description}}</textarea>
+                <textarea class="form-control" name="description" id="" cols="30" rows="10">{!! $tutorial->description !!}</textarea>
+            </div>
+            <div class="col-lg-12 form-group">
+                <label for="">{{__('label.no')}}</label>
+                <ul class="list-group" id="sortable">
+                    @foreach($sections as $id => $name)
+                    {{--<li class="list-group-item"><span class="no">12345</span>{{$name}}</li>--}}
+                        <div class="input-group form-group">
+                            <span class="input-group-addon no">@</span>
+                            <input type="text" class="form-control" value="{{$name}}">
+                        </div>
+                    @endforeach
+                </ul>
             </div>
             <div class="fileinput fileinput-newform-group col-lg-6 " data-provides="fileinput">
                 <div class="fileinput-new thumbnail" data-trigger="fileinput">
@@ -55,3 +67,45 @@
         </form>
     </div>
 @endsection
+@push('head')
+
+@endpush
+@push('js')
+    <script src="{{asset('bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+    <script>
+        // $( function() {
+        //     $( "#sortable" ).sortable();
+        //     $( "#sortable" ).disableSelection();
+        // } );
+        // $('.no').each((k) => {
+        //     console.log(k);
+        //     $(this).text('74645');
+        //     console.log($(this).text())
+        // })
+
+        $(function() {
+            $('#sortable').sortable({
+                revert: true,
+                stop: function(event, ui) {
+                    setIds();
+                    var order = $('#new_order').html();
+                    $('input[name="order"]').val(order);
+                }
+            });
+        });
+        function setIds(){
+            // var id;
+            // var i = 1;
+            // var menu_ids = new Array();
+            $('.no').each(function(k){
+                $(this).html(k + 1);
+                // id = $(this).attr('data')
+                // menu_ids.push(id);
+                // i++;
+            });
+            // $('input[name="menu_ids"]').val(menu_ids);
+            // console.log(menu_ids);
+        }
+        setIds();
+    </script>
+@endpush
