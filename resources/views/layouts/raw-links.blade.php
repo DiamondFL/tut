@@ -1,7 +1,7 @@
 <div class="col-md-12 col-sm-4 clearfix hidden-xs">
     <ul class="list-inline links-list pull-right">
         <li class="dropdown pull-right">
-            <strong>{{ auth()->user()->email }}</strong>: &nbsp;
+            <strong>{{ auth()->check() ? auth()->user()->email : '' }}</strong>: &nbsp;
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
                 <i class="entypo-user"></i>
                 <i class="entypo-down-open-mini"></i>
