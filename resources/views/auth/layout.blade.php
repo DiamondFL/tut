@@ -36,7 +36,7 @@
             </a>
         </div>
     </div>
-    @yield('container')
+    @yield('content')
     </div>
 </div>
 <!-- Bottom scripts (common) -->

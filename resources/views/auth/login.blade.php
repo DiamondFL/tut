@@ -1,5 +1,5 @@
 @extends('auth.layout')
-@section('container')
+@section('content')
     <div class="login-form">
         <div class="login-content">
             <div class="form-login-error">
