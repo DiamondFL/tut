@@ -12,12 +12,12 @@ class CreateGroups extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('group',function($t){
+		Schema::create('groups',function($t){
             $t->increments('id');
             $t->string('name');
-            $t->string('picture');
-            $t->string('note');
-            $t->tinyInteger('active');
+            $t->string('picture')->nullable();
+            $t->text('note')->nullable();
+            $t->tinyInteger('is_active')->default(0);
             $t->timestamps();
         });
 	}

@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('eco::layout.main')
 @section('title')
 Sản phẩm
 @endsection

@@ -5,7 +5,9 @@
  * Date: 2/22/2015
  * Time: 9:10 AM
  */
+
 namespace ECommerce\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -18,7 +20,7 @@ class AccountController extends Controller
 {
     public function getSignIn()
     {
-        return View::make('account.signin');
+        return view('eco::account.signin');
     }
 
     public function postSignIn()
@@ -60,7 +62,7 @@ class AccountController extends Controller
 
     public function getCreate()
     {
-        return View::make('account.create');
+        return view('eco::account.create');
     }
 
     public function postCreate()
@@ -132,7 +134,7 @@ class AccountController extends Controller
 
     public function getChangePassword()
     {
-        return View::make('account.password');
+        return view('eco::account.password');
     }
 
     public function postChangePassword()
@@ -169,7 +171,7 @@ class AccountController extends Controller
 
     public function getForgotPassword()
     {
-        return View::make('account.forgot');
+        return view('eco::account.forgot');
     }
 
     public function postForgotPassword()
@@ -179,7 +181,7 @@ class AccountController extends Controller
         );
         $validator = Validator::make(Input::all(), $ruler);
         if ($validator->fails()) {
-            return Redirect::route('account-forgot-password')
+            return Redirect::route('password.request')
                 ->withErrors($validator)
                 ->withInput();
         } else {
@@ -204,7 +206,7 @@ class AccountController extends Controller
                 }
             }
         }
-        return Redirect::route('account-forgot-password')
+        return Redirect::route('password.request')
             ->with('global', 'Could not request new password');
     }
 

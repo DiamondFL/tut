@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('eco::layout.main')
 @section('title')
 Thay đổi mật khẩu
 @endsection

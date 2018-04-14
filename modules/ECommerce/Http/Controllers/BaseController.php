@@ -1,24 +1,29 @@
 <?php
 
-class BaseController extends Controller {
+namespace ECommerce\Http\Controllers;
 
-	/**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-	protected $style;
-	public function __construct()
-	{
-		$this->style = Styles::lists('name', 'id');
-	}
+use App\Http\Controllers\Controller;
 
-	protected function setupLayout()
-	{
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
-	}
+class BaseController extends Controller
+{
+
+    /**
+     * Setup the layout used by the controller.
+     *
+     * @return void
+     */
+    protected $style;
+
+    public function __construct()
+    {
+        $this->style = \ECommerce\Models\Styles::pluck('name', 'id');
+    }
+
+    protected function setupLayout()
+    {
+        if (!is_null($this->layout)) {
+            $this->layout = \Illuminate\Support\Facades\View::make($this->layout);
+        }
+    }
 
 }

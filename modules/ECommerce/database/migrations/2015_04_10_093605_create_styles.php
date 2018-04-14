@@ -15,9 +15,9 @@ class CreateStyles extends Migration {
         Schema::create('style',function($t){
             $t->increments('id');
             $t->string('name');
-            $t->string('picture');
-            $t->string('note');
-            $t->tinyInteger('active');
+            $t->string('picture')->nullable();
+            $t->text('note')->nullable();
+            $t->tinyInteger('is_active')->default(0);
             $t->timestamps();
         });
 	}

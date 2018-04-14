@@ -26,7 +26,7 @@ class GroupController extends Controller
         {
             return view('organ::-group.table', $data)->render();
         }
-        return view('organ::-group.index', $data);
+        return view('organ::group.index', $data);
     }
 
     public function create()
@@ -39,7 +39,7 @@ class GroupController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
-        return redirect()->route('-group.index');
+        return redirect()->route('group.index');
     }
 
     public function show($id)
@@ -61,7 +61,7 @@ class GroupController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-        return view('organ::-group.update', compact('Group'));
+        return view('organ::group.update', compact('Group'));
     }
 
     public function update(GroupUpdateRequest $request, $id)
@@ -75,7 +75,7 @@ class GroupController extends Controller
         }
         $this->repository->change($input, $Group);
         session()->flash('success', 'update success');
-        return redirect()->route('-group.index');
+        return redirect()->route('group.index');
     }
 
     public function destroy($id)

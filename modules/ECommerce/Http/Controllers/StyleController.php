@@ -5,44 +5,68 @@
  * Date: 4/13/2015
  * Time: 2:52 PM
  */
-class StyleController extends BaseController{
-    function get_index(){
-        return View::make('style.style')->with('style',Styles::get());
+
+namespace ECommerce\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use ECommerce\Models\Styles;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
+
+class StyleController extends BaseController
+{
+    function index()
+    {
+        return view('eco::style.index')->with('style', Styles::get());
     }
-    function getAddStyle(){
-        return View::make('Style.addStyle');
+
+    function create()
+    {
+        return view('eco::Style.create');
     }
-    function postAddStyle(){
+
+    function store()
+    {
         $g = new Styles;
         $g->addStyle();
-        return Redirect::to('style')
-            ->with('global','Thêm thành công');
+        return \redirect()->route('style.index')
+            ->with('global', 'Thêm thành công');
     }
-    function getDeleteStyle($id){
+
+    function destroy($id)
+    {
         $g = new Styles;
         $g->deleteStyle($id);
-        return Redirect::to('style')
-            ->with('global','Xóa thành công');
+        return \redirect()->route('style.index')
+            ->with('global', 'Xóa thành công');
     }
-    function getUpdateStyle($id){
+
+    function edit($id)
+    {
         $g = new Styles;
-        return View::make('Style.updateStyle')
-            ->with('style',$g->getUpdateStyle($id));
+        return view('eco::style.update')
+            ->with('style', $g->getUpdateStyle($id));
     }
-    function postUpdateStyle(){
+
+    function update($id)
+    {
         $g = new Styles();
-        $active=0;
-        if(Input::get('active')=='on'){
-            $active = 1;
+        $is_active = 0;
+        if (Input::get('is_active') == 'on') {
+            $is_active = 1;
         }
         $data = array(
-            'name'=>Input::get('name'),
-            'picture'=>Input::get('picture'),
-            'note'=>Input::get('note'),
-            'active'=>$active,
+            'name' => Input::get('name'),
+            'picture' => Input::get('picture'),
+            'note' => Input::get('note'),
+            'is_active' => $is_active,
         );
-        $g->setUpdateStyle(Input::get('id'),$data);
-        return Redirect::to('style')
-            ->with('global','Cập nhật thành công');
+        $g->setUpdateStyle($id, $data);
+        return \redirect()->route('style.index')
+            ->with('global', 'Cập nhật thành công');
     }
 } 

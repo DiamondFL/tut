@@ -12,7 +12,7 @@ class CreateNews extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('news',function($t){
+        Schema::create('eco_news',function($t){
             $t->increments('id');
             $t->integer('groupId')->unsigned();
             $t->integer('styleId')->unsigned();

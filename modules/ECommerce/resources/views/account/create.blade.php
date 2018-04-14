@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('eco::layout.main')
 @section('content')
     <div class="container well col-md-4 col-md-offset-4">
           <form class="form-signin" action="{{URL::route('account-create-post')}}" method="post">

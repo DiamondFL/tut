@@ -1,6 +1,6 @@
-@extends('layout.main')
+@extends('eco::layout.main')
 @section('title')
-Bảo Long Mobile|| Đăng nhập
+WorkShop|| Đăng nhập
 @endsection
 @section('content')
     <div class="container well col-md-4 col-md-offset-4">

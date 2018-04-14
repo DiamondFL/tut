@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('eco::layout.main')
 @section('title')
 Sản phẩm
 @endsection
@@ -6,5 +6,5 @@ Sản phẩm
     @if(Session::has('global'))
         <p>{{Session::get('global')}}</p>
     @endif
-    @include('product.listProducts')
+    @include('eco::product.listProducts')
 @endsection

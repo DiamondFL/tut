@@ -6,45 +6,67 @@
  * Time: 2:52 PM
  */
 
-class GroupController extends BaseController{
-    function get_index(){
-        return View::make('group.group')->with('group',Groups::get());
+namespace ECommerce\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use ECommerce\Models\Groups;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
+
+class GroupController extends BaseController
+{
+    function index()
+    {
+        return view('eco::group.index')->with('group', Groups::get());
     }
-    function getAddGroup(){
-        return View::make('group.addGroup');
+
+    function create()
+    {
+        return view('eco::group.create');
     }
-    function postAddGroup(){
+
+    function store()
+    {
         $g = new Groups;
         $g->addGroup();
-        return Redirect::to('group')
-            ->with('global','Thêm thành công');
+        return \redirect()->back()
+            ->with('global', 'Thêm thành công');
     }
-    function getDeleteGroup($id){
+
+    function destroy($id)
+    {
         $g = new Groups;
         $g->deleteGroup($id);
-        return Redirect::to('group')
-            ->with('global','Xóa thành công');
+        return \redirect()->route('group.index')
+            ->with('global', 'Xóa thành công');
     }
-    function getUpdateGroup($id){
+
+    function edit($id)
+    {
         $g = new Groups;
-        return View::make('group.updateGroup')->with('data',$g->getUpdateGroup($id));
+        return view('eco::group.update')->with('data', $g->getUpdateGroup($id));
     }
-    function postUpdateGroup(){
+
+    function update($id)
+    {
         $g = new Groups();
-        $active=0;
-        if(Input::get('active')=='on'){
-            $active = 1;
+        $is_active = 0;
+        if (Input::get('is_active') == 'on') {
+            $is_active = 1;
         }
-        var_dump(Input::get('active'));
         $data = array(
-            'name'=>Input::get('name'),
-            'picture'=>Input::get('picture'),
-            'note'=>Input::get('note'),
-            'active'=>$active,
+            'name' => Input::get('name'),
+            'picture' => Input::get('picture'),
+            'note' => Input::get('note'),
+            'is_active' => $is_active,
         );
-        $g->updateGroup(Input::get('id'),$data);
-        return Redirect::to('group')
-            ->with('global','Cập nhật thành công');
+        $g->updateGroup($id, $data);
+        return \redirect()->route('group.index')
+            ->with('global', 'Cập nhật thành công');
 
     }
 } 
