@@ -107,14 +107,26 @@ class ProductController extends BaseController
     /************************Backend****************************/
     public function getShowProduct()
     {
-        return view('eco::product.showProduct')->with('products', Products::all())
-            ->with('style', $this->style);
+        return View::make('eco::product.showProduct')->with('products',Products::all())
+            ->with('group',Groups::get())
+            ->with('style',Styles::get())
+            ->with('search','product/product-search-gs')
+            ->with('searchLike','Product/Product-search-name');
     }
 
     function detail($id)
     {
-        return view('eco::frontend.chitiet1')->with('product', Products::find($id))
-            ->with('style', $this->style);
+        $n = new Products();
+        return View::make('eco::product.detail')->with('product',$n ->getProductById($id))
+            ->with('products',$n->getInvolveProduct($id))
+            ->with('group',Groups::get())
+            ->with('style',Styles::get())
+            ->with('search','product/product-search-gs')
+            ->with('searchLike','product/product-search-name');
+    }
+
+    function show($id)
+    {
 
     }
 

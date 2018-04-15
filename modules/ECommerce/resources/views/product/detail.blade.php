@@ -3,8 +3,8 @@
 Sản phẩm
 @endsection
 @section('content')
-    @if(Session::has('global'))
-        <p>{{Session::get('global')}}</p>
+    @if(session()->has('global'))
+        <p>{{session()->get('global')}}</p>
     @endif
     @if($product->count())
         <div class="row">
@@ -16,17 +16,17 @@ Sản phẩm
               <div class="col-lg-6">
                 <h3><strong>Tên sản phẩm: </strong>{{$product->name}}</h3>
                 <h3><strong>Giá: </strong>{{number_format($product->price)}} Đ</h3>
-                <a href='{{asset('')}}cart/add-cart/{{$product->id}}' class="btn btn-primary" role="button">Thêm sản phẩm vào giỏ hàng</a>
+                <a href='{{route('cart.add', $product->id)}}' class="btn btn-primary" role="button">Thêm sản phẩm vào giỏ hàng</a>
                 <h3><strong>Giới thiệu sản phẩm</strong></h3>
-                <p>{{$product->intro}}</p>
+                {!! $product->intro !!}
               </div>
          </div>
          <hr>
-         @if(Auth::check())
-             @include('comment.setComment')
+         @if(auth()->check())
+             @include('eco::comment.setComment')
          @endif
     @else
         Hiện tại dữ liệu trống.
     @endif
-   @include('product.listProducts')
+   @include('eco::product.listProducts')
 @endsection

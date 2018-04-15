@@ -12,6 +12,11 @@ Route::group(['prefix' => 'eco', 'middleware' => ['web'], 'namespace' => 'EComme
         Route::get('show', 'ProductController@getShowProduct')->name('eco.product.show');
     });
     Route::resource('product', 'ProductController');
+    Route::get('product/detail/{id}', 'ProductController@detail')->name('product.detail');
+    Route::get('cart/add/{id}', 'CartController@add')->name('cart.add');
+    Route::get('cart-delete', 'CartController@delete')->name('cart.delete');
+    Route::post('cart-change', 'CartController@change')->name('cart.change');
+    Route::get('cart-order', 'CartController@order')->name('cart.order');
     Route::group(['middleware' => ['auth']], function () {
         Route::resource('us', 'UserController');
         Route::resource('group', 'GroupController');
@@ -19,7 +24,7 @@ Route::group(['prefix' => 'eco', 'middleware' => ['web'], 'namespace' => 'EComme
         Route::resource('news', 'NewsController');
         Route::resource('order', 'OrderController');
         Route::resource('cart', 'CartController');
-        Route::resource('comment', 'CommentController');        /*
+        Route::resource('comment', 'CommentController');        /*F
          | Change password (POST)
         */
 //        Route::post('/account/change-password', array(

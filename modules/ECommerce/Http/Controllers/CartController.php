@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\View;
 class CartController extends BaseController
 {
     /***********Xử lý giỏ hàng************/
-    public function getAddCart($id)
+    public function add($id)
     {
         if (Session::has('cart.' . $id)) {
             $qty = Session::get('cart.' . $id);
@@ -41,10 +41,9 @@ class CartController extends BaseController
             ->with('searchLike', 'product/product-search-name');
     }
 
-    function getDeleteCart()
+    function delete()
     {
         Session::forget('cart');
-        $n = new Products();
         return view('eco::order.cart')
             ->with('group', Groups::get())
             ->with('style', Styles::get())
@@ -55,7 +54,6 @@ class CartController extends BaseController
     function getDeleteProduct($id)
     {
         Session::forget('cart.' . $id);
-        //return 'cart'.$id;
         $n = new Products();
         return view('eco::order.cart')
             ->with('products', $n->getInvolveProduct($id))
@@ -77,9 +75,8 @@ class CartController extends BaseController
             ->with('searchLike', 'product/product-search-name');
     }
 
-    function getOrderCart()
+    function order()
     {
-        $cart = Session::get('cart');
         $listProduct = '';
         $listQty = '';
         foreach (Session::get('cart') as $key => $value) {
@@ -87,18 +84,17 @@ class CartController extends BaseController
             $listQty .= ' ' . $value;
         }
         $order = new Order();
-        $order->setOrder(trim($listProduct), trim($listQty), Auth::user()->id);
+        $order->setOrder(trim($listProduct), trim($listQty), \auth()->id());
         Session::forget('cart');
         return Redirect::intended('/')->with('global', 'Bạn đã đặt hàng thành công');
     }
 
-    function postUpdateCart()
+    function change()
     {
         foreach (Session::get('cart') as $id => $value) {
             if (Input::get($id) == 0) Session::forget('cart.' . $id);
             else Session::put('cart.' . $id, Input::get($id));
         }
-        $n = new Products();
         return view('eco::order.cart')
             ->with('group', Groups::get())
             ->with('style', Styles::get())

@@ -8,8 +8,8 @@
               <div class="caption">
                 <h3>{{$value->name}}</h3>
                 <p>{{number_format($value->price)}} Đ</p>
-                <p><a href='{{asset('')}}cart/add-cart/{{$value->id}}' class="btn btn-primary" role="button">Mua</a>
-                <a href="{{asset('')}}product/product-details/{{$value->id}}" class="btn btn-default" role="button">Chi tiết</a></p>
+                <p><a href='{{route('cart.add', $value->id)}}' class="btn btn-primary" role="button">Mua</a>
+                <a href="{{route('product.detail', $value->id)}}" class="btn btn-default" role="button">Chi tiết</a></p>
               </div>
             </div>
           </div>
