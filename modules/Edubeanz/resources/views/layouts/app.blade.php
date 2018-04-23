@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Edubeanz" />
     <meta name="author" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{asset('frontd')}}/images/favicon.ico">
     <title>Edubeanz | @yield('title')</title>
     <link rel="stylesheet" href="{{asset('frontd')}}/css/font-icons/entypo/css/entypo.css">
@@ -19,7 +20,7 @@
     {{--<link rel="stylesheet" href="{{asset('')}}assets/css/custom.css">--}}
     {{--<link rel="stylesheet" href="{{asset('')}}assets/css/neon-forms.css">--}}
 
-    <script src="{{asset('frontd')}}/js/jquery-1.11.3.min.js"></script>
+
     @stack('head')
     @yield('css')
 </head>
@@ -49,7 +50,14 @@
     <!-- Site Footer -->
 {{--    @include('edu::layouts.footer')--}}
 {{--</div>--}}
-<!-- Bottom scripts (common) -->
+<script src="{{asset('frontd')}}/js/jquery-1.11.3.min.js"></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+</script>
 <script src="{{asset('frontd')}}/js/gsap/TweenMax.min.js"></script>
 <script src="{{asset('frontd')}}/js/bootstrap.js"></script>
 <script src="{{asset('frontd')}}/js/joinable.js"></script>

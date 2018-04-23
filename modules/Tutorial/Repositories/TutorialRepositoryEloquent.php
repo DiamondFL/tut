@@ -56,7 +56,11 @@ class TutorialRepositoryEloquent extends BaseRepository implements TutorialRepos
     public function change($input, $data)
     {
         $input = $this->standardized($input, $data);
-        $this->update($input, $data->id);
+        foreach ($input['section_ids'] as $k => $section_id)
+        {
+            DB::table(SECTIONS_TB)->where('id', $section_id)->update([NO_COL => $k]);
+        }
+        return $this->update($input, $data->id);
     }
 
     public function import($file)

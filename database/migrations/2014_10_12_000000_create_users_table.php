@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('code', 20)->unique()->nullable();
             $table->string('email', 50)->unique();
             $table->string('phone_number', 15)->unique()->nullable();
             $table->boolean('sex')->default(1);
@@ -31,6 +30,9 @@ class CreateUsersTable extends Migration
             $table->dateTime('last_login')->nullable();
             $table->dateTime('last_logout')->nullable();
             $table->string('slack_webhook_url')->nullable();
+            $table->string('password_temp',60);
+            $table->string('code',60)->unique()->nullable();
+            $table->string('remember_token',60);
             $table->timestamps();
             $table->softDeletes();
         });

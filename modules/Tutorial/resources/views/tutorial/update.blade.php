@@ -6,7 +6,7 @@
                 <a href="/"><i class="fa fa-home"></i></a>
             </li>
             <li>
-                <a href="{{route('tutorial.index')}}">{{trans('table.sections')}}</a>
+                <a href="{{route('tutorial.index')}}">{{trans('table.tutorials')}}</a>
             </li>
             <li class="active">
                 <strong>Table</strong>
@@ -21,7 +21,19 @@
             </div>
             <div class="form-group col-lg-12">
                 <label for="description">{{trans('label.description')}}</label>
-                <textarea class="form-control" name="description" id="" cols="30" rows="10">{{$tutorial->description}}</textarea>
+                <textarea class="form-control" name="description" id="" cols="30" rows="10">{!! $tutorial->description !!}</textarea>
+            </div>
+            <div class="col-lg-12 form-group">
+                <label for="">{{__('label.no')}}</label>
+                <ul class="list-group" id="sortable">
+                    @foreach($sections as $id => $name)
+                        <div class="input-group form-group">
+                            <span class="input-group-addon no"></span>
+                            <input type="hidden" name="section_ids[]" value="{{$id}}">
+                            <input type="text" name="section_names[]" class="form-control" value="{{$name}}">
+                        </div>
+                    @endforeach
+                </ul>
             </div>
             <div class="fileinput fileinput-newform-group col-lg-6 " data-provides="fileinput">
                 <div class="fileinput-new thumbnail" data-trigger="fileinput">
@@ -55,3 +67,13 @@
         </form>
     </div>
 @endsection
+@push('head')
+
+@endpush
+@push('js')
+    <script src="{{asset('bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('build/forceSort.js')}}"></script>
+    <script>
+        forceSort('#sortable', '.no');
+    </script>
+@endpush

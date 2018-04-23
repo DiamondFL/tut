@@ -5,13 +5,13 @@
         <a href="/"><i class="fa fa-home"></i></a>
     </li>
     <li>
-        <a href="{{route('-group.index')}}">groups</a>
+        <a href="{{route('group.index')}}">groups</a>
     </li>
     <li class="active">
         <strong>Table</strong>
     </li>
 </ol>
-<form class="form-group row" id="formFilter" action="{{route('-group.index')}}" method="POST">
+<form class="form-group row" id="formFilter" action="{{route('group.index')}}" method="POST">
     <div class="col-sm-2 form-group">
         <select name="per_page" class="form-control inputFilter">
             <option value="10">10</option>

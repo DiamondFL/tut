@@ -67,4 +67,48 @@ class User extends Authenticatable
         ]
     ];
     protected $checkbox = ['is_active'];
+
+    public function getAuthIdentifier(){
+        return $this->getKey();
+    }
+    public function getAuthPassword(){
+        return $this->password;
+    }
+    public function getReminderEmail(){
+        return $this->email;
+    }
+
+    public function getRememberToken()
+    {
+        return $this->remember_token;
+    }
+
+    public function setRememberToken($value)
+    {
+        $this->remember_token = $value;
+    }
+
+    public function getRememberTokenName()
+    {
+        return 'remember_token';
+    }
+    public function order(){
+        return $this->hasMany("Order",'userId');
+    }
+    public function comment(){
+        return $this->hasMany("Comments",'userId');
+    }
+    public function chat(){
+        return $this->hasMany("Chats",'userId');
+    }
+    public function chatR(){
+        return $this->hasMany("Chats",'receiveId');
+    }
+    public function updateUser($id, $admin, $active){
+        $u = User::find($id);
+        $u->level   =   $admin;
+        $u->active   =  $active;
+        $u->save();
+    }
+
 }

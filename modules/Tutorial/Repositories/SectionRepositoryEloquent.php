@@ -3,6 +3,7 @@
 namespace Tutorial\Repositories;
 
 
+use Illuminate\Support\Facades\DB;
 use Istruct\MultiInheritance\RepositoriesTrait;
 
 use Illuminate\Support\Facades\Cache;
@@ -39,13 +40,29 @@ class SectionRepositoryEloquent extends BaseRepository implements SectionReposit
     public function store($input)
     {
         $input = $this->standardized($input, $this->makeModel());
-        $this->create($input);
+        return $this->create($input);
+    }
+
+    public function edit($id) {
+        $section = $this->find($id);
+        if(empty($section))
+        {
+            return $section;
+        }
+        $lessons = $section->lessons()
+            ->orderBy(NO_COL, 'ASC')
+            ->pluck(TITLE_COL, ID_COL)->toArray();
+        return compact('section', 'lessons');
     }
 
     public function change($input, $data)
     {
         $input = $this->standardized($input, $data);
-        $this->update($input, $data->id);
+        foreach ($input['lesson_ids'] as $k => $lesson_id)
+        {
+            DB::table(LESSONS_TB)->where('id', $lesson_id)->update([NO_COL => $k]);
+        }
+        return $this->update($input, $data->id);
     }
 
     public function import($file)
@@ -61,9 +78,21 @@ class SectionRepositoryEloquent extends BaseRepository implements SectionReposit
         return $data->checkbox($input);
     }
 
-    public function destroy($data)
+    public function destroy($id)
     {
-        // TODO: Implement remove() method.
+        $section = $this->withCount('lessons')
+            ->find($id, [ID_COL, LESSON_ID_COL]);
+        if(empty($section)) {
+            session()->flash('error', 'Not Found');
+            return false;
+        }
+        if($section->lessons_count > 0)
+        {
+            session()->flash('error', 'Have lessons, please remove before');
+            return false;
+        }
+        session()->flash('success', 'Delete success');
+        return $this->delete($id);
     }
 
     /**

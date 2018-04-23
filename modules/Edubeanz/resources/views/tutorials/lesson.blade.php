@@ -11,7 +11,7 @@
                     <a href="{{route('edu.tutorial.index')}}">Tutorial</a>
                 </li>
                 <li class="active">
-                    {{$section->category->name}}
+                    {{$section->tutorial->name}}
                 </li>
                 <li class="active">
                     {{$section->name}}

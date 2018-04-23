@@ -27,13 +27,13 @@
         </div>
     </div>
     <div class="row">
-        @foreach($subCategories as $subCategory)
-            <div href="{{'edu.tutorial.lesson', $subCategory->id}}" class="col-sm-6">
+        @foreach($sections as $row)
+            <div href="{{'edu.tutorial.lesson', $row->id}}" class="col-sm-6">
                 <a class="tile-stats tile-primary">
                     <div class="icon"><i class="entypo-language"></i></div>
                     <div class="num"></div>
-                    <h3>{{$subCategory->name}}</h3>
-                    <p>{{count($subCategory->lessons)}} Lessons</p>
+                    <h3>{{$row->name}}</h3>
+                    <p>{{count($row->lessons)}} Lessons</p>
                 </a>
             </div>
         @endforeach
@@ -44,14 +44,14 @@
                     <th>Section</th>
                     <th>Lesson</th>
                 </tr>
-                @foreach($subCategories as $subCategory)
+                @foreach($sections as $row)
                     <tr>
                         <td class="text-info">
-                            <a href="{{route('edu.tutorial.section', $subCategory->id)}}">{{$subCategory->name}}</a>
+                            <a href="{{route('edu.tutorial.section', $row->id)}}">{{$row->name}}</a>
                         </td>
                         <td></td>
                     </tr>
-                    @foreach($subCategory->lessons as $lesson)
+                    @foreach($row->lessons as $lesson)
                         <tr>
                             <td></td>
                             <td class="">

@@ -26,8 +26,7 @@ class LessonCommentController extends Controller
     public function index()
     {
         //Get all task
-        $comments = LessonComment::simplePaginate(15);
-
+        $comments = LessonComment::orderBy('id', 'DESC')->simplePaginate(15);
         // Return a collection of $comment with pagination
         return LessonCommentResource::collection($comments);
 
@@ -52,19 +51,18 @@ class LessonCommentController extends Controller
     public function store()
     {
         $request = \request();
-        dd($request->all());
-        if(auth()->check())
-        {
-            $comment = new LessonComment();
-            $comment->lesson_id = 1;
+
+        if(auth()->check()) {
+            $comment = new LessonComment;
             $comment->content = $request->input('content');
-            $comment->created =  auth()->id(); //$request->user()->id;
-            $comment->save();
+            $comment->created_by = auth()->id();
+            $comment->lesson_id =  1;
+            $comment->is_active =  1;
             if($comment->save()) {
-                return new LessonCommentResource($comment);
+                return response(new LessonCommentResource($comment), 200);
             }
         }
-        return new LessonCommentResource(false);
+        return response(false, 200);
     }
 
     /**

@@ -61,17 +61,21 @@ class SectionController extends Controller
 
     public function edit($id)
     {
-        $section = $this->repository->find($id);
-        if(empty($section))
+        $data = $this->repository->edit($id);
+        if(empty($data))
         {
             session()->flash('err', 'not found');
             return redirect()->back();
         }
+<<<<<<< HEAD
         if(isset($input['is_back']))
         {
             return redirect()->back();
         }
         return view('tut::section.update', compact('section'));
+=======
+        return view('tut::section.update', $data);
+>>>>>>> 675e495c2fe5624ce97e3cef58c2b7e884f46f75
     }
 
     public function update(SectionUpdateRequest $request, $id)
@@ -85,18 +89,16 @@ class SectionController extends Controller
         }
         $this->repository->change($input, $section);
         session()->flash('success', 'update success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('section.index');
     }
 
     public function destroy($id)
     {
-        $section = $this->repository->find($id);
-        if(empty($section))
-        {
-            session()->flash('err', 'not found');
-        }
-        $this->repository->delete($id);
-        session()->flash('success', 'delete success');
+        $this->repository->destroy($id);
         return redirect()->back();
     }
 }

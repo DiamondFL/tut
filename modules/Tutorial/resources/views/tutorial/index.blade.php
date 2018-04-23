@@ -13,7 +13,8 @@
     </ol>
     <form class="form-group row" id="formFilter" action="{{route('tutorial.index')}}" method="POST">
         <div class="col-sm-2 form-group">
-            <select name="per_page" class="form-control inputFilter">
+            <label for="">{{__('label.per_page')}}</label>
+            <select name="per_page" class="form-control selectFilter">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
@@ -21,22 +22,21 @@
                 <option value="50">50</option>
             </select>
         </div>
-        <div class="col-sm-8 form-group">
-            <input name="name" class="form-control inputFilter" placeholder="name">
+        <div class="col-sm-7 form-group">
+            <label for="">{{__('label.search')}}</label>
+            <input name="name" class="form-control inputFilter">
         </div>
-        <!--<div class="col-sm-3 form-group">-->
-        <!--<input name="display_name" class="form-control inputFilter" placeholder="display_name">-->
-        <!--</div>-->
-        <!--<div class="col-sm-2 form-group">-->
-            <!--<select name="is_active" class="form-control inputFilter">-->
-                <!--<option value="">All</option>-->
-                <!--<option value="1">Active</option>-->
-                <!--<option value="0">Inactive</option>-->
-            <!--</select>-->
-        <!--</div>-->
         <div class="col-sm-2 form-group">
-            <a class="btn btn-primary" href="{{route('tutorial.create')}}"><i class="fa fa-plus"></i></a>
-            <!--<a class="btn btn-danger"><i class="fa fa-trash"></i></a>-->
+            <label for="">{{__('label.is_active')}}</label>
+            <select name="is_active" class="form-control selectFilter">
+                <option value="">All</option>
+                <option value="1">Active</option>
+                <option value="0">Inactive</option>
+            </select>
+        </div>
+        <div class="col-sm-1 form-group">
+            <label for="">{{__('label.action')}}</label>
+            <a class="btn btn-primary btn-block" href="{{route('tutorial.create')}}"><i class="fa fa-plus"></i></a>
         </div>
     </form>
     <div class="box-content nopadding" id="table">

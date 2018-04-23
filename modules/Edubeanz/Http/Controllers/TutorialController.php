@@ -3,10 +3,10 @@
 namespace Edubeanz\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Docs\Models\DocLesson;
 use Illuminate\Http\Request;
-use Organization\Models\Categories;
-use Organization\Models\SubCategories;
+use Tutorial\Models\Lesson;
+use Tutorial\Models\Section;
+use Tutorial\Models\Tutorial;
 
 class TutorialController extends Controller
 {
@@ -15,41 +15,39 @@ class TutorialController extends Controller
     }
     public function index()
     {
-        $categories = app(Categories::class)
+        $tutorials = app(Tutorial::class)
             ->select(['id', 'name'])
             ->get();
-        return view('edu::tutorials.index', compact('categories'));
+        return view('edu::tutorials.index', compact('tutorials'));
     }
     public function show($id)
     {
-        $category = app(Categories::class)->find($id);
-        if(empty($category))
+        $tutorial = app(Tutorial::class)->find($id);
+        if(empty($tutorial))
         {
             session()->flash('error', 'Category not found');
         }
-        $subCategories = app(SubCategories::class)
-            ->where(CATEGORY_ID_COL, $id)
+        $sections = app(Section::class)
+            ->where(TUTORIAL_ID_COL, $id)
             ->with('lessons')
             ->get();
-//        dump($subCategories);
-        return view('edu::tutorials.show', compact('subCategories', 'category'));
+        return view('edu::tutorials.show', compact('sections', 'tutorial'));
     }
     public function section($id)
     {
-        $subCategories = app(SubCategories::class)
-            ->where(CATEGORY_ID_COL, $id)
+        $sections = app(Section::class)
+            ->where(TUTORIAL_ID_COL, $id)
             ->withCount('lessons')
             ->get(['id', 'name']);
-        return view('edu::tutorials.section', compact('subCategories'));
+        return view('edu::tutorials.section', compact('sections'));
     }
     public function lesson($id)
     {
-        $lesson = app(DocLesson::class)->find($id);
+        $lesson = app(Lesson::class)->find($id);
         $lesson->views +=1;
         $lesson->last_view = date('Y-m-d H:i:s');
         $lesson->save();
-        $section = $lesson->subCategory;
-//        dd($section);
+        $section = $lesson->section;
         $lessonList = $section->lessons()->pluck('title', 'id');
         $data = compact('lesson', 'section', 'lessonList');
         return view('edu::tutorials.lesson', $data);

@@ -51,7 +51,8 @@
             "Test\\": "modules/Test/",
             "Organization\\": "modules/Organization/",
             "Docs\\": "modules/Docs/",
-            "SuViewer\\": "modules/suviewer/"
+            "SuViewer\\": "modules/suviewer/",
+            "ECommerce\\": "modules/ECommerce/"
         }
     },
     "autoload-dev": {

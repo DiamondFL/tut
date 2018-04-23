@@ -18,9 +18,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['namespace' => 'API'], function () {
-    Route::resource('lesson-comment-api', 'LessonCommentController');
-//    Route::resource('lesson-comment-api', 'LessonCommentApiController');
-});
-
-

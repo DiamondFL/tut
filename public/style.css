@@ -1,0 +1,21 @@
+.editGroupLabel{
+    width: 100px;
+}
+.newsShow{
+    margin: 10px 10px 10px 10px;
+}
+.newsTitle a{
+    color:darkblue;
+}
+.newsTitle a:hover{
+    color:#000000;
+}
+.newsTitle a:visited{
+    color:#0782C1;
+}
+.newsTitle a:link{
+    color:#ffa84c;
+}
+.newsTitle a:active{
+    color:#dda0dd;
+}

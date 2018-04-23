@@ -40,21 +40,31 @@ class _class_RepositoryEloquent extends BaseRepository implements _class_Reposit
     {
         $input[CREATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $this->makeModel());
-        $this->create($input);
+        return $this->create($input);
+    }
+
+    public function edit($id)
+    {
+        $_class_ = $this->find($id);
+        if(empty($_class_))
+        {
+            return $_class_;
+        }
+        return compact('_class_');
     }
 
     public function change($input, $data)
     {
         $input[UPDATED_BY_COL] = auth()->user()->id;
         $input = $this->standardized($input, $data);
-        $this->update($input, $data->id);
+        return $this->update($input, $data->id);
     }
 
     public function import($file)
     {
         set_time_limit(9999);
         $path = $this->makeModel()->uploadImport($file);
-        $this->importing($path);
+        return $this->importing($path);
     }
 
     private function standardized($input, $data)
@@ -65,7 +75,7 @@ class _class_RepositoryEloquent extends BaseRepository implements _class_Reposit
 
     public function destroy($data)
     {
-        $this->delete($data->id);
+        return $this->delete($data->id);
     }
 
     /**
