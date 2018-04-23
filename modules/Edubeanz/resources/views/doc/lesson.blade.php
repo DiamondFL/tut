@@ -8,10 +8,10 @@
                     <a href="/"><i class="fa-home"></i>Home</a>
                 </li>
                 <li>
-                    <a href="{{route('edu.tutorial.index')}}">Tutorial</a>
+                    <a href="{{route('edu.doc.index')}}">doc</a>
                 </li>
                 <li class="active">
-                    {{$section->tutorial->name}}
+                    {{$section->category->name}}
                 </li>
                 <li class="active">
                     {{$section->name}}
@@ -51,7 +51,7 @@
                 <li class="list-group-item text-info"><strong>{{$section->name}}</strong></li>
                 @foreach($lessonList as $id => $name)
                 <li class="list-group-item">
-                    <a class="{{$lesson->id == $id ? 'text-danger' : ''}}" href="{{route('edu.tutorial.lesson', $id)}}">{{$name}}</a>
+                    <a class="{{$lesson->id == $id ? 'text-danger' : ''}}" href="{{route('edu.doc.lesson', $id)}}">{{$name}}</a>
                 </li>
                 @endforeach
             </ul>

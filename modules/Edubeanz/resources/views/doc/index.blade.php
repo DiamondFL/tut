@@ -22,14 +22,14 @@
         </div>
     </div>
     <div class="row">
-        @foreach($tutorials as $row)
+        @foreach($categories as $category)
             <div class="col-sm-6">
-                <a href="{{route('edu.tutorial.show', $row->id)}}" class="tile-title tile-green">
+                <a href="{{route('edu.tutorial.show', $category->id)}}" class="tile-title tile-green">
                     <div class="icon">
                         <i class="glyphicon glyphicon-leaf"></i>
                     </div>
                     <div class="title">
-                        <h3>{{$row->name}}</h3>
+                        <h3>{{$category->name}}</h3>
                         <p>so far in our blog, and our website.</p>
                     </div>
                 </a>

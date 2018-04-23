@@ -20,6 +20,11 @@
             </ul>
         </li>
         <li>
+            <a href="{{route('edu.doc.index')}}">
+                <span>Document</span>
+            </a>
+        </li>
+        <li>
             <a href="{{route('edu.tutorial.index')}}">
                 <span>Tutorial</span>
             </a>

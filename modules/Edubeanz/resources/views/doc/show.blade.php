@@ -11,7 +11,7 @@
                     <a href="{{route('edu.tutorial.index')}}">Tutorial</a>
                 </li>
                 <li class="active">
-                    <strong>{{$tutorial->name}}</strong>
+                    <strong>{{$category->name}}</strong>
                 </li>
             </ol>
             {{--<h1>List section</h1>--}}
@@ -22,13 +22,13 @@
         </div>
     </div>
     {{--<div class="row">--}}
-        {{--@foreach($sections as $row)--}}
-            {{--<div href="{{'edu.tutorial.lesson', $row->id}}" class="col-sm-3">--}}
+        {{--@foreach($subCategories as $subCategory)--}}
+            {{--<div href="{{'edu.tutorial.lesson', $subCategory->id}}" class="col-sm-3">--}}
                 {{--<a class="tile-stats tile-primary">--}}
                     {{--<div class="icon"><i class="entypo-language"></i></div>--}}
                     {{--<div class="num"></div>--}}
-                    {{--<h3>{{$row->name}}</h3>--}}
-                    {{--<p>{{count($row->lessons)}} Lessons</p>--}}
+                    {{--<h3>{{$subCategory->name}}</h3>--}}
+                    {{--<p>{{count($subCategory->lessons)}} Lessons</p>--}}
                 {{--</a>--}}
             {{--</div>--}}
         {{--@endforeach--}}
@@ -41,14 +41,14 @@
                     <th>Section</th>
                     <th>Lesson</th>
                 </tr>
-                @foreach($sections as $row)
+                @foreach($subCategories as $subCategory)
                     <tr class="bg-info">
                         <td class="text-info">
-                            <a href="{{route('edu.tutorial.section', $row->id)}}">{{$row->name}} ({{count($row->lessons)}} lessons)</a>
+                            <a href="{{route('edu.tutorial.section', $subCategory->id)}}">{{$subCategory->name}} ({{count($subCategory->lessons)}} lessons)</a>
                         </td>
                         <td></td>
                     </tr>
-                    @foreach($row->lessons as $lesson)
+                    @foreach($subCategory->lessons as $lesson)
                         <tr>
                             <td></td>
                             <td class="">
