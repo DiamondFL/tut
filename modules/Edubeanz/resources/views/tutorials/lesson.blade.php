@@ -7,17 +7,11 @@
                 <li>
                     <a href="/"><i class="fa-home"></i>Home</a>
                 </li>
-                <li>
-                    <a href="{{route('edu.tutorial.index')}}">Tutorial</a>
-                </li>
                 <li class="active">
                     {{$section->tutorial->name}}
                 </li>
                 <li class="active">
                     {{$section->name}}
-                </li>
-                <li class="active">
-                    <strong>Lesson</strong>
                 </li>
             </ol>
             <h3 class="text-info">{{$lesson->title}}</h3>

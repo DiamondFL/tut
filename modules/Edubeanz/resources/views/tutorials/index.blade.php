@@ -25,9 +25,9 @@
         @foreach($tutorials as $row)
             <div class="col-sm-6">
                 <a href="{{route('edu.tutorial.show', $row->id)}}" class="tile-title tile-green">
-                    <div class="icon">
-                        <i class="glyphicon glyphicon-leaf"></i>
-                    </div>
+                    {{--<div class="icon">--}}
+                        {{--<i class="glyphicon glyphicon-leaf"></i>--}}
+                    {{--</div>--}}
                     <div class="title">
                         <h3>{{$row->name}}</h3>
                         <p>so far in our blog, and our website.</p>

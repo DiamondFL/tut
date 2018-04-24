@@ -46,7 +46,7 @@ class LoginController extends Controller
     {
         $input = $request->all();
         $remember = isset($input['remember']) ;
-        if (Auth::attempt(['email' => $input['email'], 'password' => $input['password'], 'active' => 1], $remember)) {
+        if (Auth::attempt(['email' => $input['email'], 'password' => $input['password'], 'is_active' => 1], $remember)) {
             return redirect()->back();
         }
         return $this->sendFailedLoginResponse($request);
