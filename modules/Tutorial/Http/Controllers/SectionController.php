@@ -72,6 +72,7 @@ class SectionController extends Controller
             return redirect()->back();
         }
         return view('tut::section.update', $data);
+
     }
 
     public function update(SectionUpdateRequest $request, $id)
