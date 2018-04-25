@@ -10,8 +10,10 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
      */
     public function run()
     {
-//        $this->call(UserSeeder::class);
-//        $this->command->info('Users Table Seeded.');
+        config(['session.driver' => 'array']);
+        config(['cache.default' => 'array']);
+        $this->call(UserSeeder::class);
+        $this->command->info('Users Table Seeded.');
 //        $this->call(RoleSeeder::class);
 //        $this->command->info('Role Table Seeded.');
 //        $this->call(PermissionSeeder::class);
@@ -32,8 +34,7 @@ class DatabaseSeeder extends \Illuminate\Database\Seeder
 //        $this->command->info('DetailSeeder Table Seed');
 //        $this->call(ItemSeeder::class);
 
-        config(['session.driver' => 'array']);
-        config(['cache.default' => 'array']);
+
         $this->call(TutorialSeeder::class);
         $this->call(SectionSeeder::class);
         $this->call(LessonSeeder::class);

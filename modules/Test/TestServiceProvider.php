@@ -27,7 +27,7 @@ class TestServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'trg');
         $this->loadRoutesFrom(__DIR__ . '/router.php');
         $this->publishes([
-//            __DIR__.'/config/magic-db.php' => config_path('magic-db.php'),
+            __DIR__.'/config/magic-db.php' => config_path('magic-db.php'),
         ]);
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         if ($this->app->runningInConsole()) {

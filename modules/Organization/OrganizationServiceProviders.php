@@ -26,7 +26,7 @@ class OrganizationServiceProviders extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'organ');
         $this->loadRoutesFrom(__DIR__ . '/router.php');
         $this->publishes([]);
-//        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         if ($this->app->runningInConsole()) {
             $this->commands([
 //              ForceDBCommand::class

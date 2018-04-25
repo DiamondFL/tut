@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     // list all lfm routes here...
 });
 
-Route::group(['namespace' => 'API', 'middleware' => ['web', 'auth']], function () {
+Route::group(['namespace' => 'API', 'middleware' => ['web']], function () {
     Route::resource('lesson-comment-api', 'LessonCommentController');
 //    Route::resource('lesson-comment-api', 'LessonCommentApiController');
 });

@@ -12,18 +12,19 @@ class CreateNews extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('eco_news',function($t){
-            $t->increments('id');
-            $t->integer('groupId')->unsigned();
-            $t->integer('styleId')->unsigned();
-            $t->string('title');
-            $t->text('intro');
-            $t->text('details');
-            $t->integer('views');
-            $t->tinyInteger('active');
-            $t->timestamps();
-            $t->foreign('groupId')->references('id')->on('group');
-            $t->foreign('styleId')->references('id')->on('style');
+        Schema::create('eco_news',function($table){
+            $table->increments('id');
+            $table->integer('group_id')->unsigned();
+            $table->integer('style_id')->unsigned();
+            $table->string('title');
+            $table->text('intro');
+            $table->text('details');
+            $table->integer('views');
+            $table->tinyInteger('is_active');
+            $table->timestamps();
+            $table->foreign('group_id')->references('id')->on('eco_groups');
+            $table->foreign('style_id')->references('id')->on('styles');
+            $table->softDeletes();
         });
 	}
 
@@ -34,7 +35,7 @@ class CreateNews extends Migration {
 	 */
 	public function down()
 	{
-
+        Schema::dropIfExists('eco_news');
 	}
 
 }

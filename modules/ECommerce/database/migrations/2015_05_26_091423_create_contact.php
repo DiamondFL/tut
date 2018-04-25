@@ -12,14 +12,15 @@ class CreateContact extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('contact', function($t){
-            $t->increments('id');
-            $t->integer('userId')->unsigned();
-            $t->string('title');
-            $t->text('message');
-            $t->tinyInteger('active');
-            $t->foreign('userId')->references('id')->on('users');
-            $t->timestamps();
+		Schema::create('contacts', function($table){
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->string('title');
+            $table->text('message');
+            $table->tinyInteger('is_active');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
+            $table->softDeletes();
         });
 	}
 
@@ -30,7 +31,7 @@ class CreateContact extends Migration {
 	 */
 	public function down()
 	{
-		//
+        Schema::dropIfExists('contacts');
 	}
 
 }

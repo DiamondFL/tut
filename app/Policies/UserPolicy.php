@@ -5,7 +5,6 @@ namespace App\Policies;
 use App\Models\User;
 use App\Repositories\PermissionRepository;
 use App\Repositories\RoleRepository;
-use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class UserPolicy

@@ -27,6 +27,7 @@ class DocNews extends Migration
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

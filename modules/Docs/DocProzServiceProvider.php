@@ -29,7 +29,7 @@ class DocsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-//        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadViewsFrom(__DIR__ . '/resources/views', 'doc');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang', 'doc');
         $this->loadRoutesFrom(__DIR__ . '/router.php');

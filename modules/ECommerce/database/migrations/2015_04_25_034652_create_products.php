@@ -12,23 +12,24 @@ class CreateProducts extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('product',function($t){
-            $t->increments('id');
-            $t->integer('groupId')->unsigned();
-            $t->integer('styleId')->unsigned();
-            $t->string('name',48);
-            $t->integer('price');
-            $t->string('picture');
-            $t->text('intro');
-            $t->text('details');
-            $t->integer('discount')->default(0);
-            $t->integer('views')->default(0);
-            $t->integer('total')->default(0);
-            $t->integer('recommended')->default(0);
-            $t->integer('active')->default(1);
-            $t->foreign('groupId')->references('id')->on('group');
-            $t->foreign('styleId')->references('id')->on('style');
-            $t->timestamps();
+		Schema::create('products',function($table){
+            $table->increments('id');
+            $table->integer('group_id')->unsigned();
+            $table->integer('style_id')->unsigned();
+            $table->string('name',48);
+            $table->integer('price')->nullable();
+            $table->string('picture');
+            $table->text('intro');
+            $table->text('details');
+            $table->integer('discount')->default(0);
+            $table->integer('views')->default(0);
+            $table->integer('total')->default(0);
+            $table->integer('recommended')->default(0);
+            $table->integer('is_active')->default(1);
+            $table->foreign('group_id')->references('id')->on('eco_groups');
+            $table->foreign('style_id')->references('id')->on('styles');
+            $table->timestamps();
+            $table->softDeletes();
         });
 	}
 	/**
@@ -38,10 +39,7 @@ class CreateProducts extends Migration {
 	 */
 	public function down()
 	{
-        Schema::table('product', function($table)
-        {
-            $table->string('picture')->after('price')->nullable()->change();
-        });
+        Schema::dropIfExists('products');
 	}
 
 }

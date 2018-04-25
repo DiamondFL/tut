@@ -16,18 +16,16 @@ class LessonCommentController extends Controller
      */
 
 
-    private $resource;
-    public function __construct(LessonCommentResource $resource)
-    {
-        $this->resource = $resource;
-    }
-
-
-    public function index()
+    public function index(Request $request)
     {
         //Get all task
-        $comments = LessonComment::orderBy('id', 'DESC')->simplePaginate(15);
+        $input = $request->all();
+        $comments = LessonComment::orderBy('id', 'DESC')
+            ->filter($input)
+            ->simplePaginate();
+//        dd($comments->items());
         // Return a collection of $comment with pagination
+//        return $comments;
         return LessonCommentResource::collection($comments);
 
     }

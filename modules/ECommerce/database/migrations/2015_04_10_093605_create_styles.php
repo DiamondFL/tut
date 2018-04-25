@@ -12,13 +12,14 @@ class CreateStyles extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('style',function($t){
-            $t->increments('id');
-            $t->string('name');
-            $t->string('picture')->nullable();
-            $t->text('note')->nullable();
-            $t->tinyInteger('is_active')->default(0);
-            $t->timestamps();
+        Schema::create('styles',function($table){
+            $table->increments('id');
+            $table->string('name');
+            $table->string('picture')->nullable();
+            $table->text('note')->nullable();
+            $table->tinyInteger('is_active')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
         });
 	}
 
@@ -29,7 +30,7 @@ class CreateStyles extends Migration {
 	 */
 	public function down()
 	{
-
+        Schema::dropIfExists('styles');
 	}
 
 }

@@ -67,15 +67,11 @@ class SectionController extends Controller
             session()->flash('err', 'not found');
             return redirect()->back();
         }
-<<<<<<< HEAD
         if(isset($input['is_back']))
         {
             return redirect()->back();
         }
-        return view('tut::section.update', compact('section'));
-=======
         return view('tut::section.update', $data);
->>>>>>> 675e495c2fe5624ce97e3cef58c2b7e884f46f75
     }
 
     public function update(SectionUpdateRequest $request, $id)

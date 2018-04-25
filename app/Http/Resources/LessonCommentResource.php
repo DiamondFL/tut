@@ -4,8 +4,8 @@ namespace App\Http\Resources;
 
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
-
-class LessonCommentResource extends ResourceCollection
+use Illuminate\Http\Resources\Json\JsonResource;
+class LessonCommentResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -17,6 +17,13 @@ class LessonCommentResource extends ResourceCollection
     public function toArray($request)
     {
 
+//        return [
+//            'data' => $this->collection,
+//            'links' => [
+//                'self' => 'link-value',
+//            ],
+//        ];
+//        dd($request);
         return [
             'id' => $this->id,
             'content' => $this->content,

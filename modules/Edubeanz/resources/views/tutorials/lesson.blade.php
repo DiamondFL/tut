@@ -72,7 +72,7 @@
             getComments: function(success, error) {
                 $.ajax({
                     type: 'get',
-                    url: '{{route('lesson-comment-api.index')}}',
+                    url: '{{route('lesson-comment-api.index')}}?lesson_id={{$section->id}}',
                     success: function(commentsArray) {
                         console.log(commentsArray)
                         success(commentsArray.data)
@@ -102,7 +102,9 @@
                     success: function(comment) {
                         success(comment)
                     },
-                    error: error
+                    error: function () {
+                        alert("Bạn phải đăng nhập mới có thể bình luận")
+                    }
                 });
             },
             putComment: function(commentJSON, success, error) {

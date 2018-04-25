@@ -18,6 +18,7 @@ class DocExampleTags extends Migration
             $table->integer('doc_tag_id')->unsigned();
             $table->integer('doc_example_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
