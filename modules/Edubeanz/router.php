@@ -35,6 +35,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/', 'TestController@getList')->name('edu.test.list');
         Route::get('doing', 'TestController@doing')->name('edu.test.doing');
         Route::post('marking', 'TestController@marking')->name('edu.test.marking');
+        Route::get('result', 'TestController@result')->name('edu.test.result');
     });
     Route::group(['namespace' => 'Edubeanz\Http\Controllers', 'prefix' => 'lang'], function () {
         Route::get('list', 'LanguageController@getList')->name('edu.language.list');

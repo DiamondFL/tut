@@ -39,6 +39,10 @@ class SectionResultController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('section-result.index');
     }
 
@@ -75,6 +79,10 @@ class SectionResultController extends Controller
         }
         $this->repository->change($input, $sectionResult);
         session()->flash('success', 'update success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('section-result.index');
     }
 

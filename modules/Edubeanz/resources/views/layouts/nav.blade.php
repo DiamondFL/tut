@@ -56,6 +56,11 @@
                             <i class="entypo-user"></i> Profile
                         </a>
                     </li>
+                    <li>
+                        <a href="{{route('edu.test.result')}}">
+                            <i class="entypo-user"></i> Test History
+                        </a>
+                    </li>
                     <li >
                         <form method="post" action="{{route('logout')}}">
                             {!! csrf_field() !!}

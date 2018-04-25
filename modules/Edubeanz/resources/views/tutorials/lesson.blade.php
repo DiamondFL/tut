@@ -103,7 +103,7 @@
                 console.log(commentJSON)
                 $.ajax({
                     type: 'post',
-                    url: '{{route('lesson-comment-api.index')}}',
+                    url: '{{route('lesson-comment-api.store')}}',
                     data: commentJSON,
                     success: function(comment) {
                         success(comment)

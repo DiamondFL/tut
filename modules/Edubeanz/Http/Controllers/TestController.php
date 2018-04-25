@@ -17,7 +17,6 @@ class TestController
 
     public function __construct(TestService $testService)
     {
-
         $this->testService = $testService;
     }
 
@@ -48,5 +47,11 @@ class TestController
             session()->flash(ERROR, 500);
             return redirect()->back();
         }
+    }
+    public function result(Request $request)
+    {
+        $input = $request->all();
+        $data = $this->testService->result($input);
+        return view('edu::histories.tutorial.result', $data);
     }
 }

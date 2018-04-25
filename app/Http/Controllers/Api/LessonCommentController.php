@@ -14,12 +14,22 @@ class LessonCommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    private $resource;
+    public function __construct(LessonCommentResource $resource)
+    {
+        $this->resource = $resource;
+    }
+
+
     public function index()
     {
         //Get all task
         $comments = LessonComment::orderBy('id', 'DESC')->simplePaginate(15);
         // Return a collection of $comment with pagination
         return LessonCommentResource::collection($comments);
+
     }
 
     /**
@@ -38,8 +48,9 @@ class LessonCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
+        $request = \request();
         if(auth()->check()) {
             $comment = new LessonComment;
             $comment->content = $request->input('content');

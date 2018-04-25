@@ -45,6 +45,10 @@ class LessonController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('lesson.index');
     }
 
@@ -81,6 +85,10 @@ class LessonController extends Controller
         }
         $this->repository->change($input, $lesson);
         session()->flash('success', 'update success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('lesson.index');
     }
 

@@ -39,6 +39,10 @@ class TutorialResultController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('tutorial-result.index');
     }
 
@@ -55,7 +59,10 @@ class TutorialResultController extends Controller
 
     public function edit($id)
     {
-        $tutorialResult = $this->repository->find($id);
+        $tutorialResult = $this->repository
+            ->with(['creator:id,email', 'tutorial:id,name'])
+            ->find($id);
+        dump($tutorialResult);
         if(empty($tutorialResult))
         {
             session()->flash('err', 'not found');
@@ -75,6 +82,10 @@ class TutorialResultController extends Controller
         }
         $this->repository->change($input, $tutorialResult);
         session()->flash('success', 'update success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('tutorial-result.index');
     }
 

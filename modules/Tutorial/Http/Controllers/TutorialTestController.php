@@ -4,7 +4,6 @@ namespace Tutorial\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Istruct\Facades\InputFa;
-use Tutorial\Models\TutorialTest;
 use Tutorial\Http\Requests\TutorialTestCreateRequest;
 use Tutorial\Http\Requests\TutorialTestUpdateRequest;
 use Tutorial\Repositories\TutorialTestRepository;
@@ -39,6 +38,10 @@ class TutorialTestController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('tutorial-test.index');
     }
 
@@ -59,6 +62,10 @@ class TutorialTestController extends Controller
         if(empty($tutorialTest))
         {
             session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        if(isset($input['is_back']))
+        {
             return redirect()->back();
         }
         return view('tut::tutorial-test.update', compact('tutorialTest'));

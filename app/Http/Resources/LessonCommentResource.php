@@ -2,18 +2,21 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\Resource;
 
-class LessonCommentResource extends Resource
+use Illuminate\Http\Resources\Json\ResourceCollection;
+
+class LessonCommentResource extends ResourceCollection
 {
     /**
-     * Transform the resource into an array.
+     * Transform the resource collection into an array.
+
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
     {
+
         return [
             'id' => $this->id,
             'content' => $this->content,
@@ -25,5 +28,6 @@ class LessonCommentResource extends Resource
             'user_has_upvoted' => false
         ];
 //        return parent::toArray($request);
+
     }
 }

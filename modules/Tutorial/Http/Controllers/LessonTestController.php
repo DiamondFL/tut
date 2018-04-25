@@ -39,6 +39,10 @@ class LessonTestController extends Controller
         $input = InputFa::normalization($request);
         $this->repository->store($input);
         session()->flash('success', 'create success');
+        if(isset($input['is_back']))
+        {
+            return redirect()->back();
+        }
         return redirect()->route('lesson-test.index');
     }
 
@@ -60,6 +64,10 @@ class LessonTestController extends Controller
         if(empty($data))
         {
             session()->flash('err', 'not found');
+            return redirect()->back();
+        }
+        if(isset($input['is_back']))
+        {
             return redirect()->back();
         }
         return view('tut::lesson-test.update', $data);
